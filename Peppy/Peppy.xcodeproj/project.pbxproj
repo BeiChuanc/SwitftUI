@@ -1,0 +1,598 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		049E7F502DA6711D0076F922 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 049E7F4A2DA6711D0076F922 /* Preview Assets.xcassets */; };
+		049E7F512DA6711D0076F922 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 049E7F4C2DA6711D0076F922 /* Assets.xcassets */; };
+		049E7F532DA6711D0076F922 /* PeppyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049E7F4E2DA6711D0076F922 /* PeppyApp.swift */; };
+		049E7F5D2DA672CD0076F922 /* PeppyUserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049E7F5C2DA672CD0076F922 /* PeppyUserManager.swift */; };
+		049E7F5F2DA674660076F922 /* PeppyCommon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049E7F5E2DA674660076F922 /* PeppyCommon.swift */; };
+		049E7F612DA6762F0076F922 /* TabBarContenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049E7F602DA6762F0076F922 /* TabBarContenView.swift */; };
+		049E7F632DA682180076F922 /* PeppyHomePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049E7F622DA682180076F922 /* PeppyHomePage.swift */; };
+		049E7F652DA7606C0076F922 /* PeppyLoginManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049E7F642DA7606C0076F922 /* PeppyLoginManager.swift */; };
+		049E7F672DA760980076F922 /* PeppyLoginMould.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049E7F662DA760980076F922 /* PeppyLoginMould.swift */; };
+		049E7F692DA76ABE0076F922 /* PeppyLoadManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049E7F682DA76ABE0076F922 /* PeppyLoadManager.swift */; };
+		049E7F6B2DA76C560076F922 /* PeppyComManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049E7F6A2DA76C560076F922 /* PeppyComManager.swift */; };
+		049E7F6D2DA76D4E0076F922 /* Color&UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049E7F6C2DA76D4E0076F922 /* Color&UIColor.swift */; };
+		049E7F702DA770530076F922 /* PeppyCompose.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049E7F6F2DA770530076F922 /* PeppyCompose.swift */; };
+		049E7F722DA778A30076F922 /* PeppyAnimalMould.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049E7F712DA778A30076F922 /* PeppyAnimalMould.swift */; };
+		049E7F742DA78A110076F922 /* PeppyUserDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049E7F732DA78A110076F922 /* PeppyUserDataManager.swift */; };
+		049E7F762DA78A870076F922 /* PeppyChatDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049E7F752DA78A870076F922 /* PeppyChatDataManager.swift */; };
+		049E7F782DA78ACD0076F922 /* PeppyChatMould.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049E7F772DA78ACD0076F922 /* PeppyChatMould.swift */; };
+		049E7F7A2DA7984B0076F922 /* PeppyTreePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049E7F792DA7984B0076F922 /* PeppyTreePage.swift */; };
+		049E7F7C2DA7AD350076F922 /* PeppyTreeEmptyContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049E7F7B2DA7AD350076F922 /* PeppyTreeEmptyContentView.swift */; };
+		049E7F7E2DA7AD740076F922 /* PeppyPublishContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049E7F7D2DA7AD740076F922 /* PeppyPublishContentView.swift */; };
+		049E7F802DA7B0C40076F922 /* PeppyShowMeidaPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049E7F7F2DA7B0C30076F922 /* PeppyShowMeidaPage.swift */; };
+		049E7F822DA8ADD40076F922 /* PeppyTreeMediaPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049E7F812DA8ADD40076F922 /* PeppyTreeMediaPage.swift */; };
+		049E7F852DA8C9880076F922 /* AnimalData.json in Resources */ = {isa = PBXBuildFile; fileRef = 049E7F842DA8C9880076F922 /* AnimalData.json */; };
+		049E7F872DA8D2CF0076F922 /* PeppyRouteManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049E7F862DA8D2CF0076F922 /* PeppyRouteManager.swift */; };
+		049E7F892DA8D98C0076F922 /* PeppyRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049E7F882DA8D98C0076F922 /* PeppyRoute.swift */; };
+		049E7F8D2DA8E8800076F922 /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049E7F8C2DA8E8800076F922 /* View.swift */; };
+		32548B38949CEAEE3980B73D /* Pods_Peppy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FBBC0A27E0BCFE924A4A520 /* Pods_Peppy.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		049E7F392DA671150076F922 /* Peppy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Peppy.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		049E7F4A2DA6711D0076F922 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		049E7F4C2DA6711D0076F922 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		049E7F4E2DA6711D0076F922 /* PeppyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeppyApp.swift; sourceTree = "<group>"; };
+		049E7F5C2DA672CD0076F922 /* PeppyUserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeppyUserManager.swift; sourceTree = "<group>"; };
+		049E7F5E2DA674660076F922 /* PeppyCommon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeppyCommon.swift; sourceTree = "<group>"; };
+		049E7F602DA6762F0076F922 /* TabBarContenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarContenView.swift; sourceTree = "<group>"; };
+		049E7F622DA682180076F922 /* PeppyHomePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeppyHomePage.swift; sourceTree = "<group>"; };
+		049E7F642DA7606C0076F922 /* PeppyLoginManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeppyLoginManager.swift; sourceTree = "<group>"; };
+		049E7F662DA760980076F922 /* PeppyLoginMould.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeppyLoginMould.swift; sourceTree = "<group>"; };
+		049E7F682DA76ABE0076F922 /* PeppyLoadManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeppyLoadManager.swift; sourceTree = "<group>"; };
+		049E7F6A2DA76C560076F922 /* PeppyComManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeppyComManager.swift; sourceTree = "<group>"; };
+		049E7F6C2DA76D4E0076F922 /* Color&UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color&UIColor.swift"; sourceTree = "<group>"; };
+		049E7F6F2DA770530076F922 /* PeppyCompose.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeppyCompose.swift; sourceTree = "<group>"; };
+		049E7F712DA778A30076F922 /* PeppyAnimalMould.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeppyAnimalMould.swift; sourceTree = "<group>"; };
+		049E7F732DA78A110076F922 /* PeppyUserDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeppyUserDataManager.swift; sourceTree = "<group>"; };
+		049E7F752DA78A870076F922 /* PeppyChatDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeppyChatDataManager.swift; sourceTree = "<group>"; };
+		049E7F772DA78ACD0076F922 /* PeppyChatMould.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeppyChatMould.swift; sourceTree = "<group>"; };
+		049E7F792DA7984B0076F922 /* PeppyTreePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeppyTreePage.swift; sourceTree = "<group>"; };
+		049E7F7B2DA7AD350076F922 /* PeppyTreeEmptyContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeppyTreeEmptyContentView.swift; sourceTree = "<group>"; };
+		049E7F7D2DA7AD740076F922 /* PeppyPublishContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeppyPublishContentView.swift; sourceTree = "<group>"; };
+		049E7F7F2DA7B0C30076F922 /* PeppyShowMeidaPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeppyShowMeidaPage.swift; sourceTree = "<group>"; };
+		049E7F812DA8ADD40076F922 /* PeppyTreeMediaPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeppyTreeMediaPage.swift; sourceTree = "<group>"; };
+		049E7F842DA8C9880076F922 /* AnimalData.json */ = {isa = PBXFileReference; explicitFileType = text.json; path = AnimalData.json; sourceTree = "<group>"; };
+		049E7F862DA8D2CF0076F922 /* PeppyRouteManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeppyRouteManager.swift; sourceTree = "<group>"; };
+		049E7F882DA8D98C0076F922 /* PeppyRoute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeppyRoute.swift; sourceTree = "<group>"; };
+		049E7F8C2DA8E8800076F922 /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
+		66B09E2AB460C1256F99B6A2 /* Pods-Peppy.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Peppy.debug.xcconfig"; path = "Target Support Files/Pods-Peppy/Pods-Peppy.debug.xcconfig"; sourceTree = "<group>"; };
+		6FBBC0A27E0BCFE924A4A520 /* Pods_Peppy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Peppy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E99635FD6F80DA78341D1283 /* Pods-Peppy.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Peppy.release.xcconfig"; path = "Target Support Files/Pods-Peppy/Pods-Peppy.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		049E7F362DA671150076F922 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				32548B38949CEAEE3980B73D /* Pods_Peppy.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		049E7F302DA671150076F922 = {
+			isa = PBXGroup;
+			children = (
+				049E7F4F2DA6711D0076F922 /* Peppy */,
+				049E7F3A2DA671150076F922 /* Products */,
+				29E266D42660C93BEDF61F40 /* Pods */,
+				C52A3E1690E63F6458C06F64 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		049E7F3A2DA671150076F922 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				049E7F392DA671150076F922 /* Peppy.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		049E7F4B2DA6711D0076F922 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				049E7F4A2DA6711D0076F922 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		049E7F4F2DA6711D0076F922 /* Peppy */ = {
+			isa = PBXGroup;
+			children = (
+				049E7F832DA8C9690076F922 /* AnimalData */,
+				049E7F582DA671BF0076F922 /* Message */,
+				049E7F572DA671BA0076F922 /* Center */,
+				049E7F562DA671B50076F922 /* TreeHole */,
+				049E7F552DA671B10076F922 /* Home */,
+				049E7F592DA671C20076F922 /* PeppyLog */,
+				049E7F4B2DA6711D0076F922 /* Preview Content */,
+				049E7F6E2DA770380076F922 /* ComposeCom */,
+				049E7F4C2DA6711D0076F922 /* Assets.xcassets */,
+				049E7F5E2DA674660076F922 /* PeppyCommon.swift */,
+				049E7F602DA6762F0076F922 /* TabBarContenView.swift */,
+				049E7F882DA8D98C0076F922 /* PeppyRoute.swift */,
+				049E7F4E2DA6711D0076F922 /* PeppyApp.swift */,
+				049E7F542DA671970076F922 /* Expand */,
+				049E7F5B2DA672220076F922 /* Mould */,
+				049E7F5A2DA672190076F922 /* Manager */,
+			);
+			path = Peppy;
+			sourceTree = "<group>";
+		};
+		049E7F542DA671970076F922 /* Expand */ = {
+			isa = PBXGroup;
+			children = (
+				049E7F6C2DA76D4E0076F922 /* Color&UIColor.swift */,
+				049E7F8C2DA8E8800076F922 /* View.swift */,
+			);
+			path = Expand;
+			sourceTree = "<group>";
+		};
+		049E7F552DA671B10076F922 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				049E7F622DA682180076F922 /* PeppyHomePage.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		049E7F562DA671B50076F922 /* TreeHole */ = {
+			isa = PBXGroup;
+			children = (
+				049E7F792DA7984B0076F922 /* PeppyTreePage.swift */,
+				049E7F812DA8ADD40076F922 /* PeppyTreeMediaPage.swift */,
+				049E7F7F2DA7B0C30076F922 /* PeppyShowMeidaPage.swift */,
+				049E7F7B2DA7AD350076F922 /* PeppyTreeEmptyContentView.swift */,
+				049E7F7D2DA7AD740076F922 /* PeppyPublishContentView.swift */,
+			);
+			path = TreeHole;
+			sourceTree = "<group>";
+		};
+		049E7F572DA671BA0076F922 /* Center */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Center;
+			sourceTree = "<group>";
+		};
+		049E7F582DA671BF0076F922 /* Message */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Message;
+			sourceTree = "<group>";
+		};
+		049E7F592DA671C20076F922 /* PeppyLog */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = PeppyLog;
+			sourceTree = "<group>";
+		};
+		049E7F5A2DA672190076F922 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				049E7F642DA7606C0076F922 /* PeppyLoginManager.swift */,
+				049E7F5C2DA672CD0076F922 /* PeppyUserManager.swift */,
+				049E7F682DA76ABE0076F922 /* PeppyLoadManager.swift */,
+				049E7F6A2DA76C560076F922 /* PeppyComManager.swift */,
+				049E7F862DA8D2CF0076F922 /* PeppyRouteManager.swift */,
+				049E7F732DA78A110076F922 /* PeppyUserDataManager.swift */,
+				049E7F752DA78A870076F922 /* PeppyChatDataManager.swift */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		049E7F5B2DA672220076F922 /* Mould */ = {
+			isa = PBXGroup;
+			children = (
+				049E7F662DA760980076F922 /* PeppyLoginMould.swift */,
+				049E7F712DA778A30076F922 /* PeppyAnimalMould.swift */,
+				049E7F772DA78ACD0076F922 /* PeppyChatMould.swift */,
+			);
+			path = Mould;
+			sourceTree = "<group>";
+		};
+		049E7F6E2DA770380076F922 /* ComposeCom */ = {
+			isa = PBXGroup;
+			children = (
+				049E7F6F2DA770530076F922 /* PeppyCompose.swift */,
+			);
+			path = ComposeCom;
+			sourceTree = "<group>";
+		};
+		049E7F832DA8C9690076F922 /* AnimalData */ = {
+			isa = PBXGroup;
+			children = (
+				049E7F842DA8C9880076F922 /* AnimalData.json */,
+			);
+			path = AnimalData;
+			sourceTree = "<group>";
+		};
+		29E266D42660C93BEDF61F40 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				66B09E2AB460C1256F99B6A2 /* Pods-Peppy.debug.xcconfig */,
+				E99635FD6F80DA78341D1283 /* Pods-Peppy.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		C52A3E1690E63F6458C06F64 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6FBBC0A27E0BCFE924A4A520 /* Pods_Peppy.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		049E7F382DA671150076F922 /* Peppy */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 049E7F472DA671160076F922 /* Build configuration list for PBXNativeTarget "Peppy" */;
+			buildPhases = (
+				EE22E2239B4DE3B97278EB28 /* [CP] Check Pods Manifest.lock */,
+				049E7F352DA671150076F922 /* Sources */,
+				049E7F362DA671150076F922 /* Frameworks */,
+				049E7F372DA671150076F922 /* Resources */,
+				D9C9A95C021012F5D155A93B /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Peppy;
+			productName = Peppy;
+			productReference = 049E7F392DA671150076F922 /* Peppy.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		049E7F312DA671150076F922 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1620;
+				LastUpgradeCheck = 1620;
+				TargetAttributes = {
+					049E7F382DA671150076F922 = {
+						CreatedOnToolsVersion = 16.2;
+					};
+				};
+			};
+			buildConfigurationList = 049E7F342DA671150076F922 /* Build configuration list for PBXProject "Peppy" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 049E7F302DA671150076F922;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 049E7F3A2DA671150076F922 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				049E7F382DA671150076F922 /* Peppy */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		049E7F372DA671150076F922 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				049E7F852DA8C9880076F922 /* AnimalData.json in Resources */,
+				049E7F502DA6711D0076F922 /* Preview Assets.xcassets in Resources */,
+				049E7F512DA6711D0076F922 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		D9C9A95C021012F5D155A93B /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Peppy/Pods-Peppy-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Peppy/Pods-Peppy-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Peppy/Pods-Peppy-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EE22E2239B4DE3B97278EB28 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Peppy-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		049E7F352DA671150076F922 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				049E7F5D2DA672CD0076F922 /* PeppyUserManager.swift in Sources */,
+				049E7F532DA6711D0076F922 /* PeppyApp.swift in Sources */,
+				049E7F742DA78A110076F922 /* PeppyUserDataManager.swift in Sources */,
+				049E7F6D2DA76D4E0076F922 /* Color&UIColor.swift in Sources */,
+				049E7F6B2DA76C560076F922 /* PeppyComManager.swift in Sources */,
+				049E7F702DA770530076F922 /* PeppyCompose.swift in Sources */,
+				049E7F802DA7B0C40076F922 /* PeppyShowMeidaPage.swift in Sources */,
+				049E7F692DA76ABE0076F922 /* PeppyLoadManager.swift in Sources */,
+				049E7F5F2DA674660076F922 /* PeppyCommon.swift in Sources */,
+				049E7F8D2DA8E8800076F922 /* View.swift in Sources */,
+				049E7F672DA760980076F922 /* PeppyLoginMould.swift in Sources */,
+				049E7F872DA8D2CF0076F922 /* PeppyRouteManager.swift in Sources */,
+				049E7F822DA8ADD40076F922 /* PeppyTreeMediaPage.swift in Sources */,
+				049E7F892DA8D98C0076F922 /* PeppyRoute.swift in Sources */,
+				049E7F7A2DA7984B0076F922 /* PeppyTreePage.swift in Sources */,
+				049E7F612DA6762F0076F922 /* TabBarContenView.swift in Sources */,
+				049E7F632DA682180076F922 /* PeppyHomePage.swift in Sources */,
+				049E7F7C2DA7AD350076F922 /* PeppyTreeEmptyContentView.swift in Sources */,
+				049E7F722DA778A30076F922 /* PeppyAnimalMould.swift in Sources */,
+				049E7F782DA78ACD0076F922 /* PeppyChatMould.swift in Sources */,
+				049E7F7E2DA7AD740076F922 /* PeppyPublishContentView.swift in Sources */,
+				049E7F762DA78A870076F922 /* PeppyChatDataManager.swift in Sources */,
+				049E7F652DA7606C0076F922 /* PeppyLoginManager.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		049E7F452DA671160076F922 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		049E7F462DA671160076F922 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		049E7F482DA671160076F922 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 66B09E2AB460C1256F99B6A2 /* Pods-Peppy.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Peppy/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.pets.Peppy;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		049E7F492DA671160076F922 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E99635FD6F80DA78341D1283 /* Pods-Peppy.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Peppy/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.pets.Peppy;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		049E7F342DA671150076F922 /* Build configuration list for PBXProject "Peppy" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				049E7F452DA671160076F922 /* Debug */,
+				049E7F462DA671160076F922 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		049E7F472DA671160076F922 /* Build configuration list for PBXNativeTarget "Peppy" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				049E7F482DA671160076F922 /* Debug */,
+				049E7F492DA671160076F922 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 049E7F312DA671150076F922 /* Project object */;
+}
