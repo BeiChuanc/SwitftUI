@@ -20,6 +20,9 @@ class PeppyRouteManager: ObservableObject {
     
     // 导航栏显示状态
     @Published var isNavigationBarHidden = false
+    
+    // 根索引
+    @Published var tabBarSelectIndex: Int = 0
         
     static let shared = PeppyRouteManager()
     
@@ -54,9 +57,10 @@ class PeppyRouteManager: ObservableObject {
         updateNavigationBarState()
     }
     
-    // 返回根视图
-    func popToRoot() {
+    // 返回根
+    func popRoot() {
         path.removeLast(path.count)
+        tabBarSelectIndex = 0
         updateNavigationBarState()
     }
     

@@ -10,19 +10,16 @@ import Foundation
 // MARK: 存储管理器
 class PeppyUserManager: NSObject {
     
-    static let shared = PeppyUserManager()
-    
     let peppyUser = UserDefaults.standard
     
     override init() {}
-    
 }
 
 extension PeppyUserManager {
     
     /// 保存用户登录账号密码
     class func PEPPYUaveUserLogin(userAcc: String, userPwd: String) {
-        var allUsers = dazzlGetAllUsers()
+        var allUsers = PEPPYGetAllUsers()
         if let index = allUsers.firstIndex(where: { $0[PEPPYU.EMAIL.rawValue] as? String == userAcc }) {
             allUsers[index] = [PEPPYU.EMAIL.rawValue: userAcc,
                                PEPPYU.PWD.rawValue: userPwd]
@@ -33,7 +30,7 @@ extension PeppyUserManager {
     }
     
     /// 获取所有用户登录账号密码
-    class func dazzlGetAllUsers() -> [[String: Any]] {
+    class func PEPPYGetAllUsers() -> [[String: Any]] {
         guard let allUsers = UserDefaults.standard.array(forKey: PEPPYU.PLOG.rawValue) as? [[String: Any]] else {
             return []
         }
@@ -41,8 +38,8 @@ extension PeppyUserManager {
     }
     
     /// 获取指定用户登录账号密码
-    class func clousGetLoginMes(userAcc: String) -> [String: Any]? {
-        let allUsers = dazzlGetAllUsers()
+    class func PEPPYGetLoginMes(userAcc: String) -> [String: Any]? {
+        let allUsers = PEPPYGetAllUsers()
         return allUsers.first { $0[PEPPYU.EMAIL.rawValue] as? String == userAcc }
     }
     
@@ -52,12 +49,12 @@ extension PeppyUserManager {
     }
     
     /// 获取当前登录用户
-    class func dazzlGetCurrentAcc() -> String {
+    class func PEPPYGetCurrentAcc() -> String {
         return UserDefaults.standard.string(forKey: PEPPYU.CURRENT.rawValue) ?? ""
     }
     
     /// 获取所有用户信息
-    class func dazzlGetDancers() -> [String: Data] {
+    class func PEPPYGetDancers() -> [String: Data] {
         guard let userDataDict = UserDefaults.standard.dictionary(forKey: PEPPYU.FEATURE.rawValue) as? [String: Data] else {
             return [:]
         }
@@ -65,23 +62,23 @@ extension PeppyUserManager {
     }
     
     /// 匹配用户登录账号密码
-    class func dazzlMatchLogin(userAcc: String, userPwd: String) -> Bool {
-        if let userInfo = clousGetLoginMes(userAcc: userAcc) {
+    class func PEPPYMatchLogin(userAcc: String, userPwd: String) -> Bool {
+        if let userInfo = PEPPYGetLoginMes(userAcc: userAcc) {
             if let storedPassword = userInfo[PEPPYU.PWD.rawValue] as? String {
                 if storedPassword != userPwd {
-                    PeppyLoadManager.dazzlProgressShow(type: .failed, text: "User account password error!")
+                    PeppyLoadManager.peppyProgressShow(type: .failed, text: "User account password error!")
                 }
                 return storedPassword == userPwd
             }
         }
-        PeppyLoadManager.dazzlProgressShow(type: .failed, text: "User account does not exist!")
+        PeppyLoadManager.peppyProgressShow(type: .failed, text: "User account does not exist!")
         return false
     }
     
     /// 获取当前用户信息
-    class func dazzlGetCurrentDancer() -> PeppyLoginMould {
-        let userDataDict = dazzlGetDancers()
-        let userAcc = dazzlGetCurrentAcc()
+    class func PEPPYGetCurrentDancer() -> PeppyLoginMould {
+        let userDataDict = PEPPYGetDancers()
+        let userAcc = PEPPYGetCurrentAcc()
         if let jsonData = userDataDict[userAcc] {
             do {
                 let decodeUser = try JSONDecoder().decode(PeppyLoginMould.self, from: jsonData)
@@ -93,9 +90,9 @@ extension PeppyUserManager {
     
     /// 删除指定用户信息
     class func dazzlDeleteDancer() {
-        var userDetails = dazzlGetDancers()
-        var allUsers = dazzlGetAllUsers()
-        let curUser = dazzlGetCurrentAcc()
+        var userDetails = PEPPYGetDancers()
+        var allUsers = PEPPYGetAllUsers()
+        let curUser = PEPPYGetCurrentAcc()
         
         userDetails.removeValue(forKey: curUser)
         allUsers.removeAll { $0[PEPPYU.EMAIL.rawValue] as? String == curUser }
@@ -103,10 +100,6 @@ extension PeppyUserManager {
         UserDefaults.standard.set(userDetails, forKey: PEPPYU.FEATURE.rawValue)
         UserDefaults.standard.set(allUsers, forKey: PEPPYU.PLOG.rawValue)
         UserDefaults.standard.setValue("", forKey: PEPPYU.CURRENT.rawValue)
-        
-//        DazzlLoginViewModel.share.reportList.removeAll()
-//        DazzMesViewModel.share.dazzlMesChatList.removeAll()
-//        DazzlBaseViewModel.shared.mediaForMe.removeAll()
 
         print("所有用户:\(allUsers)")
         print("所有用户信息:\(userDetails)")
@@ -114,16 +107,16 @@ extension PeppyUserManager {
     
     /// 保存指定用户信息
     class func PEPPYUaveDetailsForCurrentDancer(userAcc: String, data: Data) {
-        var userDataDict = dazzlGetDancers()
+        var userDataDict = PEPPYGetDancers()
         userDataDict[userAcc] = data
         UserDefaults.standard.set(userDataDict, forKey: PEPPYU.FEATURE.rawValue)
     }
     
     /// 修改用户详细信息
-    class func dazzlUpdateDancerDetails(dancer: (PeppyLoginMould) -> PeppyLoginMould) {
-        var dac = dazzlGetCurrentDancer()
-        let curUser = dazzlGetCurrentAcc()
-        dac = dancer(dac)
+    class func PEPPYUpdateDancerDetails(pey: (PeppyLoginMould) -> PeppyLoginMould) {
+        var dac = PEPPYGetCurrentDancer()
+        let curUser = PEPPYGetCurrentAcc()
+        dac = pey(dac)
         do {
             let encodedData = try JSONEncoder().encode(dac)
             PEPPYUaveDetailsForCurrentDancer(userAcc: curUser, data: encodedData)

@@ -10,11 +10,11 @@ import SwiftUI
 // MARK: 自定义TabBar
 struct TabBarContenView: View {
     
-    @State var selectTabBarIndex = 0
+    @State var path = NavigationPath()
     
-    @StateObject var loginMould = PeppyLoginManager()
+    @ObservedObject var loginMould = PeppyLoginManager()
     
-    @EnvironmentObject var peppyRouter: PeppyRouteManager
+    @ObservedObject var peppyRouter = PeppyRouteManager()
     
     let navItems = [
         (normal: "home_normal", select: "home_select"),
@@ -23,47 +23,78 @@ struct TabBarContenView: View {
     ]
     
     var body: some View {
-        ZStack(alignment: .bottom) {
-            switch selectTabBarIndex {
-            case 0:
-                PeppyHomePage()
-                    .environmentObject(peppyRouter)
-                    .environmentObject(loginMould)
-            case 1:
-                PeppyTreePage()
-                    .environmentObject(peppyRouter)
-                    .environmentObject(loginMould)
-            case 2:
-                Text("dkjashdad")
-            default:
-                EmptyView()
-            }
-            Spacer()
-            HStack {
-                ForEach(0..<navItems.count, id: \.self) { index in
-                    let item = navItems[index]
-                    tabBarItem(
-                        normalImage: item.normal,
-                        selectImage: item.select,
-                        isSelected: selectTabBarIndex == index,
-                        action: {
-                            selectTabBarIndex = index
-                        }
-                    )
+        NavigationStack(path: $peppyRouter.path) {
+            ZStack(alignment: .bottom) {
+                switch peppyRouter.tabBarSelectIndex {
+                case 0:
+                    PeppyHomePage()
+                        .environmentObject(peppyRouter)
+                        .environmentObject(loginMould)
+                case 1:
+                    PeppyTreePage()
+                        .environmentObject(peppyRouter)
+                        .environmentObject(loginMould)
+                case 2:
+                    PeppySetPage()
+                        .environmentObject(peppyRouter)
+                        .environmentObject(loginMould)
+                default:
+                    EmptyView()
                 }
-            }.frame(height: 80)
-        }
-        .onAppear {
-            // 加载配置
-            PeppyLoadManager.globalProgressConfig()
-            // 加载用户媒体
-            PeppyUserDataManager.shared.peppyGetUserData()
-            // 加载动物
-            PeppyUserDataManager.shared.peppyGetAnimals()
+                Spacer()
+                HStack {
+                    ForEach(0..<navItems.count, id: \.self) { index in
+                        let item = navItems[index]
+                        tabBarItem(
+                            normalImage: item.normal,
+                            selectImage: item.select,
+                            isSelected: peppyRouter.tabBarSelectIndex == index,
+                            action: {
+                                peppyRouter.tabBarSelectIndex = index
+                            }
+                        )
+                    }
+                }.frame(height: 80)
+            }
+            .onAppear {
+                // 加载配置
+                PeppyLoadManager.globalProgressConfig()
+                // 加载动物
+                PeppyUserDataManager.shared.peppyGetAnimals()
+                
+                let userDetails = PeppyUserManager.PEPPYGetDancers()
+                let allUsers = PeppyUserManager.PEPPYGetAllUsers()
+                
+                print("所有用户:\(allUsers)")
+                print("所有用户信息:\(userDetails)")
+            }
+            .navigationDestination(for: PeppyRoute.self) { route in
+                switch route {
+                case .CHAT(let animalModel):
+                    PeppyChatDetailsPage(animal: animalModel)
+                        .environmentObject(peppyRouter)
+                        .hideBackButton()
+                case .LOGIN:
+                    PeppyLoginPage()
+                        .environmentObject(loginMould)
+                        .environmentObject(peppyRouter)
+                        .hideBackButton()
+                case .REGISTER:
+                    PeppyRegisterPage()
+                        .environmentObject(loginMould)
+                        .environmentObject(peppyRouter)
+                        .hideBackButton()
+                case .UPLOADHEAD:
+                    PeppySelectPage()
+                        .environmentObject(peppyRouter)
+                        .hideBackButton()
+                case .PLAYMEDIA:
+                    PeppyTreeMediaPage()
+                        .environmentObject(peppyRouter)
+                        .hideBackButton()
+                }
+            }
         }
     }
 }
 
-#Preview {
-    TabBarContenView()
-}

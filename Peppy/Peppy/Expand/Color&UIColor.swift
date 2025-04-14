@@ -10,7 +10,7 @@ import UIKit
 
 extension Color {
     
-    init(hex: String) {
+    init(hex: String, alpha: CGFloat = 1.0) {
         
         var hexSanitized = hex.trimmingCharacters(in:.whitespacesAndNewlines)
         
@@ -24,7 +24,7 @@ extension Color {
         let green = Double((rgb & 0x00FF00) >> 8) / 255.0
         let blue = Double(rgb & 0x0000FF) / 255.0
 
-        self.init(red: red, green: green, blue: blue)
+        self.init(red: red, green: green, blue: blue, opacity: alpha)
     }
 }
 

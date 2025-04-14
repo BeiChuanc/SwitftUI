@@ -8,6 +8,22 @@
 import Foundation
 import UIKit
 
+// 宽
+let peppyW = PEPPYSCREEN.WDITH
+
+// 高
+let peppyH = PEPPYSCREEN.HEIGHT
+
+// MARK: 窗口
+enum PEPPYSCREEN {
+    
+    // 宽
+    static let WDITH = UIScreen.main.bounds.width
+    
+    // 高
+    static let HEIGHT = UIScreen.main.bounds.height
+}
+
 // MARK: 存储
 enum PEPPYU: String {
     
@@ -37,17 +53,17 @@ enum PEPPYU: String {
 enum PEPPYPROTOCOL {
     
     // 技术支持
-    static let PEPPYTERMS = ""
+    static let PEPPYTERMS = "https://www.freeprivacypolicy.com/live/d2ad0131-c027-46e2-98d1-285b55a6f507"
     
     // 隐私政策
-    static let PEPPYPRIVACY = ""
+    static let PEPPYPRIVACY = "https://www.freeprivacypolicy.com/live/08a7d6b0-7ef2-4e8c-95a2-6abbcea6b314"
     
     // EULA
-    static let PEPPYEULA = ""
+    static let PEPPYEULA = "https://www.freeprivacypolicy.com/live/a05d392b-3f9f-4263-a004-0b97b05f1561"
 }
 
 // MARK: 媒体
-enum PEPPYMEDIATYPE {
+enum PEPPYMEDIATYPE: Int, Codable {
     
     // 图片
     case PITURE
@@ -69,18 +85,34 @@ enum PEPPYPROWINDOW {
     case PEPPYEULA
 }
 
-// MARK: 窗口
-enum PEPPYSCREEN {
+// MARK: - 路由类型
+enum PeppyRoute: Hashable {
     
-    // 宽
-    static let WDITH = UIScreen.main.bounds.width
+    // 聊天
+    case CHAT(PeppyAnimalMould)
     
-    // 高
-    static let HEIGHT = UIScreen.main.bounds.height
+    // 登陆
+    case LOGIN
+    
+    // 注册
+    case REGISTER
+    
+    // 选择头像
+    case UPLOADHEAD
+    
+    // 播放
+    case PLAYMEDIA
 }
 
-// 宽
-let peppyW = PEPPYSCREEN.WDITH
+// MARK: 选择颜色值
+enum PeppyColorType: String {
+    
+    case ONE = "#F54337"
+    
+    case TWO = "#2196F3"
+    
+    case THREE = "#FFC208"
+    
+    case FOUR = "#68BD6C"
+}
 
-// 高
-let peppyH = PEPPYSCREEN.HEIGHT

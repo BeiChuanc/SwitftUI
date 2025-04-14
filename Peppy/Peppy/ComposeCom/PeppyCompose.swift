@@ -62,3 +62,40 @@ struct HideBackButton: ViewModifier {
            .navigationBarBackButtonHidden()
     }
 }
+
+// MARK: 旋转动画
+struct RotatingLoader: View {
+    @State private var isRotating = false
+
+    var body: some View {
+        Image("")
+           .resizable()
+           .frame(width: 50, height: 50)
+           .foregroundColor(.blue)
+           .rotationEffect(.degrees(isRotating ? 360 : 0))
+           .animation(Animation.linear(duration: 1).repeatForever(autoreverses: false), value: isRotating)
+           .onAppear {
+                isRotating = true
+            }
+    }
+}
+
+// MARK: 点动画
+struct DotLoader: View {
+    @State private var isAnimating = false
+
+    var body: some View {
+        HStack(spacing: 8) {
+            ForEach(0..<3) { index in
+                Circle()
+                   .frame(width: 12, height: 12)
+                   .foregroundColor(.white)
+                   .scaleEffect(isAnimating ? 1.2 : 0.8)
+                   .animation(Animation.easeInOut(duration: 0.5).repeatForever(autoreverses: true).delay(Double(index) * 0.2), value: isAnimating)
+            }
+        }
+       .onAppear {
+            isAnimating = true
+        }
+    }
+}

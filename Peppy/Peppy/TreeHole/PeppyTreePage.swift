@@ -11,7 +11,7 @@ import SwiftUI
 struct PeppyTreePage: View {
     
     // 列表是否为空
-    @State private var isEmpty: Bool = false
+    @State private var isEmpty: Bool = true
     
     // 是否显示发布视图
     @State private var showPublishView: Bool = false
@@ -21,6 +21,8 @@ struct PeppyTreePage: View {
     
     @EnvironmentObject var loginM: PeppyLoginManager
     
+    @EnvironmentObject var peppyRouter: PeppyRouteManager
+    
     var body: some View {
         
         ZStack {
@@ -28,6 +30,8 @@ struct PeppyTreePage: View {
                 PeppyTreePublishContentView(goBack: {
                     showPublishView = false
                 })
+                .environmentObject(loginM)
+                .environmentObject(peppyRouter)
             } else {
                 if isEmpty { // 空白
                     PeppyTreeEmptyContentView(goToPublish: {
@@ -36,11 +40,14 @@ struct PeppyTreePage: View {
                 } else {
                     PeppyTreeContentView(goToPublish: {
                         showPublishView = true
-                    }).environmentObject(userDataManager)
+                    }, userDatas: userDataManager)
                 }
             }
         }
         .onAppear {
+            print("树洞页")
+            guard loginM.isLogin else { return }
+            userDataManager.peppyGetUserMedias()
             isEmpty = userDataManager.myMediaList.isEmpty
         }
     }
@@ -50,7 +57,7 @@ struct PeppyTreeContentView: View {
     
     let goToPublish: () -> Void
     
-    @EnvironmentObject var userDatas: PeppyUserDataManager
+    @StateObject var userDatas: PeppyUserDataManager
     
     var body: some View {
         ZStack {
@@ -73,12 +80,16 @@ struct PeppyTreeContentView: View {
                 ScrollViewReader { proxy in
                     ScrollView {
                         ForEach(userDatas.myMediaList) { item in
-                            PeppyShowMeidaPage(myMediaData: .constant(item))
+                            PeppyShowMeidaPage(myMediaData: item)
                         }
                     }.scrollIndicators(.hidden)
                 }.frame(height: peppyH * 0.74)
                 Spacer()
             }.frame(width: peppyW - 35)
+        }
+        .onAppear {
+            print("树洞主页")
+            userDatas.peppyGetUserMedias()
         }
     }
 }

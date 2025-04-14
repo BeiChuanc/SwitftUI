@@ -9,7 +9,7 @@ import Foundation
 import SwiftUI
 
 // MARK: 用户登陆模型
-struct PeppyLoginMould: Codable {
+class PeppyLoginMould: Codable {
     
     // 用户ID
     var peppyId: Int?
@@ -31,23 +31,21 @@ struct PeppyLoginMould: Codable {
     
     // 媒体url列表
     var mediaList: [PeppyMyMedia]?
+    
+    init(peppyId: Int?              = nil,
+         email: String?             = nil,
+         pwd: String?               = nil,
+         kickName: String?          = nil,
+         head: String?              = nil,
+         headColor: String?         = nil,
+         mediaList: [PeppyMyMedia]? = []) {
+        self.peppyId = peppyId
+        self.email = email
+        self.pwd = pwd
+        self.kickName = kickName
+        self.head = head
+        self.headColor = headColor
+        self.mediaList = mediaList
+    }
 }
 
-// MARK: 用户发布的媒体模型
-struct PeppyMyMedia: Identifiable, Hashable, Codable {
-    
-    // 唯一ID
-    var id = UUID()
-    
-    // 用户ID
-    var peppyIdL: Int?
-    
-    // 媒体地址
-    var mediaUrl: URL?
-    
-    // 内容
-    var mediaContent: String?
-    
-    // 媒体发布时间
-    var mediaTime: String?
-}

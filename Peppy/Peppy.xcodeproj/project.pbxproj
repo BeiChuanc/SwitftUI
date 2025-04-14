@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		042FA19A2DACB871001D773E /* PeppySelectPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042FA1992DACB871001D773E /* PeppySelectPage.swift */; };
+		042FA19C2DACD693001D773E /* PeppyChatMeContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042FA19B2DACD693001D773E /* PeppyChatMeContentView.swift */; };
+		042FA19E2DACD6A3001D773E /* PeppyChatAnimalContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042FA19D2DACD6A3001D773E /* PeppyChatAnimalContentView.swift */; };
+		042FA1A02DACD930001D773E /* PeppyUserHeadContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042FA19F2DACD930001D773E /* PeppyUserHeadContentView.swift */; };
 		049E7F502DA6711D0076F922 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 049E7F4A2DA6711D0076F922 /* Preview Assets.xcassets */; };
 		049E7F512DA6711D0076F922 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 049E7F4C2DA6711D0076F922 /* Assets.xcassets */; };
 		049E7F532DA6711D0076F922 /* PeppyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049E7F4E2DA6711D0076F922 /* PeppyApp.swift */; };
@@ -31,12 +35,22 @@
 		049E7F822DA8ADD40076F922 /* PeppyTreeMediaPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049E7F812DA8ADD40076F922 /* PeppyTreeMediaPage.swift */; };
 		049E7F852DA8C9880076F922 /* AnimalData.json in Resources */ = {isa = PBXBuildFile; fileRef = 049E7F842DA8C9880076F922 /* AnimalData.json */; };
 		049E7F872DA8D2CF0076F922 /* PeppyRouteManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049E7F862DA8D2CF0076F922 /* PeppyRouteManager.swift */; };
-		049E7F892DA8D98C0076F922 /* PeppyRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049E7F882DA8D98C0076F922 /* PeppyRoute.swift */; };
 		049E7F8D2DA8E8800076F922 /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049E7F8C2DA8E8800076F922 /* View.swift */; };
 		32548B38949CEAEE3980B73D /* Pods_Peppy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FBBC0A27E0BCFE924A4A520 /* Pods_Peppy.framework */; };
+		902585312DA96938001DFDD2 /* PeppyLoginPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 902585302DA96938001DFDD2 /* PeppyLoginPage.swift */; };
+		902585332DA96D26001DFDD2 /* PeppySetPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 902585322DA96D26001DFDD2 /* PeppySetPage.swift */; };
+		902585352DA97013001DFDD2 /* PeppyChatDetailsPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 902585342DA97013001DFDD2 /* PeppyChatDetailsPage.swift */; };
+		902585382DA97E16001DFDD2 /* PeppyWebViewPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 902585372DA97E16001DFDD2 /* PeppyWebViewPage.swift */; };
+		9025853D2DAA2097001DFDD2 /* PeppyLoginAppleController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9025853C2DAA2097001DFDD2 /* PeppyLoginAppleController.swift */; };
+		9025853F2DAA29F7001DFDD2 /* PeppyRegisterPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9025853E2DAA29F7001DFDD2 /* PeppyRegisterPage.swift */; };
+		902585412DAD4ACC001DFDD2 /* PeppyMediaMould.swift in Sources */ = {isa = PBXBuildFile; fileRef = 902585402DAD4ACC001DFDD2 /* PeppyMediaMould.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		042FA1992DACB871001D773E /* PeppySelectPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeppySelectPage.swift; sourceTree = "<group>"; };
+		042FA19B2DACD693001D773E /* PeppyChatMeContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeppyChatMeContentView.swift; sourceTree = "<group>"; };
+		042FA19D2DACD6A3001D773E /* PeppyChatAnimalContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeppyChatAnimalContentView.swift; sourceTree = "<group>"; };
+		042FA19F2DACD930001D773E /* PeppyUserHeadContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeppyUserHeadContentView.swift; sourceTree = "<group>"; };
 		049E7F392DA671150076F922 /* Peppy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Peppy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		049E7F4A2DA6711D0076F922 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		049E7F4C2DA6711D0076F922 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -62,10 +76,18 @@
 		049E7F812DA8ADD40076F922 /* PeppyTreeMediaPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeppyTreeMediaPage.swift; sourceTree = "<group>"; };
 		049E7F842DA8C9880076F922 /* AnimalData.json */ = {isa = PBXFileReference; explicitFileType = text.json; path = AnimalData.json; sourceTree = "<group>"; };
 		049E7F862DA8D2CF0076F922 /* PeppyRouteManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeppyRouteManager.swift; sourceTree = "<group>"; };
-		049E7F882DA8D98C0076F922 /* PeppyRoute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeppyRoute.swift; sourceTree = "<group>"; };
 		049E7F8C2DA8E8800076F922 /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
 		66B09E2AB460C1256F99B6A2 /* Pods-Peppy.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Peppy.debug.xcconfig"; path = "Target Support Files/Pods-Peppy/Pods-Peppy.debug.xcconfig"; sourceTree = "<group>"; };
 		6FBBC0A27E0BCFE924A4A520 /* Pods_Peppy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Peppy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		902585302DA96938001DFDD2 /* PeppyLoginPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeppyLoginPage.swift; sourceTree = "<group>"; };
+		902585322DA96D26001DFDD2 /* PeppySetPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeppySetPage.swift; sourceTree = "<group>"; };
+		902585342DA97013001DFDD2 /* PeppyChatDetailsPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeppyChatDetailsPage.swift; sourceTree = "<group>"; };
+		902585372DA97E16001DFDD2 /* PeppyWebViewPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeppyWebViewPage.swift; sourceTree = "<group>"; };
+		9025853B2DAA1DBE001DFDD2 /* Peppy.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Peppy.entitlements; sourceTree = "<group>"; };
+		9025853C2DAA2097001DFDD2 /* PeppyLoginAppleController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeppyLoginAppleController.swift; sourceTree = "<group>"; };
+		9025853E2DAA29F7001DFDD2 /* PeppyRegisterPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeppyRegisterPage.swift; sourceTree = "<group>"; };
+		902585402DAD4ACC001DFDD2 /* PeppyMediaMould.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeppyMediaMould.swift; sourceTree = "<group>"; };
+		902585442DAD686D001DFDD2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		E99635FD6F80DA78341D1283 /* Pods-Peppy.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Peppy.release.xcconfig"; path = "Target Support Files/Pods-Peppy/Pods-Peppy.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -110,6 +132,9 @@
 		049E7F4F2DA6711D0076F922 /* Peppy */ = {
 			isa = PBXGroup;
 			children = (
+				902585442DAD686D001DFDD2 /* Info.plist */,
+				9025853B2DAA1DBE001DFDD2 /* Peppy.entitlements */,
+				902585362DA97E08001DFDD2 /* WebView */,
 				049E7F832DA8C9690076F922 /* AnimalData */,
 				049E7F582DA671BF0076F922 /* Message */,
 				049E7F572DA671BA0076F922 /* Center */,
@@ -121,7 +146,6 @@
 				049E7F4C2DA6711D0076F922 /* Assets.xcassets */,
 				049E7F5E2DA674660076F922 /* PeppyCommon.swift */,
 				049E7F602DA6762F0076F922 /* TabBarContenView.swift */,
-				049E7F882DA8D98C0076F922 /* PeppyRoute.swift */,
 				049E7F4E2DA6711D0076F922 /* PeppyApp.swift */,
 				049E7F542DA671970076F922 /* Expand */,
 				049E7F5B2DA672220076F922 /* Mould */,
@@ -162,6 +186,8 @@
 		049E7F572DA671BA0076F922 /* Center */ = {
 			isa = PBXGroup;
 			children = (
+				902585322DA96D26001DFDD2 /* PeppySetPage.swift */,
+				042FA19F2DACD930001D773E /* PeppyUserHeadContentView.swift */,
 			);
 			path = Center;
 			sourceTree = "<group>";
@@ -169,6 +195,9 @@
 		049E7F582DA671BF0076F922 /* Message */ = {
 			isa = PBXGroup;
 			children = (
+				902585342DA97013001DFDD2 /* PeppyChatDetailsPage.swift */,
+				042FA19B2DACD693001D773E /* PeppyChatMeContentView.swift */,
+				042FA19D2DACD6A3001D773E /* PeppyChatAnimalContentView.swift */,
 			);
 			path = Message;
 			sourceTree = "<group>";
@@ -176,6 +205,10 @@
 		049E7F592DA671C20076F922 /* PeppyLog */ = {
 			isa = PBXGroup;
 			children = (
+				902585302DA96938001DFDD2 /* PeppyLoginPage.swift */,
+				042FA1992DACB871001D773E /* PeppySelectPage.swift */,
+				9025853E2DAA29F7001DFDD2 /* PeppyRegisterPage.swift */,
+				9025853C2DAA2097001DFDD2 /* PeppyLoginAppleController.swift */,
 			);
 			path = PeppyLog;
 			sourceTree = "<group>";
@@ -197,9 +230,10 @@
 		049E7F5B2DA672220076F922 /* Mould */ = {
 			isa = PBXGroup;
 			children = (
-				049E7F662DA760980076F922 /* PeppyLoginMould.swift */,
-				049E7F712DA778A30076F922 /* PeppyAnimalMould.swift */,
 				049E7F772DA78ACD0076F922 /* PeppyChatMould.swift */,
+				049E7F662DA760980076F922 /* PeppyLoginMould.swift */,
+				902585402DAD4ACC001DFDD2 /* PeppyMediaMould.swift */,
+				049E7F712DA778A30076F922 /* PeppyAnimalMould.swift */,
 			);
 			path = Mould;
 			sourceTree = "<group>";
@@ -227,6 +261,14 @@
 				E99635FD6F80DA78341D1283 /* Pods-Peppy.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		902585362DA97E08001DFDD2 /* WebView */ = {
+			isa = PBXGroup;
+			children = (
+				902585372DA97E16001DFDD2 /* PeppyWebViewPage.swift */,
+			);
+			path = WebView;
 			sourceTree = "<group>";
 		};
 		C52A3E1690E63F6458C06F64 /* Frameworks */ = {
@@ -354,6 +396,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				049E7F5D2DA672CD0076F922 /* PeppyUserManager.swift in Sources */,
+				902585412DAD4ACC001DFDD2 /* PeppyMediaMould.swift in Sources */,
+				902585382DA97E16001DFDD2 /* PeppyWebViewPage.swift in Sources */,
+				042FA19E2DACD6A3001D773E /* PeppyChatAnimalContentView.swift in Sources */,
 				049E7F532DA6711D0076F922 /* PeppyApp.swift in Sources */,
 				049E7F742DA78A110076F922 /* PeppyUserDataManager.swift in Sources */,
 				049E7F6D2DA76D4E0076F922 /* Color&UIColor.swift in Sources */,
@@ -361,16 +406,23 @@
 				049E7F702DA770530076F922 /* PeppyCompose.swift in Sources */,
 				049E7F802DA7B0C40076F922 /* PeppyShowMeidaPage.swift in Sources */,
 				049E7F692DA76ABE0076F922 /* PeppyLoadManager.swift in Sources */,
+				9025853F2DAA29F7001DFDD2 /* PeppyRegisterPage.swift in Sources */,
 				049E7F5F2DA674660076F922 /* PeppyCommon.swift in Sources */,
 				049E7F8D2DA8E8800076F922 /* View.swift in Sources */,
 				049E7F672DA760980076F922 /* PeppyLoginMould.swift in Sources */,
+				042FA1A02DACD930001D773E /* PeppyUserHeadContentView.swift in Sources */,
+				902585312DA96938001DFDD2 /* PeppyLoginPage.swift in Sources */,
 				049E7F872DA8D2CF0076F922 /* PeppyRouteManager.swift in Sources */,
 				049E7F822DA8ADD40076F922 /* PeppyTreeMediaPage.swift in Sources */,
-				049E7F892DA8D98C0076F922 /* PeppyRoute.swift in Sources */,
+				902585332DA96D26001DFDD2 /* PeppySetPage.swift in Sources */,
 				049E7F7A2DA7984B0076F922 /* PeppyTreePage.swift in Sources */,
+				042FA19C2DACD693001D773E /* PeppyChatMeContentView.swift in Sources */,
 				049E7F612DA6762F0076F922 /* TabBarContenView.swift in Sources */,
+				9025853D2DAA2097001DFDD2 /* PeppyLoginAppleController.swift in Sources */,
 				049E7F632DA682180076F922 /* PeppyHomePage.swift in Sources */,
 				049E7F7C2DA7AD350076F922 /* PeppyTreeEmptyContentView.swift in Sources */,
+				042FA19A2DACB871001D773E /* PeppySelectPage.swift in Sources */,
+				902585352DA97013001DFDD2 /* PeppyChatDetailsPage.swift in Sources */,
 				049E7F722DA778A30076F922 /* PeppyAnimalMould.swift in Sources */,
 				049E7F782DA78ACD0076F922 /* PeppyChatMould.swift in Sources */,
 				049E7F7E2DA7AD740076F922 /* PeppyPublishContentView.swift in Sources */,
@@ -507,25 +559,39 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_ENTITLEMENTS = Peppy/Peppy.entitlements;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Peppy/Preview Content\"";
+				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = WL2W2PCY46;
 				ENABLE_PREVIEWS = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Peppy/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "Peppy needs your consent to access the camera to shoot personal works/personal portraits. If prohibited, you will not be able to take photos or update information.";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Peppy requires your consent to obtain location information when using it in order to upload photos or update avatars. If prohibited, you will not be able to publish works/update avatars.";
+				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "Peppy requires your consent to obtain location information when using it in order to upload photos or update avatars. If prohibited, you will not be able to publish works/update avatars.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Peppy requires your consent to obtain location information when using it in order to upload photos or update avatars. If prohibited, you will not be able to publish works/update avatars.";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Peppy needs your permission to access the microphone. If blocked, you will not be able to send audio messages to users.";
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "Peppy needs your consent to access the album in order to save the work. If it is prohibited, you will not be able to save your work to the album.";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Peppy needs your consent to access the album to select photos to upload/publish works/update avatars. If prohibited, you will not be able to upload selected photos to upload/publish works/update avatars.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.pets.Peppy;
+				PRODUCT_BUNDLE_IDENTIFIER = com.chengdu.test;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = chengdu_developer;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
@@ -542,25 +608,39 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_ENTITLEMENTS = Peppy/Peppy.entitlements;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Peppy/Preview Content\"";
+				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = WL2W2PCY46;
 				ENABLE_PREVIEWS = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Peppy/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "Peppy needs your consent to access the camera to shoot personal works/personal portraits. If prohibited, you will not be able to take photos or update information.";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Peppy requires your consent to obtain location information when using it in order to upload photos or update avatars. If prohibited, you will not be able to publish works/update avatars.";
+				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "Peppy requires your consent to obtain location information when using it in order to upload photos or update avatars. If prohibited, you will not be able to publish works/update avatars.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Peppy requires your consent to obtain location information when using it in order to upload photos or update avatars. If prohibited, you will not be able to publish works/update avatars.";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Peppy needs your permission to access the microphone. If blocked, you will not be able to send audio messages to users.";
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "Peppy needs your consent to access the album in order to save the work. If it is prohibited, you will not be able to save your work to the album.";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Peppy needs your consent to access the album to select photos to upload/publish works/update avatars. If prohibited, you will not be able to upload selected photos to upload/publish works/update avatars.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.pets.Peppy;
+				PRODUCT_BUNDLE_IDENTIFIER = com.chengdu.test;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = chengdu_developer;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;

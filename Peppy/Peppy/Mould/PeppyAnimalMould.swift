@@ -8,7 +8,7 @@
 import Foundation
 
 // MARK: 宠物模型
-struct PeppyAnimalMould: Identifiable, Codable {
+struct PeppyAnimalMould: Identifiable, Hashable, Codable {
     
     // 唯一ID
     var id = UUID()

@@ -13,9 +13,6 @@ struct PeppyChatMould: Hashable, Codable {
     // 内容
     var c: String
     
-    // 时间
-    var t: String
-    
     // 发送方
     var isMy: Bool
 }

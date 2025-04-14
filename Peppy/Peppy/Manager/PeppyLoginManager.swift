@@ -10,6 +10,10 @@ import Foundation
 // MARK: 登陆管理器
 class PeppyLoginManager: ObservableObject {
     
+    static let shared = PeppyLoginManager()
+    
+    var loginUser: PeppyLoginMould = PeppyLoginMould()
+    
     @Published var isLogin: Bool = false
 }
 
