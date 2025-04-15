@@ -33,16 +33,17 @@ extension PeppyUserDataManager {
     func peppyGetAnimals() {
         guard let jsonPath = Bundle.main.path(forResource: "AnimalData", ofType: "json") else {
             return }
-        if #available(iOS 16.0, *) {
-            let data = try? Data(contentsOf: URL(filePath: jsonPath))
-            if let animals = PeppyJsonManager.decode(data: data!, to: [PeppyAnimalMould].self) {
-                for dac in animals {
-                    if !animailList.contains(where: { $0.animalId == dac.animalId}), !blockAnimals.contains(dac.animalId) {
-                        animailList.append(dac)
-                    }
+        let data = try? Data(contentsOf: URL(filePath: jsonPath))
+        if let animals = PeppyJsonManager.decode(data: data!, to: [PeppyAnimalMould].self) {
+            for dac in animals {
+                if !animailList.contains(where: { $0.animalId == dac.animalId}) {
+                    animailList.append(dac)
                 }
             }
-        } else {}
+            animailList = animailList.filter { item in
+                return !blockAnimals.contains(item.animalId)
+            }
+        }
     }
 }
 

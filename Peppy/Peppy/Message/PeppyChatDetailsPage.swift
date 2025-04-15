@@ -61,6 +61,7 @@ struct PeppyChatDetailsContentView: View {
                                 Button(action: { // 举报
                                     PeppyComManager.peppyReport(animalId: animal.animalId) {
                                         PeppyUserDataManager.shared.blockAnimals.append(animal.animalId)
+                                        PeppyChatDataManager.shared.peppyDeleteAvaUserChat(uid: animal.animalId)
                                         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
                                             peppyRouter.pop()
                                         }
@@ -136,7 +137,9 @@ struct PeppyChatDetailsContentView: View {
     
     func sendMessage(mes: String) {
         let userMes = PeppyChatMould(c: mes, isMy: true)
+        let userCurrent = PeppyUserManager.PEPPYCurrentUser()
         animalMes.append(userMes)
+//        PeppyChatDataManager.shared.saveAnimalsChat(colloquist: "\(userCurrent.peppyId!)", content: userMes)
         inputMes = ""
         isEnable = true
         
@@ -148,6 +151,7 @@ struct PeppyChatDetailsContentView: View {
                     if data.res != "" {
                         let animals = PeppyChatMould(c: data.res!, isMy: false)
                         animalMes.append(animals)
+//                        PeppyChatDataManager.shared.saveAnimalsChat(colloquist: "\(userCurrent.peppyId!)", content: userMes)
                         isEnable = false
                     }
                 }

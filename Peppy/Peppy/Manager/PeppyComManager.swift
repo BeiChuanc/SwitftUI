@@ -83,6 +83,7 @@ class PeppyComManager {
         return "\(ymd)_\(result)"
     }
     
+    /// 举报
     static func peppyReport(animalId: Int, block: @escaping () -> Void) {
         var reportAlter: UIAlertController!
         reportAlter = UIAlertController(title: "More", message: nil, preferredStyle: .actionSheet)
@@ -91,11 +92,11 @@ class PeppyComManager {
             block()
         }
         
-        let report1 = UIAlertAction(title: NSLocalizedString("Report Sexually Explicit Material", comment: ""), style: .default,handler: report)
-        let report2 = UIAlertAction(title: NSLocalizedString("Report spam", comment: ""), style: .default,handler: report)
-        let report3 = UIAlertAction(title: NSLocalizedString("Report something else", comment: ""), style: .default,handler: report)
-        let report4 = UIAlertAction(title: NSLocalizedString("Block", comment: ""), style: .default,handler: report)
-        let cancel = UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: UIAlertAction.Style.cancel,handler: nil)
+        let report1 = UIAlertAction(title: "Report Sexually Explicit Material", style: .default,handler: report)
+        let report2 = UIAlertAction(title: "Report spam", style: .default,handler: report)
+        let report3 = UIAlertAction(title: "Report something else", style: .default,handler: report)
+        let report4 = UIAlertAction(title: "Block", style: .default,handler: report)
+        let cancel  = UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel,handler: nil)
         reportAlter.addAction(report1)
         reportAlter.addAction(report2)
         reportAlter.addAction(report3)

@@ -11,6 +11,9 @@ import SwiftUI
 struct PeppyHomePage: View {
     var body: some View {
         PeppyHomeContentView()
+            .onAppear {
+                PeppyUserDataManager.shared.peppyGetAnimals()
+            }
     }
 }
 
@@ -90,9 +93,6 @@ struct PeppyHomeContentView: View {
             }
         }
         .edgesIgnoringSafeArea(.all)
-        .onAppear {
-            dataManager.peppyGetAnimals()
-        }
     }
 }
 

@@ -39,7 +39,7 @@ struct PeppySetContentView: View {
                 PeppyUserHeadContentView(head: loginM.isLogin ? userCurrent.head ?? "" : "head_1",
                                          headBgColor: loginM.isLogin ? userCurrent.headColor ?? "" : "#FFFFFF",
                                          headFrame: 72.0)
-                .padding(.trailing, 10)
+                .padding(.leading, 10)
                 
                 Text(loginM.isLogin ? userCurrent.kickName ?? "" : "Guest")
                     .font(.custom("Marker Felt", size: 20))
@@ -124,6 +124,11 @@ struct PeppySetContentView: View {
                 Spacer()
             }.frame(width: peppyW)
                 .padding(.top, 20)
+        }
+        .onAppear {
+            if loginM.isLogin {
+                PeppyChatDataManager.shared.peppyGetMessageList()
+            }
         }
     }
 }

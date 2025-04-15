@@ -18,8 +18,6 @@ struct PeppyTreeMediaPage: View {
     
     @State var isPlaying = true
     
-    @State var videoPlayer: VideoPlayerView?
-    
     @EnvironmentObject var peppyRouter: PeppyRouteManager
     
     var body: some View {
@@ -31,10 +29,19 @@ struct PeppyTreeMediaPage: View {
                     .scaledToFill()
                     .ignoresSafeArea()
             } else { // 视频
-                VideoPlayerView(player: AVPlayer(url: media.mediaUrl!))
+                VideoPlayerView(player: $player)
                     .frame(width: peppyW, height: peppyH)
-                    .onAppear { player?.play() }
-                    .onDisappear { player?.pause() }
+                    .onAppear {
+                        if player == nil {
+                            player = AVPlayer(url: media.mediaUrl!)
+                        }
+                        player?.play()
+                        isPlaying = true
+                    }
+                    .onDisappear {
+                        player?.pause()
+                        player = nil
+                    }
                     .scaledToFill()
                     .ignoresSafeArea()
             }
@@ -62,15 +69,28 @@ struct PeppyTreeMediaPage: View {
                     .padding(.horizontal, 20)
                     .padding(.bottom, 30)
             }.frame(maxWidth: .infinity, maxHeight: .infinity)
-            ZStack {
-                Button(action: {
-                    print("播放被点击")
-                }) {
-                    Image(isPlaying ? "" : "btnPlay")
-                        .frame(width: peppyW, height: peppyW - 64)
-                        .foregroundColor(.white)
-                }.buttonStyle(InvalidButton())
-            }.frame(width: peppyW, height: peppyW - 64)
+            
+            Spacer()
+            
+            Image(isPlaying ? "" : "btnPlay")
+                .resizable()
+                .frame(width: 50, height: 50)
+            
+            Button(action: {
+                isPlaying.toggle()
+                if isPlaying {
+                    player?.play()
+                } else {
+                    player?.pause()
+                }
+                print("点击了")
+            }) {
+                Image("").resizable()
+                    .frame(width: peppyW, height: peppyH - 90)
+            }.buttonStyle(InvalidButton())
+                .frame(width: peppyW, height: peppyH - 90)
+                .offset(CGSize(width: 0, height: 60))
+            
         }.ignoresSafeArea()
             .background(.black)
     }
@@ -79,17 +99,59 @@ struct PeppyTreeMediaPage: View {
 // MARK: - 视频播放器封装
 struct VideoPlayerView: UIViewRepresentable {
     
-    let player: AVPlayer
+    @Binding var player: AVPlayer?
     
-    func makeUIView(context: Context) -> some UIView {
-        let playerLayerView = UIView()
+    func makeCoordinator() -> Coordinator {
+        Coordinator(self)
+    }
+    
+    func makeUIView(context: Context) -> UIView {
+        let view = UIView()
+        context.coordinator.setupPlayerNotifications()
+        updatePlayerLayer(in: view)
+        return view
+    }
+    
+    func updateUIView(_ uiView: UIView, context: Context) {
+        context.coordinator.updatePlayerNotifications()
+        updatePlayerLayer(in: uiView)
+    }
+    
+    private func updatePlayerLayer(in view: UIView) {
+        view.layer.sublayers?.forEach { $0.removeFromSuperlayer() }
+        
+        guard let player = player else { return }
         let playerLayer = AVPlayerLayer(player: player)
         playerLayer.frame = UIScreen.main.bounds
         playerLayer.videoGravity = .resizeAspectFill
-        playerLayerView.layer.addSublayer(playerLayer)
-        player.play()
-        return playerLayerView
+        view.layer.addSublayer(playerLayer)
     }
     
-    func updateUIView(_ uiView: UIViewType, context: Context) {}
+    // MARK: - 协调器处理播放逻辑
+    class Coordinator: NSObject {
+        let parent: VideoPlayerView
+        private var observer: NSObjectProtocol?
+        
+        init(_ parent: VideoPlayerView) {
+            self.parent = parent
+        }
+        
+        func setupPlayerNotifications() {
+            NotificationCenter.default.addObserver(self, selector: #selector(playerItemDidReachEnd), name: .AVPlayerItemDidPlayToEndTime, object: parent.player?.currentItem)
+        }
+        
+        func updatePlayerNotifications() {
+            NotificationCenter.default.removeObserver(self, name: .AVPlayerItemDidPlayToEndTime, object: nil)
+            NotificationCenter.default.addObserver(self, selector: #selector(playerItemDidReachEnd), name: .AVPlayerItemDidPlayToEndTime, object: parent.player?.currentItem)
+        }
+        
+        @objc func playerItemDidReachEnd(notification: Notification) {
+            parent.player?.seek(to: CMTime.zero)
+            parent.player?.play()
+        }
+        
+        deinit {
+            NotificationCenter.default.removeObserver(self)
+        }
+    }
 }

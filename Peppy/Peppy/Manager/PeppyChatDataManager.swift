@@ -13,9 +13,11 @@ class PeppyChatDataManager: ObservableObject {
     
     static let shared = PeppyChatDataManager()
     
+    var ulockAnimals: [Int] = []
+    
     let userId = PeppyUserManager.PEPPYCurrentUser().peppyId!
     
-    var dazzlFileManagerDoucument = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first
+    var peppyFileManager = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first
 }
 
 // MARK: 消息
@@ -23,7 +25,7 @@ extension PeppyChatDataManager {
     
     /// 保存消息
     func saveAnimalsChat(colloquist: String, content: PeppyChatMould) {
-        let plistURL = dazzlFileManagerDoucument!.appendingPathComponent("Peppy.plist")
+        let plistURL = peppyFileManager!.appendingPathComponent("Peppy.plist")
         var chats = peppyReadChats(url: plistURL)
         let mesDir: [String: String] = ["isM": content.isMy.description, "c": content.c]
         
@@ -38,7 +40,7 @@ extension PeppyChatDataManager {
     
     /// 读取当前用户指定对话用户消息
     func peppyAvbUserChat(colId: String) -> [PeppyChatMould] {
-        let fileURL = dazzlFileManagerDoucument!.appendingPathComponent("Peppy.plist")
+        let fileURL = peppyFileManager!.appendingPathComponent("Peppy.plist")
         let chats = peppyReadChats(url: fileURL)
         
         guard let userMes = chats["\(userId)"],
@@ -54,7 +56,7 @@ extension PeppyChatDataManager {
     
     /// 删除指定用户聊天数据
     func peppyDeleteAvaUserChat(uid: Int) {
-        let fileURL = dazzlFileManagerDoucument!.appendingPathComponent("Peppy.plist")
+        let fileURL = peppyFileManager!.appendingPathComponent("Peppy.plist")
         var chats = peppyReadChats(url: fileURL)
         for (key, _) in chats {
             chats[key]?.removeValue(forKey: "\(uid)")
@@ -74,6 +76,14 @@ extension PeppyChatDataManager {
         } catch {
             print("写入plist文件时出错: \(error)")
         }
+    }
+    
+    /// 解锁动物
+    func peppyGetMessageList() {
+        let fileURL = peppyFileManager!.appendingPathComponent("Peppy.plist")
+        let chatData = peppyReadChats(url: fileURL)
+        guard let userData = chatData["\(userId)"] else { return }
+        print("聊天用户:", userData)
     }
     
     /// 聊天数据
