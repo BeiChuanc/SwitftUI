@@ -120,9 +120,9 @@ struct PeppyRegisterContentView: View {
                         }
                         
                         PeppyComManager.peppyCreatUser(peNam: inputName,
-                                                            peEma: "Peppy",
-                                                            pePwd: inputPwd,
-                                                            isApple: false)
+                                                       peEma: inputName,
+                                                       pePwd: inputPwd,
+                                                       isApple: false)
                         loginM.isLogin = true // 更新登录
                         PeppyLoadManager.peppyLoading {
                             peppyRouter.popRoot()

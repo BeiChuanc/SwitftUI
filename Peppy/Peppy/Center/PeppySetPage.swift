@@ -24,7 +24,7 @@ struct PeppySetContentView: View {
     
     @State var unlockedCount: Int = 0
     
-    var userCurrent = PeppyUserManager.PEPPYGetCurrentDancer()
+    var userCurrent = PeppyUserManager.PEPPYCurrentUser()
     
     @EnvironmentObject var loginM: PeppyLoginManager
     

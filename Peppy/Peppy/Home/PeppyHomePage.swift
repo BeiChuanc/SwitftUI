@@ -18,7 +18,7 @@ struct PeppyHomeContentView: View {
     
     @State var currentIndex: Int = 0
     
-    var userCurrent = PeppyUserManager.PEPPYGetCurrentDancer()
+    var userCurrent = PeppyUserManager.PEPPYCurrentUser()
     
     @EnvironmentObject var loginM: PeppyLoginManager
     
@@ -61,7 +61,7 @@ struct PeppyHomeContentView: View {
                             }
                             .onAppear {
                                 DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.001, execute: {
-                                    proxy.scrollTo(8, anchor: .center)
+                                    proxy.scrollTo(dataManager.animailList.count > 1 ?  dataManager.animailList.count - 2 : 0, anchor: .center)
                                 })
                             }
                             .onPreferenceChange(CenterDistancePreferenceKey.self) { preferences in
@@ -90,6 +90,9 @@ struct PeppyHomeContentView: View {
             }
         }
         .edgesIgnoringSafeArea(.all)
+        .onAppear {
+            dataManager.peppyGetAnimals()
+        }
     }
 }
 

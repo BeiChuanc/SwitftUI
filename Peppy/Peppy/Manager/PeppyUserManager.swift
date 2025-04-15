@@ -76,7 +76,7 @@ extension PeppyUserManager {
     }
     
     /// 获取当前用户信息
-    class func PEPPYGetCurrentDancer() -> PeppyLoginMould {
+    class func PEPPYCurrentUser() -> PeppyLoginMould {
         let userDataDict = PEPPYGetDancers()
         let userAcc = PEPPYGetCurrentAcc()
         if let jsonData = userDataDict[userAcc] {
@@ -114,7 +114,7 @@ extension PeppyUserManager {
     
     /// 修改用户详细信息
     class func PEPPYUpdateDancerDetails(pey: (PeppyLoginMould) -> PeppyLoginMould) {
-        var dac = PEPPYGetCurrentDancer()
+        var dac = PEPPYCurrentUser()
         let curUser = PEPPYGetCurrentAcc()
         dac = pey(dac)
         do {

@@ -101,7 +101,7 @@ enum PeppyRoute: Hashable {
     case UPLOADHEAD
     
     // 播放
-    case PLAYMEDIA
+    case PLAYMEDIA(PeppyMyMedia)
 }
 
 // MARK: 选择颜色值
@@ -115,4 +115,3 @@ enum PeppyColorType: String {
     
     case FOUR = "#68BD6C"
 }
-

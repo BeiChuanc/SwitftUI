@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import IQKeyboardManager
 
 // MARK: 自定义TabBar
 struct TabBarContenView: View {
@@ -65,6 +66,9 @@ struct TabBarContenView: View {
                 let userDetails = PeppyUserManager.PEPPYGetDancers()
                 let allUsers = PeppyUserManager.PEPPYGetAllUsers()
                 
+                IQKeyboardManager.shared().isEnabled = true
+                IQKeyboardManager.shared().shouldResignOnTouchOutside = true
+                
                 print("所有用户:\(allUsers)")
                 print("所有用户信息:\(userDetails)")
             }
@@ -88,8 +92,8 @@ struct TabBarContenView: View {
                     PeppySelectPage()
                         .environmentObject(peppyRouter)
                         .hideBackButton()
-                case .PLAYMEDIA:
-                    PeppyTreeMediaPage()
+                case .PLAYMEDIA(let mediaMould):
+                    PeppyTreeMediaPage(media: mediaMould)
                         .environmentObject(peppyRouter)
                         .hideBackButton()
                 }

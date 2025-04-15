@@ -13,30 +13,31 @@ class PeppyUserDataManager: ObservableObject {
     
     static let shared = PeppyUserDataManager()
     
-    let documentsDirectory = FileManager.default.urls(
-        for: .documentDirectory,
-        in: .userDomainMask
-    ).first
+    var blockAnimals: [Int] = []
     
     @Published var animailList: [PeppyAnimalMould] = []
     
     @Published var myMediaList: [PeppyMyMedia] = []
+}
+
+// MARK: 用户 & 动物数据
+extension PeppyUserDataManager {
     
-    /// 获取自己媒体 - uid_media目录下数据
+    /// 获取自己媒体目录数据
     func peppyGetUserMedias() {
-        let userMedia = PeppyUserManager.PEPPYGetCurrentDancer()
+        let userMedia = PeppyUserManager.PEPPYCurrentUser()
         myMediaList = userMedia.mediaList!
     }
     
-    /// 获取动物
+    /// 获取动物数据
     func peppyGetAnimals() {
         guard let jsonPath = Bundle.main.path(forResource: "AnimalData", ofType: "json") else {
             return }
         if #available(iOS 16.0, *) {
             let data = try? Data(contentsOf: URL(filePath: jsonPath))
-            if let dancers = PeppyJsonManager.decode(data: data!, to: [PeppyAnimalMould].self) {
-                for dac in dancers {
-                    if !animailList.contains(where: { $0.animalId == dac.animalId}) {
+            if let animals = PeppyJsonManager.decode(data: data!, to: [PeppyAnimalMould].self) {
+                for dac in animals {
+                    if !animailList.contains(where: { $0.animalId == dac.animalId}), !blockAnimals.contains(dac.animalId) {
                         animailList.append(dac)
                     }
                 }
@@ -45,81 +46,77 @@ class PeppyUserDataManager: ObservableObject {
     }
 }
 
+// MARK: 发布
 extension PeppyUserDataManager {
     
-    /// 发布保存媒体
+    /// 保存媒体到documentDirectory
     class func peppySaveMedia(meida: Data, filePath: String, mediaPath: String) throws -> URL {
-        guard let document = FileManager.default.urls(
-            for: .documentDirectory,
-            in: .userDomainMask
-        ).first else {
-            throw NSError(domain: "FileError", code: 1001, userInfo: [NSLocalizedDescriptionKey: "无法访问文档目录"])
+        guard let doc = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else {
+            throw NSError(domain: "FileError", code: 1001, userInfo: [NSLocalizedDescriptionKey: "Error read file"])
         }
         
-        let dirURL = document.appendingPathComponent(mediaPath)
+        let dirURL = doc.appendingPathComponent(mediaPath)
         
-        try FileManager.default.createDirectory(
-            at: dirURL,
-            withIntermediateDirectories: true,
-            attributes: nil
-        )
+        try FileManager.default.createDirectory(at: dirURL, withIntermediateDirectories: true, attributes: nil)
         
         let fileURL = dirURL.appendingPathComponent(filePath)
+        
         try meida.write(to: fileURL)
-        print("保存的路径为:", fileURL)
+        
         return fileURL
     }
     
-    /// 获取媒体文件下的个数
+    /// 获取指定文件下媒体个数
     class func peppyGetMedias(mediaPath: String) throws -> Int {
-        guard let document = FileManager.default.urls(
-            for: .documentDirectory,
-            in: .userDomainMask
-        ).first else {
-            throw NSError(domain: "FileError", code: 1001, userInfo: [NSLocalizedDescriptionKey: "无法访问文档目录"])
+        guard let doc = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else {
+            throw NSError(domain: "FileError", code: 1001, userInfo: [NSLocalizedDescriptionKey: "Error read file"])
         }
         
-        let targetDir = document.appendingPathComponent(mediaPath)
-        print("媒体文件目录路径：", targetDir.path)
+        let targetDir = doc.appendingPathComponent(mediaPath)
         
-        var isDirectory: ObjCBool = false
-        guard FileManager.default.fileExists(atPath: targetDir.path, isDirectory: &isDirectory) else {
-            return 0
-        }
+        var isDir: ObjCBool = false
         
-        let contents = try FileManager.default.contentsOfDirectory(
-            at: targetDir,
-            includingPropertiesForKeys: [.isDirectoryKey],
-            options: [.skipsHiddenFiles]
-        )
+        guard FileManager.default.fileExists(atPath: targetDir.path, isDirectory: &isDir) else { return 0 }
+        
+        let contents = try FileManager.default.contentsOfDirectory(at: targetDir, includingPropertiesForKeys: [.isDirectoryKey], options: [.skipsHiddenFiles])
         
         return contents.filter { url in
             do {
-                let resourceValues = try url.resourceValues(forKeys: [.isDirectoryKey])
-                return resourceValues.isDirectory == false
-            } catch {
-                return false
-            }
+                let resValues = try url.resourceValues(forKeys: [.isDirectoryKey])
+                return resValues.isDirectory == false
+            } catch { return false }
         }.count
     }
     
-    /// 删除文件及文件下的项目
+    /// 删除指定文件及文件下数据
     class func peppyDeleteMedia(mediaPath: String) {
-        guard let documents = FileManager.default.urls(
-            for: .documentDirectory,
-            in: .userDomainMask
-        ).first else { return }
+        guard let doc = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else { return }
         
-        let targetDir = documents.appendingPathComponent(mediaPath)
-        print("媒体文件目录路径：", targetDir.path)
+        let targetDir = doc.appendingPathComponent(mediaPath)
         
         let fileManager = FileManager.default
         do {
             if fileManager.fileExists(atPath: targetDir.path) {
                 try fileManager.removeItem(at: targetDir)
-                print("成功删除目录：\(targetDir.path)")
-            } else { print("目标目录不存在：\(targetDir.path)") }
-        } catch { print("删除目录时出错：\(error.localizedDescription)") }
+            } else {}
+        } catch {}
     }
     
+    /// 删除指定目录下的单个媒体数据
+    class func peppyDeletSignleMedia(mediaPath: String, targetFile: Int) {
+        guard let doc = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else { return }
+        
+        let targetDir = doc.appendingPathComponent(mediaPath)
+        
+        let fileManager = FileManager.default
+        do {
+            if fileManager.fileExists(atPath: targetDir.path) {
+                try fileManager.removeItem(at: targetDir)
+                PeppyUserManager.PEPPYUpdateDancerDetails(pey: { pey in
+                    pey.mediaList!.remove(at: targetFile)
+                    return pey
+                })
+            } else {}
+        } catch {}
+    }
 }

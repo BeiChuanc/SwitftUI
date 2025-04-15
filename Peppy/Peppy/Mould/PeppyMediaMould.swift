@@ -9,10 +9,13 @@ import Foundation
 import UIKit
 
 // MARK: 用户发布的媒体模型
-struct PeppyMyMedia: Identifiable, Codable {
+struct PeppyMyMedia: Identifiable, Hashable, Codable {
     
     // 协议唯一标识
     var id = UUID()
+    
+    // 媒体Id
+    var mediaId: Int?
     
     // 媒体地址
     var mediaUrl: URL?

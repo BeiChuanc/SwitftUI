@@ -29,6 +29,7 @@ struct PeppyTreePage: View {
             if showPublishView { // 发布
                 PeppyTreePublishContentView(goBack: {
                     showPublishView = false
+                    loadMedia()
                 })
                 .environmentObject(loginM)
                 .environmentObject(peppyRouter)
@@ -36,20 +37,26 @@ struct PeppyTreePage: View {
                 if isEmpty { // 空白
                     PeppyTreeEmptyContentView(goToPublish: {
                         showPublishView = true
-                    }) // 用户
-                } else {
+                        loadMedia()
+                    })
+                } else { // 用户
                     PeppyTreeContentView(goToPublish: {
                         showPublishView = true
+                        loadMedia()
                     }, userDatas: userDataManager)
+                    .environmentObject(peppyRouter)
                 }
             }
         }
         .onAppear {
-            print("树洞页")
             guard loginM.isLogin else { return }
-            userDataManager.peppyGetUserMedias()
-            isEmpty = userDataManager.myMediaList.isEmpty
+            loadMedia()
         }
+    }
+    
+    func loadMedia() {
+        userDataManager.peppyGetUserMedias()
+        isEmpty = userDataManager.myMediaList.isEmpty
     }
 }
 
@@ -57,7 +64,15 @@ struct PeppyTreeContentView: View {
     
     let goToPublish: () -> Void
     
+    var currentU = PeppyUserManager.PEPPYCurrentUser()
+    
+    @State var isShowDelete: Bool = false
+    
+    @State var selectIndex: Int = 0
+    
     @StateObject var userDatas: PeppyUserDataManager
+    
+    @EnvironmentObject var peppyRouter: PeppyRouteManager
     
     var body: some View {
         ZStack {
@@ -79,8 +94,27 @@ struct PeppyTreeContentView: View {
                 
                 ScrollViewReader { proxy in
                     ScrollView {
-                        ForEach(userDatas.myMediaList) { item in
-                            PeppyShowMeidaPage(myMediaData: item)
+                        ForEach(Array(userDatas.myMediaList.enumerated()), id: \.element.id) { index, item in
+                            PeppyShowMeidaPage(myMediaData: item,
+                                               goShowDetils: {
+                                peppyRouter.navigate(to: .PLAYMEDIA(item))
+                            },
+                                               goDelete: {
+                                isShowDelete = true
+                                selectIndex = index
+                            }).alert(isPresented: $isShowDelete) {
+                                Alert(
+                                    title: Text("Promot"),
+                                    message: Text("Do you want to delete this post?"),
+                                    primaryButton: .default(Text("Delete")) {
+                                        PeppyUserDataManager.peppyDeletSignleMedia(
+                                            mediaPath: "\(currentU.peppyId!)_publish/\(userDatas.myMediaList[selectIndex].mediaUrl!.lastPathComponent)",
+                                            targetFile: selectIndex)
+                                        userDatas.myMediaList.remove(at: selectIndex)
+                                    },
+                                    secondaryButton: .cancel(Text("Cancel"))
+                                )
+                            }
                         }
                     }.scrollIndicators(.hidden)
                 }.frame(height: peppyH * 0.74)
@@ -88,7 +122,6 @@ struct PeppyTreeContentView: View {
             }.frame(width: peppyW - 35)
         }
         .onAppear {
-            print("树洞主页")
             userDatas.peppyGetUserMedias()
         }
     }

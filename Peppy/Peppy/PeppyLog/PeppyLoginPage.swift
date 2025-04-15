@@ -104,7 +104,7 @@ struct PeppyLoginContentView: View {
                     }
                 }
                 
-                Button(action: { // 登录 teup17645@gmail.com/123456 || 111111/123456
+                Button(action: { // 登录 Sparkler/123456 || 111111/123456
                     
                     guard !inputName.isEmpty else {
                         isNameFouse = true
@@ -119,9 +119,9 @@ struct PeppyLoginContentView: View {
                     if inputName == "111111" {
                         if inputPwd == "123456" {
                             PeppyComManager.peppyCreatUser(peNam: inputName,
-                                                                peEma: "Peppy",
-                                                                pePwd: inputPwd,
-                                                                isApple: false)
+                                                           peEma: inputName,
+                                                           pePwd: inputPwd,
+                                                           isApple: false)
                             loginM.isLogin = true // 更新登录
                             PeppyLoadManager.peppyLoading {
                                 peppyRouter.popRoot()
@@ -238,7 +238,7 @@ struct SignInWithAppleView: UIViewControllerRepresentable {
         func authorizationController(controller: ASAuthorizationController, didCompleteWithAuthorization authorization: ASAuthorization) {
             if let appleIDCredential = authorization.credential as? ASAuthorizationAppleIDCredential {
                 
-                var appleEmail = "APPLEID"
+                var appleEmail = "Peppy"
                 
                 if let email = appleIDCredential.email {
                     appleEmail = email

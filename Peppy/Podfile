@@ -10,6 +10,7 @@ target 'Peppy' do
   pod 'IQKeyboardManager'
   # pod 'AppsFlyerFramework', '6.14.4'
   pod 'YPImagePicker'
+  pod 'Kingfisher', '7.6.2'
 
 end
 post_install do |installer|

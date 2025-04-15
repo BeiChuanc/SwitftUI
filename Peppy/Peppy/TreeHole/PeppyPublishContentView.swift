@@ -14,7 +14,7 @@ struct PeppyTreePublishContentView: View {
     
     let goBack: () -> Void
     
-    var userCurrent = PeppyUserManager.PEPPYGetCurrentDancer()
+    var userCurrent = PeppyUserManager.PEPPYCurrentUser()
     
     @State var fileCount: Int = 0
     
@@ -139,7 +139,8 @@ struct PeppyTreePublishContentView: View {
                             let mediaUrl = try PeppyUserDataManager.peppySaveMedia(meida: media.meidaData!,
                                                                                    filePath: "\(fileCount + 1).\(media.type == .PITURE ? "png" : "mp4")",
                                                                                    mediaPath: "\(userCurrent.peppyId!)_publish")
-                            let sendMedia = PeppyMyMedia(mediaUrl: mediaUrl,
+                            let sendMedia = PeppyMyMedia(mediaId: fileCount + 1,
+                                                         mediaUrl: mediaUrl,
                                                          mediaType: media.type,
                                                          mediaContent: inputContent,
                                                          mediaTime: PeppyComManager.peppyGetCurrentTimeP())
@@ -152,7 +153,8 @@ struct PeppyTreePublishContentView: View {
                         } catch {}
                         
                     }) {
-                        Text("上传")
+                        Image("btnRelease").resizable()
+                            .frame(width: 147, height: 45)
                     }.frame(width: peppyW - 80, height: 50)
                         .padding(.top, 50)
                         .buttonStyle(InvalidButton())

@@ -38,7 +38,7 @@ class PeppyComManager {
         return peppyName
     }
     
-    /// 创造用户
+    /// 创造用户数据
     static func peppyCreatUser(peNam: String, peEma: String, pePwd: String, isApple: Bool = false) {
         PeppyUserManager.PEPPYUaveUserLogin(userAcc: peEma, userPwd: pePwd)
         PeppyUserManager.PEPPYUaveCurrentAcc(userAcc: peEma)
@@ -47,7 +47,7 @@ class PeppyComManager {
         if isApple {
             userId = 1000
         } else {
-            userId = Array(100...200).randomElement()!
+            userId = 10011
         }
         
         let ppeyHead = PeppyLoginManager.shared.loginUser.head ?? "head_1"
@@ -60,5 +60,48 @@ class PeppyComManager {
                                         headColor: ppeyHeadColor)
         PeppyUserManager.PEPPYUaveDetailsForCurrentDancer(userAcc: peEma, data: PeppyJsonManager.encode(object: peppyUser)!)
         PeppyUserDataManager.peppyDeleteMedia(mediaPath: "\(userId)_publish")
+        PeppyChatDataManager.shared.peppyDeleteChatFile()
+    }
+    
+    /// SESSIONID
+    static func peppySessionId() -> String {
+        let curD = Date()
+        let matter = DateFormatter()
+        matter.dateFormat = "yyyyMMdd"
+        let ymd = matter.string(from: curD)
+        
+        let chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+        let length = 16
+        var result = ""
+        
+        for _ in 0..<length {
+            if let randomChar = chars.randomElement() {
+                result.append(randomChar)
+            }
+        }
+    
+        return "\(ymd)_\(result)"
+    }
+    
+    static func peppyReport(animalId: Int, block: @escaping () -> Void) {
+        var reportAlter: UIAlertController!
+        reportAlter = UIAlertController(title: "More", message: nil, preferredStyle: .actionSheet)
+        
+        let report : (UIAlertAction) -> Void = { action in
+            block()
+        }
+        
+        let report1 = UIAlertAction(title: NSLocalizedString("Report Sexually Explicit Material", comment: ""), style: .default,handler: report)
+        let report2 = UIAlertAction(title: NSLocalizedString("Report spam", comment: ""), style: .default,handler: report)
+        let report3 = UIAlertAction(title: NSLocalizedString("Report something else", comment: ""), style: .default,handler: report)
+        let report4 = UIAlertAction(title: NSLocalizedString("Block", comment: ""), style: .default,handler: report)
+        let cancel = UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: UIAlertAction.Style.cancel,handler: nil)
+        reportAlter.addAction(report1)
+        reportAlter.addAction(report2)
+        reportAlter.addAction(report3)
+        reportAlter.addAction(report4)
+        reportAlter.addAction(cancel)
+        reportAlter.modalPresentationStyle = .overFullScreen
+        UIViewController.currentViewController()?.present(reportAlter, animated: true, completion: nil)
     }
 }

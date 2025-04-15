@@ -6,13 +6,21 @@
 //
 
 import SwiftUI
+import Kingfisher
+import AVFoundation
 
 // MARK: 我的媒体子项
 struct PeppyShowMeidaPage: View {
     
     var myMediaData: PeppyMyMedia
     
-    var userCurrent = PeppyUserManager.PEPPYGetCurrentDancer()
+    var goShowDetils: () -> Void
+    
+    var goDelete: () -> Void
+    
+    var userCurrent = PeppyUserManager.PEPPYCurrentUser()
+    
+    @State var thumbnailImage: UIImage?
     
     var body: some View {
         VStack {
@@ -29,34 +37,67 @@ struct PeppyShowMeidaPage: View {
                     Spacer()
                     VStack {
                         
-//                        let url = myMediaData.mediaUrl
-//                        let imageData = try? Data(contentsOf: url!)
-//                        let uiImage = UIImage(data: imageData!)
-//                        Image(uiImage: uiImage!) // 媒体URL
-//                            .modifier(RoundedBorderStyle(cornerRadius: 20, borderColor: .black, borderWidth: 1))
-                        
-                        if let imageURL = URL(string: "file:///Users/beichuan/Library/Developer/CoreSimulator/Devices/27A041FE-5673-45A3-86E9-5D424C2B792D/data/Containers/Data/Application/432CA253-9A4F-45C4-85DD-900F446667A5/Documents/media_135/1.png"),
-                                   let imageData = try? Data(contentsOf: imageURL),
-                                   let uiImage = UIImage(data: imageData) {
-                                    Image(uiImage: uiImage)
-                                       .resizable()
-                                       .aspectRatio(contentMode: .fit)
-                                } else {
-                                    Text("无法加载图片")
+                        if myMediaData.mediaType == .PITURE { // 图片
+                            KFImage(myMediaData.mediaUrl)
+                                .resizable()
+                                .frame(height: 156)
+                                .modifier(RoundedBorderStyle(cornerRadius: 20, borderColor: .black, borderWidth: 1))
+                        } else {
+                            ZStack (alignment: .center) { // 视频封面
+                                
+                                if let img = thumbnailImage {
+                                    Image(uiImage: img)
+                                        .scaledToFill()
+                                        .frame(width: peppyW - 140, height: 156)
+                                        .modifier(RoundedBorderStyle(cornerRadius: 20, borderColor: .black, borderWidth: 1))
                                 }
+                                
+                                Button(action: {}) {
+                                    Image("btnPlay").resizable()
+                                        .frame(width: 25, height: 25)
+                                }.buttonStyle(InvalidButton())
+                            }
+                        }
                         
                         Text(myMediaData.mediaContent!) //媒体内容
                             .font(.custom("PingFang SC", size: 12))
+                            
                         HStack {
                             Spacer()
+                            Button(action: {
+                                goDelete()
+                            }) {
+                                Image("btndelete").frame(width: 30, height: 30)
+                            }
                             Text(myMediaData.mediaTime!) // 时间
+                                .font(.custom("PingFang SC", size: 12))
                         }
                     }
-                }.padding(12)
+                }.padding(20)
             }
             .frame(width: peppyW - 40, height: 260)
             .background(.white)
             .modifier(RoundedBorderStyle(cornerRadius: 20, borderColor: .black, borderWidth: 2))
+        }
+        .onTapGesture {
+            goShowDetils()
+        }
+        .onAppear {
+            loadPeppyThumbnail()
+        }
+    }
+    
+    func loadPeppyThumbnail() {
+        let asset = AVAsset(url: myMediaData.mediaUrl!)
+        let imageGenerator = AVAssetImageGenerator(asset: asset)
+        imageGenerator.appliesPreferredTrackTransform = true
+        
+        do {
+            let thumbnailTime = CMTimeMake(value: 1, timescale: 60)
+            let cgImage = try imageGenerator.copyCGImage(at: thumbnailTime, actualTime: nil)
+            thumbnailImage = UIImage(cgImage: cgImage)
+        } catch {
+            print("获取视频封面时出错: \(error)")
         }
     }
 }
