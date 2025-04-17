@@ -1,10 +1,3 @@
-//
-//  PeppySelectPage.swift
-//  Peppy
-//
-//  Created by 北川 on 2025/4/14.
-//
-
 import SwiftUI
 
 // MARK: 选择头像
@@ -94,8 +87,11 @@ struct PeppySelectPage: View {
                 }.padding(.horizontal, 80)
                 
                 Button(action: { // 完成上传头像
-                    PeppyLoginManager.shared.loginUser.head = selectHead
-                    PeppyLoginManager.shared.loginUser.headColor = seletColor
+                    PeppyUserManager.PEPPYUpdateUserDetails { pey in
+                        pey.head = selectHead
+                        pey.headColor = seletColor
+                        return pey
+                    }
                     DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.5 , execute: {
                         peppyRouter.pop()
                     })

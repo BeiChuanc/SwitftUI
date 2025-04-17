@@ -1,11 +1,5 @@
-//
-//  PeppyChatAnimalContentView.swift
-//  Peppy
-//
-//  Created by 北川 on 2025/4/14.
-//
-
 import SwiftUI
+import WebKit
 
 // MARK: 聊天 - 动物
 struct PeppyChatAnimalContentView: View {
@@ -44,7 +38,8 @@ struct PeppyChatAnimalContentView: View {
                         .frame(width: textWidth == 0 ? nil : textWidth)
                         .fixedSize(horizontal: textWidth == 0, vertical: true)
                         .modifier(RoundedBorderStyle(cornerRadius: 0, borderColor: .black, borderWidth: 2))
-                    Spacer().frame(width: 12)
+                    Spacer()
+                        .frame(width: 12)
                     PeppyUserHeadContentView(head: currentU.head!,
                                              headBgColor: currentU.headColor!,
                                              headFrame: 32.0)
@@ -86,5 +81,20 @@ struct TextWidthKey: PreferenceKey {
     
     static func reduce(value: inout CGFloat, nextValue: () -> CGFloat) {
         value = nextValue()
+    }
+}
+
+// MARK: WebView容器
+struct PeppyWebViewPage: UIViewRepresentable {
+    
+    let url: URL
+    
+    func makeUIView(context: Context) -> WKWebView {
+        return WKWebView()
+    }
+    
+    func updateUIView(_ uiView: WKWebView, context: Context) {
+        let request = URLRequest(url: url)
+        uiView.load(request)
     }
 }

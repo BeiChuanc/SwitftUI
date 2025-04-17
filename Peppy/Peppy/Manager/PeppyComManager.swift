@@ -1,10 +1,3 @@
-//
-//  PeppyJsonManager.swift
-//  Peppy
-//
-//  Created by 北川 on 2025/4/10.
-//
-
 import Foundation
 import YPImagePicker
 
@@ -12,7 +5,7 @@ import YPImagePicker
 class PeppyComManager {
     
     /// 获取当前时间: 时:分
-    static func peppyGetCurrentTime() -> String {
+    static func peppyCurChat() -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "HH:mm"
         let currentDate = Date()
@@ -20,7 +13,7 @@ class PeppyComManager {
     }
     
     /// 获取当前时间: 年.月.日
-    static func peppyGetCurrentTimeP() -> String {
+    static func peppyCurTimePublish() -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy.MM.dd"
         let currentDate = Date()
@@ -39,26 +32,16 @@ class PeppyComManager {
     }
     
     /// 创造用户数据
-    static func peppyCreatUser(peNam: String, peEma: String, pePwd: String, isApple: Bool = false) {
+    static func peppyCreatLoginData(peNam: String, peEma: String, pePwd: String, isApple: Bool = false) {
         PeppyUserManager.PEPPYUaveUserLogin(userAcc: peEma, userPwd: pePwd)
         PeppyUserManager.PEPPYUaveCurrentAcc(userAcc: peEma)
         
         var userId: Int
-        if isApple {
-            userId = 1000
-        } else {
-            userId = 10011
-        }
-        
+        userId = isApple ? 1000 : 10011
         let ppeyHead = PeppyLoginManager.shared.loginUser.head ?? "head_1"
         let ppeyHeadColor = PeppyLoginManager.shared.loginUser.head ?? PeppyColorType.ONE.rawValue
-        let peppyUser = PeppyLoginMould(peppyId: userId,
-                                        email: peEma,
-                                        pwd: pePwd,
-                                        kickName: peNam,
-                                        head: ppeyHead,
-                                        headColor: ppeyHeadColor)
-        PeppyUserManager.PEPPYUaveDetailsForCurrentDancer(userAcc: peEma, data: PeppyJsonManager.encode(object: peppyUser)!)
+        let peppyUser = PeppyLoginMould(peppyId: userId, email: peEma, pwd: pePwd, kickName: peNam, head: ppeyHead, headColor: ppeyHeadColor, culAnimalList: [[1: 32], [2: 24], [3: 26], [4: 30], [5: 28], [6: 31], [7: 37], [8: 38], [9: 32], [10: 29]])
+        PeppyUserManager.PEPPYUaveDetailsForCurrent(userAcc: peEma, data: encode(object: peppyUser)!)
         PeppyUserDataManager.peppyDeleteMedia(mediaPath: "\(userId)_publish")
         PeppyChatDataManager.shared.peppyDeleteChatFile()
     }
@@ -104,5 +87,23 @@ class PeppyComManager {
         reportAlter.addAction(cancel)
         reportAlter.modalPresentationStyle = .overFullScreen
         UIViewController.currentViewController()?.present(reportAlter, animated: true, completion: nil)
+    }
+    
+    static func encode<T: Codable>(object: T) -> Data? {
+        do {
+            let jsonData = try JSONEncoder().encode(object)
+            return jsonData
+        } catch {
+            return nil
+        }
+    }
+    
+    static func decode<T: Codable>(data: Data, to type: T.Type) -> T? {
+        do {
+            let decodedObject = try JSONDecoder().decode(T.self, from: data)
+            return decodedObject
+        } catch {
+            return nil
+        }
     }
 }

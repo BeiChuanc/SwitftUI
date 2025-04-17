@@ -1,10 +1,3 @@
-//
-//  PeppyUserManager.swift
-//  Peppy
-//
-//  Created by 北川 on 2025/4/9.
-//
-
 import Foundation
 
 // MARK: 存储管理器
@@ -54,7 +47,7 @@ extension PeppyUserManager {
     }
     
     /// 获取所有用户信息
-    class func PEPPYGetDancers() -> [String: Data] {
+    class func PEPPYGetUsers() -> [String: Data] {
         guard let userDataDict = UserDefaults.standard.dictionary(forKey: PEPPYU.FEATURE.rawValue) as? [String: Data] else {
             return [:]
         }
@@ -77,7 +70,7 @@ extension PeppyUserManager {
     
     /// 获取当前用户信息
     class func PEPPYCurrentUser() -> PeppyLoginMould {
-        let userDataDict = PEPPYGetDancers()
+        let userDataDict = PEPPYGetUsers()
         let userAcc = PEPPYGetCurrentAcc()
         if let jsonData = userDataDict[userAcc] {
             do {
@@ -89,37 +82,37 @@ extension PeppyUserManager {
     }
     
     /// 删除指定用户信息
-    class func dazzlDeleteDancer() {
-        var userDetails = PEPPYGetDancers()
+    class func PEPPYDeleteUer() {
+        var userCurr = PEPPYGetUsers()
         var allUsers = PEPPYGetAllUsers()
-        let curUser = PEPPYGetCurrentAcc()
+        let curAcc = PEPPYGetCurrentAcc()
         
-        userDetails.removeValue(forKey: curUser)
-        allUsers.removeAll { $0[PEPPYU.EMAIL.rawValue] as? String == curUser }
+        userCurr.removeValue(forKey: curAcc)
+        allUsers.removeAll { $0[PEPPYU.EMAIL.rawValue] as? String == curAcc }
         
-        UserDefaults.standard.set(userDetails, forKey: PEPPYU.FEATURE.rawValue)
+        UserDefaults.standard.set(userCurr, forKey: PEPPYU.FEATURE.rawValue)
         UserDefaults.standard.set(allUsers, forKey: PEPPYU.PLOG.rawValue)
         UserDefaults.standard.setValue("", forKey: PEPPYU.CURRENT.rawValue)
 
         print("所有用户:\(allUsers)")
-        print("所有用户信息:\(userDetails)")
+        print("所有用户信息:\(userCurr)")
     }
     
     /// 保存指定用户信息
-    class func PEPPYUaveDetailsForCurrentDancer(userAcc: String, data: Data) {
-        var userDataDict = PEPPYGetDancers()
+    class func PEPPYUaveDetailsForCurrent(userAcc: String, data: Data) {
+        var userDataDict = PEPPYGetUsers()
         userDataDict[userAcc] = data
         UserDefaults.standard.set(userDataDict, forKey: PEPPYU.FEATURE.rawValue)
     }
     
     /// 修改用户详细信息
-    class func PEPPYUpdateDancerDetails(pey: (PeppyLoginMould) -> PeppyLoginMould) {
+    class func PEPPYUpdateUserDetails(pey: (PeppyLoginMould) -> PeppyLoginMould) {
         var dac = PEPPYCurrentUser()
         let curUser = PEPPYGetCurrentAcc()
         dac = pey(dac)
         do {
             let encodedData = try JSONEncoder().encode(dac)
-            PEPPYUaveDetailsForCurrentDancer(userAcc: curUser, data: encodedData)
+            PEPPYUaveDetailsForCurrent(userAcc: curUser, data: encodedData)
         } catch {}
     }
 }

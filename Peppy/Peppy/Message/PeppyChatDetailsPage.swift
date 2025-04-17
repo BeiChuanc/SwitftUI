@@ -1,10 +1,3 @@
-//
-//  PeppyChatDetailsPage.swift
-//  Peppy
-//
-//  Created by 北川 on 2025/4/11.
-//
-
 import SwiftUI
 
 // MARK: 聊天详情
@@ -24,6 +17,8 @@ struct PeppyChatDetailsContentView: View {
     @State var animalMes: [PeppyChatMould] = []
     
     @State var inputMes: String = ""
+    
+    @FocusState var isInputMesFouse: Bool
     
     @State var isEnable: Bool = false
     
@@ -84,7 +79,7 @@ struct PeppyChatDetailsContentView: View {
                                    .fill(Color.black)
                                    .frame(height: 4)
                                    .frame(maxWidth: .infinity)
-                        Text(PeppyComManager.peppyGetCurrentTime()) // 当前时间
+                        Text(PeppyComManager.peppyCurChat()) // 当前时间
                         Spacer()
                         
                         ScrollViewReader { proxy in // 消息列表
@@ -118,10 +113,12 @@ struct PeppyChatDetailsContentView: View {
                                     .foregroundStyle(Color(hex: "#000000", alpha: 0.2))
                                     .font(.custom("PingFangTC-Semibold", size: 20))
                                     .padding(.horizontal, 8)
+                                    .focused($isInputMesFouse)
                             }.frame(width: peppyW - 97, height: 42)
                             Spacer()
                             Button(action: {
                                 if inputMes.isEmpty {
+                                    isInputMesFouse = true
                                     return
                                 }
                                 sendMessage(mes: inputMes)
@@ -133,25 +130,31 @@ struct PeppyChatDetailsContentView: View {
                 }.background(Color(hex: "#F7BD0F"))
             }
         }
+        .onAppear {
+            loadAnimalChats()
+        }
+    }
+    
+    func loadAnimalChats() {
+        animalMes = PeppyChatDataManager.shared.peppyAvbUserChat(colId: "\(animal.animalId)")
     }
     
     func sendMessage(mes: String) {
         let userMes = PeppyChatMould(c: mes, isMy: true)
-        let userCurrent = PeppyUserManager.PEPPYCurrentUser()
         animalMes.append(userMes)
-//        PeppyChatDataManager.shared.saveAnimalsChat(colloquist: "\(userCurrent.peppyId!)", content: userMes)
+        PeppyChatDataManager.shared.saveAnimalsChat(colloquist: "\(animal.animalId)", content: userMes)
         inputMes = ""
         isEnable = true
         
-        PeppyAnimailsAIChat.share.peppyWithAnimal(message: mes) { result in
+        AnimalChatService.shared.chatWithAnimal(message: mes) { result in
             switch result {
             case .success(let respone):
                 
                 if let data = respone.data {
-                    if data.res != "" {
-                        let animals = PeppyChatMould(c: data.res!, isMy: false)
+                    if data.answer != "" {
+                        let animals = PeppyChatMould(c: data.answer!, isMy: false)
                         animalMes.append(animals)
-//                        PeppyChatDataManager.shared.saveAnimalsChat(colloquist: "\(userCurrent.peppyId!)", content: userMes)
+                        PeppyChatDataManager.shared.saveAnimalsChat(colloquist: "\(animal.animalId)", content: animals)
                         isEnable = false
                     }
                 }

@@ -1,10 +1,3 @@
-//
-//  PeppyAnimalMould.swift
-//  Peppy
-//
-//  Created by 北川 on 2025/4/10.
-//
-
 import Foundation
 
 // MARK: 宠物模型
@@ -22,6 +15,9 @@ struct PeppyAnimalMould: Identifiable, Hashable, Codable {
     // 宠物名称
     var animalName: String
     
+    // 宠物解锁人数
+    var animalStar: Int
+    
     enum CodingKeys: String, CodingKey {
         
         case animalId = "aId"
@@ -29,6 +25,7 @@ struct PeppyAnimalMould: Identifiable, Hashable, Codable {
         case animalHead = "aHead"
         
         case animalName = "aName"
-
+        
+        case animalStar = "star"
     }
 }

@@ -1,11 +1,5 @@
-//
-//  PeppyLoginPage.swift
-//  Peppy
-//
-//  Created by 北川 on 2025/4/11.
-//
-
 import SwiftUI
+import UIKit
 import AuthenticationServices
 
 // MARK: 登录页面
@@ -55,12 +49,6 @@ struct PeppyLoginContentView: View {
                     Image("selectHead")
                         .resizable()
                 }.frame(width: 210, height: 210) // 选择头像
-                    .gesture (
-                        TapGesture()
-                            .onEnded {
-                                peppyRouter.navigate(to: .UPLOADHEAD)
-                            }
-                    )
                 
                 Image("loginName").resizable()
                     .frame(width: peppyW - 80, height: 48)
@@ -116,24 +104,24 @@ struct PeppyLoginContentView: View {
                         return
                     }
                     
-                    if inputName == "111111" {
-                        if inputPwd == "123456" {
-                            PeppyComManager.peppyCreatUser(peNam: inputName,
-                                                           peEma: inputName,
-                                                           pePwd: inputPwd,
-                                                           isApple: false)
-                            loginM.isLogin = true // 更新登录
-                            PeppyLoadManager.peppyLoading {
-                                peppyRouter.popRoot()
-                            }
-                        } else {
-                            PeppyLoadManager.peppyProgressShow(type: .failed, text: "Wrong password!")
+                    if PeppyUserManager.PEPPYMatchLogin(userAcc: inputName, userPwd: inputPwd) {
+                        loginM.isLogin = true // 更新登录
+                        PeppyLoadManager.peppyLoading {
+                            peppyRouter.popRoot()
                         }
                     } else {
-                        if PeppyUserManager.PEPPYMatchLogin(userAcc: inputName, userPwd: inputPwd) {
-                            loginM.isLogin = true // 更新登录
-                            PeppyLoadManager.peppyLoading {
-                                peppyRouter.popRoot()
+                        if inputName == "Sparkler" {
+                            if inputPwd == "123456" {
+                                PeppyComManager.peppyCreatLoginData(peNam: inputName,
+                                                               peEma: inputName,
+                                                               pePwd: inputPwd,
+                                                               isApple: false)
+                                loginM.isLogin = true // 更新登录
+                                PeppyLoadManager.peppyLoading {
+                                    peppyRouter.popRoot()
+                                }
+                            } else {
+                                PeppyLoadManager.peppyProgressShow(type: .failed, text: "Wrong password!")
                             }
                         }
                     }
@@ -246,7 +234,7 @@ struct SignInWithAppleView: UIViewControllerRepresentable {
                 
                 // 苹果登陆
                 PeppyLoginManager.shared.isLogin = true
-                PeppyComManager.peppyCreatUser(peNam: "Peppy",
+                PeppyComManager.peppyCreatLoginData(peNam: "Peppy",
                                                peEma: appleEmail,
                                                pePwd: "123456",
                                                isApple: true)
@@ -261,5 +249,23 @@ struct SignInWithAppleView: UIViewControllerRepresentable {
         func presentationAnchor(for controller: ASAuthorizationController) -> ASPresentationAnchor {
             return UIWindow()
         }
+    }
+}
+
+class ASAuthorizationControllerViewController: UIViewController {
+    let authorizationController: ASAuthorizationController
+
+    init(authorizationController: ASAuthorizationController) {
+        self.authorizationController = authorizationController
+        super.init(nibName: nil, bundle: nil)
+    }
+
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        authorizationController.performRequests()
     }
 }

@@ -1,10 +1,3 @@
-//
-//  PeppyCommon.swift
-//  Peppy
-//
-//  Created by 北川 on 2025/4/9.
-//
-
 import Foundation
 import UIKit
 
@@ -53,13 +46,13 @@ enum PEPPYU: String {
 enum PEPPYPROTOCOL {
     
     // 技术支持
-    static let PEPPYTERMS = "https://www.freeprivacypolicy.com/live/d2ad0131-c027-46e2-98d1-285b55a6f507"
+    static let PEPPYTERMS = "https://www.freeprivacypolicy.com/live/526364de-f809-46c7-9c94-96f33f8a559c"
     
     // 隐私政策
-    static let PEPPYPRIVACY = "https://www.freeprivacypolicy.com/live/08a7d6b0-7ef2-4e8c-95a2-6abbcea6b314"
+    static let PEPPYPRIVACY = "https://www.freeprivacypolicy.com/live/2e3d0dd0-35b0-499a-86f2-b98db58e1811"
     
     // EULA
-    static let PEPPYEULA = "https://www.freeprivacypolicy.com/live/a05d392b-3f9f-4263-a004-0b97b05f1561"
+    static let PEPPYEULA = "https://www.freeprivacypolicy.com/live/3c61aeb0-88c0-4cb7-95ba-fa6be3205ebd"
 }
 
 // MARK: 媒体
@@ -102,6 +95,9 @@ enum PeppyRoute: Hashable {
     
     // 播放
     case PLAYMEDIA(PeppyMyMedia)
+    
+    // 排行
+    case RANKING
 }
 
 // MARK: 选择颜色值

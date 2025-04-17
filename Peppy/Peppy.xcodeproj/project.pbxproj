@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		042FA19A2DACB871001D773E /* PeppySelectPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042FA1992DACB871001D773E /* PeppySelectPage.swift */; };
 		042FA19E2DACD6A3001D773E /* PeppyChatAnimalContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042FA19D2DACD6A3001D773E /* PeppyChatAnimalContentView.swift */; };
-		042FA1A02DACD930001D773E /* PeppyUserHeadContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042FA19F2DACD930001D773E /* PeppyUserHeadContentView.swift */; };
 		049E7F502DA6711D0076F922 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 049E7F4A2DA6711D0076F922 /* Preview Assets.xcassets */; };
 		049E7F512DA6711D0076F922 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 049E7F4C2DA6711D0076F922 /* Assets.xcassets */; };
 		049E7F532DA6711D0076F922 /* PeppyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049E7F4E2DA6711D0076F922 /* PeppyApp.swift */; };
@@ -17,9 +16,8 @@
 		049E7F5F2DA674660076F922 /* PeppyCommon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049E7F5E2DA674660076F922 /* PeppyCommon.swift */; };
 		049E7F612DA6762F0076F922 /* TabBarContenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049E7F602DA6762F0076F922 /* TabBarContenView.swift */; };
 		049E7F632DA682180076F922 /* PeppyHomePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049E7F622DA682180076F922 /* PeppyHomePage.swift */; };
-		049E7F652DA7606C0076F922 /* PeppyLoginManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049E7F642DA7606C0076F922 /* PeppyLoginManager.swift */; };
 		049E7F672DA760980076F922 /* PeppyLoginMould.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049E7F662DA760980076F922 /* PeppyLoginMould.swift */; };
-		049E7F692DA76ABE0076F922 /* PeppyLoadManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049E7F682DA76ABE0076F922 /* PeppyLoadManager.swift */; };
+		049E7F692DA76ABE0076F922 /* Login&LoadManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049E7F682DA76ABE0076F922 /* Login&LoadManager.swift */; };
 		049E7F6B2DA76C560076F922 /* PeppyComManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049E7F6A2DA76C560076F922 /* PeppyComManager.swift */; };
 		049E7F6D2DA76D4E0076F922 /* Color&UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049E7F6C2DA76D4E0076F922 /* Color&UIColor.swift */; };
 		049E7F702DA770530076F922 /* PeppyCompose.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049E7F6F2DA770530076F922 /* PeppyCompose.swift */; };
@@ -35,14 +33,14 @@
 		049E7F852DA8C9880076F922 /* AnimalData.json in Resources */ = {isa = PBXBuildFile; fileRef = 049E7F842DA8C9880076F922 /* AnimalData.json */; };
 		049E7F872DA8D2CF0076F922 /* PeppyRouteManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049E7F862DA8D2CF0076F922 /* PeppyRouteManager.swift */; };
 		049E7F8D2DA8E8800076F922 /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049E7F8C2DA8E8800076F922 /* View.swift */; };
-		04BA23C72DAE314C00974D48 /* PeppyAI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BA23C62DAE314C00974D48 /* PeppyAI.swift */; };
+		04BA23C72DAE314C00974D48 /* PeppyChatService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BA23C62DAE314C00974D48 /* PeppyChatService.swift */; };
 		04BA23C92DAE62AB00974D48 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BA23C82DAE62AB00974D48 /* UIViewController.swift */; };
+		04BA24102DB0B17500974D48 /* PeppyRankingPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BA240F2DB0B17500974D48 /* PeppyRankingPage.swift */; };
+		04BA24122DB0D5D600974D48 /* PeppyAnimalFeedPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BA24112DB0D5D600974D48 /* PeppyAnimalFeedPage.swift */; };
 		32548B38949CEAEE3980B73D /* Pods_Peppy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FBBC0A27E0BCFE924A4A520 /* Pods_Peppy.framework */; };
 		902585312DA96938001DFDD2 /* PeppyLoginPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 902585302DA96938001DFDD2 /* PeppyLoginPage.swift */; };
 		902585332DA96D26001DFDD2 /* PeppySetPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 902585322DA96D26001DFDD2 /* PeppySetPage.swift */; };
 		902585352DA97013001DFDD2 /* PeppyChatDetailsPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 902585342DA97013001DFDD2 /* PeppyChatDetailsPage.swift */; };
-		902585382DA97E16001DFDD2 /* PeppyWebViewPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 902585372DA97E16001DFDD2 /* PeppyWebViewPage.swift */; };
-		9025853D2DAA2097001DFDD2 /* PeppyLoginAppleController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9025853C2DAA2097001DFDD2 /* PeppyLoginAppleController.swift */; };
 		9025853F2DAA29F7001DFDD2 /* PeppyRegisterPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9025853E2DAA29F7001DFDD2 /* PeppyRegisterPage.swift */; };
 		902585412DAD4ACC001DFDD2 /* PeppyMediaMould.swift in Sources */ = {isa = PBXBuildFile; fileRef = 902585402DAD4ACC001DFDD2 /* PeppyMediaMould.swift */; };
 /* End PBXBuildFile section */
@@ -50,7 +48,6 @@
 /* Begin PBXFileReference section */
 		042FA1992DACB871001D773E /* PeppySelectPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeppySelectPage.swift; sourceTree = "<group>"; };
 		042FA19D2DACD6A3001D773E /* PeppyChatAnimalContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeppyChatAnimalContentView.swift; sourceTree = "<group>"; };
-		042FA19F2DACD930001D773E /* PeppyUserHeadContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeppyUserHeadContentView.swift; sourceTree = "<group>"; };
 		049E7F392DA671150076F922 /* Peppy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Peppy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		049E7F4A2DA6711D0076F922 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		049E7F4C2DA6711D0076F922 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -59,9 +56,8 @@
 		049E7F5E2DA674660076F922 /* PeppyCommon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeppyCommon.swift; sourceTree = "<group>"; };
 		049E7F602DA6762F0076F922 /* TabBarContenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarContenView.swift; sourceTree = "<group>"; };
 		049E7F622DA682180076F922 /* PeppyHomePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeppyHomePage.swift; sourceTree = "<group>"; };
-		049E7F642DA7606C0076F922 /* PeppyLoginManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeppyLoginManager.swift; sourceTree = "<group>"; };
 		049E7F662DA760980076F922 /* PeppyLoginMould.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeppyLoginMould.swift; sourceTree = "<group>"; };
-		049E7F682DA76ABE0076F922 /* PeppyLoadManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeppyLoadManager.swift; sourceTree = "<group>"; };
+		049E7F682DA76ABE0076F922 /* Login&LoadManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Login&LoadManager.swift"; sourceTree = "<group>"; };
 		049E7F6A2DA76C560076F922 /* PeppyComManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeppyComManager.swift; sourceTree = "<group>"; };
 		049E7F6C2DA76D4E0076F922 /* Color&UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color&UIColor.swift"; sourceTree = "<group>"; };
 		049E7F6F2DA770530076F922 /* PeppyCompose.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeppyCompose.swift; sourceTree = "<group>"; };
@@ -77,16 +73,16 @@
 		049E7F842DA8C9880076F922 /* AnimalData.json */ = {isa = PBXFileReference; explicitFileType = text.json; path = AnimalData.json; sourceTree = "<group>"; };
 		049E7F862DA8D2CF0076F922 /* PeppyRouteManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeppyRouteManager.swift; sourceTree = "<group>"; };
 		049E7F8C2DA8E8800076F922 /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
-		04BA23C62DAE314C00974D48 /* PeppyAI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeppyAI.swift; sourceTree = "<group>"; };
+		04BA23C62DAE314C00974D48 /* PeppyChatService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeppyChatService.swift; sourceTree = "<group>"; };
 		04BA23C82DAE62AB00974D48 /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
+		04BA240F2DB0B17500974D48 /* PeppyRankingPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeppyRankingPage.swift; sourceTree = "<group>"; };
+		04BA24112DB0D5D600974D48 /* PeppyAnimalFeedPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeppyAnimalFeedPage.swift; sourceTree = "<group>"; };
 		66B09E2AB460C1256F99B6A2 /* Pods-Peppy.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Peppy.debug.xcconfig"; path = "Target Support Files/Pods-Peppy/Pods-Peppy.debug.xcconfig"; sourceTree = "<group>"; };
 		6FBBC0A27E0BCFE924A4A520 /* Pods_Peppy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Peppy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		902585302DA96938001DFDD2 /* PeppyLoginPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeppyLoginPage.swift; sourceTree = "<group>"; };
 		902585322DA96D26001DFDD2 /* PeppySetPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeppySetPage.swift; sourceTree = "<group>"; };
 		902585342DA97013001DFDD2 /* PeppyChatDetailsPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeppyChatDetailsPage.swift; sourceTree = "<group>"; };
-		902585372DA97E16001DFDD2 /* PeppyWebViewPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeppyWebViewPage.swift; sourceTree = "<group>"; };
 		9025853B2DAA1DBE001DFDD2 /* Peppy.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Peppy.entitlements; sourceTree = "<group>"; };
-		9025853C2DAA2097001DFDD2 /* PeppyLoginAppleController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeppyLoginAppleController.swift; sourceTree = "<group>"; };
 		9025853E2DAA29F7001DFDD2 /* PeppyRegisterPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeppyRegisterPage.swift; sourceTree = "<group>"; };
 		902585402DAD4ACC001DFDD2 /* PeppyMediaMould.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeppyMediaMould.swift; sourceTree = "<group>"; };
 		902585442DAD686D001DFDD2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
@@ -136,7 +132,6 @@
 			children = (
 				902585442DAD686D001DFDD2 /* Info.plist */,
 				9025853B2DAA1DBE001DFDD2 /* Peppy.entitlements */,
-				902585362DA97E08001DFDD2 /* WebView */,
 				049E7F832DA8C9690076F922 /* AnimalData */,
 				049E7F582DA671BF0076F922 /* Message */,
 				049E7F572DA671BA0076F922 /* Center */,
@@ -170,6 +165,8 @@
 			isa = PBXGroup;
 			children = (
 				049E7F622DA682180076F922 /* PeppyHomePage.swift */,
+				04BA240F2DB0B17500974D48 /* PeppyRankingPage.swift */,
+				04BA24112DB0D5D600974D48 /* PeppyAnimalFeedPage.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -190,7 +187,6 @@
 			isa = PBXGroup;
 			children = (
 				902585322DA96D26001DFDD2 /* PeppySetPage.swift */,
-				042FA19F2DACD930001D773E /* PeppyUserHeadContentView.swift */,
 			);
 			path = Center;
 			sourceTree = "<group>";
@@ -198,7 +194,7 @@
 		049E7F582DA671BF0076F922 /* Message */ = {
 			isa = PBXGroup;
 			children = (
-				04BA23C62DAE314C00974D48 /* PeppyAI.swift */,
+				04BA23C62DAE314C00974D48 /* PeppyChatService.swift */,
 				902585342DA97013001DFDD2 /* PeppyChatDetailsPage.swift */,
 				042FA19D2DACD6A3001D773E /* PeppyChatAnimalContentView.swift */,
 			);
@@ -211,7 +207,6 @@
 				902585302DA96938001DFDD2 /* PeppyLoginPage.swift */,
 				042FA1992DACB871001D773E /* PeppySelectPage.swift */,
 				9025853E2DAA29F7001DFDD2 /* PeppyRegisterPage.swift */,
-				9025853C2DAA2097001DFDD2 /* PeppyLoginAppleController.swift */,
 			);
 			path = PeppyLog;
 			sourceTree = "<group>";
@@ -219,9 +214,8 @@
 		049E7F5A2DA672190076F922 /* Manager */ = {
 			isa = PBXGroup;
 			children = (
-				049E7F642DA7606C0076F922 /* PeppyLoginManager.swift */,
+				049E7F682DA76ABE0076F922 /* Login&LoadManager.swift */,
 				049E7F5C2DA672CD0076F922 /* PeppyUserManager.swift */,
-				049E7F682DA76ABE0076F922 /* PeppyLoadManager.swift */,
 				049E7F6A2DA76C560076F922 /* PeppyComManager.swift */,
 				049E7F862DA8D2CF0076F922 /* PeppyRouteManager.swift */,
 				049E7F732DA78A110076F922 /* PeppyUserDataManager.swift */,
@@ -264,14 +258,6 @@
 				E99635FD6F80DA78341D1283 /* Pods-Peppy.release.xcconfig */,
 			);
 			path = Pods;
-			sourceTree = "<group>";
-		};
-		902585362DA97E08001DFDD2 /* WebView */ = {
-			isa = PBXGroup;
-			children = (
-				902585372DA97E16001DFDD2 /* PeppyWebViewPage.swift */,
-			);
-			path = WebView;
 			sourceTree = "<group>";
 		};
 		C52A3E1690E63F6458C06F64 /* Frameworks */ = {
@@ -400,29 +386,28 @@
 			files = (
 				049E7F5D2DA672CD0076F922 /* PeppyUserManager.swift in Sources */,
 				902585412DAD4ACC001DFDD2 /* PeppyMediaMould.swift in Sources */,
-				902585382DA97E16001DFDD2 /* PeppyWebViewPage.swift in Sources */,
 				042FA19E2DACD6A3001D773E /* PeppyChatAnimalContentView.swift in Sources */,
 				049E7F532DA6711D0076F922 /* PeppyApp.swift in Sources */,
 				049E7F742DA78A110076F922 /* PeppyUserDataManager.swift in Sources */,
 				049E7F6D2DA76D4E0076F922 /* Color&UIColor.swift in Sources */,
+				04BA24102DB0B17500974D48 /* PeppyRankingPage.swift in Sources */,
 				049E7F6B2DA76C560076F922 /* PeppyComManager.swift in Sources */,
 				04BA23C92DAE62AB00974D48 /* UIViewController.swift in Sources */,
 				049E7F702DA770530076F922 /* PeppyCompose.swift in Sources */,
 				049E7F802DA7B0C40076F922 /* PeppyShowMeidaPage.swift in Sources */,
-				049E7F692DA76ABE0076F922 /* PeppyLoadManager.swift in Sources */,
+				049E7F692DA76ABE0076F922 /* Login&LoadManager.swift in Sources */,
 				9025853F2DAA29F7001DFDD2 /* PeppyRegisterPage.swift in Sources */,
 				049E7F5F2DA674660076F922 /* PeppyCommon.swift in Sources */,
 				049E7F8D2DA8E8800076F922 /* View.swift in Sources */,
-				04BA23C72DAE314C00974D48 /* PeppyAI.swift in Sources */,
+				04BA24122DB0D5D600974D48 /* PeppyAnimalFeedPage.swift in Sources */,
+				04BA23C72DAE314C00974D48 /* PeppyChatService.swift in Sources */,
 				049E7F672DA760980076F922 /* PeppyLoginMould.swift in Sources */,
-				042FA1A02DACD930001D773E /* PeppyUserHeadContentView.swift in Sources */,
 				902585312DA96938001DFDD2 /* PeppyLoginPage.swift in Sources */,
 				049E7F872DA8D2CF0076F922 /* PeppyRouteManager.swift in Sources */,
 				049E7F822DA8ADD40076F922 /* PeppyTreeMediaPage.swift in Sources */,
 				902585332DA96D26001DFDD2 /* PeppySetPage.swift in Sources */,
 				049E7F7A2DA7984B0076F922 /* PeppyTreePage.swift in Sources */,
 				049E7F612DA6762F0076F922 /* TabBarContenView.swift in Sources */,
-				9025853D2DAA2097001DFDD2 /* PeppyLoginAppleController.swift in Sources */,
 				049E7F632DA682180076F922 /* PeppyHomePage.swift in Sources */,
 				049E7F7C2DA7AD350076F922 /* PeppyTreeEmptyContentView.swift in Sources */,
 				042FA19A2DACB871001D773E /* PeppySelectPage.swift in Sources */,
@@ -431,7 +416,6 @@
 				049E7F782DA78ACD0076F922 /* PeppyChatMould.swift in Sources */,
 				049E7F7E2DA7AD740076F922 /* PeppyPublishContentView.swift in Sources */,
 				049E7F762DA78A870076F922 /* PeppyChatDataManager.swift in Sources */,
-				049E7F652DA7606C0076F922 /* PeppyLoginManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

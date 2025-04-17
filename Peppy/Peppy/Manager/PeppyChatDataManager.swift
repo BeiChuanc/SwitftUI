@@ -1,10 +1,3 @@
-//
-//  PeppyChatDataManager.swift
-//  Peppy
-//
-//  Created by 北川 on 2025/4/10.
-//
-
 import Foundation
 import SwiftUI
 
@@ -12,8 +5,6 @@ import SwiftUI
 class PeppyChatDataManager: ObservableObject {
     
     static let shared = PeppyChatDataManager()
-    
-    var ulockAnimals: [Int] = []
     
     let userId = PeppyUserManager.PEPPYCurrentUser().peppyId!
     
@@ -25,7 +16,8 @@ extension PeppyChatDataManager {
     
     /// 保存消息
     func saveAnimalsChat(colloquist: String, content: PeppyChatMould) {
-        let plistURL = peppyFileManager!.appendingPathComponent("Peppy.plist")
+        guard let fileManager = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else { return }
+        let plistURL = fileManager.appendingPathComponent("Peppy.plist")
         var chats = peppyReadChats(url: plistURL)
         let mesDir: [String: String] = ["isM": content.isMy.description, "c": content.c]
         
@@ -40,11 +32,11 @@ extension PeppyChatDataManager {
     
     /// 读取当前用户指定对话用户消息
     func peppyAvbUserChat(colId: String) -> [PeppyChatMould] {
-        let fileURL = peppyFileManager!.appendingPathComponent("Peppy.plist")
+        guard let fileManager = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else { return [] }
+        let fileURL = fileManager.appendingPathComponent("Peppy.plist")
         let chats = peppyReadChats(url: fileURL)
         
-        guard let userMes = chats["\(userId)"],
-              let tarMes = userMes[colId] else { return [] }
+        guard let userMes = chats["\(userId)"], let tarMes = userMes[colId] else { return [] }
         
         return tarMes.compactMap { dict in
             let isM = (dict["isM"] ?? "false").lowercased() == "true"
@@ -56,7 +48,8 @@ extension PeppyChatDataManager {
     
     /// 删除指定用户聊天数据
     func peppyDeleteAvaUserChat(uid: Int) {
-        let fileURL = peppyFileManager!.appendingPathComponent("Peppy.plist")
+        guard let fileManager = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else { return }
+        let fileURL = fileManager.appendingPathComponent("Peppy.plist")
         var chats = peppyReadChats(url: fileURL)
         for (key, _) in chats {
             chats[key]?.removeValue(forKey: "\(uid)")
@@ -73,17 +66,17 @@ extension PeppyChatDataManager {
                 options: 0
             )
             try data.write(to: plistURL)
-        } catch {
-            print("写入plist文件时出错: \(error)")
-        }
+        } catch {}
     }
     
     /// 解锁动物
-    func peppyGetMessageList() {
-        let fileURL = peppyFileManager!.appendingPathComponent("Peppy.plist")
+    func peppyGetMessageList() -> [Int] {
+        guard let fileManager = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else { return [] }
+        let fileURL = fileManager.appendingPathComponent("Peppy.plist")
         let chatData = peppyReadChats(url: fileURL)
-        guard let userData = chatData["\(userId)"] else { return }
-        print("聊天用户:", userData)
+        guard let userData = chatData["\(userId)"] else { return [] }
+        let userIds = userData.keys.compactMap { Int($0) }
+        return userIds
     }
     
     /// 聊天数据
@@ -104,11 +97,7 @@ extension PeppyChatDataManager {
             let plistFiles = fileURLs.filter { $0.pathExtension == "plist" }
             for fileURL in plistFiles {
                 try FileManager.default.removeItem(at: fileURL)
-                print("已删除文件: \(fileURL.path)")
             }
-            print("所有 .plist 文件已删除")
-        } catch {
-            print("操作失败: \(error)")
-        }
+        } catch {}
     }
 }

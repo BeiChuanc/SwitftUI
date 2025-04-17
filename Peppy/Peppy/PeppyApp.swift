@@ -1,10 +1,3 @@
-//
-//  PeppyApp.swift
-//  Peppy
-//
-//  Created by 北川 on 2025/4/9.
-//
-
 import SwiftUI
 
 @main

@@ -1,10 +1,3 @@
-//
-//  PeppyHomeContentView.swift
-//  Peppy
-//
-//  Created by 北川 on 2025/4/9.
-//
-
 import SwiftUI
 
 // MARK: 首页
@@ -21,7 +14,7 @@ struct PeppyHomeContentView: View {
     
     @State var currentIndex: Int = 0
     
-    var userCurrent = PeppyUserManager.PEPPYCurrentUser()
+    @State var userCurrent = PeppyLoginMould()
     
     @EnvironmentObject var loginM: PeppyLoginManager
     
@@ -40,9 +33,22 @@ struct PeppyHomeContentView: View {
                     PeppyUserHeadContentView(head: loginM.isLogin ? userCurrent.head ?? "" : "head_1",
                                              headBgColor: loginM.isLogin ? userCurrent.headColor ?? "" : "#FFFFFF",
                                              headFrame: 48.0)
+                    .onTapGesture {
+                        if loginM.isLogin {
+                            peppyRouter.navigate(to: .UPLOADHEAD)
+                        } else {
+                            peppyRouter.navigate(to: .LOGIN)
+                        }
+                    }
                     Text(loginM.isLogin ? userCurrent.kickName ?? "" : "Guest") // 用户名字
                         .font(.custom("Marker Felt", size: 25))
                     Spacer()
+                    Button(action: { // 排行
+                        peppyRouter.navigate(to: .RANKING)
+                    }) {
+                        Image("btnFire")
+                    }
+                    .buttonStyle(InvalidButton())
                 }.frame(width: peppyW - 40, height: 60)
                 Spacer()
                     .frame(height: 200)
@@ -90,6 +96,9 @@ struct PeppyHomeContentView: View {
                     Image("btnChat")
                 }
                 .padding(.top, 20)
+            }
+            .onAppear {
+                userCurrent = PeppyUserManager.PEPPYCurrentUser()
             }
         }
         .edgesIgnoringSafeArea(.all)

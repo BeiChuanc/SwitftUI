@@ -1,10 +1,3 @@
-//
-//  PeppyUserDataManager.swift
-//  Peppy
-//
-//  Created by 北川 on 2025/4/10.
-//
-
 import Foundation
 import SwiftUI
 
@@ -18,6 +11,8 @@ class PeppyUserDataManager: ObservableObject {
     @Published var animailList: [PeppyAnimalMould] = []
     
     @Published var myMediaList: [PeppyMyMedia] = []
+    
+    @Published var feedAnimalList: [PeppyAnimalMould] = []
 }
 
 // MARK: 用户 & 动物数据
@@ -34,7 +29,7 @@ extension PeppyUserDataManager {
         guard let jsonPath = Bundle.main.path(forResource: "AnimalData", ofType: "json") else {
             return }
         let data = try? Data(contentsOf: URL(filePath: jsonPath))
-        if let animals = PeppyJsonManager.decode(data: data!, to: [PeppyAnimalMould].self) {
+        if let animals = PeppyComManager.decode(data: data!, to: [PeppyAnimalMould].self) {
             for dac in animals {
                 if !animailList.contains(where: { $0.animalId == dac.animalId}) {
                     animailList.append(dac)
@@ -44,6 +39,25 @@ extension PeppyUserDataManager {
                 return !blockAnimals.contains(item.animalId)
             }
         }
+    }
+    
+    /// 获取前五
+    func peppyAvFrontFive() -> [PeppyAnimalMould] {
+        let animalsAll = animailList.sorted(by: { $0.animalStar > $1.animalStar }) // 大小排序
+        var animals: [PeppyAnimalMould] = [] // 排序后前五
+        for (index, an) in animalsAll.enumerated() {
+            if index < 5 {
+                animals.append(an)
+            }
+        }
+        return animals
+    }
+    
+    /// 获取喂养动物数据
+    func peppyFeedAnimal() -> [PeppyAnimalMould] {
+        let lock: [Int] = PeppyChatDataManager.shared.peppyGetMessageList()
+        
+        return []
     }
 }
 
@@ -113,10 +127,10 @@ extension PeppyUserDataManager {
         do {
             if fileManager.fileExists(atPath: targetDir.path) {
                 try fileManager.removeItem(at: targetDir)
-                PeppyUserManager.PEPPYUpdateDancerDetails(pey: { pey in
+                PeppyUserManager.PEPPYUpdateUserDetails { pey in
                     pey.mediaList!.remove(at: targetFile)
                     return pey
-                })
+                }
             } else {}
         } catch {}
     }

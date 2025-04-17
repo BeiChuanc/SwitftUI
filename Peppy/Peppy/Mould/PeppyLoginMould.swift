@@ -1,10 +1,3 @@
-//
-//  PeppyLoginModel.swift
-//  Peppy
-//
-//  Created by 北川 on 2025/4/10.
-//
-
 import Foundation
 import SwiftUI
 
@@ -32,13 +25,17 @@ class PeppyLoginMould: Codable {
     // 媒体url列表
     var mediaList: [PeppyMyMedia]?
     
+    // 养成动物
+    var culAnimalList: [[Int:Double]]?
+    
     init(peppyId: Int?              = nil,
          email: String?             = nil,
          pwd: String?               = nil,
          kickName: String?          = nil,
          head: String?              = nil,
          headColor: String?         = nil,
-         mediaList: [PeppyMyMedia]? = []) {
+         mediaList: [PeppyMyMedia]? = [],
+         culAnimalList: [[Int: Double]] = []) {
         self.peppyId = peppyId
         self.email = email
         self.pwd = pwd
@@ -46,6 +43,7 @@ class PeppyLoginMould: Codable {
         self.head = head
         self.headColor = headColor
         self.mediaList = mediaList
+        self.culAnimalList = culAnimalList
     }
 }
 

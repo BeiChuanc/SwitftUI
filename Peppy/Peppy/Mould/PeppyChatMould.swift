@@ -1,10 +1,3 @@
-//
-//  PeppyChatMould.swift
-//  Peppy
-//
-//  Created by 北川 on 2025/4/10.
-//
-
 import Foundation
 
 // MARK: 宠物聊天模型

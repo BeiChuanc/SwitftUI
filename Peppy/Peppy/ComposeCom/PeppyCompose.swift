@@ -1,10 +1,3 @@
-//
-//  PeppyCompose.swift
-//  所有自定义样式
-//
-//  Created by 北川 on 2025/4/10.
-//
-
 import SwiftUI
 
 // MARK: 去除按钮的点击效果
@@ -31,7 +24,7 @@ struct tabBarItem: View {
         Button(action: action) {
             Image(isSelected ? selectImage : normalImage)
         }
-        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .frame(width: 99, height: 64)
         .buttonStyle(InvalidButton())
     }
 }

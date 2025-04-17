@@ -1,10 +1,3 @@
-//
-//  PeppyRegisterPage.swift
-//  Peppy
-//
-//  Created by 北川 on 2025/4/12.
-//
-
 import SwiftUI
 
 struct PeppyRegisterPage: View {
@@ -54,12 +47,6 @@ struct PeppyRegisterContentView: View {
                         Image("selectHead")
                             .resizable()
                     }.frame(width: 210, height: 210) // 选择头像
-                        .gesture (
-                            TapGesture()
-                                .onEnded {
-                                    peppyRouter.navigate(to: .UPLOADHEAD)
-                                }
-                        )
                     
                     Image("loginName").resizable()
                         .frame(width: peppyW - 80, height: 48)
@@ -119,7 +106,7 @@ struct PeppyRegisterContentView: View {
                             return
                         }
                         
-                        PeppyComManager.peppyCreatUser(peNam: inputName,
+                        PeppyComManager.peppyCreatLoginData(peNam: inputName,
                                                        peEma: inputName,
                                                        pePwd: inputPwd,
                                                        isApple: false)

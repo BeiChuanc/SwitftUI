@@ -1,10 +1,3 @@
-//
-//  PeppyPublishContentView.swift
-//  Peppy
-//
-//  Created by 北川 on 2025/4/10.
-//
-
 import SwiftUI
 import PhotosUI
 import YPImagePicker
@@ -143,13 +136,16 @@ struct PeppyTreePublishContentView: View {
                                                          mediaUrl: mediaUrl,
                                                          mediaType: media.type,
                                                          mediaContent: inputContent,
-                                                         mediaTime: PeppyComManager.peppyGetCurrentTimeP())
-                            PeppyUserManager.PEPPYUpdateDancerDetails(pey: { pey in
+                                                         mediaTime: PeppyComManager.peppyCurTimePublish())
+                            PeppyUserManager.PEPPYUpdateUserDetails { pey in
                                 pey.mediaList?.append(sendMedia)
                                 return pey
-                            })
+                            }
                             PeppyUserDataManager.shared.myMediaList.append(sendMedia)
                             initData()
+                            
+                            PeppyLoadManager.peppyProgressShow(type: .succeed)
+                            
                         } catch {}
                         
                     }) {
@@ -170,7 +166,8 @@ struct PeppyTreePublishContentView: View {
                 Button(action: { // EULA
                     showEula = true
                 }) {
-                    Image("btnEULA")
+                    Image("btnEULA").resizable()
+                        .frame(width: 40, height: 16)
                 }
                 .padding(.top, 10)
                 .sheet(isPresented: $showEula) {

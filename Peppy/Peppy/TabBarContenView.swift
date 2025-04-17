@@ -1,10 +1,3 @@
-//
-//  TabBarContenView.swift
-//  Peppy
-//
-//  Created by 北川 on 2025/4/9.
-//
-
 import SwiftUI
 import IQKeyboardManager
 
@@ -20,6 +13,7 @@ struct TabBarContenView: View {
     let navItems = [
         (normal: "home_normal", select: "home_select"),
         (normal: "tree_normal", select: "tree_select"),
+        (normal: "feed_normal", select: "feed_select"),
         (normal: "center_normal", select: "center_select")
     ]
     
@@ -36,6 +30,10 @@ struct TabBarContenView: View {
                         .environmentObject(peppyRouter)
                         .environmentObject(loginMould)
                 case 2:
+                    PeppyAnimalFeedPage()
+                        .environmentObject(peppyRouter)
+                        .environmentObject(loginMould)
+                case 3:
                     PeppySetPage()
                         .environmentObject(peppyRouter)
                         .environmentObject(loginMould)
@@ -63,7 +61,7 @@ struct TabBarContenView: View {
                 // 加载动物
                 PeppyUserDataManager.shared.peppyGetAnimals()
                 
-                let userDetails = PeppyUserManager.PEPPYGetDancers()
+                let userDetails = PeppyUserManager.PEPPYGetUsers()
                 let allUsers = PeppyUserManager.PEPPYGetAllUsers()
                 
                 IQKeyboardManager.shared().isEnabled = true
@@ -94,6 +92,11 @@ struct TabBarContenView: View {
                         .hideBackButton()
                 case .PLAYMEDIA(let mediaMould):
                     PeppyTreeMediaPage(media: mediaMould)
+                        .environmentObject(peppyRouter)
+                        .hideBackButton()
+                case .RANKING:
+                    PeppyRankingPage()
+                        .environmentObject(loginMould)
                         .environmentObject(peppyRouter)
                         .hideBackButton()
                 }

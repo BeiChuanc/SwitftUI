@@ -1,10 +1,3 @@
-//
-//  peppyShowMeidaPage.swift
-//  Peppy
-//
-//  Created by 北川 on 2025/4/10.
-//
-
 import SwiftUI
 import Kingfisher
 import AVFoundation
@@ -88,6 +81,7 @@ struct PeppyShowMeidaPage: View {
     }
     
     func loadPeppyThumbnail() {
+        guard myMediaData.mediaType == .VIDEO else { return }
         let asset = AVAsset(url: myMediaData.mediaUrl!)
         let imageGenerator = AVAssetImageGenerator(asset: asset)
         imageGenerator.appliesPreferredTrackTransform = true

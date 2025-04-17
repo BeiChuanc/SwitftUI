@@ -1,10 +1,3 @@
-//
-//  View.swift
-//  Peppy
-//
-//  Created by 北川 on 2025/4/11.
-//
-
 import SwiftUI
 
 extension View {
