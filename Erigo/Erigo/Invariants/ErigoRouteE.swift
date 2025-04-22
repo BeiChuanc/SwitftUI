@@ -24,7 +24,9 @@ enum ERIGOROUTE: Hashable {
     
     case VSHOWCASE
     
-    case POSTDETAILS
+    case POSTDETAILS(ErigoEyeTitleM)
     
     case MESLIST
+    
+    case USERINFO(ErigoEyeUserM)
 }

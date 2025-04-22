@@ -12,11 +12,13 @@ struct ErigoChatInbox: View {
     
     @State var isJoin: Bool = false
     
+    @EnvironmentObject var router: ErigoRoute
+    
     var body: some View {
         VStack {
             HStack {
                 Button(action: { // 返回
-                    
+                    router.previous()
                 }) {
                     Image("global_back")
                 }

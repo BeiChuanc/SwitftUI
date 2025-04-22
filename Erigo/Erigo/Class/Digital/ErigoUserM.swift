@@ -57,7 +57,7 @@ struct ErigoMeidiaM: Identifiable, HandyJSON {
 }
 
 // MARK: EyeUser
-struct ErigoEyeUserM: Identifiable, HandyJSON {
+struct ErigoEyeUserM: Identifiable, Hashable, HandyJSON {
    
     var id = UUID()
     
@@ -73,13 +73,15 @@ struct ErigoEyeUserM: Identifiable, HandyJSON {
 }
 
 // MARK: 帖子数据
-struct ErigoEyeTitleM: Identifiable, HandyJSON {
+struct ErigoEyeTitleM: Identifiable, Hashable, HandyJSON {
     
     var id = UUID()
     
     var tid: Int?
     
     var bid: Int?
+    
+    var name: String?
     
     var type: Int?
     

@@ -10,25 +10,17 @@ import SwiftUI
 // MARK: 详情页
 struct ErigoDetils: View {
     
-    @State var mediaArr: [ErigoMeidiaM] = []
+    var titleModel: ErigoEyeTitleM
     
-    let colors: [Color] = [.red, .green, .blue, .yellow]
-    
-    @State var currentPage: Int = 0
-    
-    @State var colorGroup: [String] = []
-    
-    @State var viewCount: Int = 0
-    
-    @State var likeS: Int = 0
+    @EnvironmentObject var router: ErigoRoute
     
     var colorRow: Int {
         let itemsPerRow = 8
-        return Int(ceil(Double(colorGroup.count) / Double(itemsPerRow)))
+        return Int(ceil(Double((titleModel.colors ?? []).count) / Double(itemsPerRow)))
     }
     
     var colorH: CGFloat {
-        let salary = colorGroup.count / 8
+        let salary = (titleModel.colors ?? []).count / 8
         let isSingleOrNoRow = salary == 0 || salary == 1
         
         if isSingleOrNoRow {
@@ -43,24 +35,16 @@ struct ErigoDetils: View {
     var body: some View {
         ZStack {
             VStack {
-                ZStack (alignment: .bottomLeading) {
-                    TabView(selection: $currentPage) {
-                        ForEach(0..<colors.count, id: \.self) { index in
-                            colors[index]
-                                .tag(index)
-                        }
-                    }
-                    .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
-                    .onChange(of: currentPage) { newValue in }
+                ZStack (alignment: .center) {
+                    Image(titleModel.cover ?? "")
+                        .resizable()
+                        .scaledToFill()
+                        .frame(width: ERIGOSCREEN.WIDTH, height: ERIGOSCREEN.HEIGHT * 0.45)
+                    Image("btnPlay")
+                }
+                .onTapGesture { // 媒体展示页
                     
-                    ErigoDetilsIndicator(currentPage: $currentPage,
-                                         totalPages: colors.count,
-                                         selectColor: .white,
-                                         normalColor: Color(hes: "#FFFFFF", alpha: 0.4),
-                                         selectW: 24, normalW: 9, normalH: 4)
-                        .padding(.leading, 20)
-                        .padding(.bottom, 55)
-                }.frame(width: ERIGOSCREEN.WIDTH, height: ERIGOSCREEN.HEIGHT * 0.45)
+                }
                 
                 ZStack {
                     Image("title_bg")
@@ -69,12 +53,12 @@ struct ErigoDetils: View {
                     
                     VStack {
                         HStack(spacing: 15) { // 人物
-                            Image("")
+                            Image("eye_\(titleModel.bid ?? 0)")
                                 .resizable()
                                 .frame(width: 50, height: 50)
                                 .background(.white)
                                 .clipShape(RoundedRectangle(cornerRadius: 25))
-                            Text("") // 用户名
+                            Text(titleModel.name ?? "") // 用户名
                                 .font(.custom("Futura-CondensedExtraBold", size: 18))
                                 .foregroundStyle(.white)
                             Spacer()
@@ -88,7 +72,7 @@ struct ErigoDetils: View {
                         }.padding(.top, 20)
                             .padding(.horizontal, 20)
                         
-                        Text("") // 内容
+                        Text(titleModel.content ?? "") // 内容
                             .font(.custom("PingFangSC-Medium", size: 18))
                             .foregroundStyle(.white)
                             .padding(.horizontal, 20)
@@ -103,10 +87,10 @@ struct ErigoDetils: View {
                                 VStack(alignment: .leading) {
                                     ForEach(Array(0..<colorRow), id: \.self) { row in // 3行
                                         HStack(spacing: 0) {
-                                            ForEach(0..<min(8, colorGroup.count - row * 8), id: \.self) { col in // 8列
+                                            ForEach(0..<min(8, titleModel.colors!.count - row * 8), id: \.self) { col in // 8列
                                                 let index = row * 8 + col
                                                 Rectangle()
-                                                    .fill(Color(hes: colorGroup[index]))
+                                                    .fill(Color(hes: titleModel.colors![index]))
                                                     .frame(width: 30, height: 16)
                                             }
                                         }
@@ -117,13 +101,13 @@ struct ErigoDetils: View {
                             }.frame(height: colorH)
                             HStack {
                                 Image("viewU")
-                                Text("\(viewCount) views") // 浏览次数
+                                Text("\(titleModel.views ?? 0) views") // 浏览次数
                                     .font(.custom("PingFangSC-Regular", size: 13))
                                     .foregroundStyle(Color(hes: "#999999"))
                             }
                             HStack {
                                 Image("likeU")
-                                Text("\(likeS) like") // 喜欢人数
+                                Text("\(titleModel.likes ?? 0) like") // 喜欢人数
                                     .font(.custom("PingFangSC-Regular", size: 13))
                                     .foregroundStyle(Color(hes: "#999999"))
                             }
@@ -144,7 +128,7 @@ struct ErigoDetils: View {
                 Spacer()
             }
             HStack { // 返回
-                Button(action: {}) {
+                Button(action: { router.previous() }) {
                     Image("global_back")
                 }
                 Spacer()
@@ -159,14 +143,7 @@ struct ErigoDetils: View {
                 height: ERIGOSCREEN.HEIGHT)
          .ignoresSafeArea()
          .background(.black)
-         .onAppear {
-             colorGroup = []
-         }
     }
-}
-
-#Preview {
-    ErigoDetils()
 }
 
 // MARK: 指示器
@@ -213,15 +190,6 @@ struct ErigoDetilsIndicator: View {
                         .frame(width: index == currentPage ? selectW : normalW, height: normalH)
                 }
             }
-        }
-    }
-}
-
-// MARK: 媒体Item
-struct ErigoMeidiaItem: View {
-    var body: some View {
-        VStack {
-            
         }
     }
 }

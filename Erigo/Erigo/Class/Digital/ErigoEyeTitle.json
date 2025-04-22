@@ -2,6 +2,7 @@
     {
         "tid": 101,
         "bid": 1001,
+        "name": "LuminaryEcho",
         "type": 0,
         "cover": "cover_101",
         "media": "https://d3197c2qdpub41.cloudfront.net/com.eyeShadow.erigo/0ce7833fd632b81c7381eb76f0e7bb78.mp4",
@@ -13,6 +14,7 @@
     {
         "tid": 102,
         "bid": 1001,
+        "name": "LuminaryEcho",
         "type": 1,
         "cover": "cover_102",
         "media": "cover_102",
@@ -24,6 +26,7 @@
     {
         "tid": 103,
         "bid": 1001,
+        "name": "LuminaryEcho",
         "type": 1,
         "cover": "cover_103",
         "media": "cover_103",
@@ -35,6 +38,7 @@
     {
         "tid": 201,
         "bid": 1002,
+        "name": "NovaFable",
         "type": 0,
         "cover": "cover_201",
         "media": "https://d3197c2qdpub41.cloudfront.net/com.eyeShadow.erigo/92c78acc68766f4e4b79eb1101482b4d.mp4",
@@ -46,6 +50,7 @@
     {
         "tid": 202,
         "bid": 1002,
+        "name": "NovaFable",
         "type": 1,
         "cover": "cover_202",
         "media": "cover_202",
@@ -57,6 +62,7 @@
     {
         "tid": 203,
         "bid": 1002,
+        "name": "NovaFable",
         "type": 1,
         "cover": "cover_203",
         "media": "cover_203",
@@ -68,6 +74,7 @@
     {
         "tid": 301,
         "bid": 1003,
+        "name": "AuroraFrost",
         "type": 0,
         "cover": "cover_301",
         "media": "https://d3197c2qdpub41.cloudfront.net/com.eyeShadow.erigo/f7d66390f9712a6504adab9e427278b5.mp4",
@@ -80,6 +87,7 @@
     {
         "tid": 302,
         "bid": 1003,
+        "name": "AuroraFrost",
         "type": 1,
         "cover": "cover_302",
         "media": "cover_302",
@@ -91,6 +99,7 @@
     {
         "tid": 303,
         "bid": 1003,
+        "name": "AuroraFrost",
         "type": 1,
         "cover": "cover_303",
         "media": "cover_303",
@@ -102,6 +111,7 @@
     {
         "tid": 401,
         "bid": 1004,
+        "name": "SereneRift",
         "type": 0,
         "cover": "cover_401",
         "media": "https://d3197c2qdpub41.cloudfront.net/com.eyeShadow.erigo/29cf480f243aeed4f0476f85d6644a2c.mp4",
@@ -113,6 +123,7 @@
     {
         "tid": 402,
         "bid": 1004,
+        "name": "SereneRift",
         "type": 1,
         "cover": "cover_402",
         "media": "cover_402",
@@ -124,6 +135,7 @@
     {
         "tid": 403,
         "bid": 1004,
+        "name": "SereneRift",
         "type": 1,
         "cover": "cover_403",
         "media": "cover_403",
@@ -135,6 +147,7 @@
     {
         "tid": 501,
         "bid": 1005,
+        "name": "VioletWhisper",
         "type": 0,
         "cover": "cover_501",
         "media": "https://d3197c2qdpub41.cloudfront.net/com.eyeShadow.erigo/989dcf93e52b3239358228226a2783d9.mp4",
@@ -146,6 +159,7 @@
     {
         "tid": 502,
         "bid": 1005,
+        "name": "VioletWhisper",
         "type": 1,
         "cover": "cover_502",
         "media": "cover_502",
@@ -157,6 +171,7 @@
     {
         "tid": 503,
         "bid": 1005,
+        "name": "VioletWhisper",
         "type": 1,
         "cover": "cover_503",
         "media": "cover_503",
@@ -168,6 +183,7 @@
     {
         "tid": 601,
         "bid": 1006,
+        "name": "Jasper",
         "type": 0,
         "cover": "cover_601",
         "media": "https://d3197c2qdpub41.cloudfront.net/com.eyeShadow.erigo/0a7acbc193219fae33362c4e372cb5f9.mp4",
@@ -179,6 +195,7 @@
     {
         "tid": 602,
         "bid": 1006,
+        "name": "Jasper",
         "type": 1,
         "cover": "cover_602",
         "media": "cover_602",
@@ -190,6 +207,7 @@
     {
         "tid": 603,
         "bid": 1006,
+        "name": "Jasper",
         "type": 1,
         "cover": "cover_603",
         "media": "cover_603",
@@ -201,6 +219,7 @@
     {
         "tid": 701,
         "bid": 1007,
+        "name": "StrideWisp",
         "type": 0,
         "cover": "cover_701",
         "media": "https://d3197c2qdpub41.cloudfront.net/com.eyeShadow.erigo/490205a1243434d112b02e009e534675.mp4",
@@ -212,6 +231,7 @@
     {
         "tid": 702,
         "bid": 1007,
+        "name": "StrideWisp",
         "type": 1,
         "cover": "cover_702",
         "media": "cover_702",
@@ -223,6 +243,7 @@
     {
         "tid": 703,
         "bid": 1007,
+        "name": "StrideWisp",
         "type": 1,
         "cover": "cover_703",
         "media": "cover_703",
@@ -235,6 +256,7 @@
     {
         "tid": 801,
         "bid": 1008,
+        "name": "EpochShift",
         "type": 0,
         "cover": "cover_801",
         "media": "https://d3197c2qdpub41.cloudfront.net/com.eyeShadow.erigo/d9448ade09b3b09200d2f663f6257d4e.mp4",
@@ -246,6 +268,7 @@
     {
         "tid": 802,
         "bid": 1008,
+        "name": "EpochShift",
         "type": 1,
         "cover": "cover_802",
         "media": "cover_802",
@@ -257,6 +280,7 @@
     {
         "tid": 803,
         "bid": 1008,
+        "name": "EpochShift",
         "type": 1,
         "cover": "cover_803",
         "media": "cover_803",

@@ -38,6 +38,7 @@
 		04BA24422DB744A200974D48 /* ErigoMesVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BA24412DB744A200974D48 /* ErigoMesVM.swift */; };
 		04BA24442DB77B8000974D48 /* ErigoRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BA24432DB77B8000974D48 /* ErigoRoute.swift */; };
 		04D69FDD2DB791CC00B42D73 /* ErigoUserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D69FDC2DB791CC00B42D73 /* ErigoUserDefaults.swift */; };
+		902585462DB7DD89001DFDD2 /* ErigoUserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 902585452DB7DD89001DFDD2 /* ErigoUserInfo.swift */; };
 		DA1B2CB6ED4A13ACAC7CB345 /* Pods_Erigo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FB2067CE046E36D85722554 /* Pods_Erigo.framework */; };
 /* End PBXBuildFile section */
 
@@ -77,6 +78,7 @@
 		04BA24432DB77B8000974D48 /* ErigoRoute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErigoRoute.swift; sourceTree = "<group>"; };
 		04D69FDC2DB791CC00B42D73 /* ErigoUserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErigoUserDefaults.swift; sourceTree = "<group>"; };
 		0FB2067CE046E36D85722554 /* Pods_Erigo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Erigo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		902585452DB7DD89001DFDD2 /* ErigoUserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErigoUserInfo.swift; sourceTree = "<group>"; };
 		96985D7D282B17A5853A969B /* Pods-Erigo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Erigo.debug.xcconfig"; path = "Target Support Files/Pods-Erigo/Pods-Erigo.debug.xcconfig"; sourceTree = "<group>"; };
 		FA1022B586B57839E7996EB6 /* Pods-Erigo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Erigo.release.xcconfig"; path = "Target Support Files/Pods-Erigo/Pods-Erigo.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -197,6 +199,7 @@
 				04BA24352DB6222500974D48 /* ErigoDetils.swift */,
 				04BA24372DB6400100974D48 /* ErigoCreativity.swift */,
 				04BA243B2DB7282F00974D48 /* ErigoBoxDetail.swift */,
+				902585452DB7DD89001DFDD2 /* ErigoUserInfo.swift */,
 			);
 			path = Page;
 			sourceTree = "<group>";
@@ -378,6 +381,7 @@
 				04BA24072DAFA0D400974D48 /* ReButtonEffect.swift in Sources */,
 				04BA24052DAFA00D00974D48 /* ErigoTabBar.swift in Sources */,
 				04BA24012DAF9B2E00974D48 /* ErigoLoginVM.swift in Sources */,
+				902585462DB7DD89001DFDD2 /* ErigoUserInfo.swift in Sources */,
 				04BA24182DB22BE500974D48 /* ErigoEnroll.swift in Sources */,
 				04BA242E2DB5D93900974D48 /* ErigoChatGroup.swift in Sources */,
 				04BA240D2DAFB3F600974D48 /* ErigoLaunch.swift in Sources */,

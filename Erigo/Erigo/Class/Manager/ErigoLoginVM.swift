@@ -46,6 +46,7 @@ class ErigoLoginVM: ObservableObject {
     
     init() {
         ErigoGetTileList()
+        ErigoGetUserList()
         ErigoSubscription()
     }
 }
@@ -69,14 +70,40 @@ extension ErigoLoginVM {
     
     /// 获取用户帖子数据 - id
     func ErigoGetTitle(uid: Int) -> [ErigoEyeTitleM] {
-        
-        return []
+        var userTitle: [ErigoEyeTitleM] = [] // 用户帖子列表
+        let titleId = eyeUsers.first(where: { $0.uid == uid })!.title // 帖子Id列表
+        for item in eyeTitles {
+            if titleId!.contains(item.tid!) {
+                if !userTitle.contains(item) {
+                    userTitle.append(item)
+                }
+            }
+        }
+        return userTitle
     }
     
-    /// 获取帖子详情 - id
-    func ErigoGetTitleDetail(tid: Int) -> ErigoEyeTitleM {
-        
-        return ErigoEyeTitleM()
+    /// 获取用户收藏帖子数据 - id
+    func ErigoGetTitleLikes(uid: Int) -> [ErigoEyeTitleM] {
+        var userLikes: [ErigoEyeTitleM] = []
+        let likesId = eyeUsers.first(where: { $0.uid == uid })!.likes // 收藏Id列表
+        for item in eyeTitles {
+            if likesId!.contains(item.tid!) {
+                if !userLikes.contains(item) {
+                    userLikes.append(item)
+                }
+            }
+        }
+        return userLikes
+    }
+    
+    /// 获取指定用户
+    func ErigoGetAssignUser(uid: Int) -> ErigoEyeUserM {
+        for user in eyeUsers {
+            if user.uid == uid {
+                return user
+            }
+        }
+        return ErigoEyeUserM()
     }
     
     /// 获取用户信息 - id

@@ -12,11 +12,21 @@ struct ErigoCreativity: View {
     
     @State var currentPage: Int = 0
     
-    @State var users = []
-    
     @ObservedObject var LoginVM = ErigoLoginVM.shared
     
     @EnvironmentObject var router: ErigoRoute
+    
+    var leftItems: [(index: Int, element: ErigoEyeTitleM)] {
+        LoginVM.eyeTitles.enumerated()
+            .filter { $0.offset.isMultiple(of: 2) }
+            .map { (index: $0.offset, element: $0.element) }
+    }
+
+    var rightItems: [(index: Int, element: ErigoEyeTitleM)] {
+        LoginVM.eyeTitles.enumerated()
+            .filter { !$0.offset.isMultiple(of: 2) }
+            .map { (index: $0.offset, element: $0.element) }
+    }
     
     var body: some View {
         ZStack {
@@ -26,12 +36,13 @@ struct ErigoCreativity: View {
                 HStack(alignment: .top) {
                     Image("eyeShadow")
                     Button(action: { // 消息列表
-                        if LoginVM.landComplete {
-                            
-                        } else {
-                            router.naviTo(to: .LAND)
-                            print("进入消息列表 - 需要登陆")
-                        }
+//                        if LoginVM.landComplete {
+//                            router.naviTo(to: .MESLIST)
+//                        } else {
+//                            router.naviTo(to: .LAND)
+//                            print("进入消息列表 - 需要登陆")
+//                        }
+                        router.naviTo(to: .MESLIST)
                     }) {
                         Image("btnMes")
                     }
@@ -70,7 +81,8 @@ struct ErigoCreativity: View {
                 
                 HStack {
                     Spacer()
-                    Image("makeUp").offset(CGSize(width: 0, height: -35))
+                    Image("makeUp")
+                        .offset(CGSize(width: 0, height: -35))
                 }
                 
                 HStack {
@@ -78,12 +90,38 @@ struct ErigoCreativity: View {
                     Image("firtRow")
                     Spacer()
                     Image("mesStar")
-                }.padding(.horizontal, 20)
+                }
+                .padding(.horizontal, 20)
                     .offset(CGSize(width: 0, height: -35))
                 
-                // 用户列表
-                
-                Spacer()
+                VStack {
+                    // 帖子列表
+                    ScrollView(showsIndicators: false) {
+                        HStack(alignment: .top, spacing: 10) {
+                            VStack(alignment: .leading, spacing: 10) {
+                                ErigoGroupItem() // 特殊处理群组
+                                ForEach(leftItems, id: \.element.id) { item in
+                                    ErigoOtherUserItem(cover: item.element.cover!, head: "eye_\(item.element.bid!)", goTitleDetails: {
+                                        router.naviTo(to: .POSTDETAILS(item.element))
+                                    }, goUserInfo: {
+                                        router.naviTo(to: .USERINFO(LoginVM.ErigoGetAssignUser(uid: item.element.bid!)))
+                                    }).id(item.index)
+                                }
+                            }
+                            VStack {
+                                ForEach(rightItems, id: \.element.id) { item in
+                                    ErigoOtherUserItem(cover: item.element.cover!, head:"eye_\(item.element.bid!)", goTitleDetails: {
+                                        router.naviTo(to: .POSTDETAILS(item.element))
+                                    }, goUserInfo: {
+                                        router.naviTo(to: .USERINFO(LoginVM.ErigoGetAssignUser(uid: item.element.bid!)))
+                                    }).id(item.index)
+                                }
+                            }
+                        }
+                    }.offset(CGSize(width: 0, height: -40))
+                    Spacer()
+                }
+                .frame(height: ERIGOSCREEN.HEIGHT * 0.5)
             }
             .padding(EdgeInsets(top: 60, leading: 10, bottom: 0, trailing: 10))
         }
@@ -96,29 +134,51 @@ struct ErigoCreativity: View {
 // MARK: 首页群组Item
 struct ErigoGroupItem: View {
     var body: some View {
-        ZStack {
+        ZStack(alignment: .topLeading) {
             Image("first_group")
+                .resizable()
+                .scaledToFill()
+                .frame(width: (ERIGOSCREEN.WIDTH - 40) / 2, height: (ERIGOSCREEN.WIDTH - 40) / 2 * 1.12)
+            Image("leftFork")
+                .offset(CGSize(width: -10, height: -10))
         }
     }
 }
 
 // MARK: 其余用户Item
 struct ErigoOtherUserItem: View {
+    
+    var cover: String
+    
+    var head: String
+    
+    var goTitleDetails: () -> Void
+    
+    var goUserInfo: () -> Void
+    
     var body: some View {
         ZStack(alignment: .topLeading) {
-            Image("")
+            Image(cover) // cover
                 .resizable()
-                .frame(width: 161, height: 240)
+                .scaledToFill()
+                .frame(width: (ERIGOSCREEN.WIDTH - 40) / 2, height: (ERIGOSCREEN.WIDTH - 40) / 2 * 1.5)
                 .clipShape(RoundedRectangle(cornerRadius: 5))
                 .overlay(
                     RoundedRectangle(cornerRadius: 5)
                         .stroke(Color(hes: "#FBFF4A"), lineWidth: 2)
                 )
-            Image("")
+                .onTapGesture {
+                    goTitleDetails()
+                }
+            Image(head) // head
                 .resizable()
-                .frame(width: 24, height: 24)
-                .clipShape(RoundedRectangle(cornerRadius: 12))
-                .padding(EdgeInsets(top: 15, leading: 15, bottom: 0, trailing: 0))
+                .scaledToFill()
+                .frame(width: 36, height: 36)
+                .clipShape(RoundedRectangle(cornerRadius: 18))
+                .padding(EdgeInsets(top: 12, leading: 12, bottom: 0, trailing: 0))
+                .onTapGesture {
+                    goUserInfo()
+                }
         }
     }
 }

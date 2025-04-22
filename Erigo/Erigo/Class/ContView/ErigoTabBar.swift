@@ -63,8 +63,9 @@ struct ErigoTabBar: View {
                 case .DISGROUP: ErigoChatGroup().environmentObject(router).hideNavBack()
                 case .USERCENTER: ErigoPersonal().environmentObject(router).hideNavBack()
                 case .VSHOWCASE: ErigoPersonal().environmentObject(router).hideNavBack()
-                case .POSTDETAILS: ErigoDetils().environmentObject(router).hideNavBack()
+                case .POSTDETAILS(let titleModel): ErigoDetils(titleModel: titleModel).environmentObject(router).hideNavBack()
                 case .MESLIST: ErigoChatInbox().environmentObject(router).hideNavBack()
+                case .USERINFO(let userModel): ErigoUserInfo(userModel: userModel).environmentObject(router).hideNavBack()
                 }
             }
         }
