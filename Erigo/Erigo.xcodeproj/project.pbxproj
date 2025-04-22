@@ -1,0 +1,644 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		04BA23EC2DAF892200974D48 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04BA23E62DAF892200974D48 /* Preview Assets.xcassets */; };
+		04BA23ED2DAF892200974D48 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04BA23E82DAF892200974D48 /* Assets.xcassets */; };
+		04BA23EF2DAF892200974D48 /* ErigoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BA23EA2DAF892200974D48 /* ErigoApp.swift */; };
+		04BA23FA2DAF8FDF00974D48 /* ErigoInvariants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BA23F92DAF8FDF00974D48 /* ErigoInvariants.swift */; };
+		04BA23FC2DAF930B00974D48 /* ErigoRouteE.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BA23FB2DAF930B00974D48 /* ErigoRouteE.swift */; };
+		04BA24012DAF9B2E00974D48 /* ErigoLoginVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BA24002DAF9B2E00974D48 /* ErigoLoginVM.swift */; };
+		04BA24032DAF9BC800974D48 /* ErigoBaseVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BA24022DAF9BC800974D48 /* ErigoBaseVM.swift */; };
+		04BA24052DAFA00D00974D48 /* ErigoTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BA24042DAFA00D00974D48 /* ErigoTabBar.swift */; };
+		04BA24072DAFA0D400974D48 /* ReButtonEffect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BA24062DAFA0D400974D48 /* ReButtonEffect.swift */; };
+		04BA24092DAFA29700974D48 /* CustomTabBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BA24082DAFA29700974D48 /* CustomTabBarItem.swift */; };
+		04BA240B2DAFAC0500974D48 /* Expand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BA240A2DAFAC0500974D48 /* Expand.swift */; };
+		04BA240D2DAFB3F600974D48 /* ErigoLaunch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BA240C2DAFB3F600974D48 /* ErigoLaunch.swift */; };
+		04BA24142DB1ED9800974D48 /* ErigoLand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BA24132DB1ED9800974D48 /* ErigoLand.swift */; };
+		04BA24162DB2011D00974D48 /* ErigoItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BA24152DB2011D00974D48 /* ErigoItem.swift */; };
+		04BA24182DB22BE500974D48 /* ErigoEnroll.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BA24172DB22BE500974D48 /* ErigoEnroll.swift */; };
+		04BA24202DB23A2B00974D48 /* ErigoSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BA241F2DB23A2B00974D48 /* ErigoSet.swift */; };
+		04BA24242DB2466F00974D48 /* ErigoChatSingle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BA24232DB2466F00974D48 /* ErigoChatSingle.swift */; };
+		04BA242A2DB5D5DA00974D48 /* ErigoUserM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BA24292DB5D5DA00974D48 /* ErigoUserM.swift */; };
+		04BA242E2DB5D93900974D48 /* ErigoChatGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BA242D2DB5D93900974D48 /* ErigoChatGroup.swift */; };
+		04BA24302DB5E7A000974D48 /* ErigoPersonal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BA242F2DB5E7A000974D48 /* ErigoPersonal.swift */; };
+		04BA24322DB5F11500974D48 /* ErigoChatInbox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BA24312DB5F11500974D48 /* ErigoChatInbox.swift */; };
+		04BA24342DB5F5EE00974D48 /* ErigoPublish.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BA24332DB5F5EE00974D48 /* ErigoPublish.swift */; };
+		04BA24362DB6222500974D48 /* ErigoDetils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BA24352DB6222500974D48 /* ErigoDetils.swift */; };
+		04BA24382DB6400100974D48 /* ErigoCreativity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BA24372DB6400100974D48 /* ErigoCreativity.swift */; };
+		04BA243A2DB7277600974D48 /* ErigoChatM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BA24392DB7277600974D48 /* ErigoChatM.swift */; };
+		04BA243C2DB7282F00974D48 /* ErigoBoxDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BA243B2DB7282F00974D48 /* ErigoBoxDetail.swift */; };
+		04BA243E2DB73A5600974D48 /* ErigoEyeUser.json in Resources */ = {isa = PBXBuildFile; fileRef = 04BA243D2DB73A5600974D48 /* ErigoEyeUser.json */; };
+		04BA24402DB73F7200974D48 /* ErigoEyeTitle.json in Resources */ = {isa = PBXBuildFile; fileRef = 04BA243F2DB73F7200974D48 /* ErigoEyeTitle.json */; };
+		04BA24422DB744A200974D48 /* ErigoMesVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BA24412DB744A200974D48 /* ErigoMesVM.swift */; };
+		04BA24442DB77B8000974D48 /* ErigoRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BA24432DB77B8000974D48 /* ErigoRoute.swift */; };
+		04D69FDD2DB791CC00B42D73 /* ErigoUserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D69FDC2DB791CC00B42D73 /* ErigoUserDefaults.swift */; };
+		DA1B2CB6ED4A13ACAC7CB345 /* Pods_Erigo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FB2067CE046E36D85722554 /* Pods_Erigo.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		04BA23D52DAF891500974D48 /* Erigo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Erigo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		04BA23E62DAF892200974D48 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		04BA23E82DAF892200974D48 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		04BA23EA2DAF892200974D48 /* ErigoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErigoApp.swift; sourceTree = "<group>"; };
+		04BA23F32DAF89B800974D48 /* Erigo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Erigo.entitlements; sourceTree = "<group>"; };
+		04BA23F82DAF8F2300974D48 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		04BA23F92DAF8FDF00974D48 /* ErigoInvariants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErigoInvariants.swift; sourceTree = "<group>"; };
+		04BA23FB2DAF930B00974D48 /* ErigoRouteE.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErigoRouteE.swift; sourceTree = "<group>"; };
+		04BA24002DAF9B2E00974D48 /* ErigoLoginVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErigoLoginVM.swift; sourceTree = "<group>"; };
+		04BA24022DAF9BC800974D48 /* ErigoBaseVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErigoBaseVM.swift; sourceTree = "<group>"; };
+		04BA24042DAFA00D00974D48 /* ErigoTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErigoTabBar.swift; sourceTree = "<group>"; };
+		04BA24062DAFA0D400974D48 /* ReButtonEffect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReButtonEffect.swift; sourceTree = "<group>"; };
+		04BA24082DAFA29700974D48 /* CustomTabBarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBarItem.swift; sourceTree = "<group>"; };
+		04BA240A2DAFAC0500974D48 /* Expand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Expand.swift; sourceTree = "<group>"; };
+		04BA240C2DAFB3F600974D48 /* ErigoLaunch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErigoLaunch.swift; sourceTree = "<group>"; };
+		04BA24132DB1ED9800974D48 /* ErigoLand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErigoLand.swift; sourceTree = "<group>"; };
+		04BA24152DB2011D00974D48 /* ErigoItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErigoItem.swift; sourceTree = "<group>"; };
+		04BA24172DB22BE500974D48 /* ErigoEnroll.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErigoEnroll.swift; sourceTree = "<group>"; };
+		04BA241F2DB23A2B00974D48 /* ErigoSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErigoSet.swift; sourceTree = "<group>"; };
+		04BA24232DB2466F00974D48 /* ErigoChatSingle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErigoChatSingle.swift; sourceTree = "<group>"; };
+		04BA24292DB5D5DA00974D48 /* ErigoUserM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErigoUserM.swift; sourceTree = "<group>"; };
+		04BA242D2DB5D93900974D48 /* ErigoChatGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErigoChatGroup.swift; sourceTree = "<group>"; };
+		04BA242F2DB5E7A000974D48 /* ErigoPersonal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErigoPersonal.swift; sourceTree = "<group>"; };
+		04BA24312DB5F11500974D48 /* ErigoChatInbox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErigoChatInbox.swift; sourceTree = "<group>"; };
+		04BA24332DB5F5EE00974D48 /* ErigoPublish.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErigoPublish.swift; sourceTree = "<group>"; };
+		04BA24352DB6222500974D48 /* ErigoDetils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErigoDetils.swift; sourceTree = "<group>"; };
+		04BA24372DB6400100974D48 /* ErigoCreativity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErigoCreativity.swift; sourceTree = "<group>"; };
+		04BA24392DB7277600974D48 /* ErigoChatM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErigoChatM.swift; sourceTree = "<group>"; };
+		04BA243B2DB7282F00974D48 /* ErigoBoxDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErigoBoxDetail.swift; sourceTree = "<group>"; };
+		04BA243D2DB73A5600974D48 /* ErigoEyeUser.json */ = {isa = PBXFileReference; explicitFileType = text.json; path = ErigoEyeUser.json; sourceTree = "<group>"; };
+		04BA243F2DB73F7200974D48 /* ErigoEyeTitle.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = ErigoEyeTitle.json; sourceTree = "<group>"; };
+		04BA24412DB744A200974D48 /* ErigoMesVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErigoMesVM.swift; sourceTree = "<group>"; };
+		04BA24432DB77B8000974D48 /* ErigoRoute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErigoRoute.swift; sourceTree = "<group>"; };
+		04D69FDC2DB791CC00B42D73 /* ErigoUserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErigoUserDefaults.swift; sourceTree = "<group>"; };
+		0FB2067CE046E36D85722554 /* Pods_Erigo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Erigo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		96985D7D282B17A5853A969B /* Pods-Erigo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Erigo.debug.xcconfig"; path = "Target Support Files/Pods-Erigo/Pods-Erigo.debug.xcconfig"; sourceTree = "<group>"; };
+		FA1022B586B57839E7996EB6 /* Pods-Erigo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Erigo.release.xcconfig"; path = "Target Support Files/Pods-Erigo/Pods-Erigo.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		04BA23D22DAF891500974D48 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DA1B2CB6ED4A13ACAC7CB345 /* Pods_Erigo.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		04BA23CC2DAF891500974D48 = {
+			isa = PBXGroup;
+			children = (
+				04BA23EB2DAF892200974D48 /* Erigo */,
+				04BA23D62DAF891500974D48 /* Products */,
+				727E7F450D082282F280F298 /* Pods */,
+				DC99C09C3619103AACF01441 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		04BA23D62DAF891500974D48 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				04BA23D52DAF891500974D48 /* Erigo.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		04BA23E72DAF892200974D48 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				04BA23E62DAF892200974D48 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		04BA23EB2DAF892200974D48 /* Erigo */ = {
+			isa = PBXGroup;
+			children = (
+				04BA23F82DAF8F2300974D48 /* Info.plist */,
+				04BA23E72DAF892200974D48 /* Preview Content */,
+				04BA23F42DAF8A4D00974D48 /* Class */,
+				04BA23F22DAF89A100974D48 /* Invariants */,
+				04BA23F12DAF899200974D48 /* Component */,
+				04BA23F02DAF898A00974D48 /* Tools */,
+				04BA23F32DAF89B800974D48 /* Erigo.entitlements */,
+				04BA23E82DAF892200974D48 /* Assets.xcassets */,
+				04BA23EA2DAF892200974D48 /* ErigoApp.swift */,
+			);
+			path = Erigo;
+			sourceTree = "<group>";
+		};
+		04BA23F02DAF898A00974D48 /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+				04BA240A2DAFAC0500974D48 /* Expand.swift */,
+			);
+			path = Tools;
+			sourceTree = "<group>";
+		};
+		04BA23F12DAF899200974D48 /* Component */ = {
+			isa = PBXGroup;
+			children = (
+				04BA24062DAFA0D400974D48 /* ReButtonEffect.swift */,
+				04BA24082DAFA29700974D48 /* CustomTabBarItem.swift */,
+			);
+			path = Component;
+			sourceTree = "<group>";
+		};
+		04BA23F22DAF89A100974D48 /* Invariants */ = {
+			isa = PBXGroup;
+			children = (
+				04BA23F92DAF8FDF00974D48 /* ErigoInvariants.swift */,
+				04BA23FB2DAF930B00974D48 /* ErigoRouteE.swift */,
+			);
+			path = Invariants;
+			sourceTree = "<group>";
+		};
+		04BA23F42DAF8A4D00974D48 /* Class */ = {
+			isa = PBXGroup;
+			children = (
+				04BA23F62DAF8BEC00974D48 /* Page */,
+				04BA23F72DAF8BF300974D48 /* ViewRep */,
+				04BA23F52DAF8BC800974D48 /* ContView */,
+				04BA23FF2DAF9AED00974D48 /* Digital */,
+				04BA23FD2DAF9AC100974D48 /* Manager */,
+			);
+			path = Class;
+			sourceTree = "<group>";
+		};
+		04BA23F52DAF8BC800974D48 /* ContView */ = {
+			isa = PBXGroup;
+			children = (
+				04BA24042DAFA00D00974D48 /* ErigoTabBar.swift */,
+				04BA240C2DAFB3F600974D48 /* ErigoLaunch.swift */,
+				04BA24152DB2011D00974D48 /* ErigoItem.swift */,
+			);
+			path = ContView;
+			sourceTree = "<group>";
+		};
+		04BA23F62DAF8BEC00974D48 /* Page */ = {
+			isa = PBXGroup;
+			children = (
+				04BA241F2DB23A2B00974D48 /* ErigoSet.swift */,
+				04BA24132DB1ED9800974D48 /* ErigoLand.swift */,
+				04BA24172DB22BE500974D48 /* ErigoEnroll.swift */,
+				04BA24232DB2466F00974D48 /* ErigoChatSingle.swift */,
+				04BA242D2DB5D93900974D48 /* ErigoChatGroup.swift */,
+				04BA242F2DB5E7A000974D48 /* ErigoPersonal.swift */,
+				04BA24312DB5F11500974D48 /* ErigoChatInbox.swift */,
+				04BA24332DB5F5EE00974D48 /* ErigoPublish.swift */,
+				04BA24352DB6222500974D48 /* ErigoDetils.swift */,
+				04BA24372DB6400100974D48 /* ErigoCreativity.swift */,
+				04BA243B2DB7282F00974D48 /* ErigoBoxDetail.swift */,
+			);
+			path = Page;
+			sourceTree = "<group>";
+		};
+		04BA23F72DAF8BF300974D48 /* ViewRep */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewRep;
+			sourceTree = "<group>";
+		};
+		04BA23FD2DAF9AC100974D48 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				04BA24002DAF9B2E00974D48 /* ErigoLoginVM.swift */,
+				04BA24022DAF9BC800974D48 /* ErigoBaseVM.swift */,
+				04BA24412DB744A200974D48 /* ErigoMesVM.swift */,
+				04BA24432DB77B8000974D48 /* ErigoRoute.swift */,
+				04D69FDC2DB791CC00B42D73 /* ErigoUserDefaults.swift */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		04BA23FF2DAF9AED00974D48 /* Digital */ = {
+			isa = PBXGroup;
+			children = (
+				04BA243D2DB73A5600974D48 /* ErigoEyeUser.json */,
+				04BA243F2DB73F7200974D48 /* ErigoEyeTitle.json */,
+				04BA24292DB5D5DA00974D48 /* ErigoUserM.swift */,
+				04BA24392DB7277600974D48 /* ErigoChatM.swift */,
+			);
+			path = Digital;
+			sourceTree = "<group>";
+		};
+		727E7F450D082282F280F298 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				96985D7D282B17A5853A969B /* Pods-Erigo.debug.xcconfig */,
+				FA1022B586B57839E7996EB6 /* Pods-Erigo.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		DC99C09C3619103AACF01441 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0FB2067CE046E36D85722554 /* Pods_Erigo.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		04BA23D42DAF891500974D48 /* Erigo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 04BA23E32DAF891600974D48 /* Build configuration list for PBXNativeTarget "Erigo" */;
+			buildPhases = (
+				97474897D16B20AB72BDA4E8 /* [CP] Check Pods Manifest.lock */,
+				04BA23D12DAF891500974D48 /* Sources */,
+				04BA23D22DAF891500974D48 /* Frameworks */,
+				04BA23D32DAF891500974D48 /* Resources */,
+				9A278D37ACE1CFDC50C5AF74 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Erigo;
+			productName = Erigo;
+			productReference = 04BA23D52DAF891500974D48 /* Erigo.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		04BA23CD2DAF891500974D48 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1620;
+				LastUpgradeCheck = 1620;
+				TargetAttributes = {
+					04BA23D42DAF891500974D48 = {
+						CreatedOnToolsVersion = 16.2;
+					};
+				};
+			};
+			buildConfigurationList = 04BA23D02DAF891500974D48 /* Build configuration list for PBXProject "Erigo" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 04BA23CC2DAF891500974D48;
+			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+			);
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 04BA23D62DAF891500974D48 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				04BA23D42DAF891500974D48 /* Erigo */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		04BA23D32DAF891500974D48 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				04BA23EC2DAF892200974D48 /* Preview Assets.xcassets in Resources */,
+				04BA24402DB73F7200974D48 /* ErigoEyeTitle.json in Resources */,
+				04BA243E2DB73A5600974D48 /* ErigoEyeUser.json in Resources */,
+				04BA23ED2DAF892200974D48 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		97474897D16B20AB72BDA4E8 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Erigo-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9A278D37ACE1CFDC50C5AF74 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Erigo/Pods-Erigo-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Erigo/Pods-Erigo-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Erigo/Pods-Erigo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		04BA23D12DAF891500974D48 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				04BA23EF2DAF892200974D48 /* ErigoApp.swift in Sources */,
+				04BA23FA2DAF8FDF00974D48 /* ErigoInvariants.swift in Sources */,
+				04BA242A2DB5D5DA00974D48 /* ErigoUserM.swift in Sources */,
+				04BA24342DB5F5EE00974D48 /* ErigoPublish.swift in Sources */,
+				04BA24302DB5E7A000974D48 /* ErigoPersonal.swift in Sources */,
+				04D69FDD2DB791CC00B42D73 /* ErigoUserDefaults.swift in Sources */,
+				04BA24422DB744A200974D48 /* ErigoMesVM.swift in Sources */,
+				04BA243A2DB7277600974D48 /* ErigoChatM.swift in Sources */,
+				04BA24072DAFA0D400974D48 /* ReButtonEffect.swift in Sources */,
+				04BA24052DAFA00D00974D48 /* ErigoTabBar.swift in Sources */,
+				04BA24012DAF9B2E00974D48 /* ErigoLoginVM.swift in Sources */,
+				04BA24182DB22BE500974D48 /* ErigoEnroll.swift in Sources */,
+				04BA242E2DB5D93900974D48 /* ErigoChatGroup.swift in Sources */,
+				04BA240D2DAFB3F600974D48 /* ErigoLaunch.swift in Sources */,
+				04BA243C2DB7282F00974D48 /* ErigoBoxDetail.swift in Sources */,
+				04BA24242DB2466F00974D48 /* ErigoChatSingle.swift in Sources */,
+				04BA24142DB1ED9800974D48 /* ErigoLand.swift in Sources */,
+				04BA24382DB6400100974D48 /* ErigoCreativity.swift in Sources */,
+				04BA23FC2DAF930B00974D48 /* ErigoRouteE.swift in Sources */,
+				04BA24032DAF9BC800974D48 /* ErigoBaseVM.swift in Sources */,
+				04BA240B2DAFAC0500974D48 /* Expand.swift in Sources */,
+				04BA24362DB6222500974D48 /* ErigoDetils.swift in Sources */,
+				04BA24202DB23A2B00974D48 /* ErigoSet.swift in Sources */,
+				04BA24442DB77B8000974D48 /* ErigoRoute.swift in Sources */,
+				04BA24322DB5F11500974D48 /* ErigoChatInbox.swift in Sources */,
+				04BA24092DAFA29700974D48 /* CustomTabBarItem.swift in Sources */,
+				04BA24162DB2011D00974D48 /* ErigoItem.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		04BA23E12DAF891600974D48 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		04BA23E22DAF891600974D48 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		04BA23E42DAF891600974D48 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 96985D7D282B17A5853A969B /* Pods-Erigo.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Erigo/Erigo.entitlements;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Erigo/Preview Content\"";
+				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = WL2W2PCY46;
+				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Erigo/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "Erigo needs your consent to access the camera to shoot personal works/personal portraits. If prohibited, you will not be able to take photos or update information.";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Erigo requires your consent to obtain location information when using it in order to upload photos or update avatars. If prohibited, you will not be able to publish works/update avatars.";
+				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "Erigo requires your consent to obtain location information when using it in order to upload photos or update avatars. If prohibited, you will not be able to publish works/update avatars.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Erigo requires your consent to obtain location information when using it in order to upload photos or update avatars. If prohibited, you will not be able to publish works/update avatars.";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Erigo needs your permission to access the microphone. If blocked, you will not be able to send audio messages to users.";
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "Erigo needs your consent to access the album in order to save the work. If it is prohibited, you will not be able to save your work to the album.";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Erigo needs your consent to access the album to select photos to upload/publish works/update avatars. If prohibited, you will not be able to upload selected photos to upload/publish works/update avatars.";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.chengdu.test;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = chengdu_developer;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		04BA23E52DAF891600974D48 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = FA1022B586B57839E7996EB6 /* Pods-Erigo.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Erigo/Erigo.entitlements;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Erigo/Preview Content\"";
+				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = WL2W2PCY46;
+				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Erigo/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "Erigo needs your consent to access the camera to shoot personal works/personal portraits. If prohibited, you will not be able to take photos or update information.";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Erigo requires your consent to obtain location information when using it in order to upload photos or update avatars. If prohibited, you will not be able to publish works/update avatars.";
+				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "Erigo requires your consent to obtain location information when using it in order to upload photos or update avatars. If prohibited, you will not be able to publish works/update avatars.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Erigo requires your consent to obtain location information when using it in order to upload photos or update avatars. If prohibited, you will not be able to publish works/update avatars.";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Erigo needs your permission to access the microphone. If blocked, you will not be able to send audio messages to users.";
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "Erigo needs your consent to access the album in order to save the work. If it is prohibited, you will not be able to save your work to the album.";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Erigo needs your consent to access the album to select photos to upload/publish works/update avatars. If prohibited, you will not be able to upload selected photos to upload/publish works/update avatars.";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.chengdu.test;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = chengdu_developer;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		04BA23D02DAF891500974D48 /* Build configuration list for PBXProject "Erigo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				04BA23E12DAF891600974D48 /* Debug */,
+				04BA23E22DAF891600974D48 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		04BA23E32DAF891600974D48 /* Build configuration list for PBXNativeTarget "Erigo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				04BA23E42DAF891600974D48 /* Debug */,
+				04BA23E52DAF891600974D48 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 04BA23CD2DAF891500974D48 /* Project object */;
+}
