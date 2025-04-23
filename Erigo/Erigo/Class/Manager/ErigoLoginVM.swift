@@ -8,6 +8,7 @@
 import Foundation
 import HandyJSON
 import Combine
+import SwiftUICore
 
 /**
  帖子用户一视频2图片: 创建用户时对数据进行绑定： 1帖子id 2浏览数
@@ -23,7 +24,6 @@ import Combine
  8.https://d3197c2qdpub41.cloudfront.net/com.eyeShadow.erigo/8451c322f2490655d308ae7093780a4a.mp4
  
  */
-
 
 // MARK: 登陆
 class ErigoLoginVM: ObservableObject {
@@ -96,6 +96,12 @@ extension ErigoLoginVM {
         return userLikes
     }
     
+    /// 获取用户浏览帖子次数 - id >> 读取用户ErigoUserM -> views
+    func ErigoGetViews(tid: Int) -> Int {
+        
+        return 0
+    }
+    
     /// 获取指定用户
     func ErigoGetAssignUser(uid: Int) -> ErigoEyeUserM {
         for user in eyeUsers {
@@ -104,11 +110,6 @@ extension ErigoLoginVM {
             }
         }
         return ErigoEyeUserM()
-    }
-    
-    /// 获取用户信息 - id
-    func ErigoGetUserInfo(uid: Int) {
-
     }
     
     /// 获取用户列表
@@ -161,5 +162,67 @@ extension ErigoLoginVM {
                 }
             }
            .store(in: &cancellables)
+    }
+    
+    /// 转Data
+    func encode<T: Codable>(modelJson: T) -> Data? {
+        do {
+            let jsonData = try JSONEncoder().encode(modelJson)
+            return jsonData
+        } catch {
+            return nil
+        }
+    }
+    
+    /// 登陆
+    func ErigoLoginAcc(email: String, pwd: String, complete: @escaping (_ statu: ERIGOSTATUS) -> Void) {
+        if ErigoUserDefaults.ErigoMatchACP(email: email, userPwd: pwd) {
+            ErigoLoginVM.shared.landComplete = true
+            complete(.LOAD)
+        } else {
+            if email == "111111" { // eshadow@gmail.com / 123456
+                if pwd == "123456" {
+                    ErigoGenUser(email: email, pwd: pwd, appleLogin: false)
+                    ErigoLoginVM.shared.landComplete = true
+                    complete(.LOAD)
+                } else { // 失败
+                    complete(.FAIL)
+                }
+            }
+        }
+    }
+    
+    /// 注册
+    func ErigoRnrollAcc(email: String, pwd: String, complete: @escaping () -> Void) {
+        ErigoGenUser(email: email, pwd: pwd, appleLogin: false)
+        complete()
+    }
+    
+    /// 苹果登陆
+    func ErigoAppleLogin(email: String, complete: @escaping () -> Void) {
+        ErigoGenUser(email: email, pwd: "123456", appleLogin: true)
+        complete()
+    }
+    
+    /// 生成用户数据
+    func ErigoGenUser(email: String, pwd: String, appleLogin: Bool) {
+        ErigoUserDefaults.ErigoSaveLogin(email: email, pwd: pwd)
+        ErigoUserDefaults.ErigoSaveNowAcc(email: email)
+        
+        let userModel = ErigoUserM()
+        userModel.uerId = appleLogin ? 1000 : 2000
+        userModel.head = "head_de"
+        userModel.name = "Erigo"
+        userModel.album = []
+        userModel.likes = []
+        userModel.report = []
+        userModel.views = []
+        userModel.isJoin = false
+        
+        guard let userJson = userModel.toJSONString() else { return }
+        let userData = userJson.data(using: .utf8)
+        ErigoUserDefaults.ErigoSaveDetails(email: email, details: userData!)
+        ErigoMesAndPubVM.ErigoDeleteMyM(myMPath: "Erigo_\(appleLogin ? 1000 : 2000)")
+        ErigoMesAndPubVM.shared.ErigoDelMesFile()
     }
 }

@@ -141,7 +141,3 @@ struct ErigoPublish: View {
          .background(.black)
     }
 }
-
-#Preview {
-    ErigoPublish()
-}

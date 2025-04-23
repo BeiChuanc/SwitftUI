@@ -36,6 +36,16 @@ enum ERIGOREPORTTYPE: Int {
     case TITLE
 }
 
+// MARK: 状态
+enum ERIGOSTATUS {
+    
+    case LOAD
+    
+    case COMPLETE
+    
+    case FAIL
+}
+
 // MARK: 协议
 enum ERIGOLINK {
     

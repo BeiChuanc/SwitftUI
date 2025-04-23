@@ -34,19 +34,20 @@ struct ErigoCreativity: View {
                 .resizable()
             VStack {
                 HStack(alignment: .top) {
+                    Spacer()
                     Image("eyeShadow")
+                    Spacer()
                     Button(action: { // 消息列表
-//                        if LoginVM.landComplete {
-//                            router.naviTo(to: .MESLIST)
-//                        } else {
-//                            router.naviTo(to: .LAND)
-//                            print("进入消息列表 - 需要登陆")
-//                        }
-                        router.naviTo(to: .MESLIST)
+                        if LoginVM.landComplete {
+                            router.naviTo(to: .MESLIST)
+                        } else {
+                            router.naviTo(to: .LAND)
+                            print("进入消息列表 - 需要登陆")
+                        }
                     }) {
                         Image("btnMes")
-                    }
-                }
+                    }.padding(.trailing, 20)
+                }.padding(.top, 50)
                 
                 ZStack(alignment: .center) {
                     Image("scroll_bg")
@@ -121,7 +122,7 @@ struct ErigoCreativity: View {
                     }.offset(CGSize(width: 0, height: -40))
                     Spacer()
                 }
-                .frame(height: ERIGOSCREEN.HEIGHT * 0.5)
+                .frame(height: ERIGOSCREEN.HEIGHT * 0.53)
             }
             .padding(EdgeInsets(top: 60, leading: 10, bottom: 0, trailing: 10))
         }

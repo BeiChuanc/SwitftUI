@@ -10,7 +10,11 @@ import SwiftUI
 // MARK: 单人聊天
 struct ErigoChatSingle: View {
     
+    var chatUser: ErigoEyeUserM
+    
     @State var chatMes: String = ""
+    
+    @EnvironmentObject var router: ErigoRoute
     
     var body: some View {
         ZStack {
@@ -20,7 +24,7 @@ struct ErigoChatSingle: View {
                        height: ERIGOSCREEN.HEIGHT * 0.7)
             VStack {
                 HStack { // 返回 & 举报
-                    Button(action: {}) {
+                    Button(action: { router.previous() }) {
                         Image("global_back")
                     }
                     Text("") // 对话者
@@ -70,10 +74,14 @@ struct ErigoChatSingle: View {
         .ignoresSafeArea()
         .background(.black)
     }
-}
-
-#Preview {
-    ErigoChatSingle()
+    
+    /// 聊天时间
+    func ErigoCurChatTime() -> String {
+        let chatDate = Date()
+        let matter = DateFormatter()
+        matter.dateFormat = "hh:mm"
+        return matter.string(from: chatDate)
+    }
 }
 
 // MARK: 聊天Item

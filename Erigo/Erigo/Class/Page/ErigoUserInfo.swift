@@ -14,6 +14,8 @@ struct ErigoUserInfo: View {
     
     @State var titleAndLike: [ErigoEyeTitleM] = []
     
+    @ObservedObject var LoginVM = ErigoLoginVM.shared
+    
     @EnvironmentObject var router: ErigoRoute
     
     var body: some View {
@@ -57,8 +59,15 @@ struct ErigoUserInfo: View {
                     Spacer()
                 }
                 Spacer()
-                Button(action: {
-                    
+                Button(action: { // 个人聊天
+                    if LoginVM.landComplete {
+                        router.previous()
+                        DispatchQueue.main.async {
+                            router.naviTo(to: .SINGLECHAT(userModel))
+                        }
+                    } else {
+                        router.naviTo(to: .LAND)
+                    }
                 }) { Image("userInfoMes") }
                     .padding(.top, 45)
             }

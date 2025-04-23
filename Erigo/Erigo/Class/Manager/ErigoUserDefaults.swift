@@ -131,6 +131,7 @@ class ErigoUserDefaults {
         let noewAcc = ErigoAvNowAcc()
         userNow = erigo(userNow)
         guard let jsonString = userNow.toJSONString() else { return }
+        print("当前修改用户的Json:\(jsonString)")
         let encodedData = jsonString.data(using: .utf8)
         ErigoSaveDetails(email: noewAcc, details: encodedData!)
     }

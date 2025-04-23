@@ -74,8 +74,12 @@ struct ErigoChatGroup: View {
         .ignoresSafeArea()
         .background(.black)
     }
-}
-
-#Preview {
-    ErigoChatGroup()
+    
+    /// 聊天时间
+    func ErigoCurChatTime() -> String {
+        let chatDate = Date()
+        let matter = DateFormatter()
+        matter.dateFormat = "hh:mm"
+        return matter.string(from: chatDate)
+    }
 }

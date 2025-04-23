@@ -52,6 +52,14 @@ struct ErigoTabBar: View {
             .onAppear {
                 IQKeyboardManager.shared().isEnabled = true
                 IQKeyboardManager.shared().shouldResignOnTouchOutside = true
+                
+                let userNow = ErigoUserDefaults.ErigoAvUsersDetails()
+                let users = ErigoUserDefaults.ErigoAvUsers()
+                let usersD = ErigoUserDefaults.ErigoAvNowUser()
+                
+                print("所有用户: \(users)")
+                print("所有用户信息: \(userNow)")
+                print("当前用户信息: \(usersD)")
             }
             
             .navigationDestination(for: ERIGOROUTE.self) { route in
@@ -59,7 +67,7 @@ struct ErigoTabBar: View {
                 case .LAND: ErigoLand().environmentObject(router).hideNavBack()
                 case .ENROLL: ErigoEnroll().environmentObject(router).hideNavBack()
                 case .SETTING: ErigoSet().environmentObject(router).hideNavBack()
-                case .SINGLECHAT: ErigoChatSingle().environmentObject(router).hideNavBack()
+                case .SINGLECHAT(let userModel): ErigoChatSingle(chatUser: userModel).environmentObject(router).hideNavBack()
                 case .DISGROUP: ErigoChatGroup().environmentObject(router).hideNavBack()
                 case .USERCENTER: ErigoPersonal().environmentObject(router).hideNavBack()
                 case .VSHOWCASE: ErigoPersonal().environmentObject(router).hideNavBack()
@@ -69,5 +77,14 @@ struct ErigoTabBar: View {
                 }
             }
         }
+    }
+}
+
+// MARK: 过渡页
+struct ErigoLaunch: View {
+    var body: some View {
+        ZStack {
+            Image("launch").resizable()
+        }.ignoresSafeArea()
     }
 }

@@ -16,7 +16,7 @@ enum ERIGOROUTE: Hashable {
     
     case SETTING
     
-    case SINGLECHAT
+    case SINGLECHAT(ErigoEyeUserM)
     
     case DISGROUP
     

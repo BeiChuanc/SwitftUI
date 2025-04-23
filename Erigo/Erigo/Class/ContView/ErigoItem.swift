@@ -221,3 +221,12 @@ struct HideNavBack: ViewModifier {
             .navigationBarBackButtonHidden()
     }
 }
+
+// MARK: 消除按钮点击效果
+struct ReButtonEffect: ButtonStyle {
+    func makeBody(configuration: Configuration) -> some View {
+        configuration.label
+           .foregroundStyle(.primary)
+           .background(Color.clear)
+    }
+}

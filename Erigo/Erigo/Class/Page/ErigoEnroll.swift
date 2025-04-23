@@ -28,9 +28,16 @@ struct ErigoEnroll: View {
     
     var body: some View {
         VStack {
-            Image("login_bg") // 背景
-                .resizable()
-                .frame(height: ERIGOSCREEN.HEIGHT * 0.35)
+            ZStack(alignment: .topTrailing) {
+                Image("login_bg") // 背景
+                    .resizable()
+                    .frame(height: ERIGOSCREEN.HEIGHT * 0.35)
+                Button(action: { router.previous() }) {
+                    Image("btnBack")
+                        .resizable()
+                        .frame(width: 30, height: 30)
+                }.padding(EdgeInsets(top: 50, leading: 0, bottom: 0, trailing: 30))
+            }
             
             VStack { // 登陆表单
                 VStack {
@@ -79,10 +86,10 @@ struct ErigoEnroll: View {
                     .padding(.horizontal, 40)
                 
                 HStack {
-                    Text("Don't have an account yet? Go")
+                    Text("Already have an account. Go")
                         .font(.custom("PingFang SC", size: 12))
                         .foregroundStyle(Color(hes: "#111111"))
-                    Button(action: { router.previous() }) { // 注册
+                    Button(action: { router.previous() }) { // 登入
                         Text("log in")
                             .font(.custom("PingFang SC", size: 14))
                             .foregroundStyle(Color(hes: "#FC6765"))
@@ -93,8 +100,22 @@ struct ErigoEnroll: View {
                 .padding(.top, 15)
                 
                 Button(action: {
+                    guard !loginName.isEmpty else { isName = true
+                        return }
                     
+                    guard !loginPwd.isEmpty else { isPwd = true
+                        return }
                     
+                    guard !loginPwdConfirm.isEmpty else { isConfirm = true
+                        return }
+                    
+                    guard loginPwd == loginPwdConfirm else {
+                        return }
+                    
+                    ErigoLoginVM.shared.ErigoRnrollAcc(email: loginName, pwd: loginPwd) {
+                        ErigoLoginVM.shared.landComplete = true
+                        router.previousRoot()
+                    }
                     
                 }) { // 账号验证登陆
                     Image("btnLand")
@@ -119,8 +140,4 @@ struct ErigoEnroll: View {
             Spacer()
         }.ignoresSafeArea()
     }
-}
-
-#Preview {
-    ErigoEnroll()
 }

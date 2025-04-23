@@ -6,15 +6,20 @@
 //
 
 import SwiftUI
+import Kingfisher
 
 // MARK: 个人主页
 struct ErigoPersonal: View {
     
-    @State var albumCount: Int = 1
-    
     @State var loginUser = ErigoUserM()
     
-    @State var isVisible: Bool = false
+    @State var isAlbum: Bool = true
+    
+    @State var headUrl: URL? = nil
+    
+    @ObservedObject var loginM = ErigoLoginVM.shared
+    
+    @EnvironmentObject var router: ErigoRoute
     
     var body: some View {
         VStack {
@@ -27,22 +32,49 @@ struct ErigoPersonal: View {
                     Image("per_bg")
                     Spacer()
                     Button(action: { // 设置
-                        
+                        router.naviTo(to: .SETTING)
                     }) { Image("btnSetting") }
                 }
                 .padding(.horizontal, 20)
             }
             
             HStack {
-                Image("") // 头像
-                    .resizable()
-                    .frame(width: 70, height: 70)
-                    .clipShape(RoundedRectangle(cornerRadius: 35))
-                    .overlay(
-                        RoundedRectangle(cornerRadius: 35)
-                            .stroke(.black, lineWidth: 1)
-                    )
-                Text("") // 昵称
+                if loginM.landComplete {
+                    if let head = loginUser.head {
+                        if head == "head_de" {
+                            Image("head_de")
+                                .resizable()
+                                .scaledToFill()
+                                .frame(width: 70, height: 70)
+                                .clipShape(RoundedRectangle(cornerRadius: 35))
+                                .overlay(
+                                    RoundedRectangle(cornerRadius: 35)
+                                        .stroke(.black, lineWidth: 1)
+                                )
+                        } else {
+                            KFImage(headUrl)
+                                .resizable()
+                                .scaledToFill()
+                                .frame(width: 70, height: 70)
+                                .clipShape(RoundedRectangle(cornerRadius: 35))
+                                .overlay(
+                                    RoundedRectangle(cornerRadius: 35)
+                                        .stroke(.black, lineWidth: 1)
+                                )
+                        }
+                    }
+                } else {
+                    Image("head_de")
+                        .resizable()
+                        .scaledToFill()
+                        .frame(width: 70, height: 70)
+                        .clipShape(RoundedRectangle(cornerRadius: 35))
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 35)
+                                .stroke(.black, lineWidth: 1)
+                        )
+                }
+                Text(loginUser.name ?? "Guest") // 昵称
                     .font(.custom("Futura-CondensedExtraBold", size: 18))
                     .foregroundStyle(.white)
                     .padding(.top, 10)
@@ -57,47 +89,23 @@ struct ErigoPersonal: View {
             
             HStack(spacing: ERIGOSCREEN.WIDTH * 0.4) {
                 Button(action: {
-                    
+                    isAlbum = true
                 }) {
-                    Image("btnAlbum")
+                    Image(isAlbum ? "btnAlbum_se" : "btnAlbum")
+                        .resizable()
+                        .frame(width: 28, height: 28)
                 }
                 
                 Button(action: {
-                    
+                    isAlbum = false
                 }) {
-                    Image("btnLike")
+                    Image(isAlbum ? "btnLike" : "btnLike_se")
+                        .resizable()
+                        .frame(width: 28, height: 28)
                 }
             }.padding(.top, 20)
             
-            ZStack {
-                Image("album_bg")
-                    .resizable()
-                VStack {
-                    Text("Total published: \(albumCount)")
-                        .font(.custom("PingFang SC", size: 18))
-                        .foregroundStyle(Color(hes: "#FF629D"))
-                    // 相册数据
-                    Spacer()
-                }
-                .padding(.top, 15)
-                
-                if albumCount == 0 {
-                    VStack {
-                        Image("noAlbum")
-                        Text("Not published yet")
-                            .font(.custom("PingFangSC-Medium", size: 18))
-                            .foregroundStyle(Color(hes: "#FFFFFF", alpha: 0.2))
-                        Button(action: { // 发布
-                            
-                        }) {
-                            Image("goPublish")
-                        }.padding(.top, 20)
-                    }
-                    .opacity(isVisible ? 1 : 0)
-                    .animation(.easeInOut(duration: 0.5), value: isVisible)
-                }
-                
-            }.frame(width: ERIGOSCREEN.WIDTH - 40, height: ERIGOSCREEN.HEIGHT * 0.6)
+            ErigoMeidiaMyItem(albumItems: isAlbum ? (loginUser.album ?? []) : (loginUser.likes ?? []), isAlbum: isAlbum)
             
             Spacer()
         }
@@ -106,8 +114,64 @@ struct ErigoPersonal: View {
         .ignoresSafeArea()
         .background(.black)
         .onAppear {
-            isVisible = true
-            loginUser = ErigoUserDefaults.ErigoAvNowUser()
+            if loginM.landComplete {
+                loginUser = ErigoUserDefaults.ErigoAvNowUser()
+                headUrl = ErigoAvHead()
+            }
         }
+    }
+    
+    func ErigoAvHead() -> URL {
+        let doc = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+        let headPath = doc.appendingPathComponent("ErigoHead")
+        return headPath
+    }
+}
+
+// MARK: 媒体Item - 用户帖子数据 & 收藏帖子
+struct ErigoMeidiaMyItem: View {
+    
+    var albumItems: [ErigoEyeTitleM]
+    
+    var isAlbum: Bool = true
+    
+    @State var isVisible: Bool = false
+    
+    var body: some View {
+        ZStack {
+            Image("album_bg")
+                .resizable()
+            VStack {
+                Text(isAlbum ? "Total published: \(albumItems.count)" : "Shared likes：\(albumItems.count)")
+                    .font(.custom("PingFang SC", size: 18))
+                    .foregroundStyle(Color(hes: "#FF629D"))
+                LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible())]) { // 数据
+                    
+                }
+                
+                Spacer()
+            }
+            .padding(.top, 15)
+            
+            if albumItems.count == 0 { // 没有数据
+                VStack {
+                    Image("noAlbum")
+                    Text("Not published yet")
+                        .font(.custom("PingFangSC-Medium", size: 18))
+                        .foregroundStyle(Color(hes: "#FFFFFF", alpha: 0.2))
+                    Button(action: { // 发布
+                        
+                    }) {
+                        Image(isAlbum ? "goPublish" : "visitHome")
+                    }.padding(.top, 20)
+                }
+                .opacity(isVisible ? 1 : 0)
+                .animation(.easeInOut(duration: 0.5), value: isVisible)
+            }
+            
+        }.frame(width: ERIGOSCREEN.WIDTH - 40, height: ERIGOSCREEN.HEIGHT * 0.6)
+            .onAppear {
+                isVisible = albumItems.count == 0
+            }
     }
 }

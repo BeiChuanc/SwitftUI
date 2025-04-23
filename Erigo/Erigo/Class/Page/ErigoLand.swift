@@ -17,7 +17,13 @@ struct ErigoLand: View {
     
     @State var loginPwd: String = ""
     
+    @FocusState var isName: Bool
+    
+    @FocusState var isPwd: Bool
+    
     @State var isAppleLogin: Bool = false
+    
+    @State var loginIsEnable: Bool = false
     
     @EnvironmentObject var router: ErigoRoute
     
@@ -42,6 +48,7 @@ struct ErigoLand: View {
                     TextField("Input user name", text: $loginName) // 用户名
                         .font(.custom("PingFang SC", size: 12))
                         .foregroundStyle(Color(hes: "#111111", alpha: 0.2))
+                        .focused($isName)
                     Rectangle()
                         .fill(Color(hes: "#111111", alpha: 0.2))
                         .frame(height: 1)
@@ -56,6 +63,7 @@ struct ErigoLand: View {
                     TextField("Input password", text: $loginPwd) // 密码
                         .font(.custom("PingFang SC", size: 12))
                         .foregroundStyle(Color(hes: "#111111", alpha: 0.2))
+                        .focused($isPwd)
                     Rectangle()
                         .fill(Color(hes: "#111111", alpha: 0.2))
                         .frame(height: 1)
@@ -66,7 +74,9 @@ struct ErigoLand: View {
                     Text("Don't have an account yet? Go")
                         .font(.custom("PingFang SC", size: 12))
                         .foregroundStyle(Color(hes: "#111111"))
-                    Button(action: { router.naviTo(to: .ENROLL) }) { // 注册
+                    Button(action: { router.naviTo(to: .ENROLL)
+                        print("当前的路径为:\(router.$path)")
+                    }) { // 注册
                         Text("register")
                             .font(.custom("PingFang SC", size: 14))
                             .foregroundStyle(Color(hes: "#FC6765"))
@@ -77,13 +87,31 @@ struct ErigoLand: View {
                 .padding(.top, 15)
                 
                 VStack(spacing: 20) {
-                    Button(action: {
+                    Button(action: {  // 账号验证登陆
+                        guard !loginName.isEmpty else { isName = true
+                            return }
                         
-                    }) { // 账号验证登陆
+                        guard !loginPwd.isEmpty else { isPwd = true
+                            return }
+                        
+                        loginIsEnable = true
+                        
+                        ErigoLoginVM.shared.ErigoLoginAcc(email: loginName, pwd: loginPwd) { statu in
+                            switch statu {
+                            case .LOAD: // 登入 >> 首页
+                                router.previousRoot()
+                            case .FAIL: // 失败 >> 提示
+                                loginIsEnable = false
+                            default:
+                                break
+                            }
+                        }
+                        
+                    }) {
                         Image("btnLand")
-                    }
+                    }.disabled(loginIsEnable)
                     
-                    Button(action: {}) { // 苹果登陆
+                    Button(action: { isAppleLogin = true }) { // 苹果登陆
                         Image("btnApple")
                     }
                 }.padding(.top, 60)
@@ -100,9 +128,10 @@ struct ErigoLand: View {
                              secondLink: URL(string: ERIGOLINK.POL)!) // 链接Text
                 .padding(.bottom, 40)
                 
-                if isAppleLogin {
+                if isAppleLogin { // 苹果登陆
                     SignInWithAppleView(appleSucceed: {
                         ErigoLoginVM.shared.landComplete = true
+                        router.previousRoot()
                     }, email: $appleEmail)
                 }
             }
@@ -113,10 +142,6 @@ struct ErigoLand: View {
             Spacer()
         }.ignoresSafeArea()
     }
-}
-
-#Preview {
-    ErigoLand()
 }
 
 
@@ -163,8 +188,8 @@ struct SignInWithAppleView: UIViewControllerRepresentable {
                 if let email = appleIDCredential.email {
                     appleEmail = email
                 }
-                print("当前的账户邮箱为:\(appleEmail)")
-                appleSucceed()
+                
+                ErigoLoginVM.shared.ErigoAppleLogin(email: appleEmail, complete: appleSucceed)
             }
         }
 

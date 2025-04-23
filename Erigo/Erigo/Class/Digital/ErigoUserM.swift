@@ -9,23 +9,43 @@ import Foundation
 import HandyJSON
 
 // MARK: 用户
-struct ErigoUserM: Identifiable, HandyJSON {
+class ErigoUserM: HandyJSON {
     
-    var id = UUID()
+    var uerId: Int?
     
     var head: String?
     
     var name: String?
     
-    var album: [ErigoMeidiaM]?
+    var album: [ErigoEyeTitleM]?
     
-    var likes: [Int]?
+    var likes: [ErigoEyeTitleM]?
     
     var report: [Int]?
     
+    var views: [[Int: Int]]?
+    
     var isJoin: Bool?
     
-    init() {}
+    required init() {}
+    
+    init(uerId: Int? = nil,
+         head: String? = nil,
+         name: String? = nil,
+         album: [ErigoEyeTitleM]? = nil,
+         likes: [ErigoEyeTitleM]? = nil,
+         report: [Int]? = nil,
+         views: [[Int : Int]]? = nil,
+         isJoin: Bool? = nil) {
+        self.uerId = uerId
+        self.head = head
+        self.name = name
+        self.album = album
+        self.likes = likes
+        self.report = report
+        self.views = views
+        self.isJoin = isJoin
+    }
 }
 
 // MARK: 发布
@@ -54,6 +74,18 @@ struct ErigoMeidiaM: Identifiable, HandyJSON {
     var url: String?
     
     init() {}
+}
+
+// MARK: 相册数据模型
+struct ErigoMediaM {
+    
+    let type: ERIGOMEDIATYPE
+    
+    let img: UIImage?
+    
+    let vUrl: URL?
+    
+    var mData: Data?
 }
 
 // MARK: EyeUser
