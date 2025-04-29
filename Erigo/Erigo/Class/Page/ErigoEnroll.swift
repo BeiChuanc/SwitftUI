@@ -110,18 +110,19 @@ struct ErigoEnroll: View {
                         return }
                     
                     guard loginPwd == loginPwdConfirm else {
+                        ErigoProgressVM.ErigoShow(type: .failed, text: "Passwords do not match!")
                         return }
                     
                     ErigoLoginVM.shared.ErigoRnrollAcc(email: loginName, pwd: loginPwd) {
                         ErigoLoginVM.shared.landComplete = true
-                        router.previousRoot()
+                        ErigoProgressVM.ErigoLoading {
+                            router.previousRoot()
+                        }
                     }
                     
                 }) { // 账号验证登陆
                     Image("btnLand")
                 }.padding(.top, 60)
-                
-                Spacer()
                 
                 LinkTextView(firstText: "Terms of Service",
                              secondTxt: "Pracy Policy",
@@ -131,7 +132,9 @@ struct ErigoEnroll: View {
                              higlitColor: Color(hes: "#111111", alpha: 0.6),
                              firstLink: URL(string: ERIGOLINK.TER)!,
                              secondLink: URL(string: ERIGOLINK.POL)!) // 链接Text
-                .padding(.bottom, 40)
+                .padding(.top, 80)
+                
+                Spacer()
             }
             .frame(width: ERIGOSCREEN.WIDTH,
                 height: ERIGOSCREEN.HEIGHT * 0.65)

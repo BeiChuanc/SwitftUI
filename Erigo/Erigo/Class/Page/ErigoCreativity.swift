@@ -12,6 +12,8 @@ struct ErigoCreativity: View {
     
     @State var currentPage: Int = 0
     
+    @State var isShowGroup: Bool = true
+    
     @ObservedObject var LoginVM = ErigoLoginVM.shared
     
     @EnvironmentObject var router: ErigoRoute
@@ -35,15 +37,10 @@ struct ErigoCreativity: View {
             VStack {
                 HStack(alignment: .top) {
                     Spacer()
-                    Image("eyeShadow")
+                    Image("eyeShadow").offset(CGSize(width: 15, height: 0))
                     Spacer()
                     Button(action: { // 消息列表
-                        if LoginVM.landComplete {
-                            router.naviTo(to: .MESLIST)
-                        } else {
-                            router.naviTo(to: .LAND)
-                            print("进入消息列表 - 需要登陆")
-                        }
+                        router.naviTo(to: .MESLIST)
                     }) {
                         Image("btnMes")
                     }.padding(.trailing, 20)
@@ -60,7 +57,7 @@ struct ErigoCreativity: View {
                                 .overlay(
                                     RoundedRectangle(cornerRadius: 15)
                                         .stroke(.black, lineWidth: 1)
-                                    )
+                                )
                         }
                     }
                     .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
@@ -93,14 +90,23 @@ struct ErigoCreativity: View {
                     Image("mesStar")
                 }
                 .padding(.horizontal, 20)
-                    .offset(CGSize(width: 0, height: -35))
+                .offset(CGSize(width: 0, height: -35))
                 
                 VStack {
                     // 帖子列表
                     ScrollView(showsIndicators: false) {
                         HStack(alignment: .top, spacing: 10) {
                             VStack(alignment: .leading, spacing: 10) {
-                                ErigoGroupItem() // 特殊处理群组
+                                if isShowGroup {
+                                    ErigoGroupItem() // 特殊处理群组
+                                        .onTapGesture {
+                                            if LoginVM.landComplete {
+                                                router.naviTo(to: .DISGROUP)
+                                            } else {
+                                                router.naviTo(to: .LAND)
+                                            }
+                                        }
+                                }
                                 ForEach(leftItems, id: \.element.id) { item in
                                     ErigoOtherUserItem(cover: item.element.cover!, head: "eye_\(item.element.bid!)", goTitleDetails: {
                                         router.naviTo(to: .POSTDETAILS(item.element))
@@ -127,8 +133,15 @@ struct ErigoCreativity: View {
             .padding(EdgeInsets(top: 60, leading: 10, bottom: 0, trailing: 10))
         }
         .frame(width: ERIGOSCREEN.WIDTH,
-                height: ERIGOSCREEN.HEIGHT)
-         .ignoresSafeArea()
+               height: ERIGOSCREEN.HEIGHT)
+        .ignoresSafeArea()
+        .onAppear {
+            if LoginVM.landComplete {
+                if let isShow = ErigoUserDefaults.ErigoAvNowUser().isReportG {
+                    isShowGroup = !isShow
+                }
+            }
+        }
     }
 }
 

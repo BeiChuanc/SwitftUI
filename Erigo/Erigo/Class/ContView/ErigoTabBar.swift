@@ -52,14 +52,9 @@ struct ErigoTabBar: View {
             .onAppear {
                 IQKeyboardManager.shared().isEnabled = true
                 IQKeyboardManager.shared().shouldResignOnTouchOutside = true
-                
-                let userNow = ErigoUserDefaults.ErigoAvUsersDetails()
-                let users = ErigoUserDefaults.ErigoAvUsers()
-                let usersD = ErigoUserDefaults.ErigoAvNowUser()
-                
-                print("所有用户: \(users)")
-                print("所有用户信息: \(userNow)")
-                print("当前用户信息: \(usersD)")
+                ErigoProgressVM.ErigoConfig()
+                ErigoPurchaseVM.shared.ErigoAvVIP()
+                ErigoPurchaseVM.shared.ErigoAvGift()
             }
             
             .navigationDestination(for: ERIGOROUTE.self) { route in
@@ -74,6 +69,8 @@ struct ErigoTabBar: View {
                 case .POSTDETAILS(let titleModel): ErigoDetils(titleModel: titleModel).environmentObject(router).hideNavBack()
                 case .MESLIST: ErigoChatInbox().environmentObject(router).hideNavBack()
                 case .USERINFO(let userModel): ErigoUserInfo(userModel: userModel).environmentObject(router).hideNavBack()
+                case .SHOW(let titleModel): ErigoShow(media: titleModel).environmentObject(router).hideNavBack()
+                case .STORE: ErigoStore().environmentObject(router).hideNavBack()
                 }
             }
         }

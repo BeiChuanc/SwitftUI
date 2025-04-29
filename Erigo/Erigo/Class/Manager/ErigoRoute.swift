@@ -36,6 +36,14 @@ class ErigoRoute: ObservableObject {
         path.removeLast()
     }
     
+    func previousFirst() {
+        tabBarIndex = 0
+    }
+    
+    func previousSecond() {
+        tabBarIndex = 1
+    }
+    
     func previousRoot() {
         path.removeLast(path.count)
         tabBarIndex = 0

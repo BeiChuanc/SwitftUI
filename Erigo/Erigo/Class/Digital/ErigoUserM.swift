@@ -6,10 +6,10 @@
 //
 
 import Foundation
-import HandyJSON
+import UIKit
 
 // MARK: 用户
-class ErigoUserM: HandyJSON {
+class ErigoUserM: Codable {
     
     var uerId: Int?
     
@@ -21,35 +21,17 @@ class ErigoUserM: HandyJSON {
     
     var likes: [ErigoEyeTitleM]?
     
-    var report: [Int]?
-    
-    var views: [[Int: Int]]?
+    var isReportG: Bool?
     
     var isJoin: Bool?
     
-    required init() {}
+    var isVIP: Bool?
     
-    init(uerId: Int? = nil,
-         head: String? = nil,
-         name: String? = nil,
-         album: [ErigoEyeTitleM]? = nil,
-         likes: [ErigoEyeTitleM]? = nil,
-         report: [Int]? = nil,
-         views: [[Int : Int]]? = nil,
-         isJoin: Bool? = nil) {
-        self.uerId = uerId
-        self.head = head
-        self.name = name
-        self.album = album
-        self.likes = likes
-        self.report = report
-        self.views = views
-        self.isJoin = isJoin
-    }
+    var isLimit: Bool?
 }
 
 // MARK: 发布
-struct ErigoPublishM: HandyJSON {
+struct ErigoPublishM: Codable {
     
     var content: String?
     
@@ -60,20 +42,16 @@ struct ErigoPublishM: HandyJSON {
     var views: Int?
     
     var like: Int?
-    
-    init() {}
 }
 
 // MARK: 媒体
-struct ErigoMeidiaM: Identifiable, HandyJSON {
+struct ErigoMeidiaM: Identifiable, Codable {
     
     var id = UUID()
     
     var type: ERIGOMEDIATYPE?
     
     var url: String?
-    
-    init() {}
 }
 
 // MARK: 相册数据模型
@@ -89,7 +67,7 @@ struct ErigoMediaM {
 }
 
 // MARK: EyeUser
-struct ErigoEyeUserM: Identifiable, Hashable, HandyJSON {
+struct ErigoEyeUserM: Identifiable, Hashable, Codable {
    
     var id = UUID()
     
@@ -101,11 +79,20 @@ struct ErigoEyeUserM: Identifiable, Hashable, HandyJSON {
     
     var likes: [Int]?
     
-    init() {}
+    enum CodingKeys: String, CodingKey {
+        
+        case uid = "uid"
+        
+        case name = "name"
+        
+        case title = "title"
+        
+        case likes = "likes"
+    }
 }
 
 // MARK: 帖子数据
-struct ErigoEyeTitleM: Identifiable, Hashable, HandyJSON {
+struct ErigoEyeTitleM: Identifiable, Hashable, Codable {
     
     var id = UUID()
     
@@ -129,5 +116,26 @@ struct ErigoEyeTitleM: Identifiable, Hashable, HandyJSON {
     
     var likes: Int?
     
-    init() {}
+    enum CodingKeys: String, CodingKey {
+        
+        case tid = "tid"
+        
+        case bid = "bid"
+        
+        case name = "name"
+        
+        case type = "type"
+        
+        case cover = "cover"
+        
+        case media = "media"
+        
+        case content = "cotent"
+        
+        case colors = "colors"
+        
+        case views = "views"
+        
+        case likes = "likes"
+    }
 }

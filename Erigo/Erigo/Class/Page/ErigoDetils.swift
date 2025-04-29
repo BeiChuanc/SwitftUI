@@ -6,11 +6,28 @@
 //
 
 import SwiftUI
+import Kingfisher
 
 // MARK: 详情页
 struct ErigoDetils: View {
     
     var titleModel: ErigoEyeTitleM
+    
+    @State var randCount: Int = 0
+    
+    @State var isLike: Bool = false
+    
+    @State var headImage: UIImage?
+    
+    @State var isSendGift: Bool = false
+    
+    @State var isHiddenSend: Bool = false
+    
+    @State var loginUser = ErigoUserM()
+    
+    @State var giftList: [ErigoStoreM] = []
+    
+    @ObservedObject var LoginVM = ErigoLoginVM.shared
     
     @EnvironmentObject var router: ErigoRoute
     
@@ -36,14 +53,32 @@ struct ErigoDetils: View {
         ZStack {
             VStack {
                 ZStack (alignment: .center) {
-                    Image(titleModel.cover ?? "")
-                        .resizable()
-                        .scaledToFill()
-                        .frame(width: ERIGOSCREEN.WIDTH, height: ERIGOSCREEN.HEIGHT * 0.45)
-                    Image("btnPlay")
+                    if (titleModel.bid ?? 0) == ErigoUserDefaults.ErigoAvNowUser().uerId ?? 0 {
+                        if titleModel.type == 0 {
+                            if let image = LoginVM.ErigoLoadMyCover(item: titleModel) {
+                                Image(uiImage: image)
+                                    .resizable()
+                                    .scaledToFill()
+                                    .frame(width: ERIGOSCREEN.WIDTH, height: ERIGOSCREEN.HEIGHT * 0.45)
+                            }
+                        } else {
+                            let mediaUrl = URL(fileURLWithPath: titleModel.media!)
+                            KFImage(mediaUrl)
+                                .resizable()
+                                .scaledToFill()
+                                .frame(width: ERIGOSCREEN.WIDTH, height: ERIGOSCREEN.HEIGHT * 0.45)
+                        }
+                        
+                    } else {
+                        Image(titleModel.cover ?? "")
+                            .resizable()
+                            .scaledToFill()
+                            .frame(width: ERIGOSCREEN.WIDTH, height: ERIGOSCREEN.HEIGHT * 0.45)
+                    }
+                    Image("btnPlay").opacity(titleModel.type == 0 ? 1 : 0)
                 }
                 .onTapGesture { // 媒体展示页
-                    
+                    router.naviTo(to: .SHOW(titleModel))
                 }
                 
                 ZStack {
@@ -53,22 +88,78 @@ struct ErigoDetils: View {
                     
                     VStack {
                         HStack(spacing: 15) { // 人物
-                            Image("eye_\(titleModel.bid ?? 0)")
-                                .resizable()
-                                .frame(width: 50, height: 50)
-                                .background(.white)
-                                .clipShape(RoundedRectangle(cornerRadius: 25))
+                            
+                            if (titleModel.bid ?? 0) == ErigoUserDefaults.ErigoAvNowUser().uerId ?? 0 {
+                                if let head = loginUser.head {
+                                    if head == "head_de" {
+                                        Image("head_de")
+                                            .resizable()
+                                            .scaledToFill()
+                                            .frame(width: 70, height: 70)
+                                            .clipShape(RoundedRectangle(cornerRadius: 35))
+                                            .overlay(
+                                                RoundedRectangle(cornerRadius: 35)
+                                                    .stroke(.black, lineWidth: 1)
+                                            )
+                                    } else {
+                                        if let image = headImage {
+                                            Image(uiImage: image)
+                                                .resizable()
+                                                .scaledToFill()
+                                                .frame(width: 64, height: 64)
+                                                .clipShape(RoundedRectangle(cornerRadius: 32))
+                                                .overlay(
+                                                    RoundedRectangle(cornerRadius: 32)
+                                                        .stroke(.white, lineWidth: 1)
+                                                )
+                                        }
+                                    }
+                                }
+                            } else {
+                                Image("eye_\(titleModel.bid ?? 0)")
+                                    .resizable()
+                                    .scaledToFill()
+                                    .frame(width: 50, height: 50)
+                                    .background(.white)
+                                    .clipShape(RoundedRectangle(cornerRadius: 25))
+                            }
                             Text(titleModel.name ?? "") // 用户名
                                 .font(.custom("Futura-CondensedExtraBold", size: 18))
                                 .foregroundStyle(.white)
                             Spacer()
-                            Button(action: {
-                                
+                            Button(action: { // 喜欢
+                                if LoginVM.landComplete {
+                                    if LoginVM.ErigoIsLike(tid: titleModel.tid!) {
+                                        ErigoUserDefaults.updateUserDetails { eiger in
+                                            eiger.likes!.removeAll(where: { $0.tid == titleModel.tid })
+                                            return eiger
+                                        }
+                                        isLike = false
+                                    } else {
+                                        
+                                        if loginUser.likes!.count > 5 {
+                                            guard loginUser.isVIP! else {
+                                                ErigoProgressVM.ErigoSymbol(text: "The collection limit has been reached, please subscribe to VIP to collect more!")
+                                                DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                                                    router.naviTo(to: .STORE)
+                                                }
+                                                return
+                                            }
+                                        }
+                                        ErigoUserDefaults.updateUserDetails { eiger in
+                                            eiger.likes!.append(titleModel)
+                                            return eiger
+                                        }
+                                        isLike = true
+                                    }
+                                } else {
+                                    router.naviTo(to: .LAND)
+                                }
                             }) {
-                                Image("btnLike")
+                                Image(isLike ? "btnLike_se" : "btnLike")
                                     .resizable()
                                     .frame(width: 34, height: 34)
-                            }
+                            }.opacity(titleModel.bid == ErigoUserDefaults.ErigoAvNowUser().uerId ?? 0 ? 0 : 1)
                         }.padding(.top, 20)
                             .padding(.horizontal, 20)
                         
@@ -101,26 +192,57 @@ struct ErigoDetils: View {
                             }.frame(height: colorH)
                             HStack {
                                 Image("viewU")
-                                Text("\(titleModel.views ?? 0) views") // 浏览次数
-                                    .font(.custom("PingFangSC-Regular", size: 13))
-                                    .foregroundStyle(Color(hes: "#999999"))
+                                if let views = titleModel.views {
+                                    Text("\(views + randCount) views") // 浏览次数
+                                        .font(.custom("PingFangSC-Regular", size: 13))
+                                        .foregroundStyle(Color(hes: "#999999"))
+                                        .alignmentGuide(.leading) { d in
+                                            d[.trailing]
+                                        }
+                                }
                             }
                             HStack {
                                 Image("likeU")
-                                Text("\(titleModel.likes ?? 0) like") // 喜欢人数
-                                    .font(.custom("PingFangSC-Regular", size: 13))
-                                    .foregroundStyle(Color(hes: "#999999"))
+                                if isLike {
+                                    Text("\((titleModel.likes ?? 0) + 1) like") // 喜欢人数
+                                        .font(.custom("PingFangSC-Regular", size: 13))
+                                        .foregroundStyle(Color(hes: "#999999"))
+                                } else {
+                                    Text("\(titleModel.likes ?? 0) like") // 喜欢人数
+                                        .font(.custom("PingFangSC-Regular", size: 13))
+                                        .foregroundStyle(Color(hes: "#999999"))
+                                }
                             }
                             Spacer()
-                        }.padding(.horizontal, 20)
-                        VStack(spacing: 10) {
-                            Image("sayHi")
-                            Button(action: {
-                                
-                            }) {
-                                Image("sendMes")
+                        }
+                        .padding(.top, 20)
+                        .padding(.horizontal, 20)
+                        HStack(alignment: .bottom, spacing: 25) {
+                            if !isHiddenSend {
+                                Button(action: { // 送礼
+                                    withAnimation(.interactiveSpring(duration: 0.5, extraBounce: 0.2)) {
+                                        isSendGift.toggle()
+                                    }
+                                }) { Image("btnGive") }
                             }
-                        }.padding(.bottom, ERIGOSCREEN.HEIGHT * 0.15)
+                            VStack(spacing: 10) {
+                                Image("sayHi")
+                                Button(action: { // 单人聊天
+                                    if LoginVM.landComplete {
+                                        let userModel = LoginVM.ErigoGetAssignUser(uid: titleModel.bid!)
+                                        router.previous()
+                                        DispatchQueue.main.async {
+                                            router.naviTo(to: .SINGLECHAT(userModel))
+                                        }
+                                    } else {
+                                        router.naviTo(to: .LAND)
+                                    }
+                                }) {
+                                    Image("sendMes")
+                                }
+                            }.opacity(titleModel.bid == ErigoUserDefaults.ErigoAvNowUser().uerId ?? 0 ? 0 : 1)
+                        }.padding(.horizontal, 20)
+                            .padding(.bottom, ERIGOSCREEN.HEIGHT * 0.15)
                         
                     }
                 }.frame(width: ERIGOSCREEN.WIDTH, height: ERIGOSCREEN.HEIGHT * 0.65)
@@ -132,17 +254,101 @@ struct ErigoDetils: View {
                     Image("global_back")
                 }
                 Spacer()
-                Button(action: {}) { // 举报
+                Button(action: {
+                    ErigoMesAndPubVM.ErigoShowReport {
+                        LoginVM.eyeReportList.append(titleModel.tid ?? 0)
+                        LoginVM.ErigoRemoveLike()
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                            router.previous()
+                        }
+                    }
+                }) { // 举报
                     Image("btnReport")
-                }
+                }.opacity(titleModel.bid == ErigoUserDefaults.ErigoAvNowUser().uerId ?? 0 ? 0 : 1)
             }
             .padding(.horizontal, 20)
             .padding(.bottom, ERIGOSCREEN.HEIGHT * 0.8)
+            
+            if isSendGift { // 礼物界面
+                VStack {
+                    VStack {}
+                        .frame(width: ERIGOSCREEN.WIDTH,
+                               height: ERIGOSCREEN.HEIGHT * 0.7)
+                        .background(
+                            Color.clear
+                                .contentShape(Rectangle())
+                                .onTapGesture {
+                                    withAnimation(.interactiveSpring(duration: 0.5, extraBounce: 0.2)) {
+                                        isSendGift.toggle()
+                                    }
+                                }
+                        )
+                    VStack {
+                        ZStack {
+                            Image("gift_bg")
+                                .resizable()
+                                .frame(height: ERIGOSCREEN.HEIGHT * 0.3)
+                            ScrollView(.horizontal, showsIndicators: false) {
+                                HStack(spacing: 20) {
+                                    ForEach(Array(giftList.enumerated()), id: \.offset) { index, item in
+                                        ErigoGiftItem(giftData: item) {
+                                            if LoginVM.landComplete {
+                                                ErigoPurchaseVM.shared.ErigoAvGift(gid: "\(giftList[index].gId!)") {
+                                                    withAnimation(.interactiveSpring(duration: 0.5, extraBounce: 0.2)) {
+                                                        isSendGift.toggle()
+                                                        reloadGiftData()
+                                                    }
+                                                }
+                                            } else {
+                                                router.naviTo(to: .LAND)
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                            .padding(.horizontal, 20)
+                            .padding(.bottom, 30)
+                        }.frame(height: ERIGOSCREEN.HEIGHT * 0.3)
+                    }
+                }
+                .frame(width: ERIGOSCREEN.WIDTH,
+                       height: ERIGOSCREEN.HEIGHT)
+                .ignoresSafeArea()
+                .transition(.asymmetric(
+                            insertion: .move(edge: .leading),
+                            removal: .move(edge: .leading)
+                        ))
+                .zIndex(1)
+            }
         }
         .frame(width: ERIGOSCREEN.WIDTH,
                 height: ERIGOSCREEN.HEIGHT)
          .ignoresSafeArea()
          .background(.black)
+         .onAppear {
+             randCount = Array(5..<10).randomElement()!
+             if LoginVM.landComplete {
+                 isLike = LoginVM.ErigoIsLike(tid: titleModel.tid!)
+                 loginUser = ErigoUserDefaults.ErigoAvNowUser()
+                 isHiddenSend = loginUser.uerId! == titleModel.bid!
+                 if let uid = loginUser.uerId {
+                     headImage = LoginVM.ErigoLoadIamge(uid: uid)
+                 }
+             }
+             reloadGiftData()
+         }
+         .zIndex(isSendGift ? 0 : 1)
+    }
+    
+    /// 重新拉取礼物数据
+    func reloadGiftData() {
+        giftList = ErigoPurchaseVM.shared.giftStoreList
+        if LoginVM.landComplete {
+            loginUser = ErigoUserDefaults.ErigoAvNowUser()
+            if let isLimit = loginUser.isLimit, isLimit {
+                giftList = giftList.filter { item in return !item.isLimit! }
+            }
+        }
     }
 }
 
@@ -204,5 +410,40 @@ struct VisualEffectView: UIViewRepresentable {
     
     func updateUIView(_ uiView: UIVisualEffectView, context: Context) {
         uiView.effect = effect
+    }
+}
+
+// MARK: 送礼Item
+struct ErigoGiftItem: View {
+    
+    var giftData: ErigoStoreM
+    
+    var onSend: () -> Void
+    
+    var body: some View {
+        VStack {
+            ZStack {
+                if giftData.gId!.contains("pri_pic") {
+                    Image("giftHeart").scaledToFit().frame(width: 74, height: 74)
+                }
+                if giftData.gId!.contains("pri_vid") {
+                    Image("giftLetter").scaledToFit().frame(width: 74, height: 74)
+                }
+                if giftData.gId!.contains("test") {
+                    Image("giftLimit").scaledToFit().frame(width: 74, height: 74)
+                }
+            }
+            Text(giftData.gName!)
+                .font(.custom("PingFangSC-Regular", size: 12))
+                .foregroundStyle(.white)
+            Text(giftData.gPrice!)
+                .font(.custom("PingFangSC-Regular", size: 12))
+                .foregroundStyle(.white)
+            Button(action: {
+                onSend()
+            }) { Image("btnGift") }
+            Spacer()
+        }
+        .frame(width: 80, height: 160)
     }
 }

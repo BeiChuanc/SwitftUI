@@ -6,24 +6,10 @@
 //
 
 import Foundation
-import HandyJSON
 import Combine
 import SwiftUICore
-
-/**
- 帖子用户一视频2图片: 创建用户时对数据进行绑定： 1帖子id 2浏览数
- 
- 1.https://d3197c2qdpub41.cloudfront.net/com.eyeShadow.erigo/0a7acbc193219fae33362c4e372cb5f9.mp4
- 2.https://d3197c2qdpub41.cloudfront.net/com.eyeShadow.erigo/490205a1243434d112b02e009e534675.mp4
- 10.https://d3197c2qdpub41.cloudfront.net/com.eyeShadow.erigo/d9448ade09b3b09200d2f663f6257d4e.mp4
- 
- 3.https://d3197c2qdpub41.cloudfront.net/com.eyeShadow.erigo/0ce7833fd632b81c7381eb76f0e7bb78.mp4
- 4.https://d3197c2qdpub41.cloudfront.net/com.eyeShadow.erigo/92c78acc68766f4e4b79eb1101482b4d.mp4
- 5.https://d3197c2qdpub41.cloudfront.net/com.eyeShadow.erigo/989dcf93e52b3239358228226a2783d9.mp4
- 7.https://d3197c2qdpub41.cloudfront.net/com.eyeShadow.erigo/29cf480f243aeed4f0476f85d6644a2c.mp4
- 8.https://d3197c2qdpub41.cloudfront.net/com.eyeShadow.erigo/8451c322f2490655d308ae7093780a4a.mp4
- 
- */
+import AVFoundation
+import UIKit
 
 // MARK: 登陆
 class ErigoLoginVM: ObservableObject {
@@ -56,14 +42,15 @@ extension ErigoLoginVM {
     
     /// 获取帖子列表
     func ErigoGetTileList() {
-        guard let titlesUrl = Bundle.main.url(forResource: "ErigoEyeTitle", withExtension: "json") else { return }
-        let titlesData = try? Data(contentsOf: titlesUrl)
+        guard let titlesUrl = Bundle.main.path(forResource: "ErigoEyeTitle", ofType: "json") else {
+            return }
+        let titlesData = try? Data(contentsOf: URL(filePath: titlesUrl))
         
-        guard let titles = try? JSONSerialization.jsonObject(with: titlesData!, options: []) as? [[String: Any]] else { return }
-        
-        for t in titles {
-            if let title = ErigoEyeTitleM.deserialize(from: t) {
-                eyeTitles.append(title)
+        if let titles = ErigoLoginVM.decode(data: titlesData!, to: [ErigoEyeTitleM].self) {
+            for title in titles {
+                if !eyeTitles.contains(where: { $0.tid == title.tid}) {
+                    eyeTitles.append(title)
+                }
             }
         }
     }
@@ -71,14 +58,16 @@ extension ErigoLoginVM {
     /// 获取用户帖子数据 - id
     func ErigoGetTitle(uid: Int) -> [ErigoEyeTitleM] {
         var userTitle: [ErigoEyeTitleM] = [] // 用户帖子列表
-        let titleId = eyeUsers.first(where: { $0.uid == uid })!.title // 帖子Id列表
-        for item in eyeTitles {
-            if titleId!.contains(item.tid!) {
-                if !userTitle.contains(item) {
-                    userTitle.append(item)
+        if let titleId = eyeUsers.first(where: { $0.uid == uid })?.title {
+            for item in eyeTitles {
+                if titleId.contains(item.tid!) {
+                    if !userTitle.contains(item) {
+                        userTitle.append(item)
+                    }
                 }
             }
-        }
+        } // 帖子Id列表
+
         return userTitle
     }
     
@@ -96,10 +85,78 @@ extension ErigoLoginVM {
         return userLikes
     }
     
-    /// 获取用户浏览帖子次数 - id >> 读取用户ErigoUserM -> views
-    func ErigoGetViews(tid: Int) -> Int {
+    /// 是否收藏
+    func ErigoIsLike(tid: Int) -> Bool {
+        let nowUser = ErigoUserDefaults.ErigoAvNowUser()
+        if let likes = nowUser.likes {
+            for title in likes {
+                if title.tid == tid {
+                    return true
+                }
+            }
+        }
+        return false
+    }
+    
+    /// 移除收藏
+    func ErigoRemoveLike() {
+        let nowUser = ErigoUserDefaults.ErigoAvNowUser()
+        if var nowLikes = nowUser.likes {
+            var itemsToRemove: [ErigoEyeTitleM] = []
+            for nowLike in nowLikes {
+                if let bid = nowLike.bid, let tid = nowLike.tid, eyeBlockList.contains(bid) || eyeReportList.contains(tid) {
+                    itemsToRemove.append(nowLike)
+                }
+            }
+            
+            for item in itemsToRemove {
+                if let index = nowLikes.firstIndex(where: { $0.tid == item.tid }) {
+                    nowLikes.remove(at: index)
+                }
+            }
+            
+            ErigoUserDefaults.updateUserDetails { erigo in
+                erigo.likes = nowLikes
+                return erigo
+            }
+        }
+    }
+    
+    /// 获取头像
+    func ErigoLoadIamge(uid: Int) -> UIImage? {
+        guard let documentsURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else { return nil }
         
-        return 0
+        let fileURL = documentsURL.appendingPathComponent("ErigoHead\(uid).jpg")
+        
+        do {
+            let data = try Data(contentsOf: fileURL)
+            return UIImage(data: data)
+        } catch { return nil }
+    }
+    
+    /// 获取封面
+    func ErigoLoadMyCover(item: ErigoEyeTitleM) -> UIImage? {
+        guard item.type == 0 else { return UIImage() }
+        
+        let userId = ErigoUserDefaults.ErigoAvNowUser().uerId!
+        let documentsURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+        let mediaURL = documentsURL.appendingPathComponent("Erigo_\(userId)/\(item.tid! - userId).mp4")
+        
+        let asset = AVAsset(url: mediaURL)
+        let imageGenerator = AVAssetImageGenerator(asset: asset)
+        imageGenerator.appliesPreferredTrackTransform = true
+        
+        do {
+            let thumbnailTime = CMTimeMake(value: 1, timescale: 60)
+            let cgImage = try imageGenerator.copyCGImage(at: thumbnailTime, actualTime: nil)
+            return UIImage(cgImage: cgImage)
+        } catch {
+            print("获取视频封面时出错: \(error)")
+            if let underlyingError = (error as NSError).userInfo[NSUnderlyingErrorKey] as? NSError {
+                print("底层错误: \(underlyingError)")
+            }
+        }
+        return UIImage()
     }
     
     /// 获取指定用户
@@ -114,14 +171,16 @@ extension ErigoLoginVM {
     
     /// 获取用户列表
     func ErigoGetUserList() {
-        guard let usersUrl = Bundle.main.url(forResource: "ErigoEyeUser", withExtension: "json") else { return }
-        let usersData = try? Data(contentsOf: usersUrl)
-
-        guard let users = try? JSONSerialization.jsonObject(with: usersData!, options: []) as? [[String: Any]] else { return }
         
-        for u in users {
-            if let user = ErigoEyeUserM.deserialize(from: u) {
-                eyeUsers.append(user)
+        guard let usersUrl = Bundle.main.path(forResource: "ErigoEyeUser", ofType: "json") else {
+            return }
+        let usersData = try? Data(contentsOf: URL(filePath: usersUrl))
+        
+        if let users = ErigoLoginVM.decode(data: usersData!, to: [ErigoEyeUserM].self) {
+            for user in users {
+                if !eyeUsers.contains(where: { $0.uid == user.uid}) {
+                    eyeUsers.append(user)
+                }
             }
         }
         ErigoUpdateEyeUser(eyeUsers)
@@ -138,6 +197,9 @@ extension ErigoLoginVM {
     func ErigoUpdateEyeUser(_ users: [ErigoEyeUserM]) {
         eyeUsers = users.filter { item in
             return !eyeBlockList.contains(item.uid!)
+        }
+        eyeTitles = eyeTitles.filter { item in
+            return !eyeBlockList.contains(item.bid!)
         }
     }
     
@@ -174,13 +236,23 @@ extension ErigoLoginVM {
         }
     }
     
+    /// 转模型
+    static func decode<T: Codable>(data: Data, to type: T.Type) -> T? {
+        do {
+            let decodedObject = try JSONDecoder().decode(T.self, from: data)
+            return decodedObject
+        } catch {
+            return nil
+        }
+    }
+    
     /// 登陆
     func ErigoLoginAcc(email: String, pwd: String, complete: @escaping (_ statu: ERIGOSTATUS) -> Void) {
         if ErigoUserDefaults.ErigoMatchACP(email: email, userPwd: pwd) {
             ErigoLoginVM.shared.landComplete = true
             complete(.LOAD)
         } else {
-            if email == "111111" { // eshadow@gmail.com / 123456
+            if email == "eshadow@gmail.com" { // eshadow@gmail.com / 123456
                 if pwd == "123456" {
                     ErigoGenUser(email: email, pwd: pwd, appleLogin: false)
                     ErigoLoginVM.shared.landComplete = true
@@ -208,21 +280,20 @@ extension ErigoLoginVM {
     func ErigoGenUser(email: String, pwd: String, appleLogin: Bool) {
         ErigoUserDefaults.ErigoSaveLogin(email: email, pwd: pwd)
         ErigoUserDefaults.ErigoSaveNowAcc(email: email)
-        
+        let userId = Array(2000..<3000).randomElement()
         let userModel = ErigoUserM()
-        userModel.uerId = appleLogin ? 1000 : 2000
+        userModel.uerId = appleLogin ? 1000 : userId
         userModel.head = "head_de"
         userModel.name = "Erigo"
         userModel.album = []
         userModel.likes = []
-        userModel.report = []
-        userModel.views = []
+        userModel.isReportG = false
         userModel.isJoin = false
+        userModel.isVIP = false
+        userModel.isLimit = false
         
-        guard let userJson = userModel.toJSONString() else { return }
-        let userData = userJson.data(using: .utf8)
-        ErigoUserDefaults.ErigoSaveDetails(email: email, details: userData!)
-        ErigoMesAndPubVM.ErigoDeleteMyM(myMPath: "Erigo_\(appleLogin ? 1000 : 2000)")
+        ErigoUserDefaults.ErigoSaveDetails(email: email, details: encode(modelJson: userModel)!)
+        ErigoMesAndPubVM.ErigoDeleteMyM(myMPath: "Erigo_\(appleLogin ? 1000 : userId!)")
         ErigoMesAndPubVM.shared.ErigoDelMesFile()
     }
 }

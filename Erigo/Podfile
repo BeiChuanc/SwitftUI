@@ -9,8 +9,9 @@ target 'Erigo' do
   pod 'IQKeyboardManager'
   pod 'YPImagePicker'
   pod 'Kingfisher', '7.6.2'
-  pod 'HandyJSON'
+  pod 'ProgressHUD'
   # pod 'AppsFlyerFramework', '6.14.4'
+  pod 'RMStore'
 
 end
 post_install do |installer|

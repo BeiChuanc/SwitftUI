@@ -28,14 +28,25 @@
 		04BA24362DB6222500974D48 /* ErigoDetils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BA24352DB6222500974D48 /* ErigoDetils.swift */; };
 		04BA24382DB6400100974D48 /* ErigoCreativity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BA24372DB6400100974D48 /* ErigoCreativity.swift */; };
 		04BA243A2DB7277600974D48 /* ErigoChatM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BA24392DB7277600974D48 /* ErigoChatM.swift */; };
-		04BA243C2DB7282F00974D48 /* ErigoBoxDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BA243B2DB7282F00974D48 /* ErigoBoxDetail.swift */; };
 		04BA243E2DB73A5600974D48 /* ErigoEyeUser.json in Resources */ = {isa = PBXBuildFile; fileRef = 04BA243D2DB73A5600974D48 /* ErigoEyeUser.json */; };
 		04BA24402DB73F7200974D48 /* ErigoEyeTitle.json in Resources */ = {isa = PBXBuildFile; fileRef = 04BA243F2DB73F7200974D48 /* ErigoEyeTitle.json */; };
 		04BA24422DB744A200974D48 /* ErigoMes+PubVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BA24412DB744A200974D48 /* ErigoMes+PubVM.swift */; };
 		04BA24442DB77B8000974D48 /* ErigoRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BA24432DB77B8000974D48 /* ErigoRoute.swift */; };
 		04D69FDD2DB791CC00B42D73 /* ErigoUserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D69FDC2DB791CC00B42D73 /* ErigoUserDefaults.swift */; };
 		04D69FDF2DB8934700B42D73 /* ErigoMesSerive.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D69FDE2DB8934700B42D73 /* ErigoMesSerive.swift */; };
+		04D69FE72DBA098C00B42D73 /* EyeshadowTutorial2.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 04D69FE22DBA098C00B42D73 /* EyeshadowTutorial2.mp4 */; };
+		04D69FE82DBA098C00B42D73 /* EyeshadowTutorial5.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 04D69FE52DBA098C00B42D73 /* EyeshadowTutorial5.mp4 */; };
+		04D69FE92DBA098C00B42D73 /* EyeshadowTutorial4.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 04D69FE42DBA098C00B42D73 /* EyeshadowTutorial4.mp4 */; };
+		04D69FEA2DBA098C00B42D73 /* EyeshadowTutorial6.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 04D69FE62DBA098C00B42D73 /* EyeshadowTutorial6.mp4 */; };
+		04D69FEB2DBA098C00B42D73 /* EyeshadowTutorial1.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 04D69FE12DBA098C00B42D73 /* EyeshadowTutorial1.mp4 */; };
+		04D69FEC2DBA098C00B42D73 /* EyeshadowTutorial3.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 04D69FE32DBA098C00B42D73 /* EyeshadowTutorial3.mp4 */; };
+		04D69FEE2DBA180600B42D73 /* ErigoProgressVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D69FED2DBA180600B42D73 /* ErigoProgressVM.swift */; };
+		04D69FF02DBB2B6F00B42D73 /* ErigoPurchaseVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D69FEF2DBB2B6F00B42D73 /* ErigoPurchaseVM.swift */; };
+		04D69FF22DBB2B9A00B42D73 /* ErigoStoreM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D69FF12DBB2B9A00B42D73 /* ErigoStoreM.swift */; };
+		04D69FF42DBB2D8F00B42D73 /* ErigoStore.json in Resources */ = {isa = PBXBuildFile; fileRef = 04D69FF32DBB2D8F00B42D73 /* ErigoStore.json */; };
+		04D69FF62DBB55FC00B42D73 /* ErigoStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D69FF52DBB55FC00B42D73 /* ErigoStore.swift */; };
 		902585462DB7DD89001DFDD2 /* ErigoUserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 902585452DB7DD89001DFDD2 /* ErigoUserInfo.swift */; };
+		902585482DB957C6001DFDD2 /* ErigoShow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 902585472DB957C6001DFDD2 /* ErigoShow.swift */; };
 		DA1B2CB6ED4A13ACAC7CB345 /* Pods_Erigo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FB2067CE046E36D85722554 /* Pods_Erigo.framework */; };
 /* End PBXBuildFile section */
 
@@ -64,15 +75,26 @@
 		04BA24352DB6222500974D48 /* ErigoDetils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErigoDetils.swift; sourceTree = "<group>"; };
 		04BA24372DB6400100974D48 /* ErigoCreativity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErigoCreativity.swift; sourceTree = "<group>"; };
 		04BA24392DB7277600974D48 /* ErigoChatM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErigoChatM.swift; sourceTree = "<group>"; };
-		04BA243B2DB7282F00974D48 /* ErigoBoxDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErigoBoxDetail.swift; sourceTree = "<group>"; };
 		04BA243D2DB73A5600974D48 /* ErigoEyeUser.json */ = {isa = PBXFileReference; explicitFileType = text.json; path = ErigoEyeUser.json; sourceTree = "<group>"; };
 		04BA243F2DB73F7200974D48 /* ErigoEyeTitle.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = ErigoEyeTitle.json; sourceTree = "<group>"; };
 		04BA24412DB744A200974D48 /* ErigoMes+PubVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ErigoMes+PubVM.swift"; sourceTree = "<group>"; };
 		04BA24432DB77B8000974D48 /* ErigoRoute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErigoRoute.swift; sourceTree = "<group>"; };
 		04D69FDC2DB791CC00B42D73 /* ErigoUserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErigoUserDefaults.swift; sourceTree = "<group>"; };
 		04D69FDE2DB8934700B42D73 /* ErigoMesSerive.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErigoMesSerive.swift; sourceTree = "<group>"; };
+		04D69FE12DBA098C00B42D73 /* EyeshadowTutorial1.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = EyeshadowTutorial1.mp4; sourceTree = "<group>"; };
+		04D69FE22DBA098C00B42D73 /* EyeshadowTutorial2.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = EyeshadowTutorial2.mp4; sourceTree = "<group>"; };
+		04D69FE32DBA098C00B42D73 /* EyeshadowTutorial3.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = EyeshadowTutorial3.mp4; sourceTree = "<group>"; };
+		04D69FE42DBA098C00B42D73 /* EyeshadowTutorial4.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = EyeshadowTutorial4.mp4; sourceTree = "<group>"; };
+		04D69FE52DBA098C00B42D73 /* EyeshadowTutorial5.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = EyeshadowTutorial5.mp4; sourceTree = "<group>"; };
+		04D69FE62DBA098C00B42D73 /* EyeshadowTutorial6.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = EyeshadowTutorial6.mp4; sourceTree = "<group>"; };
+		04D69FED2DBA180600B42D73 /* ErigoProgressVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErigoProgressVM.swift; sourceTree = "<group>"; };
+		04D69FEF2DBB2B6F00B42D73 /* ErigoPurchaseVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErigoPurchaseVM.swift; sourceTree = "<group>"; };
+		04D69FF12DBB2B9A00B42D73 /* ErigoStoreM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErigoStoreM.swift; sourceTree = "<group>"; };
+		04D69FF32DBB2D8F00B42D73 /* ErigoStore.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = ErigoStore.json; sourceTree = "<group>"; };
+		04D69FF52DBB55FC00B42D73 /* ErigoStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErigoStore.swift; sourceTree = "<group>"; };
 		0FB2067CE046E36D85722554 /* Pods_Erigo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Erigo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		902585452DB7DD89001DFDD2 /* ErigoUserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErigoUserInfo.swift; sourceTree = "<group>"; };
+		902585472DB957C6001DFDD2 /* ErigoShow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErigoShow.swift; sourceTree = "<group>"; };
 		96985D7D282B17A5853A969B /* Pods-Erigo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Erigo.debug.xcconfig"; path = "Target Support Files/Pods-Erigo/Pods-Erigo.debug.xcconfig"; sourceTree = "<group>"; };
 		FA1022B586B57839E7996EB6 /* Pods-Erigo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Erigo.release.xcconfig"; path = "Target Support Files/Pods-Erigo/Pods-Erigo.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -154,6 +176,7 @@
 				04BA23F52DAF8BC800974D48 /* ContView */,
 				04BA23FF2DAF9AED00974D48 /* Digital */,
 				04BA23FD2DAF9AC100974D48 /* Manager */,
+				04D69FE02DB9CEA400B42D73 /* Resourse */,
 			);
 			path = Class;
 			sourceTree = "<group>";
@@ -180,8 +203,9 @@
 				04BA24332DB5F5EE00974D48 /* ErigoPublish.swift */,
 				04BA24352DB6222500974D48 /* ErigoDetils.swift */,
 				04BA24372DB6400100974D48 /* ErigoCreativity.swift */,
-				04BA243B2DB7282F00974D48 /* ErigoBoxDetail.swift */,
 				902585452DB7DD89001DFDD2 /* ErigoUserInfo.swift */,
+				902585472DB957C6001DFDD2 /* ErigoShow.swift */,
+				04D69FF52DBB55FC00B42D73 /* ErigoStore.swift */,
 			);
 			path = Page;
 			sourceTree = "<group>";
@@ -194,6 +218,8 @@
 				04BA24432DB77B8000974D48 /* ErigoRoute.swift */,
 				04D69FDC2DB791CC00B42D73 /* ErigoUserDefaults.swift */,
 				04D69FDE2DB8934700B42D73 /* ErigoMesSerive.swift */,
+				04D69FED2DBA180600B42D73 /* ErigoProgressVM.swift */,
+				04D69FEF2DBB2B6F00B42D73 /* ErigoPurchaseVM.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -203,10 +229,25 @@
 			children = (
 				04BA243D2DB73A5600974D48 /* ErigoEyeUser.json */,
 				04BA243F2DB73F7200974D48 /* ErigoEyeTitle.json */,
+				04D69FF32DBB2D8F00B42D73 /* ErigoStore.json */,
 				04BA24292DB5D5DA00974D48 /* ErigoUserM.swift */,
 				04BA24392DB7277600974D48 /* ErigoChatM.swift */,
+				04D69FF12DBB2B9A00B42D73 /* ErigoStoreM.swift */,
 			);
 			path = Digital;
+			sourceTree = "<group>";
+		};
+		04D69FE02DB9CEA400B42D73 /* Resourse */ = {
+			isa = PBXGroup;
+			children = (
+				04D69FE12DBA098C00B42D73 /* EyeshadowTutorial1.mp4 */,
+				04D69FE22DBA098C00B42D73 /* EyeshadowTutorial2.mp4 */,
+				04D69FE32DBA098C00B42D73 /* EyeshadowTutorial3.mp4 */,
+				04D69FE42DBA098C00B42D73 /* EyeshadowTutorial4.mp4 */,
+				04D69FE52DBA098C00B42D73 /* EyeshadowTutorial5.mp4 */,
+				04D69FE62DBA098C00B42D73 /* EyeshadowTutorial6.mp4 */,
+			);
+			path = Resourse;
 			sourceTree = "<group>";
 		};
 		727E7F450D082282F280F298 /* Pods */ = {
@@ -290,6 +331,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				04BA23EC2DAF892200974D48 /* Preview Assets.xcassets in Resources */,
+				04D69FF42DBB2D8F00B42D73 /* ErigoStore.json in Resources */,
+				04D69FE72DBA098C00B42D73 /* EyeshadowTutorial2.mp4 in Resources */,
+				04D69FE82DBA098C00B42D73 /* EyeshadowTutorial5.mp4 in Resources */,
+				04D69FE92DBA098C00B42D73 /* EyeshadowTutorial4.mp4 in Resources */,
+				04D69FEA2DBA098C00B42D73 /* EyeshadowTutorial6.mp4 in Resources */,
+				04D69FEB2DBA098C00B42D73 /* EyeshadowTutorial1.mp4 in Resources */,
+				04D69FEC2DBA098C00B42D73 /* EyeshadowTutorial3.mp4 in Resources */,
 				04BA24402DB73F7200974D48 /* ErigoEyeTitle.json in Resources */,
 				04BA243E2DB73A5600974D48 /* ErigoEyeUser.json in Resources */,
 				04BA23ED2DAF892200974D48 /* Assets.xcassets in Resources */,
@@ -345,10 +393,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				902585482DB957C6001DFDD2 /* ErigoShow.swift in Sources */,
 				04BA23EF2DAF892200974D48 /* ErigoApp.swift in Sources */,
 				04BA23FA2DAF8FDF00974D48 /* ErigoInvariants.swift in Sources */,
 				04BA242A2DB5D5DA00974D48 /* ErigoUserM.swift in Sources */,
 				04BA24342DB5F5EE00974D48 /* ErigoPublish.swift in Sources */,
+				04D69FF22DBB2B9A00B42D73 /* ErigoStoreM.swift in Sources */,
 				04BA24302DB5E7A000974D48 /* ErigoPersonal.swift in Sources */,
 				04D69FDD2DB791CC00B42D73 /* ErigoUserDefaults.swift in Sources */,
 				04BA24422DB744A200974D48 /* ErigoMes+PubVM.swift in Sources */,
@@ -358,18 +408,20 @@
 				902585462DB7DD89001DFDD2 /* ErigoUserInfo.swift in Sources */,
 				04BA24182DB22BE500974D48 /* ErigoEnroll.swift in Sources */,
 				04BA242E2DB5D93900974D48 /* ErigoChatGroup.swift in Sources */,
-				04BA243C2DB7282F00974D48 /* ErigoBoxDetail.swift in Sources */,
 				04BA24242DB2466F00974D48 /* ErigoChatSingle.swift in Sources */,
 				04BA24142DB1ED9800974D48 /* ErigoLand.swift in Sources */,
 				04BA24382DB6400100974D48 /* ErigoCreativity.swift in Sources */,
 				04BA23FC2DAF930B00974D48 /* ErigoRouteE.swift in Sources */,
 				04BA240B2DAFAC0500974D48 /* Expand.swift in Sources */,
+				04D69FF02DBB2B6F00B42D73 /* ErigoPurchaseVM.swift in Sources */,
 				04BA24362DB6222500974D48 /* ErigoDetils.swift in Sources */,
+				04D69FEE2DBA180600B42D73 /* ErigoProgressVM.swift in Sources */,
 				04BA24202DB23A2B00974D48 /* ErigoSet.swift in Sources */,
 				04BA24442DB77B8000974D48 /* ErigoRoute.swift in Sources */,
 				04BA24322DB5F11500974D48 /* ErigoChatInbox.swift in Sources */,
 				04D69FDF2DB8934700B42D73 /* ErigoMesSerive.swift in Sources */,
 				04BA24162DB2011D00974D48 /* ErigoItem.swift in Sources */,
+				04D69FF62DBB55FC00B42D73 /* ErigoStore.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -502,6 +554,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Erigo/Erigo.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
@@ -551,6 +604,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Erigo/Erigo.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;

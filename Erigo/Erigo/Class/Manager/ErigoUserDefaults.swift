@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import HandyJSON
 
 // MARK: 存储枚举
 enum ERIGODEFAULT: String {
@@ -81,11 +80,11 @@ class ErigoUserDefaults {
         if let userInfo = ErigoAvUserAssign(email: email),
            let storedPassword = userInfo[ERIGODEFAULT.PASSWORD.rawValue] as? String {
             if storedPassword != userPwd {
-                // 弹窗
+                ErigoProgressVM.ErigoShow(type: .failed, text: "User account password error!")
             }
             return storedPassword == userPwd
         }
-        // 弹窗
+        ErigoProgressVM.ErigoShow(type: .failed, text: "User account does not exist!")
         return false
     }
     
@@ -93,10 +92,11 @@ class ErigoUserDefaults {
     class func ErigoAvNowUser() -> ErigoUserM {
         let userDetailsDict = ErigoAvUsersDetails()
         let userNow = ErigoAvNowAcc()
-        if let jsonData = userDetailsDict[userNow],
-           let jsonString = String(data: jsonData, encoding: .utf8),
-           let user = ErigoUserM.deserialize(from: jsonString) {
-            return user
+        if let jsonData = userDetailsDict[userNow]{
+            do {
+                let decodeUser = try JSONDecoder().decode(ErigoUserM.self, from: jsonData)
+                return decodeUser
+            } catch {}
         }
         return ErigoUserM()
     }
@@ -130,9 +130,9 @@ class ErigoUserDefaults {
         var userNow = ErigoAvNowUser()
         let noewAcc = ErigoAvNowAcc()
         userNow = erigo(userNow)
-        guard let jsonString = userNow.toJSONString() else { return }
-        print("当前修改用户的Json:\(jsonString)")
-        let encodedData = jsonString.data(using: .utf8)
-        ErigoSaveDetails(email: noewAcc, details: encodedData!)
+        do {
+            let encodedData = try JSONEncoder().encode(userNow)
+            ErigoSaveDetails(email: noewAcc, details: encodedData)
+        } catch {}
     }
 }

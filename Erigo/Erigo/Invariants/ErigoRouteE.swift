@@ -29,4 +29,8 @@ enum ERIGOROUTE: Hashable {
     case MESLIST
     
     case USERINFO(ErigoEyeUserM)
+    
+    case SHOW(ErigoEyeTitleM)
+    
+    case STORE
 }

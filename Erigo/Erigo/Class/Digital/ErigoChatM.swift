@@ -6,18 +6,15 @@
 //
 
 import Foundation
-import HandyJSON
 
 // MARK: 消息
-struct ErigoChatM: HandyJSON {
+struct ErigoChatM: Identifiable, Codable {
     
-    var isGroup: Bool?
+    var id = UUID()
     
     var isForMe: Bool?
     
     var mesTime: String?
     
     var mesContent: String?
-    
-    init() {}
 }

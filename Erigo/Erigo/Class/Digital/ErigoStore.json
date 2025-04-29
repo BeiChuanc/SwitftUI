@@ -1,0 +1,106 @@
+[
+    {
+        "Id": 500,
+        "gId": "com.chengdu.test.vip.wk.9_99",
+        "gName": "(1w.)",
+        "gPrice": "$9.99",
+        "isVIP": true,
+        "isLimit": false
+    },
+    {
+        "Id": 501,
+        "gId": "com.eyeshadow.erigo.vip.mo.19_99",
+        "gName": "(1m.)",
+        "gPrice": "$19.99",
+        "isVIP": true,
+        "isLimit": false
+    },
+    {
+        "Id": 502,
+        "gId": "com.eyeshadow.erigo.vip.qtr.29_99",
+        "gName": "(3m.)",
+        "gPrice": "$29.99",
+        "isVIP": true,
+        "isLimit": false
+    },
+    {
+        "Id": 503,
+        "gId": "com.eyeshadow.erigo.vip.ann.69_99",
+        "gName": "(1y.)",
+        "gPrice": "$69.99",
+        "isVIP": true,
+        "isLimit": false
+    },
+    {
+        "Id": 504,
+        "gId": "com.eyeshadow.erigo.prem.4_99",
+        "gName": "A gift",
+        "gPrice": "$4.99",
+        "isVIP": false,
+        "isLimit": true
+    },
+    {
+        "Id": 505,
+        "gId": "com.eyeshadow.erigo.pri_pic.1x.4_99",
+        "gName": "1 of them",
+        "gPrice": "$4.99",
+        "isVIP": false,
+        "isLimit": false
+    },
+    {
+        "Id": 506,
+        "gId": "com.eyeshadow.erigo.pri_pic.5x.14_99",
+        "gName": "5 of them",
+        "gPrice": "$14.99",
+        "isVIP": false,
+        "isLimit": false
+    },
+    {
+        "Id": 507,
+        "gId": "com.eyeshadow.erigo.pri_pic.10x.19_99",
+        "gName": "10 of them",
+        "gPrice": "$19.99",
+        "isVIP": false,
+        "isLimit": false
+    },
+    {
+        "Id": 508,
+        "gId": "com.eyeshadow.erigo.pri_pic.30x.49_99",
+        "gName": "30 of them",
+        "gPrice": "$49.99",
+        "isVIP": false,
+        "isLimit": false
+    },
+    {
+        "Id": 509,
+        "gId": "com.eyeshadow.erigo.pri_vid.1x.6_99",
+        "gName": "1 of them",
+        "gPrice": "$6.99",
+        "isVIP": false,
+        "isLimit": false
+    },
+    {
+        "Id": 510,
+        "gId": "com.eyeshadow.erigo.pri_vid.5x.19_99",
+        "gName": "5 of them",
+        "gPrice": "$19.99",
+        "isVIP": false,
+        "isLimit": false
+    },
+    {
+        "Id": 511,
+        "gId": "com.eyeshadow.erigo.pri_vid.10x.29_99",
+        "gName": "10 of them",
+        "gPrice": "$29.99",
+        "isVIP": false,
+        "isLimit": false
+    },
+    {
+        "Id": 512,
+        "gId": "com.eyeshadow.erigo.pri_vid.30x.79_99",
+        "gName": "30 of them",
+        "gPrice": "$79.99",
+        "isVIP": false,
+        "isLimit": false
+    }
+]

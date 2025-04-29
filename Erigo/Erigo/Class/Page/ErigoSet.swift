@@ -24,7 +24,11 @@ struct ErigoSet: View {
     
     @State var showT: Bool = false
     
-    @State var headWUrl: URL? = nil
+    @State var showLogin: Bool = false
+    
+    @State var showDel: Bool = false
+    
+    @State var headImage: UIImage?
     
     @State var userLogOut: Bool = false
     
@@ -54,7 +58,6 @@ struct ErigoSet: View {
                                     Image("head_de")
                                         .resizable()
                                         .scaledToFill()
-                                        .accessibilityIdentifier("heartImage")
                                         .frame(width: 64, height: 64)
                                         .clipShape(RoundedRectangle(cornerRadius: 32))
                                         .overlay(
@@ -62,7 +65,17 @@ struct ErigoSet: View {
                                                 .stroke(.white, lineWidth: 1)
                                         )
                                 } else {
-                                    
+                                    if let image = headImage {
+                                        Image(uiImage: image)
+                                            .resizable()
+                                            .scaledToFill()
+                                            .frame(width: 64, height: 64)
+                                            .clipShape(RoundedRectangle(cornerRadius: 32))
+                                            .overlay(
+                                                RoundedRectangle(cornerRadius: 32)
+                                                    .stroke(.white, lineWidth: 1)
+                                            )
+                                    }
                                 }
                             }
                         } else {
@@ -92,19 +105,20 @@ struct ErigoSet: View {
                         .sheet(isPresented: $isEditHead) {
                             YPImagePickerVC(selectedMedia: { cover in
                                 let doc = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
-                                let headName = "ErigoHead"
+                                let headName = "ErigoHead\(loginUser.uerId!).jpg"
                                 let headURL = doc.appendingPathComponent(headName)
-                                if let headData = cover.mData {
-                                    do {
-                                        try headData.write(to: headURL)
-                                        ErigoUserDefaults.updateUserDetails { erigo in
-                                            let newErigo = erigo
-                                            newErigo.head = headURL.path
-                                            return newErigo
-                                        }
-                                    } catch {}
+                                if let headImage = cover.img {
+                                    if let headData = headImage.jpegData(compressionQuality: 0.8) {
+                                        do {
+                                            try headData.write(to: headURL)
+                                            ErigoUserDefaults.updateUserDetails { erigo in
+                                                erigo.head = headURL.path
+                                                return erigo
+                                            }
+                                        } catch {}
+                                    }
                                 }
-                                headWUrl = headURL
+                                headImage = cover.img
                             }, mediaOption: .PHOTO)
                         }
                     }
@@ -142,9 +156,8 @@ struct ErigoSet: View {
                                             isEditName = false
                                         } else {
                                             ErigoUserDefaults.updateUserDetails { erigo in
-                                                let newErigo = erigo
-                                                newErigo.name = editName
-                                                return newErigo
+                                                erigo.name = editName
+                                                return erigo
                                             }
                                             DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
                                                 editName = ""
@@ -229,7 +242,7 @@ struct ErigoSet: View {
                     HStack {
                         Button(action: { // 删除
                             if loginM.landComplete {
-                                
+                                showDel = true
                             } else {
                                 router.naviTo(to: .LAND)
                             }
@@ -238,6 +251,23 @@ struct ErigoSet: View {
                                 .font(.custom("PingFangSC-Semibold", size: 14))
                                 .foregroundStyle(.white)
                         }
+                        .alert(isPresented: $showDel) {
+                            Alert(
+                                title: Text("Promot"),
+                                message: Text("Are you sure you want to delete this account?"),
+                                primaryButton: .default(Text("Confirm")) {
+                                    ErigoUserDefaults.ErigoDelUser()
+                                    ErigoLoginVM.shared.eyeMyTitles.removeAll()
+                                    ErigoLoginVM.shared.eyeReportList.removeAll()
+                                    ErigoLoginVM.shared.eyeBlockList.removeAll()
+                                    ErigoMesAndPubVM.shared.mesListUser.removeAll()
+                                    ErigoProgressVM.ErigoShow(type: .succeed, text: "The account will be deleted after 24 hours. If you log in within 24 hours, it will be considered a logout failure.")
+                                    ErigoLoginVM.shared.landComplete = false
+                                    router.previousRoot()
+                                },
+                                secondaryButton: .cancel(Text("Cancel"))
+                            )
+                        }
                         Spacer()
                     }.padding(.top, 40)
                     
@@ -245,14 +275,26 @@ struct ErigoSet: View {
                     
                     Button(action: { // 登出
                         if loginM.landComplete {
-                            loginM.landComplete = false
-                            router.previousRoot()
+                            showLogin = true
                         } else {
                             router.naviTo(to: .LAND)
                         }
                     }) {
                         Image("btnLogOut")
                     }.padding(.bottom, 80)
+                        .alert(isPresented: $showLogin) {
+                            Alert(
+                                title: Text("Promot"),
+                                message: Text("Are you sure you want to log out?"),
+                                primaryButton: .default(Text("Confirm")) {
+                                    ErigoLoginVM.shared.eyeReportList.removeAll()
+                                    ErigoLoginVM.shared.eyeBlockList.removeAll()
+                                    ErigoLoginVM.shared.landComplete = false
+                                    router.previousRoot()
+                                },
+                                secondaryButton: .cancel(Text("Cancel"))
+                            )
+                        }
                     
                 }.frame(height: ERIGOSCREEN.HEIGHT * 0.82)
                     .padding(.horizontal, 20)
@@ -263,14 +305,22 @@ struct ErigoSet: View {
         .onAppear {
             if loginM.landComplete {
                 loginUser = ErigoUserDefaults.ErigoAvNowUser()
+                if let uid = loginUser.uerId {
+                    headImage = ErigoLoadIamge(uid: uid)
+                }
             }
         }
     }
     
-    func ErigoAvHead() -> URL {
-        let doc = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
-        let headPath = doc.appendingPathComponent("ErigoHead").path
-        return headPath
+    func ErigoLoadIamge(uid: Int) -> UIImage? {
+        guard let documentsURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else { return nil }
+        
+        let fileURL = documentsURL.appendingPathComponent("ErigoHead\(uid).jpg")
+        
+        do {
+            let data = try Data(contentsOf: fileURL)
+            return UIImage(data: data)
+        } catch { return nil }
     }
 }
 

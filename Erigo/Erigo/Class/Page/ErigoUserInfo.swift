@@ -12,6 +12,8 @@ struct ErigoUserInfo: View {
     
     var userModel: ErigoEyeUserM
     
+    @State var isAlbum: Bool = true
+    
     @State var titleAndLike: [ErigoEyeTitleM] = []
     
     @ObservedObject var LoginVM = ErigoLoginVM.shared
@@ -35,11 +37,17 @@ struct ErigoUserInfo: View {
                         .padding(.top, 10)
                     Spacer()
                     Button(action: { // 举报
-                        
+                        ErigoMesAndPubVM.ErigoShowReport {
+                            LoginVM.eyeBlockList.append(userModel.uid ?? 0)
+                            LoginVM.ErigoRemoveLike()
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                                router.previous()
+                            }
+                        }
                     }) { Image("btnReport") }
                 }
                 .padding(.horizontal, 20)
-            }
+            }.frame(width: ERIGOSCREEN.WIDTH, height: ERIGOSCREEN.HEIGHT * 0.18)
             
             HStack {
                 VStack(alignment: .leading) {
@@ -82,19 +90,28 @@ struct ErigoUserInfo: View {
             
             HStack(spacing: ERIGOSCREEN.WIDTH * 0.4) {
                 Button(action: {
-                    
+                    isAlbum = true
                 }) {
-                    Image("btnAlbum")
+                    Image(isAlbum ? "btnAlbum_se" : "btnAlbum")
+                        .resizable()
+                        .frame(width: 28, height: 28)
                 }
                 
                 Button(action: {
-                    
+                    isAlbum = false
                 }) {
-                    Image("btnLike")
+                    Image(isAlbum ? "btnLike" : "btnLike_se")
+                        .resizable()
+                        .frame(width: 28, height: 28)
                 }
             }.padding(.top, 20)
                 .offset(CGSize(width: 0, height: -60))
+            
             // 相册 & 收藏
+            ErigoMeidiaItem(albumItems: isAlbum ? ErigoLoginVM.shared.ErigoGetTitle(uid: userModel.uid!) : ErigoLoginVM.shared.ErigoGetTitleLikes(uid: userModel.uid!) , isAlbum: isAlbum)
+                .environmentObject(router)
+                .frame(width: ERIGOSCREEN.WIDTH - 30, height: ERIGOSCREEN.HEIGHT * 0.6)
+                .offset(CGSize(width: 0, height: -45))
             
             Spacer()
         }
@@ -102,10 +119,6 @@ struct ErigoUserInfo: View {
                height: ERIGOSCREEN.HEIGHT)
         .ignoresSafeArea()
         .background(.black)
-        .onAppear {
-            guard userModel.uid != nil else { return }
-            titleAndLike = ErigoLoginVM.shared.ErigoGetTitle(uid: userModel.uid!)
-        }
     }
 }
 
@@ -118,21 +131,34 @@ struct ErigoMeidiaItem: View {
     
     @State var isVisible: Bool = false
     
+    @EnvironmentObject var router: ErigoRoute
+    
     var body: some View {
         ZStack {
             Image("album_bg")
                 .resizable()
+                .frame(width: ERIGOSCREEN.WIDTH - 30, height: ERIGOSCREEN.HEIGHT * 0.6)
             VStack {
                 Text(isAlbum ? "Shared likes：\(albumItems.count)" : "Total published: \(albumItems.count)")
                     .font(.custom("PingFang SC", size: 18))
                     .foregroundStyle(Color(hes: "#FF629D"))
-                LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible())]) { // 数据
-                    
-                }
-                
+                LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible())], spacing: 20) {
+                    ForEach(albumItems) { item in
+                        ZStack {
+                            Image(item.cover!)
+                                .resizable()
+                                .scaledToFill()
+                                .frame(width: (ERIGOSCREEN.WIDTH - 100) / 2, height: ERIGOSCREEN.HEIGHT * 0.5 / 2)
+                                .clipped()
+                        }
+                        .onTapGesture {
+                            router.naviTo(to: .POSTDETAILS(item))
+                        }
+                    }
+                }.padding(.horizontal, 20)
                 Spacer()
             }
-            .padding(.top, 15)
+            .padding(.top, 10)
             
             if albumItems.count == 0 { // 没有数据
                 VStack {
@@ -145,9 +171,8 @@ struct ErigoMeidiaItem: View {
                 .animation(.easeInOut(duration: 0.5), value: isVisible)
             }
             
-        }.frame(width: ERIGOSCREEN.WIDTH - 40, height: ERIGOSCREEN.HEIGHT * 0.6)
-            .onAppear {
-                isVisible = albumItems.count == 0
-            }
+        }.onAppear {
+            isVisible = albumItems.count == 0
+        }
     }
 }

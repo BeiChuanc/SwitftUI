@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 // MARK: 消息
 class ErigoMesAndPubVM: ObservableObject {
@@ -36,12 +37,11 @@ extension ErigoMesAndPubVM {
         guard let fileURL = userJsonFile else { return }
         var chats = ErigoAvMes(from: fileURL)
         
-        let isGroup = message.isGroup?.description ?? "false"
         let isForMe = message.isForMe?.description ?? "false"
         let mesTime = message.mesTime ?? ""
         let mesContent = message.mesContent ?? ""
         
-        let mesDir: [String: String] = ["isGroup": isGroup, "isM": isForMe, "t": mesTime, "c": mesContent]
+        let mesDir: [String: String] = ["isM": isForMe, "t": mesTime, "c": mesContent]
         
         guard let userNowAccId = userNowAccId else { return }
         var userData = chats["\(userNowAccId)"] ?? [:]
@@ -69,15 +69,57 @@ extension ErigoMesAndPubVM {
         }
     }
     
+    /// 获取消息列表
+    func ErigoAvChatUsers() -> [ErigoEyeUserM] {
+        guard let fileURL = userJsonFile else { return [] }
+        let chats = ErigoAvMes(from: fileURL)
+        
+        let nowUser = ErigoUserDefaults.ErigoAvNowUser()
+        let users = ErigoLoginVM.shared.eyeUsers
+        guard let userData = chats["\(nowUser.uerId!)"] else { return [] }
+        
+        var mesL: [ErigoEyeUserM] = []
+        for uid in Array(userData.keys) {
+            if let foundUser = users.first(where: { $0.uid == Int(uid) }) {
+                if !mesL.contains(where: { $0.uid == foundUser.uid }) {
+                    mesL.append(foundUser)
+                }
+            }
+        }
+        mesL = mesL.sorted(by: { $0.uid! < $1.uid! })
+        return mesL
+    }
+    
+    /// 获取最新消息 >> id
+    func ErigoAvLastMes(dialogistId: String) -> ErigoChatM? {
+        guard let fileURL = userJsonFile else { return nil }
+        let chats = ErigoAvMes(from: fileURL)
+        
+        let nowUser = ErigoUserDefaults.ErigoAvNowUser()
+        guard let userData = chats["\(nowUser.uerId ?? 0)"] else { return nil }
+        
+        if let messages = userData[dialogistId], let latestMessageDict = messages.last {
+            let isM = (latestMessageDict["isM"] ?? "false").lowercased() == "true"
+            let content = latestMessageDict["c"]?.isEmpty ?? true ? nil : latestMessageDict["c"]
+            let time = latestMessageDict["t"]?.isEmpty ?? true ? nil : latestMessageDict["t"]
+            
+            var lastM = ErigoChatM()
+            lastM.isForMe = isM
+            lastM.mesTime = time
+            lastM.mesContent = content
+            return lastM
+        }
+        
+        return nil
+    }
+    
     /// 创建实例
     func ErigoCreateChatMFromDict(_ dict: [String: String]) -> ErigoChatM {
-        let isGroup = (dict["isGroup"] ?? "false").lowercased() == "true"
         let isForMe = (dict["isM"] ?? "false").lowercased() == "true"
         let mesTime = dict["t"]
         let mesContent = dict["c"]
         
         var chatM = ErigoChatM()
-        chatM.isGroup = isGroup
         chatM.isForMe = isForMe
         chatM.mesTime = mesTime
         chatM.mesContent = mesContent
@@ -120,10 +162,7 @@ extension ErigoMesAndPubVM {
               FileManager.default.fileExists(atPath: fileURL.path) else { return }
         do {
             try FileManager.default.removeItem(at: fileURL)
-            print("删除文件:\(fileURL)")
-        } catch {
-            print("Error deleting chat file: \(error)")
-        }
+        } catch {}
     }
     
     /// 会话ID
@@ -186,8 +225,34 @@ extension ErigoMesAndPubVM {
         do {
             if FileManager.default.fileExists(atPath: tarDoc.path) {
                 try FileManager.default.removeItem(at: tarDoc)
-                print("删除用户存储媒体的文件路径为:\(tarDoc)")
             } else {}
         } catch {}
+    }
+}
+
+// MARK: 举报
+extension ErigoMesAndPubVM {
+    
+    /// 举报
+    class func ErigoShowReport(block: @escaping () -> Void) {
+        var reportAlter: UIAlertController!
+        reportAlter = UIAlertController(title: "More", message: nil, preferredStyle: .actionSheet)
+        
+        let report : (UIAlertAction) -> Void = { action in
+            block()
+        }
+        
+        let report1 = UIAlertAction(title: "Report Sexually Explicit Material", style: .default,handler: report)
+        let report2 = UIAlertAction(title: "Report spam", style: .default,handler: report)
+        let report3 = UIAlertAction(title: "Report something else", style: .default,handler: report)
+        let report4 = UIAlertAction(title: "Block", style: .default,handler: report)
+        let cancel  = UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel,handler: nil)
+        reportAlter.addAction(report1)
+        reportAlter.addAction(report2)
+        reportAlter.addAction(report3)
+        reportAlter.addAction(report4)
+        reportAlter.addAction(cancel)
+        reportAlter.modalPresentationStyle = .overFullScreen
+        UIViewController.currentViewController()?.present(reportAlter, animated: true, completion: nil)
     }
 }

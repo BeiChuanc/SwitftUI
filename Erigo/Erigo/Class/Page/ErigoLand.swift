@@ -99,14 +99,18 @@ struct ErigoLand: View {
                         ErigoLoginVM.shared.ErigoLoginAcc(email: loginName, pwd: loginPwd) { statu in
                             switch statu {
                             case .LOAD: // 登入 >> 首页
-                                router.previousRoot()
+                                ErigoProgressVM.ErigoLoading {
+                                    router.previousRoot()
+                                }
                             case .FAIL: // 失败 >> 提示
-                                loginIsEnable = false
+                                break
                             default:
                                 break
                             }
                         }
-                        
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                            loginIsEnable = false
+                        }
                     }) {
                         Image("btnLand")
                     }.disabled(loginIsEnable)
@@ -116,8 +120,6 @@ struct ErigoLand: View {
                     }
                 }.padding(.top, 60)
                 
-                Spacer()
-                
                 LinkTextView(firstText: "Terms of Service",
                              secondTxt: "Pracy Policy",
                              tarText: "By continuing, you agree to our Terms of Service and Pracy Policy",
@@ -126,7 +128,7 @@ struct ErigoLand: View {
                              higlitColor: Color(hes: "#111111", alpha: 0.6),
                              firstLink: URL(string: ERIGOLINK.TER)!,
                              secondLink: URL(string: ERIGOLINK.POL)!) // 链接Text
-                .padding(.bottom, 40)
+                .padding(.top, 80)
                 
                 if isAppleLogin { // 苹果登陆
                     SignInWithAppleView(appleSucceed: {
@@ -134,6 +136,8 @@ struct ErigoLand: View {
                         router.previousRoot()
                     }, email: $appleEmail)
                 }
+                
+                Spacer()
             }
             .frame(width: ERIGOSCREEN.WIDTH,
                 height: ERIGOSCREEN.HEIGHT * 0.65)

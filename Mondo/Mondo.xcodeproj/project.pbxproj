@@ -1,0 +1,680 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		04B4B76E2DBF272C00735CD7 /* MondoUserVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B4B76D2DBF272C00735CD7 /* MondoUserVM.swift */; };
+		04B4B7712DBF2D9000735CD7 /* MondoOfficeGuide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B4B7702DBF2D9000735CD7 /* MondoOfficeGuide.swift */; };
+		04B4B7732DBF4F0900735CD7 /* MondoRelease.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B4B7722DBF4F0900735CD7 /* MondoRelease.swift */; };
+		04B4B7752DBF554C00735CD7 /* MondoSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B4B7742DBF554C00735CD7 /* MondoSet.swift */; };
+		04B4B7772DBF5F3100735CD7 /* MondoLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B4B7762DBF5F3100735CD7 /* MondoLogin.swift */; };
+		04B4B7792DBF5F3B00735CD7 /* MondoRegister.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B4B7782DBF5F3B00735CD7 /* MondoRegister.swift */; };
+		04B4B77B2DBF6A4300735CD7 /* MondoMe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B4B77A2DBF6A4300735CD7 /* MondoMe.swift */; };
+		04B4B77D2DBF6A4A00735CD7 /* MondoUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B4B77C2DBF6A4A00735CD7 /* MondoUser.swift */; };
+		04B4B78B2DBF787800735CD7 /* MondoDetials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B4B78A2DBF787800735CD7 /* MondoDetials.swift */; };
+		04B4B78D2DBF82FE00735CD7 /* MondoDetilsMe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B4B78C2DBF82FE00735CD7 /* MondoDetilsMe.swift */; };
+		04B4B7952DC0658200735CD7 /* MondoClimb4.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 04B4B7922DC0658200735CD7 /* MondoClimb4.mp4 */; };
+		04B4B7962DC0658200735CD7 /* MondoClimb1.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 04B4B78F2DC0658200735CD7 /* MondoClimb1.mp4 */; };
+		04B4B7972DC0658200735CD7 /* MondoClimb5.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 04B4B7932DC0658200735CD7 /* MondoClimb5.mp4 */; };
+		04B4B7982DC0658200735CD7 /* MondoClimb3.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 04B4B7912DC0658200735CD7 /* MondoClimb3.mp4 */; };
+		04B4B7992DC0658200735CD7 /* MondoClimb6.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 04B4B7942DC0658200735CD7 /* MondoClimb6.mp4 */; };
+		04B4B79A2DC0658200735CD7 /* MondoClimb2.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 04B4B7902DC0658200735CD7 /* MondoClimb2.mp4 */; };
+		04B4B79D2DC065C600735CD7 /* MondoTitle.json in Resources */ = {isa = PBXBuildFile; fileRef = 04B4B79C2DC065C600735CD7 /* MondoTitle.json */; };
+		04B4B79F2DC0792A00735CD7 /* Mondoer.json in Resources */ = {isa = PBXBuildFile; fileRef = 04B4B79E2DC0792A00735CD7 /* Mondoer.json */; };
+		04B4B7A32DC07C2800735CD7 /* MondoCacheVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B4B7A22DC07C2800735CD7 /* MondoCacheVM.swift */; };
+		04B4B7A52DC07D6100735CD7 /* MondoBaseVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B4B7A42DC07D6100735CD7 /* MondoBaseVM.swift */; };
+		04B4B7A72DC0831200735CD7 /* MondoRelMesVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B4B7A62DC0831200735CD7 /* MondoRelMesVM.swift */; };
+		04B4B7A92DC0851100735CD7 /* MondoMesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B4B7A82DC0851100735CD7 /* MondoMesService.swift */; };
+		04B4B7AB2DC0C61100735CD7 /* MondoGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B4B7AA2DC0C61100735CD7 /* MondoGroup.swift */; };
+		04B4B7AD2DC0C63000735CD7 /* MondoSignle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B4B7AC2DC0C63000735CD7 /* MondoSignle.swift */; };
+		04D6A0172DBDCB5D00B42D73 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04D6A0112DBDCB5D00B42D73 /* Preview Assets.xcassets */; };
+		04D6A0182DBDCB5D00B42D73 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04D6A0132DBDCB5D00B42D73 /* Assets.xcassets */; };
+		04D6A01A2DBDCB5D00B42D73 /* MondoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D6A0152DBDCB5D00B42D73 /* MondoApp.swift */; };
+		04D6A01C2DBDCB7700B42D73 /* MondoPageControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D6A01B2DBDCB7700B42D73 /* MondoPageControl.swift */; };
+		04D6A0262DBDDA4200B42D73 /* MondoData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D6A0252DBDDA4200B42D73 /* MondoData.swift */; };
+		04D6A0292DBDDE6900B42D73 /* MondoTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D6A0282DBDDE6900B42D73 /* MondoTabBar.swift */; };
+		04D6A02C2DBDE0D200B42D73 /* MondoCompose.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D6A02B2DBDE0D200B42D73 /* MondoCompose.swift */; };
+		04D6A02E2DBE08EA00B42D73 /* MondoWelcome.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D6A02D2DBE08EA00B42D73 /* MondoWelcome.swift */; };
+		04D6A0302DBE1B9800B42D73 /* MondoHotNote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D6A02F2DBE1B9800B42D73 /* MondoHotNote.swift */; };
+		04D6A0322DBE325800B42D73 /* MondoDiscover.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D6A0312DBE325800B42D73 /* MondoDiscover.swift */; };
+		04D6A0372DBF121800B42D73 /* MondoM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D6A0362DBF121800B42D73 /* MondoM.swift */; };
+		04D6A0392DBF222500B42D73 /* MondoMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D6A0382DBF222500B42D73 /* MondoMessage.swift */; };
+		093839B9C20081B0AC884A6A /* Pods_Mondo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4211FA3C60C4F004DBA13CE /* Pods_Mondo.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		04B4B76D2DBF272C00735CD7 /* MondoUserVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MondoUserVM.swift; sourceTree = "<group>"; };
+		04B4B7702DBF2D9000735CD7 /* MondoOfficeGuide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MondoOfficeGuide.swift; sourceTree = "<group>"; };
+		04B4B7722DBF4F0900735CD7 /* MondoRelease.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MondoRelease.swift; sourceTree = "<group>"; };
+		04B4B7742DBF554C00735CD7 /* MondoSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MondoSet.swift; sourceTree = "<group>"; };
+		04B4B7762DBF5F3100735CD7 /* MondoLogin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MondoLogin.swift; sourceTree = "<group>"; };
+		04B4B7782DBF5F3B00735CD7 /* MondoRegister.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MondoRegister.swift; sourceTree = "<group>"; };
+		04B4B77A2DBF6A4300735CD7 /* MondoMe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MondoMe.swift; sourceTree = "<group>"; };
+		04B4B77C2DBF6A4A00735CD7 /* MondoUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MondoUser.swift; sourceTree = "<group>"; };
+		04B4B78A2DBF787800735CD7 /* MondoDetials.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MondoDetials.swift; sourceTree = "<group>"; };
+		04B4B78C2DBF82FE00735CD7 /* MondoDetilsMe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MondoDetilsMe.swift; sourceTree = "<group>"; };
+		04B4B78F2DC0658200735CD7 /* MondoClimb1.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = MondoClimb1.mp4; sourceTree = "<group>"; };
+		04B4B7902DC0658200735CD7 /* MondoClimb2.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = MondoClimb2.mp4; sourceTree = "<group>"; };
+		04B4B7912DC0658200735CD7 /* MondoClimb3.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = MondoClimb3.mp4; sourceTree = "<group>"; };
+		04B4B7922DC0658200735CD7 /* MondoClimb4.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = MondoClimb4.mp4; sourceTree = "<group>"; };
+		04B4B7932DC0658200735CD7 /* MondoClimb5.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = MondoClimb5.mp4; sourceTree = "<group>"; };
+		04B4B7942DC0658200735CD7 /* MondoClimb6.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = MondoClimb6.mp4; sourceTree = "<group>"; };
+		04B4B79C2DC065C600735CD7 /* MondoTitle.json */ = {isa = PBXFileReference; explicitFileType = text.json; path = MondoTitle.json; sourceTree = "<group>"; };
+		04B4B79E2DC0792A00735CD7 /* Mondoer.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Mondoer.json; sourceTree = "<group>"; };
+		04B4B7A22DC07C2800735CD7 /* MondoCacheVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MondoCacheVM.swift; sourceTree = "<group>"; };
+		04B4B7A42DC07D6100735CD7 /* MondoBaseVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MondoBaseVM.swift; sourceTree = "<group>"; };
+		04B4B7A62DC0831200735CD7 /* MondoRelMesVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MondoRelMesVM.swift; sourceTree = "<group>"; };
+		04B4B7A82DC0851100735CD7 /* MondoMesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MondoMesService.swift; sourceTree = "<group>"; };
+		04B4B7AA2DC0C61100735CD7 /* MondoGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MondoGroup.swift; sourceTree = "<group>"; };
+		04B4B7AC2DC0C63000735CD7 /* MondoSignle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MondoSignle.swift; sourceTree = "<group>"; };
+		04D6A0002DBDCB3400B42D73 /* Mondo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mondo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		04D6A0112DBDCB5D00B42D73 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		04D6A0132DBDCB5D00B42D73 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		04D6A0152DBDCB5D00B42D73 /* MondoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MondoApp.swift; sourceTree = "<group>"; };
+		04D6A01B2DBDCB7700B42D73 /* MondoPageControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MondoPageControl.swift; sourceTree = "<group>"; };
+		04D6A0252DBDDA4200B42D73 /* MondoData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MondoData.swift; sourceTree = "<group>"; };
+		04D6A0272DBDDC5000B42D73 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		04D6A0282DBDDE6900B42D73 /* MondoTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MondoTabBar.swift; sourceTree = "<group>"; };
+		04D6A02B2DBDE0D200B42D73 /* MondoCompose.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MondoCompose.swift; sourceTree = "<group>"; };
+		04D6A02D2DBE08EA00B42D73 /* MondoWelcome.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MondoWelcome.swift; sourceTree = "<group>"; };
+		04D6A02F2DBE1B9800B42D73 /* MondoHotNote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MondoHotNote.swift; sourceTree = "<group>"; };
+		04D6A0312DBE325800B42D73 /* MondoDiscover.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MondoDiscover.swift; sourceTree = "<group>"; };
+		04D6A0362DBF121800B42D73 /* MondoM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MondoM.swift; sourceTree = "<group>"; };
+		04D6A0382DBF222500B42D73 /* MondoMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MondoMessage.swift; sourceTree = "<group>"; };
+		C8ED203F70A9811947836CBD /* Pods-Mondo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mondo.debug.xcconfig"; path = "Target Support Files/Pods-Mondo/Pods-Mondo.debug.xcconfig"; sourceTree = "<group>"; };
+		E233B85287335C511EB27D2E /* Pods-Mondo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mondo.release.xcconfig"; path = "Target Support Files/Pods-Mondo/Pods-Mondo.release.xcconfig"; sourceTree = "<group>"; };
+		E4211FA3C60C4F004DBA13CE /* Pods_Mondo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Mondo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		04D69FFD2DBDCB3400B42D73 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				093839B9C20081B0AC884A6A /* Pods_Mondo.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		04B4B76F2DBF273400735CD7 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				04B4B76D2DBF272C00735CD7 /* MondoUserVM.swift */,
+				04B4B7A22DC07C2800735CD7 /* MondoCacheVM.swift */,
+				04B4B7A42DC07D6100735CD7 /* MondoBaseVM.swift */,
+				04B4B7A62DC0831200735CD7 /* MondoRelMesVM.swift */,
+				04B4B7A82DC0851100735CD7 /* MondoMesService.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		04B4B78E2DC0657700735CD7 /* Resourse */ = {
+			isa = PBXGroup;
+			children = (
+				04B4B78F2DC0658200735CD7 /* MondoClimb1.mp4 */,
+				04B4B7902DC0658200735CD7 /* MondoClimb2.mp4 */,
+				04B4B7912DC0658200735CD7 /* MondoClimb3.mp4 */,
+				04B4B7922DC0658200735CD7 /* MondoClimb4.mp4 */,
+				04B4B7932DC0658200735CD7 /* MondoClimb5.mp4 */,
+				04B4B7942DC0658200735CD7 /* MondoClimb6.mp4 */,
+			);
+			path = Resourse;
+			sourceTree = "<group>";
+		};
+		04B4B79B2DC0659300735CD7 /* MondoData */ = {
+			isa = PBXGroup;
+			children = (
+				04B4B79C2DC065C600735CD7 /* MondoTitle.json */,
+				04B4B79E2DC0792A00735CD7 /* Mondoer.json */,
+			);
+			path = MondoData;
+			sourceTree = "<group>";
+		};
+		04D69FF72DBDCB3400B42D73 = {
+			isa = PBXGroup;
+			children = (
+				04D6A0162DBDCB5D00B42D73 /* Mondo */,
+				04D6A0012DBDCB3400B42D73 /* Products */,
+				8D0DFE1AD6918FF85F54961B /* Pods */,
+				2171DA7EE31BF82992B7E8FD /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		04D6A0012DBDCB3400B42D73 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				04D6A0002DBDCB3400B42D73 /* Mondo.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		04D6A0122DBDCB5D00B42D73 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				04D6A0112DBDCB5D00B42D73 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		04D6A0162DBDCB5D00B42D73 /* Mondo */ = {
+			isa = PBXGroup;
+			children = (
+				04D6A0272DBDDC5000B42D73 /* Info.plist */,
+				04D6A0242DBDD04200B42D73 /* Login */,
+				04D6A0232DBDD03C00B42D73 /* Publish */,
+				04D6A0222DBDD02F00B42D73 /* OfficeGuide */,
+				04D6A0212DBDD02500B42D73 /* PersonalD */,
+				04D6A0202DBDD01A00B42D73 /* Message */,
+				04D6A01F2DBDD01100B42D73 /* Hot */,
+				04D6A01E2DBDCFBB00B42D73 /* Welcome */,
+				04D6A01D2DBDCFB400B42D73 /* DisCover */,
+				04D6A0352DBF120800B42D73 /* Model */,
+				04B4B76F2DBF273400735CD7 /* ViewModel */,
+				04D6A02A2DBDE0AD00B42D73 /* Compose */,
+				04B4B79B2DC0659300735CD7 /* MondoData */,
+				04D6A0122DBDCB5D00B42D73 /* Preview Content */,
+				04D6A0132DBDCB5D00B42D73 /* Assets.xcassets */,
+				04B4B78E2DC0657700735CD7 /* Resourse */,
+				04D6A0152DBDCB5D00B42D73 /* MondoApp.swift */,
+				04D6A0252DBDDA4200B42D73 /* MondoData.swift */,
+				04D6A0282DBDDE6900B42D73 /* MondoTabBar.swift */,
+				04D6A01B2DBDCB7700B42D73 /* MondoPageControl.swift */,
+			);
+			path = Mondo;
+			sourceTree = "<group>";
+		};
+		04D6A01D2DBDCFB400B42D73 /* DisCover */ = {
+			isa = PBXGroup;
+			children = (
+				04D6A0312DBE325800B42D73 /* MondoDiscover.swift */,
+				04B4B78A2DBF787800735CD7 /* MondoDetials.swift */,
+				04B4B78C2DBF82FE00735CD7 /* MondoDetilsMe.swift */,
+			);
+			path = DisCover;
+			sourceTree = "<group>";
+		};
+		04D6A01E2DBDCFBB00B42D73 /* Welcome */ = {
+			isa = PBXGroup;
+			children = (
+				04D6A02D2DBE08EA00B42D73 /* MondoWelcome.swift */,
+			);
+			path = Welcome;
+			sourceTree = "<group>";
+		};
+		04D6A01F2DBDD01100B42D73 /* Hot */ = {
+			isa = PBXGroup;
+			children = (
+				04D6A02F2DBE1B9800B42D73 /* MondoHotNote.swift */,
+			);
+			path = Hot;
+			sourceTree = "<group>";
+		};
+		04D6A0202DBDD01A00B42D73 /* Message */ = {
+			isa = PBXGroup;
+			children = (
+				04D6A0382DBF222500B42D73 /* MondoMessage.swift */,
+				04B4B7AA2DC0C61100735CD7 /* MondoGroup.swift */,
+				04B4B7AC2DC0C63000735CD7 /* MondoSignle.swift */,
+			);
+			path = Message;
+			sourceTree = "<group>";
+		};
+		04D6A0212DBDD02500B42D73 /* PersonalD */ = {
+			isa = PBXGroup;
+			children = (
+				04B4B7742DBF554C00735CD7 /* MondoSet.swift */,
+				04B4B77A2DBF6A4300735CD7 /* MondoMe.swift */,
+				04B4B77C2DBF6A4A00735CD7 /* MondoUser.swift */,
+			);
+			path = PersonalD;
+			sourceTree = "<group>";
+		};
+		04D6A0222DBDD02F00B42D73 /* OfficeGuide */ = {
+			isa = PBXGroup;
+			children = (
+				04B4B7702DBF2D9000735CD7 /* MondoOfficeGuide.swift */,
+			);
+			path = OfficeGuide;
+			sourceTree = "<group>";
+		};
+		04D6A0232DBDD03C00B42D73 /* Publish */ = {
+			isa = PBXGroup;
+			children = (
+				04B4B7722DBF4F0900735CD7 /* MondoRelease.swift */,
+			);
+			path = Publish;
+			sourceTree = "<group>";
+		};
+		04D6A0242DBDD04200B42D73 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				04B4B7762DBF5F3100735CD7 /* MondoLogin.swift */,
+				04B4B7782DBF5F3B00735CD7 /* MondoRegister.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		04D6A02A2DBDE0AD00B42D73 /* Compose */ = {
+			isa = PBXGroup;
+			children = (
+				04D6A02B2DBDE0D200B42D73 /* MondoCompose.swift */,
+			);
+			path = Compose;
+			sourceTree = "<group>";
+		};
+		04D6A0352DBF120800B42D73 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				04D6A0362DBF121800B42D73 /* MondoM.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		2171DA7EE31BF82992B7E8FD /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E4211FA3C60C4F004DBA13CE /* Pods_Mondo.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		8D0DFE1AD6918FF85F54961B /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				C8ED203F70A9811947836CBD /* Pods-Mondo.debug.xcconfig */,
+				E233B85287335C511EB27D2E /* Pods-Mondo.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		04D69FFF2DBDCB3400B42D73 /* Mondo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 04D6A00E2DBDCB3600B42D73 /* Build configuration list for PBXNativeTarget "Mondo" */;
+			buildPhases = (
+				9332E741D41060DA0D3A30DE /* [CP] Check Pods Manifest.lock */,
+				04D69FFC2DBDCB3400B42D73 /* Sources */,
+				04D69FFD2DBDCB3400B42D73 /* Frameworks */,
+				04D69FFE2DBDCB3400B42D73 /* Resources */,
+				52CB2807181D276359A652F2 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Mondo;
+			productName = Mondo;
+			productReference = 04D6A0002DBDCB3400B42D73 /* Mondo.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		04D69FF82DBDCB3400B42D73 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1620;
+				LastUpgradeCheck = 1620;
+				TargetAttributes = {
+					04D69FFF2DBDCB3400B42D73 = {
+						CreatedOnToolsVersion = 16.2;
+					};
+				};
+			};
+			buildConfigurationList = 04D69FFB2DBDCB3400B42D73 /* Build configuration list for PBXProject "Mondo" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 04D69FF72DBDCB3400B42D73;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 04D6A0012DBDCB3400B42D73 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				04D69FFF2DBDCB3400B42D73 /* Mondo */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		04D69FFE2DBDCB3400B42D73 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				04D6A0172DBDCB5D00B42D73 /* Preview Assets.xcassets in Resources */,
+				04B4B7952DC0658200735CD7 /* MondoClimb4.mp4 in Resources */,
+				04B4B7962DC0658200735CD7 /* MondoClimb1.mp4 in Resources */,
+				04B4B7972DC0658200735CD7 /* MondoClimb5.mp4 in Resources */,
+				04B4B79F2DC0792A00735CD7 /* Mondoer.json in Resources */,
+				04B4B7982DC0658200735CD7 /* MondoClimb3.mp4 in Resources */,
+				04B4B7992DC0658200735CD7 /* MondoClimb6.mp4 in Resources */,
+				04B4B79A2DC0658200735CD7 /* MondoClimb2.mp4 in Resources */,
+				04D6A0182DBDCB5D00B42D73 /* Assets.xcassets in Resources */,
+				04B4B79D2DC065C600735CD7 /* MondoTitle.json in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		52CB2807181D276359A652F2 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Mondo/Pods-Mondo-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Mondo/Pods-Mondo-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Mondo/Pods-Mondo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9332E741D41060DA0D3A30DE /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Mondo-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		04D69FFC2DBDCB3400B42D73 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				04B4B7A72DC0831200735CD7 /* MondoRelMesVM.swift in Sources */,
+				04B4B7AB2DC0C61100735CD7 /* MondoGroup.swift in Sources */,
+				04B4B7792DBF5F3B00735CD7 /* MondoRegister.swift in Sources */,
+				04B4B78B2DBF787800735CD7 /* MondoDetials.swift in Sources */,
+				04B4B7A92DC0851100735CD7 /* MondoMesService.swift in Sources */,
+				04D6A02C2DBDE0D200B42D73 /* MondoCompose.swift in Sources */,
+				04B4B77B2DBF6A4300735CD7 /* MondoMe.swift in Sources */,
+				04B4B76E2DBF272C00735CD7 /* MondoUserVM.swift in Sources */,
+				04D6A01A2DBDCB5D00B42D73 /* MondoApp.swift in Sources */,
+				04B4B7AD2DC0C63000735CD7 /* MondoSignle.swift in Sources */,
+				04D6A0322DBE325800B42D73 /* MondoDiscover.swift in Sources */,
+				04B4B7752DBF554C00735CD7 /* MondoSet.swift in Sources */,
+				04D6A02E2DBE08EA00B42D73 /* MondoWelcome.swift in Sources */,
+				04D6A0292DBDDE6900B42D73 /* MondoTabBar.swift in Sources */,
+				04B4B78D2DBF82FE00735CD7 /* MondoDetilsMe.swift in Sources */,
+				04B4B7732DBF4F0900735CD7 /* MondoRelease.swift in Sources */,
+				04D6A0302DBE1B9800B42D73 /* MondoHotNote.swift in Sources */,
+				04B4B7772DBF5F3100735CD7 /* MondoLogin.swift in Sources */,
+				04D6A0262DBDDA4200B42D73 /* MondoData.swift in Sources */,
+				04B4B7712DBF2D9000735CD7 /* MondoOfficeGuide.swift in Sources */,
+				04B4B77D2DBF6A4A00735CD7 /* MondoUser.swift in Sources */,
+				04B4B7A32DC07C2800735CD7 /* MondoCacheVM.swift in Sources */,
+				04D6A01C2DBDCB7700B42D73 /* MondoPageControl.swift in Sources */,
+				04B4B7A52DC07D6100735CD7 /* MondoBaseVM.swift in Sources */,
+				04D6A0372DBF121800B42D73 /* MondoM.swift in Sources */,
+				04D6A0392DBF222500B42D73 /* MondoMessage.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		04D6A00C2DBDCB3600B42D73 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		04D6A00D2DBDCB3600B42D73 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		04D6A00F2DBDCB3600B42D73 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C8ED203F70A9811947836CBD /* Pods-Mondo.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Mondo/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Mondo/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "Mondo needs your consent to access the camera to shoot personal works/personal portraits. If prohibited, you will not be able to take photos or update information.";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Mondo requires your consent to obtain location information when using it in order to upload photos or update avatars. If prohibited, you will not be able to publish works/update avatars.";
+				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "Mondo requires your consent to obtain location information when using it in order to upload photos or update avatars. If prohibited, you will not be able to publish works/update avatars.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Mondo requires your consent to obtain location information when using it in order to upload photos or update avatars. If prohibited, you will not be able to publish works/update avatars.";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Mondo needs your permission to access the microphone. If blocked, you will not be able to send audio messages to users.";
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "Mondo needs your consent to access the album in order to save the work. If it is prohibited, you will not be able to save your work to the album.";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Mondo needs your consent to access the album to select photos to upload/publish works/update avatars. If prohibited, you will not be able to upload selected photos to upload/publish works/update avatars.";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.alpine.climb.Mondo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		04D6A0102DBDCB3600B42D73 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E233B85287335C511EB27D2E /* Pods-Mondo.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Mondo/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Mondo/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "Mondo needs your consent to access the camera to shoot personal works/personal portraits. If prohibited, you will not be able to take photos or update information.";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Mondo requires your consent to obtain location information when using it in order to upload photos or update avatars. If prohibited, you will not be able to publish works/update avatars.";
+				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "Mondo requires your consent to obtain location information when using it in order to upload photos or update avatars. If prohibited, you will not be able to publish works/update avatars.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Mondo requires your consent to obtain location information when using it in order to upload photos or update avatars. If prohibited, you will not be able to publish works/update avatars.";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Mondo needs your permission to access the microphone. If blocked, you will not be able to send audio messages to users.";
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "Mondo needs your consent to access the album in order to save the work. If it is prohibited, you will not be able to save your work to the album.";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Mondo needs your consent to access the album to select photos to upload/publish works/update avatars. If prohibited, you will not be able to upload selected photos to upload/publish works/update avatars.";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.alpine.climb.Mondo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		04D69FFB2DBDCB3400B42D73 /* Build configuration list for PBXProject "Mondo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				04D6A00C2DBDCB3600B42D73 /* Debug */,
+				04D6A00D2DBDCB3600B42D73 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		04D6A00E2DBDCB3600B42D73 /* Build configuration list for PBXNativeTarget "Mondo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				04D6A00F2DBDCB3600B42D73 /* Debug */,
+				04D6A0102DBDCB3600B42D73 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 04D69FF82DBDCB3400B42D73 /* Project object */;
+}
