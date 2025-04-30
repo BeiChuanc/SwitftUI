@@ -118,10 +118,10 @@ struct ErigoChatSingle: View {
                                  textColor: UIColor(hes: "#111111", alpha: 0.3),
                                  placeholderColor: UIColor(hes: "#111111", alpha: 0.3),
                                  textFont: UIFont(name: "PingFang SC", size: 18)!)
-                        .frame(height: 45)
-                        .background(Color(hes: "#FCFB4E"))
-                        .clipShape(RoundedRectangle(cornerRadius: 22.5))
-                        .focused($isMes)
+                    .frame(width: ERIGOSCREEN.WIDTH * 0.7, height: 45)
+                    .background(Color(hes: "#FCFB4E"))
+                    .clipShape(RoundedRectangle(cornerRadius: 22.5))
+                    .focused($isMes)
                     Button(action: {
                         guard !chatMes.isEmpty else {
                             isMes = true

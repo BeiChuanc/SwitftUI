@@ -25,7 +25,7 @@ enum MONDOPAGE: Hashable {
     
     case SIDEGROUP(Int)
     
-    case SAFEVIDEO
+    case SAFEVIDEO(String, Int, Bool, Int)
     
     case OTHERONE(MondoerM)
     

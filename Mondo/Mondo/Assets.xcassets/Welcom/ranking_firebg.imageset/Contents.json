@@ -1,11 +1,11 @@
 {
   "images" : [
     {
-      "filename" : "ranking_firebg.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
+      "filename" : "ranking_firebg.png",
       "idiom" : "universal",
       "scale" : "2x"
     },

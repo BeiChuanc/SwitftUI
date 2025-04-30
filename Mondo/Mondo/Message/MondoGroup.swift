@@ -32,8 +32,12 @@ struct MondoGroup: View {
                     Button(action: {
                         pageControl.backToLevel()
                     }) { Image("guide_back") }
-                    Text("dsdad") // 用户名
+                    Text(monMe.name + ", " +
+                         MondoUserVM.shared.monUsers[0].name! + ", " +
+                         MondoUserVM.shared.monUsers[1].name!) // 用户名
                         .font(.custom("Futura-CondensedExtraBold", size: 20))
+                        .lineLimit(1)
+                        
                         .foregroundStyle(Color.black)
                     Spacer()
                     Button(action: { // 退出群聊 >> 清除数据
@@ -44,6 +48,7 @@ struct MondoGroup: View {
                                 title: Text("Promot"),
                                 message: Text("Are you sure you want to exit the group chat? This will clear the group chat messages."),
                                 primaryButton: .default(Text("Exit")) { // 清除记录
+                                    MondoRelMesVM.shared.MondoDeleteGroup(gId: groupId  )
                                     pageControl.backToLevel()
                                 },
                                 secondaryButton: .cancel(Text("Cancel"))
@@ -51,9 +56,10 @@ struct MondoGroup: View {
                         }
                 }
                 
-                Text(MondoCurGroupTime())
+                Text("Online " + MondoCurGroupTime()) // 时间
                     .font(.custom("PingFang SC", size: 14))
                     .foregroundStyle(Color(hex: "#333333"))
+                    .padding(.top, 30)
                 
                 /* 聊天列表 */
                 ScrollViewReader { proxy in // 消息列表
@@ -77,10 +83,11 @@ struct MondoGroup: View {
                                        backgroundColor: UIColor(hex: "#925EFF"),
                                        textColor: UIColor.white,
                                        placeholderColor: UIColor.white,
-                                       bordColor: UIColor(hex: "#925EFF"),
+                                       bordColor: UIColor.clear,
                                        font: UIFont(name: "PingFangSC-Medium", size: 14)!,
                                        radius: 26)
                     .frame(width: MONDOSCREEN.WIDTH * 0.64, height: 52)
+                    .clipShape(RoundedRectangle(cornerRadius: 26))
                     .focused($isMes)
                     Button(action: {
                         guard !inputMes.isEmpty else {
@@ -117,6 +124,13 @@ struct MondoGroup: View {
         userMes.mesTime = MondoCurGroupTime()
         groupMes.append(userMes)
         MondoRelMesVM.shared.MondoSaveMes(dialogist: "\(monMe.uid)\(groupId)", message: userMes)
+        MondoCacheVM.MondoFixDetails { mon in
+            if !mon.join.contains(groupId) {
+                mon.join.append(groupId)
+                print("群组:\(mon.join)")
+            }
+            return mon
+        }
         inputMes = ""
     }
     

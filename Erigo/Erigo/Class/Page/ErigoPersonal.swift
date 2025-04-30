@@ -139,7 +139,7 @@ struct ErigoPersonal: View {
                 loginUser = ErigoUserDefaults.ErigoAvNowUser()
                 if let uid = loginUser.uerId {
                     headImage = loginM.ErigoLoadIamge(uid: uid)
-                    if let vip = loginUser.isVIP, vip {
+                    if let vip = ErigoUserDefaults.ErigoReadVIP(), vip {
                         isVIP = vip
                     }
                 }

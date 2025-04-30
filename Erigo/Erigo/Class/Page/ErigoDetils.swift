@@ -138,7 +138,7 @@ struct ErigoDetils: View {
                                     } else {
                                         
                                         if loginUser.likes!.count > 5 {
-                                            guard loginUser.isVIP! else {
+                                            guard ErigoUserDefaults.ErigoReadVIP()! else {
                                                 ErigoProgressVM.ErigoSymbol(text: "The collection limit has been reached, please subscribe to VIP to collect more!")
                                                 DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
                                                     router.naviTo(to: .STORE)
@@ -292,15 +292,11 @@ struct ErigoDetils: View {
                                 HStack(spacing: 20) {
                                     ForEach(Array(giftList.enumerated()), id: \.offset) { index, item in
                                         ErigoGiftItem(giftData: item) {
-                                            if LoginVM.landComplete {
-                                                ErigoPurchaseVM.shared.ErigoAvGift(gid: "\(giftList[index].gId!)") {
-                                                    withAnimation(.interactiveSpring(duration: 0.5, extraBounce: 0.2)) {
-                                                        isSendGift.toggle()
-                                                        reloadGiftData()
-                                                    }
+                                            ErigoPurchaseVM.shared.ErigoAvGift(gid: "\(giftList[index].gId!)") {
+                                                withAnimation(.interactiveSpring(duration: 0.5, extraBounce: 0.2)) {
+                                                    isSendGift.toggle()
+                                                    reloadGiftData()
                                                 }
-                                            } else {
-                                                router.naviTo(to: .LAND)
                                             }
                                         }
                                     }
@@ -345,9 +341,9 @@ struct ErigoDetils: View {
         giftList = ErigoPurchaseVM.shared.giftStoreList
         if LoginVM.landComplete {
             loginUser = ErigoUserDefaults.ErigoAvNowUser()
-            if let isLimit = loginUser.isLimit, isLimit {
-                giftList = giftList.filter { item in return !item.isLimit! }
-            }
+        }
+        if let isLimit = ErigoUserDefaults.ErigoGiftLimit(), isLimit {
+            giftList = giftList.filter { item in return !item.isLimit! }
         }
     }
 }
@@ -429,7 +425,7 @@ struct ErigoGiftItem: View {
                 if giftData.gId!.contains("pri_vid") {
                     Image("giftLetter").scaledToFit().frame(width: 74, height: 74)
                 }
-                if giftData.gId!.contains("test") {
+                if giftData.gId!.contains("prem") {
                     Image("giftLimit").scaledToFit().frame(width: 74, height: 74)
                 }
             }

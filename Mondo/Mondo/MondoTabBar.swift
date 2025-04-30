@@ -61,7 +61,6 @@ struct MondoTabBar: View {
                 IQKeyboardManager.shared().shouldResignOnTouchOutside = true
                 MondoUserVM.shared.MondoGetUserList()
                 MondoUserVM.shared.MondoGetTileList()
-                MondoUserVM.shared.MondoGetHotList()
             }
             .navigationDestination(for: MONDOPAGE.self) { page in
                 switch page {
@@ -72,8 +71,11 @@ struct MondoTabBar: View {
                 case .SAFEGUIDE: MondoOfficeGuide().environmentObject(pageControl).mondoHidBack()
                 case .SIDEBYSID(let chatModel): MondoSignle(chatUser: chatModel).environmentObject(pageControl).mondoHidBack()
                 case .SIDEGROUP(let gId): MondoGroup(groupId: gId).environmentObject(pageControl).mondoHidBack()
-                case .SAFEVIDEO: Text("")
-                case .OTHERONE: MondoUser().environmentObject(pageControl).mondoHidBack()
+                case .SAFEVIDEO(let url, let type, let isFrome, let videoId): MondoPlayer(url: url,
+                                                                                          type: type,
+                                                                                          vId: videoId,
+                                                                                          isFromMe: isFrome).environmentObject(pageControl).mondoHidBack()
+                case .OTHERONE(let userModel): MondoUser(userModel: userModel).environmentObject(pageControl).mondoHidBack()
                 case .HOTNOTES: MondoHotNote().environmentObject(pageControl).mondoHidBack()
                 case .GUIDE(let GuideM): MondoGuide(guideModel: GuideM).environmentObject(pageControl).mondoHidBack()
                 case .SHOWDETAIL(let titleModel): MondoDetials(titleModel: titleModel).environmentObject(pageControl).mondoHidBack()

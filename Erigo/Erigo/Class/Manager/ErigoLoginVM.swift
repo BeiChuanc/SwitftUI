@@ -289,8 +289,6 @@ extension ErigoLoginVM {
         userModel.likes = []
         userModel.isReportG = false
         userModel.isJoin = false
-        userModel.isVIP = false
-        userModel.isLimit = false
         
         ErigoUserDefaults.ErigoSaveDetails(email: email, details: encode(modelJson: userModel)!)
         ErigoMesAndPubVM.ErigoDeleteMyM(myMPath: "Erigo_\(appleLogin ? 1000 : userId!)")

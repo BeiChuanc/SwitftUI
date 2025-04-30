@@ -47,6 +47,7 @@ struct MondoLogin: View {
                                            font: UIFont(name: "PingFangSC-Medium", size: 14)!,
                                            radius: 15)
                         .frame(width: MONDOSCREEN.WIDTH - 32, height: 50)
+                        .clipShape(RoundedRectangle(cornerRadius: 15))
                         .focused($isAcc)
                         MondoTextFielfItem(textInput: $inputPwd,
                                            placeholder: "Input password",
@@ -57,6 +58,7 @@ struct MondoLogin: View {
                                            font: UIFont(name: "PingFangSC-Medium", size: 14)!,
                                            radius: 15)
                         .frame(width: MONDOSCREEN.WIDTH - 32, height: 50)
+                        .clipShape(RoundedRectangle(cornerRadius: 15))
                         .focused($isPwd)
                     }
                     HStack {
@@ -124,7 +126,10 @@ struct MondoLogin: View {
                 .frame(width: MONDOSCREEN.WIDTH, height:  MONDOSCREEN.HEIGHT)
             if showApple { // 苹果登陆
                 MondoAppleLoginItem { // 进入App
-                    
+                    MondoUserVM.shared.loginIn = true
+                    MondoBaseVM.MondoLoading {
+                        pageControl.backToOriginal()
+                    }
                 }
             }
         }.ignoresSafeArea()

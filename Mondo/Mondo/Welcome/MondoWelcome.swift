@@ -146,6 +146,7 @@ struct MondoTitleItem: View {
                     .scaledToFill()
                     .frame(width: 40, height: 40)
                     .clipShape(RoundedRectangle(cornerRadius: 20))
+                
                 VStack(alignment: .leading) {
                     Text(titleModel.uName) // 名字
                         .font(.custom("Futura-CondensedExtraBold", size: 16))
@@ -157,11 +158,19 @@ struct MondoTitleItem: View {
                 Spacer()
             }.padding(.horizontal, 16)
             HStack {
-                VStack { Image(titleModel.cover) // 媒体图片
+                ZStack {
+                    Image(titleModel.cover) // 媒体图片
                         .resizable()
                         .scaledToFill()
                         .frame(width: MONDOSCREEN.WIDTH - 80, height: (MONDOSCREEN.WIDTH - 80) * 0.8)
-                        .clipShape(RoundedRectangle(cornerRadius: 12)) }
+                        .clipShape(RoundedRectangle(cornerRadius: 12))
+                    if titleModel.isVideo {
+                        Image("btnPlay")
+                            .buttonStyle(MondoReEffort())
+                    }
+                }.onTapGesture {
+                    pageControl.route(to: .SHOWDETAIL(titleModel))
+                }
 
                 Spacer()
                 ZStack {

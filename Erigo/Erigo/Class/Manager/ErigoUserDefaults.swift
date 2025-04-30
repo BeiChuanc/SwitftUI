@@ -19,6 +19,10 @@ enum ERIGODEFAULT: String {
     case MYDETILS
     
     case NOWACC
+    
+    case LIMIT
+    
+    case VIP
 }
 
 // MARK: 存储用户
@@ -134,5 +138,25 @@ class ErigoUserDefaults {
             let encodedData = try JSONEncoder().encode(userNow)
             ErigoSaveDetails(email: noewAcc, details: encodedData)
         } catch {}
+    }
+    
+    /// 记录限制礼物
+    class func ErigoRecordGift(isLimited: Bool) {
+        ErigoSaveValue(isLimited, forKey: .LIMIT)
+    }
+    
+    /// 读取限制礼物
+    class func ErigoGiftLimit() -> Bool? {
+        return ErigoAssignValue(forKey: .LIMIT) ?? false
+    }
+    
+    /// 记录VIP状态
+    class func ErigoRecordVIP(isVIP: Bool) {
+        ErigoSaveValue(isVIP, forKey: .VIP)
+    }
+    
+    /// 读取VIP状态
+    class func ErigoReadVIP() -> Bool? {
+        return ErigoAssignValue(forKey: .VIP) ?? false
     }
 }

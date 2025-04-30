@@ -44,6 +44,7 @@
 		04D6A0372DBF121800B42D73 /* MondoM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D6A0362DBF121800B42D73 /* MondoM.swift */; };
 		04D6A0392DBF222500B42D73 /* MondoMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D6A0382DBF222500B42D73 /* MondoMessage.swift */; };
 		093839B9C20081B0AC884A6A /* Pods_Mondo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4211FA3C60C4F004DBA13CE /* Pods_Mondo.framework */; };
+		905CB3202DC11D0600D1275A /* MondoPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 905CB31F2DC11D0600D1275A /* MondoPlayer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -71,6 +72,7 @@
 		04B4B7A82DC0851100735CD7 /* MondoMesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MondoMesService.swift; sourceTree = "<group>"; };
 		04B4B7AA2DC0C61100735CD7 /* MondoGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MondoGroup.swift; sourceTree = "<group>"; };
 		04B4B7AC2DC0C63000735CD7 /* MondoSignle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MondoSignle.swift; sourceTree = "<group>"; };
+		04B4B7AE2DC1E9E300735CD7 /* Mondo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Mondo.entitlements; sourceTree = "<group>"; };
 		04D6A0002DBDCB3400B42D73 /* Mondo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mondo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04D6A0112DBDCB5D00B42D73 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		04D6A0132DBDCB5D00B42D73 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -85,6 +87,7 @@
 		04D6A0312DBE325800B42D73 /* MondoDiscover.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MondoDiscover.swift; sourceTree = "<group>"; };
 		04D6A0362DBF121800B42D73 /* MondoM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MondoM.swift; sourceTree = "<group>"; };
 		04D6A0382DBF222500B42D73 /* MondoMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MondoMessage.swift; sourceTree = "<group>"; };
+		905CB31F2DC11D0600D1275A /* MondoPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MondoPlayer.swift; sourceTree = "<group>"; };
 		C8ED203F70A9811947836CBD /* Pods-Mondo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mondo.debug.xcconfig"; path = "Target Support Files/Pods-Mondo/Pods-Mondo.debug.xcconfig"; sourceTree = "<group>"; };
 		E233B85287335C511EB27D2E /* Pods-Mondo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mondo.release.xcconfig"; path = "Target Support Files/Pods-Mondo/Pods-Mondo.release.xcconfig"; sourceTree = "<group>"; };
 		E4211FA3C60C4F004DBA13CE /* Pods_Mondo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Mondo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -165,6 +168,7 @@
 		04D6A0162DBDCB5D00B42D73 /* Mondo */ = {
 			isa = PBXGroup;
 			children = (
+				04B4B7AE2DC1E9E300735CD7 /* Mondo.entitlements */,
 				04D6A0272DBDDC5000B42D73 /* Info.plist */,
 				04D6A0242DBDD04200B42D73 /* Login */,
 				04D6A0232DBDD03C00B42D73 /* Publish */,
@@ -203,6 +207,7 @@
 			isa = PBXGroup;
 			children = (
 				04D6A02D2DBE08EA00B42D73 /* MondoWelcome.swift */,
+				905CB31F2DC11D0600D1275A /* MondoPlayer.swift */,
 			);
 			path = Welcome;
 			sourceTree = "<group>";
@@ -436,6 +441,7 @@
 				04B4B7772DBF5F3100735CD7 /* MondoLogin.swift in Sources */,
 				04D6A0262DBDDA4200B42D73 /* MondoData.swift in Sources */,
 				04B4B7712DBF2D9000735CD7 /* MondoOfficeGuide.swift in Sources */,
+				905CB3202DC11D0600D1275A /* MondoPlayer.swift in Sources */,
 				04B4B77D2DBF6A4A00735CD7 /* MondoUser.swift in Sources */,
 				04B4B7A32DC07C2800735CD7 /* MondoCacheVM.swift in Sources */,
 				04D6A01C2DBDCB7700B42D73 /* MondoPageControl.swift in Sources */,
@@ -573,9 +579,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_ENTITLEMENTS = Mondo/Mondo.entitlements;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Mondo/Preview Content\"";
+				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = WL2W2PCY46;
 				ENABLE_PREVIEWS = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -598,8 +608,10 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.alpine.climb.Mondo;
+				PRODUCT_BUNDLE_IDENTIFIER = com.chengdu.test;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = chengdu_developer;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
@@ -616,9 +628,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_ENTITLEMENTS = Mondo/Mondo.entitlements;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Mondo/Preview Content\"";
+				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = WL2W2PCY46;
 				ENABLE_PREVIEWS = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -641,8 +657,10 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.alpine.climb.Mondo;
+				PRODUCT_BUNDLE_IDENTIFIER = com.chengdu.test;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = chengdu_developer;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;

@@ -42,16 +42,14 @@ struct MondoMe: View {
                 VStack {
                     HStack {
                         if monLogin.loginIn {
-                            if MondoCacheVM.MondoAvCurUser().head == "monder" {
-                                Image("monder").resizable().scaledToFill() // 个人头像
+                            if let image = uploadImage {
+                                Image(uiImage: image).resizable().scaledToFill() // 个人头像
                                     .frame(width: 62, height: 62)
                                     .clipShape(RoundedRectangle(cornerRadius: 31))
                             } else {
-                                if let image = uploadImage {
-                                    Image(uiImage: image).resizable().scaledToFill() // 个人头像
-                                        .frame(width: 62, height: 62)
-                                        .clipShape(RoundedRectangle(cornerRadius: 31))
-                                }
+                                Image("monder").resizable().scaledToFill() // 个人头像
+                                    .frame(width: 62, height: 62)
+                                    .clipShape(RoundedRectangle(cornerRadius: 31))
                             }
                         } else {
                             Image("monder").resizable().scaledToFill() // 个人头像
@@ -84,9 +82,11 @@ struct MondoMe: View {
                                                 erigo.head = headURL.path
                                                 return erigo
                                             }
+                                            DispatchQueue.main.async {
+                                                MondoAvHead()
+                                            }
                                         } catch {}
                                     }
-                                    uploadImage = cover.img
                                 }, mediaOption: .PHOTO)
                             }
                         
@@ -197,9 +197,14 @@ struct MondoMe: View {
             .onAppear {
                 if monLogin.loginIn {
                     monMe = MondoCacheVM.MondoAvCurUser()
-                    uploadImage = MondoUserVM.shared.MondoAvHead(uid: monMe.uid)
+                    MondoAvHead()
                 }
             }
+    }
+    
+    /// 获取头像
+    func MondoAvHead() {
+        uploadImage = MondoUserVM.shared.MondoAvHead(uid: monMe.uid)
     }
 }
 

@@ -221,8 +221,13 @@ struct MondoSet: View {
         }.ignoresSafeArea()
             .onAppear {
                 if monLogin.loginIn {
-                    uploadImage = MondoUserVM.shared.MondoAvHead(uid: MondoCacheVM.MondoAvCurUser().uid)
+                    MondoAvHead()
                 }
             }
+    }
+    
+    /// 获取头像
+    func MondoAvHead() {
+        uploadImage = MondoUserVM.shared.MondoAvHead(uid: MondoCacheVM.MondoAvCurUser().uid)
     }
 }

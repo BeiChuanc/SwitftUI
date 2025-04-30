@@ -121,10 +121,10 @@ class MondoCacheVM {
     }
     
     /// 修改用户详细信息
-    class func MondoFixDetails(erigo: (MondoMeM) -> MondoMeM) {
+    class func MondoFixDetails(mon: (MondoMeM) -> MondoMeM) {
         var userNow = MondoAvCurUser()
         let noewAcc = MondoAvCur()
-        userNow = erigo(userNow)
+        userNow = mon(userNow)
         do {
             let encodedData = try JSONEncoder().encode(userNow)
             MondoSvPers(email: noewAcc, details: encodedData)

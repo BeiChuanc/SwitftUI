@@ -4,30 +4,28 @@
         "uId": 10,
         "uHead": "mondoer1",
         "uName": "Amanda",
-        "cover": "uP_20",
-        "media": "uP_20",
+        "cover": "uP_26",
+        "media": "uP_26",
         "isVideo": false,
         "topic": "From basecamp to breathtaking heights 🌟",
         "content": "Rain turned the trail into a muddy mess, but who cares? Slipping, laughing, and embracing the chaos—this is adventure at its rawest! 🌧️",
         "time": "10:00",
         "likes": 56,
-        "fires": 0,
-        "isRake": false
+        "fires": 830
     },
     {
         "mId": 21,
         "uId": 10,
         "uHead": "mondoer1",
         "uName": "Amanda",
-        "cover": "uP_21",
-        "media": "uP_21",
+        "cover": "uP_27",
+        "media": "uP_27",
         "isVideo": false,
         "topic": "Sweat, smiles, and summit",
         "content": "Finally checked “summit [Mountain Name]” off my bucket list! The sense of achievement, the wind in my hair, the vastness of the world below… I’m already planning my next climb. 📍",
         "time": "10:23",
         "likes": 37,
-        "fires": 0,
-        "isRake": false
+        "fires": 389
     },
     {
         "mId": 22,
@@ -41,8 +39,7 @@
         "content": "Ascended into a sea of mist today. The world disappeared beneath me, and all that mattered was the next step. Mountain magic at its finest! 🌫️",
         "time": "11:11",
         "likes": 42,
-        "fires": 0,
-        "isRake": false
+        "fires": 280
     },
     {
         "mId": 23,
@@ -56,8 +53,7 @@
         "content": "Scrambled over jagged rocks, nursed a few blisters, but the rush of conquering a technical trail? Unbeatable. Bring on the next climb! 💥 ",
         "time": "11:15",
         "likes": 22,
-        "fires": 0,
-        "isRake": false
+        "fires": 278
     },
     {
         "mId": 24,
@@ -71,8 +67,7 @@
         "content": "Ended the day with a fiery sky painted over the mountains. Every step felt like walking through a masterpiece. Moments like these are why I hike. 🔥",
         "time": "11:18",
         "likes": 30,
-        "fires": 0,
-        "isRake": false
+        "fires": 178
     },
     {
         "mId": 25,
@@ -86,8 +81,7 @@
         "content": "Faced freezing winds and icy paths, but the thrill of winter peaks is unmatched. There’s something magical about crunching through snow - covered trails. ⛄",
         "time": "12:32",
         "likes": 67,
-        "fires": 0,
-        "isRake": false
+        "fires": 133
     },
     {
         "mId": 26,
@@ -95,44 +89,41 @@
         "uHead": "mondoer2",
         "uName": "Andrea",
         "cover": "uP_25",
-        "media": "uP_26",
+        "media": "uP_25",
         "isVideo": false,
         "topic": "“Summited! Where mountains meet my soul 🌄”",
         "content": "Made it to the top after 8 hours of climbing! The panoramic view of endless mountains and the cold wind on my face—it’s a feeling that beats any city rush. Who’s up for the next adventure? 🏔️",
         "time": "12:39",
         "likes": 90,
-        "fires": 0,
-        "isRake": false
+        "fires": 982
     },
     {
         "mId": 27,
         "uId": 11,
         "uHead": "mondoer2",
         "uName": "Andrea",
-        "cover": "uP_26",
-        "media": "uP_26",
+        "cover": "uP_20",
+        "media": "uP_20",
         "isVideo": false,
         "topic": "Trailblazing: Every step, a story 🚶",
         "content": "Today, I traded my phone for a compass and deadlines for dirt trails. Hiking solo, I met strangers who became friends, shared stories over snacks, and witnessed a sunset that painted the sky on fire. This is freedom!",
         "time": "13:01",
         "likes": 54,
-        "fires": 0,
-        "isRake": false
+        "fires": 887
     },
     {
         "mId": 28,
         "uId": 11,
         "uHead": "mondoer2",
         "uName": "Andrea",
-        "cover": "uP_27",
-        "media": "uP_27",
+        "cover": "uP_21",
+        "media": "uP_21",
         "isVideo": false,
         "topic": "Conquered the peak, found my strength 💪",
         "content": "The steepest paths lead to the most breathtaking rewards. Scaling rocky slopes with shaking legs, but the moment I saw the hidden waterfall and crystal - clear lake at the end… pure magic! 🎇",
         "time": "13:12",
         "likes": 24,
-        "fires": 0,
-        "isRake": false
+        "fires": 559
     },
     {
         "mId": 29,
@@ -146,8 +137,7 @@
         "content": "Night hiking to catch the star - filled sky was a game - changer! Headlamp on, footsteps echoing, and a universe of stars above. Nature’s beauty is truly humbling. ✨",
         "time": "13:22",
         "likes": 26,
-        "fires": 0,
-        "isRake": false
+        "fires": 444
     },
     {
         "mId": 30,
@@ -161,8 +151,7 @@
         "content": "Just completed my first multi - day backpacking trip! Sleeping in a tent, waking up to the sound of birds, and covering 20 miles of rugged terrain—it’s tough, but I’ve never felt more alive. Ready for round two! 🌲",
         "time": "14:21",
         "likes": 43,
-        "fires": 0,
-        "isRake": false
+        "fires": 888
     },
     {
         "mId": 31,
@@ -176,8 +165,7 @@
         "content": "Pushed through burning legs and gusty winds. Reaching the summit? Priceless. Next peak, who’s with me? 🔥",
         "time": "14:35",
         "likes": 56,
-        "fires": 0,
-        "isRake": false
+        "fires": 567
     },
     {
         "mId": 32,
@@ -191,8 +179,7 @@
         "content": "Swapped my daily routine for muddy trails and jaw - dropping panoramas. Every scratch and blister? A badge of honor on this wild adventure! 🥾",
         "time": "14:50",
         "likes": 65,
-        "fires": 0,
-        "isRake": false
+        "fires": 321
     },
     {
         "mId": 33,
@@ -206,8 +193,7 @@
         "content": "Hiking solo in foggy mountains—it’s like walking through a fairytale. Just me, my footsteps, and nature’s secrets waiting to be uncovered.",
         "time": "15:02",
         "likes": 56,
-        "fires": 0,
-        "isRake": false
+        "fires": 389
     },
     {
         "mId": 34,
@@ -221,8 +207,7 @@
         "content": "Conquered the “Devil’s Staircase” today! Those endless steps tested my limits, but the view from the top? Absolutely worth every gasp for air.",
         "time": "15:10",
         "likes": 12,
-        "fires": 0,
-        "isRake": false
+        "fires": 390
     },
     {
         "mId": 35,
@@ -236,8 +221,7 @@
         "content": "Camping overnight on a mountain ridge, watching the stars replace the sunset. Moments like these remind me why I live for the outdoors. 🌌",
         "time": "15:12",
         "likes": 45,
-        "fires": 0,
-        "isRake": false
+        "fires": 308
     },
     {
         "mId": 36,
@@ -251,8 +235,7 @@
         "content": "Found a hidden lake halfway up the trail—crystal clear water surrounded by towering peaks. Nature’s best surprises are off the beaten path!",
         "time": "15:15",
         "likes": 46,
-        "fires": 0,
-        "isRake": false
+        "fires": 818
     },
     {
         "mId": 37,
@@ -266,8 +249,7 @@
         "content": "Teamwork on the toughest climbs! Pulling each other up steep slopes, sharing energy bars, and celebrating at the summit. That’s what hiking bonds are made of. 🤝",
         "time": "15:20",
         "likes": 67,
-        "fires": 0,
-        "isRake": false
+        "fires": 596
     },
     {
         "mId": 38,
@@ -281,8 +263,7 @@
         "content": "Venture off the main path and discovered an untouched valley filled with wildflowers and hidden streams. Sometimes, the best journeys are the unexpected ones. 🌸",
         "time": "15:32",
         "likes": 65,
-        "fires": 0,
-        "isRake": false
+        "fires": 907
     },
     {
         "mId": 39,
@@ -296,8 +277,7 @@
         "content": "Carried everything I needed on my back for days, slept under a million stars, and woke up to mountain views. This is freedom, defined. 🌟",
         "time": "15:56",
         "likes": 32,
-        "fires": 0,
-        "isRake": false
+        "fires": 809
     },
     {
         "mId": 40,
@@ -311,8 +291,7 @@
         "content": "Pushed my body to its limit today, but reaching the summit after hours of struggle? The most rewarding feeling in the world. I did it! 💪",
         "time": "16:10",
         "likes": 31,
-        "fires": 0,
-        "isRake": false
+        "fires": 780
     },
     {
         "mId": 41,
@@ -326,8 +305,7 @@
         "content": "Sat alone at the peak, listening to the wind’s stories. In those quiet moments, I found peace—and a part of myself I’d been searching for. ",
         "time": "16:22",
         "likes": 45,
-        "fires": 0,
-        "isRake": false
+        "fires": 999
     },
     {
         "mId": 42,
@@ -341,8 +319,7 @@
         "content": "Trudging through roots and rocks, but every step feels like getting closer to something bigger. This is my kind of therapy. 🌱",
         "time": "16:37",
         "likes": 35,
-        "fires": 0,
-        "isRake": false
+        "fires": 190
     },
     {
         "mId": 43,
@@ -356,8 +333,7 @@
         "content": "No crowds, no distractions—just me, the trail, and the satisfaction of pushing forward. Sometimes, the best achievements are the ones only nature witnesses. ",
         "time": "16:50",
         "likes": 38,
-        "fires": 0,
-        "isRake": false
+        "fires": 100
     },
     {
         "mId": 44,
@@ -371,8 +347,7 @@
         "content": "Started the hike in sunshine, finished in a downpour. But with views like these, who cares about the weather? Adventure doesn’t discriminate! 🌧️→☀️",
         "time": "17:00",
         "likes": 68,
-        "fires": 0,
-        "isRake": false
+        "fires": 406
     },
     {
         "mId": 45,
@@ -386,8 +361,7 @@
         "content": "Hugging the edge of a cliff, heart pounding—but the panorama of valleys and peaks? Worth every shaky step. Fear conquered, beauty discovered. 🌄",
         "time": "17:10",
         "likes": 56,
-        "fires": 0,
-        "isRake": false
+        "fires": 501
     },
     {
         "mId": 46,
@@ -401,8 +375,7 @@
         "content": "Every twist of the path reveals a new masterpiece—emerald forests, cascading waterfalls, and endless horizons. This is art, raw and untamed. 🖼️",
         "time": "17:31",
         "likes": 45,
-        "fires": 0,
-        "isRake": false
+        "fires": 205
     },
     {
         "mId": 47,
@@ -416,8 +389,7 @@
         "content": "Panting up steep inclines, but with each gasp of fresh mountain air, I feel a weight lift off my shoulders. This is freedom, in its purest form.",
         "time": "17:50",
         "likes": 14,
-        "fires": 0,
-        "isRake": false
+        "fires": 303
     },
     {
         "mId": 48,
@@ -431,8 +403,7 @@
         "content": "Stumbling over boulders, but rising stronger with every fall. The mountains teach you that the roughest roads lead to the most rewarding destinations. ",
         "time": "18:10",
         "likes": 11,
-        "fires": 0,
-        "isRake": false
+        "fires": 300
     },
     {
         "mId": 49,
@@ -446,52 +417,6 @@
         "content": "Started the day before dawn, chasing the first light. As the sun peeked over the peaks, I felt alive in a way city life could never replicate. Morning, mountains! ",
         "time": "18:20",
         "likes": 26,
-        "fires": 0,
-        "isRake": false
-    },
-    {
-        "mId": 50,
-        "uId": 1,
-        "uHead": "rak_1",
-        "uName": "Somi",
-        "cover": "ranking_pic1",
-        "media": "ranking_pic1",
-        "isVideo": false,
-        "topic": "",
-        "content": "Sharing the journey and the stunning views with friends makes the climb worth every step.",
-        "time": "00:00",
-        "likes": 140,
-        "fires": 999,
-        "isRake": true
-    },
-    {
-        "mId": 51,
-        "uId": 2,
-        "uHead": "rak_2",
-        "uName": "Jade",
-        "cover": "ranking_pic2",
-        "media": "ranking_pic2",
-        "isVideo": false,
-        "topic": "",
-        "content": "When life gets rocky, climb higher. Every mountain has a story, and today, I added a chapter of my own. ",
-        "time": "00:00",
-        "likes": 121,
-        "fires": 762,
-        "isRake": true
-    },
-    {
-        "mId": 52,
-        "uId": 3,
-        "uHead": "rak_3",
-        "uName": "Olivia",
-        "cover": "ranking_pic3",
-        "media": "ranking_pic3",
-        "isVideo": false,
-        "topic": "",
-        "content": "Conquered the climb. Views that take the breath away.",
-        "time": "00:00",
-        "likes": 124,
-        "fires": 698,
-        "isRake": true
+        "fires": 210
     }
 ]

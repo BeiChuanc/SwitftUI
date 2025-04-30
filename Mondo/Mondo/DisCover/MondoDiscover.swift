@@ -28,13 +28,37 @@ enum WISHCOLOR {
 // MARK: 发现页
 struct MondoDiscover: View {
     
-    var wishPool = ["1", "2"]
+    let scrollSpeed: CGFloat = 0.8
+    
+    @State private var offset: CGFloat = 0
     
     @State var wishMes: String = ""
+    
+    @FocusState var isWish: Bool
     
     @State var showWish: Bool = false
     
     @State var guideType: GUIDETYPE = .SAFE
+    
+    @State var wishModel: [MondoWishM] = []
+    
+    @State private var isAnimating = true
+    
+    var wishLItems: [(index: Int, element: MondoWishM)] {
+        wishModel.enumerated()
+            .filter { $0.offset.isMultiple(of: 2) }
+            .map { (index: $0.offset, element: $0.element) }
+    }
+
+    var wishRItems: [(index: Int, element: MondoWishM)] {
+        wishModel.enumerated()
+            .filter { !$0.offset.isMultiple(of: 2) }
+            .map { (index: $0.offset, element: $0.element) }
+    }
+    
+    var monMe = MondoCacheVM.MondoAvCurUser()
+    
+    @ObservedObject var monLogin = MondoUserVM.shared
     
     @EnvironmentObject var pageControl: MondoPageControl
     
@@ -54,15 +78,47 @@ struct MondoDiscover: View {
                     }) // 许愿
                     { Image("btnWish").resizable().scaledToFill()
                         .frame(width: MONDOSCREEN.WIDTH - 32) }
-                        .buttonStyle(MondoReEffort())
+                    .buttonStyle(MondoReEffort())
                     ZStack {
                         Image("wishCon").resizable().scaledToFill()
                             .frame(width: MONDOSCREEN.WIDTH - 32)
                             .offset(CGSize(width: 0, height: -10))
                         // 许愿池
-                        ScrollView(.horizontal, showsIndicators: false) {
+                        VStack(spacing: 20) {
+                            HStack(spacing: 20) {
+                                ForEach(wishLItems, id: \.element) { item in
+                                    MondoWishItem(wishModel: item.element)
+                                }
+                            }
+                            .offset(x: offset)
+                            .frame(width: MONDOSCREEN.WIDTH - 42)
+                            .onAppear {
+                                isAnimating = true
+                            }
                             
+                            HStack(spacing: 20) {
+                                ForEach(wishRItems, id: \.element) { item in
+                                    MondoWishItem(wishModel: item.element)
+                                }
+                            }
+                            .offset(x: offset + 80) // 错位10个点
+                            .frame(width: MONDOSCREEN.WIDTH - 42)
+                            .onAppear {
+                                isAnimating = true
+                            }
                         }
+                        .padding(.top, -30)
+                        .onAppear {
+                            isAnimating = true
+                        }
+                        .onReceive(Timer.publish(every: 0.01, on:.main, in:.common).autoconnect(), perform: { _ in
+                            if isAnimating {
+                                offset -= scrollSpeed
+                                if offset <= -(MONDOSCREEN.WIDTH - 42) {
+                                    offset = 0
+                                }
+                            }
+                        })
                     }
                     HStack {
                         Image("guide_im").padding(.top, 5)
@@ -130,30 +186,53 @@ struct MondoDiscover: View {
                                                    bordColor: UIColor(hex: "#925EFF"),
                                                    font: UIFont(name: "PingFangSC-Medium", size: 14)!,
                                                    radius: 8)
-                                .frame(height: 30)
+                                .frame(width: MONDOSCREEN.WIDTH - 72, height: 30)
+                                .clipShape(RoundedRectangle(cornerRadius: 8))
+                                .overlay(
+                                    RoundedRectangle(cornerRadius: 8)
+                                        .stroke(Color(hex: "#925EFF"), lineWidth: 1)
+                                )
+                                .focused($isWish)
                             }
                             HStack {
                                 Spacer()
                                 Button(action: {
-                                    showWish.toggle()
+                                    guard !wishMes.isEmpty else { isWish = true
+                                        return }
+                                    if monLogin.loginIn {
+                                        MondoUserVM.shared.MondoSvWish(wish: MondoWishM(uid: monMe.uid, content: wishMes))
+                                        showWish.toggle()
+                                        MondoReloadWish()
+                                        wishMes = ""
+                                    } else {
+                                        pageControl.route(to: .LOGIN)
+                                    }
                                 }) {  Image("wish_release") }
                             }
                         }.padding(.horizontal, 16)
                     }.padding(.top, 200)
                         .padding(.horizontal, 16)
                 }.ignoresSafeArea()
-                .transition(.asymmetric(
-                    insertion: .move(edge: .top),
-                    removal: .move(edge: .top)
-                        ))
-                .zIndex(1)
+                    .transition(.asymmetric(
+                        insertion: .move(edge: .top),
+                        removal: .move(edge: .top)
+                    ))
+                    .zIndex(1)
             }
         }.ignoresSafeArea()
             .zIndex(showWish ? 1 : 0)
+            .onAppear {
+                MondoReloadWish()
+            }
     }
     
     func goGuide(type: GUIDETYPE, model: MondoGuideM) {
         pageControl.route(to: .GUIDE(model))
+    }
+    
+    func MondoReloadWish() {
+        wishModel = MondoUserVM.shared.MondoWish()
+        print("许愿池子数据:\(wishModel)")
     }
 }
 
@@ -162,23 +241,50 @@ struct MondoWishItem: View {
     
     var wishModel: MondoWishM
     
+    var monMe = MondoCacheVM.MondoAvCurUser()
+    
+    @State var uploadImage: UIImage?
+    
+    @ObservedObject var monLogin = MondoUserVM.shared
+    
     var body: some View {
         HStack(spacing: 10) {
-            Image("")
-                .resizable().scaledToFill()
-                .frame(width: 30, height: 30)
-                .clipShape(RoundedRectangle(cornerRadius: 15))
-                .padding(.leading, 10)
+            if wishModel.uid == monMe.uid {
+                if let image = uploadImage {
+                    Image(uiImage: image).resizable().scaledToFill()
+                        .frame(width: 30, height: 30)
+                        .clipShape(RoundedRectangle(cornerRadius: 15))
+                        .padding(.leading, 10)
+                } else {
+                    Image("monder").resizable().scaledToFill()
+                        .frame(width: 30, height: 30)
+                        .clipShape(RoundedRectangle(cornerRadius: 15))
+                        .padding(.leading, 10)
+                }
+            } else {
+                Image("mondoer\(wishModel.uid - 9)")
+                    .resizable().scaledToFill()
+                    .frame(width: 30, height: 30)
+                    .clipShape(RoundedRectangle(cornerRadius: 15))
+                    .padding(.leading, 10)
+            }
             VStack {
                 Text(wishModel.content)
                     .frame(maxWidth: 100)
                     .multilineTextAlignment(.leading)
                     .lineLimit(2)
                     .fixedSize(horizontal: false, vertical: true)
-                    .font(.custom("PingFangSC-Medium", size: 12))
+                    .font(.custom("PingFangSC-Medium", size: 11))
                     .foregroundStyle(Color(hex: "#111111"))
             }.padding(.trailing, 10)
+        }.onAppear {
+            if monLogin.loginIn {
+                uploadImage = MondoUserVM.shared.MondoAvHead(uid: monMe.uid)
+            }
         }
+        .frame(width: 166, height: 40)
+        .background(Color(hex: wishModel.uid % 2 == 0 ? "#FFF564" : "#FFECC3"))
+        .clipShape(RoundedRectangle(cornerRadius: 20))
     }
 }
 

@@ -21,9 +21,9 @@ struct MondoGuideM: Identifiable, Hashable {
 }
 
 // MARK: 许愿池
-struct MondoWishM {
+struct MondoWishM: Codable, Hashable {
     
-    var head: String
+    var uid: Int
     
     var content: String
 }
@@ -57,8 +57,6 @@ struct MondoTitleM: Identifiable, Hashable, Codable {
     
     var fires: Int
     
-    var isRake: Bool
-    
     enum CodingKeys: String, CodingKey {
         
         case mId = "mId"
@@ -84,8 +82,6 @@ struct MondoTitleM: Identifiable, Hashable, Codable {
         case likes = "likes"
         
         case fires = "fires"
-        
-        case isRake = "isRake"
     }
 }
 
@@ -139,6 +135,10 @@ class MondoMeM: Codable {
     
     var publishVideo: [MondoTitleMeM]
     
+    var comments: [[Int: [String]]]
+    
+    var wishPool: [MondoWishM]
+    
     init(uid: Int = 0,
          head: String = "",
          name: String = "",
@@ -147,7 +147,9 @@ class MondoMeM: Codable {
          fans: [Int] = [],
          join: [Int] = [],
          publishImage: [MondoTitleMeM] = [],
-         publishVideo: [MondoTitleMeM] = []) {
+         publishVideo: [MondoTitleMeM] = [],
+         comments: [[Int: [String]]] = [],
+         wishPool: [MondoWishM] = []) {
         self.uid = uid
         self.head = head
         self.name = name
@@ -157,6 +159,8 @@ class MondoMeM: Codable {
         self.join = join
         self.publishImage = publishImage
         self.publishVideo = publishVideo
+        self.comments = comments
+        self.wishPool = wishPool
     }
 }
 

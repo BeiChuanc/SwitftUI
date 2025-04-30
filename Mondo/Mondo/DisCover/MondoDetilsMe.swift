@@ -26,7 +26,7 @@ struct MondoDetilsMe: View {
     @EnvironmentObject var pageControl: MondoPageControl
     
     var body: some View {
-        ZStack(alignment: .top) {
+        ZStack(alignment: .bottom) {
             VStack {
                 if monMeTitle.isVideo ?? false {
                     if let image = MondoUserVM.shared.MondoAvVideoThumb(myTitle: monMeTitle) {
@@ -37,6 +37,8 @@ struct MondoDetilsMe: View {
                                     .frame(width: MONDOSCREEN.WIDTH, height: MONDOSCREEN.HEIGHT * 0.4)
                             Image("btnPlay")
                                 .buttonStyle(MondoReEffort())
+                        }.onTapGesture {
+                            pageControl.route(to: .SAFEVIDEO(monMeTitle.media!, 1, true, monMeTitle.mId!))
                         }
                     }
                 } else {
@@ -44,16 +46,13 @@ struct MondoDetilsMe: View {
                     KFImage(mediaUrl).resizable().scaledToFill()
                         .background(.black)
                         .frame(width: MONDOSCREEN.WIDTH, height: MONDOSCREEN.HEIGHT * 0.4)
+                        .onTapGesture {
+                            pageControl.route(to: .SAFEVIDEO(monMeTitle.media!, 0, true, monMeTitle.mId!))
+                        }
                 }
                 Spacer()
             }.background(.clear)
             VStack {
-                VStack {}
-                    .frame(width: MONDOSCREEN.WIDTH, height: MONDOSCREEN.HEIGHT * 0.35)
-                    .background(
-                        Color.clear
-                            .contentShape(Rectangle())
-                    )
                 ZStack {
                     Image("details_bg").resizable()
                     VStack {
@@ -88,31 +87,35 @@ struct MondoDetilsMe: View {
                                 .foregroundStyle(Color(hex: "#333333"))
                         }.padding(.top, 10)
                         
-                        MondoTextFielfItem(textInput: $inputCom,
-                                           placeholder: "Comment on it",
-                                           interval: 15,
-                                           backgroundColor: UIColor.white,
-                                           textColor: UIColor(hex: "#111111"),
-                                           placeholderColor: UIColor(hex: "#999999"),
-                                           bordColor: UIColor(hex: "#925EFF"),
-                                           font: UIFont(name: "PingFangSC-Semibold", size: 14)!,
-                                           radius: 8)
-                        .frame(width: MONDOSCREEN.WIDTH - 32, height: 40)
-                        .padding(.top, 15)
+                        VStack {
+                            HStack {
+                                Spacer().frame(width: 15)
+                                TextField("Comment on it", text: $inputCom)
+                                    .font(.custom("PingFangSC-Medium", size: 14))
+                                    .foregroundStyle(Color(hex: "#999999"))
+                                Spacer().frame(width: 15)
+                            }.frame(width: MONDOSCREEN.WIDTH - 32, height: 40)
+                            .background(.white)
+                            .clipShape(RoundedRectangle(cornerRadius: 8))
+                            .overlay(
+                                RoundedRectangle(cornerRadius: 8)
+                                    .stroke(Color(hex: "#925EFF"), lineWidth: 1)
+                            )
+                        }.padding(.top, 15)
                         
                         Spacer()
                     }.frame(width: MONDOSCREEN.WIDTH - 32)
                     .padding(.top, -10)
                     .padding(.horizontal, 32)
                 }.frame(width: MONDOSCREEN.WIDTH, height: MONDOSCREEN.HEIGHT * 0.65)
-            }
+            }.frame(width: MONDOSCREEN.WIDTH, height: MONDOSCREEN.HEIGHT * 0.7)
             HStack {
                 Button(action: {
                     pageControl.backToLevel()
                 }) { Image("backDetails") }
                 Spacer()
             }.padding(.horizontal, 16)
-                .padding(.top, 60)
+                .padding(.bottom, MONDOSCREEN.HEIGHT * 0.88)
         }.ignoresSafeArea()
             .onAppear {
                 uploadImage = MondoUserVM.shared.MondoAvHead(uid: MondoCacheVM.MondoAvCurUser().uid)

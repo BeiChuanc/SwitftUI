@@ -69,10 +69,7 @@ extension ErigoPurchaseVM {
                 ErigoProgressVM.ErigoDismiss()
                 if SKPaymentTransaction?.transactionState == .purchased {
                     print("支付成功")
-                    ErigoUserDefaults.updateUserDetails { erigo in
-                        erigo.isVIP = true
-                        return erigo
-                    }
+                    ErigoUserDefaults.ErigoRecordVIP(isVIP: true)
                     ErigoProgressVM.ErigoShow(type: .succeed)
                     
                 } else {
@@ -100,10 +97,7 @@ extension ErigoPurchaseVM {
                 ErigoProgressVM.ErigoDismiss()
                 if SKPaymentTransaction?.transactionState == .purchased {
                     print("支付成功")
-                    ErigoUserDefaults.updateUserDetails { erigo in
-                        erigo.isLimit = true
-                        return erigo
-                    }
+                    ErigoUserDefaults.ErigoRecordGift(isLimited: true)
                     ErigoProgressVM.ErigoShow(type: .succeed)
 
                     completion()
@@ -134,10 +128,7 @@ extension ErigoPurchaseVM {
                 print("恢复购买成功")
                 ErigoProgressVM.ErigoShow(type: .succeed, text: "Restore purchase successfully")
                 
-                ErigoUserDefaults.updateUserDetails { erigo in
-                    erigo.isVIP = true
-                    return erigo
-                }
+                ErigoUserDefaults.ErigoRecordVIP(isVIP: true)
             }
         }, failure: { error in
             print("取消恢复购买")

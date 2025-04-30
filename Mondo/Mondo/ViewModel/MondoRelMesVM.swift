@@ -89,6 +89,21 @@ extension MondoRelMesVM {
         return mesL
     }
     
+    /// 获取群组消息
+    func MondoAvGroup() -> [Int] {
+        let monMe = MondoCacheVM.MondoAvCurUser()
+        return monMe.join
+    }
+    
+    /// 删除群组消息
+    func MondoDeleteGroup(gId: Int) {
+        MondoCacheVM.MondoFixDetails { mon in
+            mon.join.removeAll(where: { $0 == gId })
+            return mon
+        }
+        MondoDelAvMes(uid: gId)
+    }
+    
     /// 获取最新消息 >> id
     func MondoAvLastMes(dialogistId: String) -> MondoChatM? {
         guard let fileURL = userJsonFile else { return nil }

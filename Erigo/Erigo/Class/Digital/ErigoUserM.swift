@@ -24,10 +24,6 @@ class ErigoUserM: Codable {
     var isReportG: Bool?
     
     var isJoin: Bool?
-    
-    var isVIP: Bool?
-    
-    var isLimit: Bool?
 }
 
 // MARK: 发布

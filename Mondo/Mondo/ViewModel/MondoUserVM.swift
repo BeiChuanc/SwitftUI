@@ -89,26 +89,78 @@ extension MondoUserVM {
         
         if let titles = MondoUserVM.decode(data: titlesData!, to: [MondoTitleM].self) {
             for title in titles {
-                if !monTitles.contains(where: { $0.mId == title.mId}), !title.isRake {
+                if !monTitles.contains(where: { $0.mId == title.mId}) {
                     monTitles.append(title)
                 }
             }
         }
     }
     
-    /// 获取排行榜
-    func MondoGetHotList() {
-        guard let titlesUrl = Bundle.main.path(forResource: "MondoTitle", ofType: "json") else {
-            return }
-        let titlesData = try? Data(contentsOf: URL(filePath: titlesUrl))
+    /// 许愿池
+    func MondoWish() -> [MondoWishM] {
         
-        if let titles = MondoUserVM.decode(data: titlesData!, to: [MondoTitleM].self) {
-            for title in titles {
-                if !monHot.contains(where: { $0.mId == title.mId}), title.isRake {
-                    monHot.append(title)
-                }
+        var orginal: [MondoWishM] = [MondoWishM(uid: 10, content: "Conquer new heights"),
+                                     MondoWishM(uid: 11, content: "Connect with nature"),
+                                     MondoWishM(uid: 12, content: "Trailblaze bravely"),
+                                     MondoWishM(uid: 13, content: "Hike solo, never lonely"),
+                                     MondoWishM(uid: 14, content: "Stay injury-free, keep climbing higher"),
+                                     MondoWishM(uid: 15, content: "Fearless ascents ahead")]
+        
+        if loginIn {
+            let monMe = MondoCacheVM.MondoAvCurUser()
+            for wish in monMe.wishPool {
+                orginal.append(wish)
             }
         }
+        
+        return orginal
+    }
+    
+    /// 添加许愿
+    func MondoSvWish(wish: MondoWishM) {
+        let monMe = MondoCacheVM.MondoAvCurUser()
+        monMe.wishPool.append(wish)
+        MondoCacheVM.MondoFixDetails { erigo in
+            erigo.wishPool = monMe.wishPool
+            return erigo
+        }
+    }
+    
+    /// 添加评论
+    func MondoSvComment(mId: Int, comment: String) {
+        let nowUser = MondoCacheVM.MondoAvCurUser()
+        var found = false
+
+        for (index, commentDict) in nowUser.comments.enumerated() {
+            if let existingComments = commentDict[mId] {
+                var updatedDict = commentDict
+                updatedDict[mId] = existingComments + [comment]
+                nowUser.comments[index] = updatedDict
+                found = true
+                break
+            }
+        }
+        
+        if !found {
+            let newComment: [Int: [String]] = [mId: [comment]]
+            nowUser.comments.append(newComment)
+        }
+        
+        MondoCacheVM.MondoFixDetails { mon in
+            mon.comments = nowUser.comments
+            return mon
+        }
+    }
+    
+    /// 获取评论列表 >> 帖子Id
+    func MondoGetCommentList(mId: Int) -> [String] {
+        let nowUser = MondoCacheVM.MondoAvCurUser()
+        for commentDict in nowUser.comments {
+            if let comments = commentDict[mId] {
+                return comments
+            }
+        }
+        return []
     }
     
     /// 是否喜欢
@@ -184,14 +236,13 @@ extension MondoUserVM {
         var userTitle: [MondoTitleM] = [] // 用户帖子列表
         if let titleId = monUsers.first(where: { $0.uid == uid })?.title {
             for item in monTitles {
-                if titleId.contains(item.uId) {
+                if titleId.contains(item.mId) {
                     if !userTitle.contains(item) {
                         userTitle.append(item)
                     }
                 }
             }
-        } // 帖子Id列表
-
+        }
         return userTitle
     }
     
@@ -288,7 +339,7 @@ extension MondoUserVM {
             MondoUserVM.shared.loginIn = true
             complete(.LOAD)
         } else {
-            if email == "1111" { // tlm982@outlook.com/123456
+            if email == "tlm982@outlook.com" { // tlm982@outlook.com/123456
                 if pwd == "123456" {
                     MondoCrer(email: email, pwd: pwd, appleLogin: false)
                     MondoUserVM.shared.loginIn = true
@@ -327,6 +378,8 @@ extension MondoUserVM {
         monder.join = []
         monder.publishImage = []
         monder.publishVideo = []
+        monder.comments = []
+        monder.wishPool = []
         
         MondoCacheVM.MondoSvPers(email: email, details: encode(modelJson: monder)!)
         MondoRelMesVM.MondoDeleteMyM(myMPath: "Mondo_\(appleLogin ? 1000 : userId!)")

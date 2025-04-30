@@ -42,8 +42,10 @@ struct MondoRegister: View {
                                        placeholderColor: UIColor(hex: "#FFFFFF", alpha: 0.4),
                                        font: UIFont(name: "PingFangSC-Medium", size: 14)!,
                                        radius: 15)
-                    .frame(height: 50)
+                    .frame(width: MONDOSCREEN.WIDTH - 32, height: 50)
+                    .clipShape(RoundedRectangle(cornerRadius: 15))
                     .focused($isAcc)
+                    
                     MondoTextFielfItem(textInput: $inputPwd,
                                        placeholder: "Input password",
                                        interval: 15,
@@ -52,8 +54,10 @@ struct MondoRegister: View {
                                        placeholderColor: UIColor(hex: "#FFFFFF", alpha: 0.4),
                                        font: UIFont(name: "PingFangSC-Medium", size: 14)!,
                                        radius: 15)
-                    .frame(height: 50)
+                    .frame(width: MONDOSCREEN.WIDTH - 32, height: 50)
+                    .clipShape(RoundedRectangle(cornerRadius: 15))
                     .focused($isPwd)
+                    
                     MondoTextFielfItem(textInput: $confrim,
                                        placeholder: "Confirm password",
                                        interval: 15,
@@ -62,7 +66,8 @@ struct MondoRegister: View {
                                        placeholderColor: UIColor(hex: "#FFFFFF", alpha: 0.4),
                                        font: UIFont(name: "PingFangSC-Medium", size: 14)!,
                                        radius: 15)
-                    .frame(height: 50)
+                    .frame(width: MONDOSCREEN.WIDTH - 32, height: 50)
+                    .clipShape(RoundedRectangle(cornerRadius: 15))
                     .focused($isConfirm)
                 }
                 Button(action: { // 注册
