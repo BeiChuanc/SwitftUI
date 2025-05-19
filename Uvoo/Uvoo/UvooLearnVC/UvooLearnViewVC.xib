@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="23504" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23506"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="UvooLearnViewVC" customModule="Uvoo" customModuleProvider="target">
+            <connections>
+                <outlet property="userHead" destination="n1B-if-lW0" id="Hcx-dG-HTw"/>
+                <outlet property="view" destination="pPd-bu-Ip6" id="2Jj-tc-RpQ"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="pPd-bu-Ip6">
+            <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="learn_bg" translatesAutoresizingMaskIntoConstraints="NO" id="7XM-DS-NYh">
+                    <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                </imageView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sNF-jJ-4C2" userLabel="Top">
+                    <rect key="frame" x="16" y="59" width="361" height="43"/>
+                    <subviews>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="n1B-if-lW0">
+                            <rect key="frame" x="0.0" y="0.0" width="43" height="43"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="43" id="9O0-bk-V8B"/>
+                                <constraint firstAttribute="width" constant="43" id="tp1-Hk-UtU"/>
+                            </constraints>
+                        </imageView>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VLe-Ii-96i" userLabel="Set">
+                            <rect key="frame" x="335" y="9" width="26" height="25"/>
+                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                            <state key="normal" image="sysytem_set"/>
+                            <connections>
+                                <action selector="learnTopOntap:" destination="-1" eventType="touchUpInside" id="NNm-OL-Hvd"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="VLe-Ii-96i" secondAttribute="trailing" id="85u-VO-Hby"/>
+                        <constraint firstItem="VLe-Ii-96i" firstAttribute="centerY" secondItem="sNF-jJ-4C2" secondAttribute="centerY" id="8Ge-QZ-ONd"/>
+                        <constraint firstItem="n1B-if-lW0" firstAttribute="leading" secondItem="sNF-jJ-4C2" secondAttribute="leading" id="HyY-mL-nme"/>
+                        <constraint firstItem="n1B-if-lW0" firstAttribute="centerY" secondItem="sNF-jJ-4C2" secondAttribute="centerY" id="MfP-lx-QXr"/>
+                        <constraint firstAttribute="height" constant="43" id="n4Q-vG-UVp"/>
+                    </constraints>
+                </view>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="learn_sience" translatesAutoresizingMaskIntoConstraints="NO" id="jEo-d0-HiW">
+                    <rect key="frame" x="16" y="136" width="192.66666666666666" height="25"/>
+                </imageView>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="learn_video" translatesAutoresizingMaskIntoConstraints="NO" id="RN7-dg-RsL">
+                    <rect key="frame" x="16" y="531" width="68" height="20.666666666666629"/>
+                </imageView>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Pr-Or-TJV">
+                    <rect key="frame" x="16" y="187" width="361" height="320"/>
+                    <subviews>
+                        <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="11g-fm-nDx">
+                            <rect key="frame" x="0.0" y="0.0" width="810" height="320"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2iz-EV-nOb" userLabel="climb">
+                                    <rect key="frame" x="0.0" y="0.0" width="270" height="320"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="320" id="Pga-Kn-cu0"/>
+                                        <constraint firstAttribute="width" constant="270" id="lLg-qc-Rmv"/>
+                                    </constraints>
+                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                    <state key="normal" backgroundImage="learn_climb"/>
+                                    <connections>
+                                        <action selector="learnOnTapScience:" destination="-1" eventType="touchUpInside" id="aEZ-Rh-q9B"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="anR-iW-REy" userLabel="cki">
+                                    <rect key="frame" x="270" y="0.0" width="270" height="320"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="270" id="qHl-an-N1i"/>
+                                        <constraint firstAttribute="height" constant="320" id="zWI-eI-69l"/>
+                                    </constraints>
+                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                    <state key="normal" backgroundImage="learn_ski"/>
+                                    <connections>
+                                        <action selector="learnOnTapScience:" destination="-1" eventType="touchUpInside" id="boZ-Qk-W7s"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OWz-TI-r0W" userLabel="cy">
+                                    <rect key="frame" x="540" y="0.0" width="270" height="320"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="320" id="b35-sB-XW8"/>
+                                        <constraint firstAttribute="width" constant="270" id="nvp-VR-2Dd"/>
+                                    </constraints>
+                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                    <state key="normal" backgroundImage="learn_cy"/>
+                                    <connections>
+                                        <action selector="learnOnTapScience:" destination="-1" eventType="touchUpInside" id="DDl-uI-WSX"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                        </stackView>
+                    </subviews>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="11g-fm-nDx" secondAttribute="trailing" id="LaV-sI-E97"/>
+                        <constraint firstItem="11g-fm-nDx" firstAttribute="top" secondItem="4Pr-Or-TJV" secondAttribute="top" id="XTu-4N-bUW"/>
+                        <constraint firstAttribute="bottom" secondItem="11g-fm-nDx" secondAttribute="bottom" id="iNg-pQ-AO0"/>
+                        <constraint firstItem="11g-fm-nDx" firstAttribute="leading" secondItem="4Pr-Or-TJV" secondAttribute="leading" id="naJ-Es-0Fr"/>
+                        <constraint firstAttribute="height" constant="320" id="ndk-Ko-UQs"/>
+                    </constraints>
+                </scrollView>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WlL-Xw-esy">
+                    <rect key="frame" x="16" y="575.66666666666663" width="361" height="106"/>
+                    <subviews>
+                        <stackView opaque="NO" contentMode="scaleToFill" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="yNh-9R-wqU">
+                            <rect key="frame" x="0.0" y="0.0" width="981" height="106"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7d7-KB-GCb" userLabel="v1">
+                                    <rect key="frame" x="0.0" y="0.0" width="317" height="106"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="317" id="PQy-5p-x5T"/>
+                                        <constraint firstAttribute="height" constant="106" id="SOL-cD-dJg"/>
+                                    </constraints>
+                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                    <state key="normal" backgroundImage="learn_video_1"/>
+                                    <connections>
+                                        <action selector="learnOnTapVideo:" destination="-1" eventType="touchUpInside" id="xG1-0X-C2S"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="off-BD-6aI" userLabel="v2">
+                                    <rect key="frame" x="332" y="0.0" width="317" height="106"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="106" id="lYw-Yy-1CS"/>
+                                        <constraint firstAttribute="width" constant="317" id="zjh-dD-s29"/>
+                                    </constraints>
+                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                    <state key="normal" backgroundImage="learn_video_2"/>
+                                    <connections>
+                                        <action selector="learnOnTapVideo:" destination="-1" eventType="touchUpInside" id="djQ-30-WZc"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rDR-Jq-fZ8" userLabel="v3">
+                                    <rect key="frame" x="664" y="0.0" width="317" height="106"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="317" id="bRu-yk-E3I"/>
+                                        <constraint firstAttribute="height" constant="106" id="eM5-cK-xu1"/>
+                                    </constraints>
+                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                    <state key="normal" backgroundImage="learn_video_3"/>
+                                    <connections>
+                                        <action selector="learnOnTapVideo:" destination="-1" eventType="touchUpInside" id="RKt-96-LEz"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                        </stackView>
+                    </subviews>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="106" id="5AY-oe-i6z"/>
+                        <constraint firstItem="yNh-9R-wqU" firstAttribute="top" secondItem="WlL-Xw-esy" secondAttribute="top" id="AdK-SS-6yl"/>
+                        <constraint firstAttribute="bottom" secondItem="yNh-9R-wqU" secondAttribute="bottom" id="Ts1-Rh-ScK"/>
+                        <constraint firstAttribute="trailing" secondItem="yNh-9R-wqU" secondAttribute="trailing" id="ifv-UN-XFo"/>
+                        <constraint firstItem="yNh-9R-wqU" firstAttribute="leading" secondItem="WlL-Xw-esy" secondAttribute="leading" id="wH3-4p-kH3"/>
+                    </constraints>
+                </scrollView>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="0xc-lW-8du"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="jEo-d0-HiW" firstAttribute="leading" secondItem="pPd-bu-Ip6" secondAttribute="leading" constant="16" id="24B-ef-iU5"/>
+                <constraint firstItem="7XM-DS-NYh" firstAttribute="centerY" secondItem="pPd-bu-Ip6" secondAttribute="centerY" id="2M3-LQ-kLL"/>
+                <constraint firstItem="WlL-Xw-esy" firstAttribute="centerX" secondItem="pPd-bu-Ip6" secondAttribute="centerX" id="4U3-4E-iIz"/>
+                <constraint firstItem="RN7-dg-RsL" firstAttribute="top" secondItem="4Pr-Or-TJV" secondAttribute="bottom" constant="24" id="5Cl-xA-wHq"/>
+                <constraint firstItem="sNF-jJ-4C2" firstAttribute="centerX" secondItem="pPd-bu-Ip6" secondAttribute="centerX" id="LjE-Uw-Rq1"/>
+                <constraint firstItem="4Pr-Or-TJV" firstAttribute="top" secondItem="jEo-d0-HiW" secondAttribute="bottom" constant="26" id="Lmy-SC-Kxy"/>
+                <constraint firstItem="WlL-Xw-esy" firstAttribute="leading" secondItem="0xc-lW-8du" secondAttribute="leading" constant="16" id="NLF-Ae-EcS"/>
+                <constraint firstItem="sNF-jJ-4C2" firstAttribute="top" secondItem="0xc-lW-8du" secondAttribute="top" id="QlF-CH-dL9"/>
+                <constraint firstItem="7XM-DS-NYh" firstAttribute="centerX" secondItem="pPd-bu-Ip6" secondAttribute="centerX" id="Z1F-5D-eEh"/>
+                <constraint firstItem="sNF-jJ-4C2" firstAttribute="leading" secondItem="0xc-lW-8du" secondAttribute="leading" constant="16" id="a5A-X5-VFP"/>
+                <constraint firstItem="4Pr-Or-TJV" firstAttribute="centerX" secondItem="pPd-bu-Ip6" secondAttribute="centerX" id="aps-Yh-NSr"/>
+                <constraint firstItem="WlL-Xw-esy" firstAttribute="top" secondItem="RN7-dg-RsL" secondAttribute="bottom" constant="24" id="efQ-4q-tUu"/>
+                <constraint firstItem="4Pr-Or-TJV" firstAttribute="leading" secondItem="0xc-lW-8du" secondAttribute="leading" constant="16" id="nz0-cm-UGx"/>
+                <constraint firstItem="7XM-DS-NYh" firstAttribute="leading" secondItem="pPd-bu-Ip6" secondAttribute="leading" id="oqb-bw-L26"/>
+                <constraint firstItem="jEo-d0-HiW" firstAttribute="top" secondItem="sNF-jJ-4C2" secondAttribute="bottom" constant="34" id="pH9-9L-2f3"/>
+                <constraint firstItem="RN7-dg-RsL" firstAttribute="leading" secondItem="0xc-lW-8du" secondAttribute="leading" constant="16" id="qaD-ou-sjj"/>
+                <constraint firstItem="7XM-DS-NYh" firstAttribute="top" secondItem="pPd-bu-Ip6" secondAttribute="top" id="yhk-nt-5PQ"/>
+            </constraints>
+            <point key="canvasLocation" x="130.53435114503816" y="-11.267605633802818"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="learn_bg" width="375" height="812"/>
+        <image name="learn_climb" width="274.5" height="323"/>
+        <image name="learn_cy" width="275" height="323"/>
+        <image name="learn_sience" width="192.5" height="25"/>
+        <image name="learn_ski" width="274.5" height="323"/>
+        <image name="learn_video" width="68" height="20.5"/>
+        <image name="learn_video_1" width="317" height="106"/>
+        <image name="learn_video_2" width="317" height="106"/>
+        <image name="learn_video_3" width="317" height="106"/>
+        <image name="sysytem_set" width="26" height="25"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="23504" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23506"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="UvooDiyViewVC" customModule="Uvoo" customModuleProvider="target">
+            <connections>
+                <outlet property="btndesign" destination="l1E-6w-xvN" id="ecI-4x-tjr"/>
+                <outlet property="userHead" destination="n1B-if-lW0" id="XTZ-zC-4l7"/>
+                <outlet property="view" destination="pPd-bu-Ip6" id="ooT-3b-cTU"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="pPd-bu-Ip6">
+            <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="learn_bg" translatesAutoresizingMaskIntoConstraints="NO" id="7XM-DS-NYh">
+                    <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                </imageView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sNF-jJ-4C2" userLabel="Top">
+                    <rect key="frame" x="16" y="59" width="361" height="43"/>
+                    <subviews>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="n1B-if-lW0">
+                            <rect key="frame" x="0.0" y="0.0" width="43" height="43"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="43" id="9O0-bk-V8B"/>
+                                <constraint firstAttribute="width" constant="43" id="tp1-Hk-UtU"/>
+                            </constraints>
+                        </imageView>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VLe-Ii-96i" userLabel="Set">
+                            <rect key="frame" x="335" y="9" width="26" height="25"/>
+                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                            <state key="normal" image="sysytem_set"/>
+                            <connections>
+                                <action selector="btnOntap:" destination="-1" eventType="touchUpInside" id="y7I-bc-kKz"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="VLe-Ii-96i" secondAttribute="trailing" id="2NR-5n-mY4"/>
+                        <constraint firstItem="n1B-if-lW0" firstAttribute="leading" secondItem="sNF-jJ-4C2" secondAttribute="leading" id="HyY-mL-nme"/>
+                        <constraint firstItem="n1B-if-lW0" firstAttribute="centerY" secondItem="sNF-jJ-4C2" secondAttribute="centerY" id="MfP-lx-QXr"/>
+                        <constraint firstItem="VLe-Ii-96i" firstAttribute="centerY" secondItem="sNF-jJ-4C2" secondAttribute="centerY" id="Ncz-tQ-nhI"/>
+                        <constraint firstAttribute="height" constant="43" id="n4Q-vG-UVp"/>
+                    </constraints>
+                </view>
+                <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l1E-6w-xvN">
+                    <rect key="frame" x="0.0" y="112" width="393" height="134"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="l1E-6w-xvN" secondAttribute="height" multiplier="393:134" id="zxG-Ud-tI6"/>
+                    </constraints>
+                    <state key="normal" backgroundImage="learn_design"/>
+                    <connections>
+                        <action selector="btnOntap:" destination="-1" eventType="touchUpInside" id="82X-3H-KcW"/>
+                    </connections>
+                </button>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="0xc-lW-8du"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="7XM-DS-NYh" firstAttribute="centerY" secondItem="pPd-bu-Ip6" secondAttribute="centerY" id="2M3-LQ-kLL"/>
+                <constraint firstItem="sNF-jJ-4C2" firstAttribute="centerX" secondItem="pPd-bu-Ip6" secondAttribute="centerX" id="LjE-Uw-Rq1"/>
+                <constraint firstItem="l1E-6w-xvN" firstAttribute="leading" secondItem="0xc-lW-8du" secondAttribute="leading" id="QAD-qK-y2B"/>
+                <constraint firstItem="sNF-jJ-4C2" firstAttribute="top" secondItem="0xc-lW-8du" secondAttribute="top" id="QlF-CH-dL9"/>
+                <constraint firstItem="7XM-DS-NYh" firstAttribute="centerX" secondItem="pPd-bu-Ip6" secondAttribute="centerX" id="Z1F-5D-eEh"/>
+                <constraint firstItem="sNF-jJ-4C2" firstAttribute="leading" secondItem="0xc-lW-8du" secondAttribute="leading" constant="16" id="a5A-X5-VFP"/>
+                <constraint firstItem="l1E-6w-xvN" firstAttribute="centerX" secondItem="pPd-bu-Ip6" secondAttribute="centerX" id="lhg-di-bsC"/>
+                <constraint firstItem="7XM-DS-NYh" firstAttribute="leading" secondItem="pPd-bu-Ip6" secondAttribute="leading" id="oqb-bw-L26"/>
+                <constraint firstItem="l1E-6w-xvN" firstAttribute="top" secondItem="sNF-jJ-4C2" secondAttribute="bottom" constant="10" id="qUQ-df-zeC"/>
+                <constraint firstItem="7XM-DS-NYh" firstAttribute="top" secondItem="pPd-bu-Ip6" secondAttribute="top" id="yhk-nt-5PQ"/>
+            </constraints>
+            <point key="canvasLocation" x="132" y="-11"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="learn_bg" width="375" height="812"/>
+        <image name="learn_design" width="375" height="134"/>
+        <image name="sysytem_set" width="26" height="25"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

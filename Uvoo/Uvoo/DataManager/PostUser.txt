@@ -1,0 +1,56 @@
+[
+     {
+         "uId": 1001,
+         "head": "MiHead",
+         "name": "Michael",
+         "about": "Explore more, worry less.",
+         "follow": 2,
+         "followers": 1,
+         "like": [2, 5]
+     },
+     {
+         "uId": 1002,
+         "head": "AsHead",
+         "name": "Ashley",
+         "about": "Fresh air, fresh perspective.",
+         "follow": 1,
+         "followers": 1,
+         "like": [1, 3]
+     },
+     {
+         "uId": 1003,
+         "head": "SoHead",
+         "name": "Sophia",
+         "about": "Nature doesn’t judge, it inspires.",
+         "follow": 0,
+         "followers": 2,
+         "like": [2, 4]
+     },
+     {
+         "uId": 1004,
+         "head": "HaHead",
+         "name": "Hannah",
+         "about": "My gear: my armor for every adventure.",
+         "follow": 1,
+         "followers": 3,
+         "like": [1, 3]
+     },
+     {
+         "uId": 1005,
+         "head": "ElHead",
+         "name": "Elizabeth",
+         "about": "Outside is where I truly belong.",
+         "follow": 0,
+         "followers": 0,
+         "like": [3, 4]
+     },
+          {
+         "uId": 1006,
+         "head": "officeHead",
+         "name": "Uvoo",
+         "about": "",
+         "follow": 0,
+         "followers": 0,
+         "like": []
+     }
+ ]

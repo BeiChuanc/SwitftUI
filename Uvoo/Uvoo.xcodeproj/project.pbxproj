@@ -1,0 +1,795 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0486482E2DD42E5D008A6D29 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 048648252DD42E5D008A6D29 /* Assets.xcassets */; };
+		048648302DD42E5D008A6D29 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 048648282DD42E5D008A6D29 /* LaunchScreen.storyboard */; };
+		048648312DD42E5D008A6D29 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0486482A2DD42E5D008A6D29 /* Main.storyboard */; };
+		048648322DD42E5D008A6D29 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048648242DD42E5D008A6D29 /* AppDelegate.swift */; };
+		0486483E2DD4309C008A6D29 /* UvooRouteUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0486483D2DD4309C008A6D29 /* UvooRouteUtils.swift */; };
+		048648472DD43D7A008A6D29 /* UvooTabbBottomVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048648462DD43D7A008A6D29 /* UvooTabbBottomVC.swift */; };
+		048648492DD441F3008A6D29 /* UvooCompose.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048648482DD441F3008A6D29 /* UvooCompose.swift */; };
+		0486484E2DD4471D008A6D29 /* UvooLearnViewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0486484D2DD4471D008A6D29 /* UvooLearnViewVC.swift */; };
+		048648502DD449BE008A6D29 /* UvooDiyViewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0486484F2DD449BE008A6D29 /* UvooDiyViewVC.swift */; };
+		048648522DD449D2008A6D29 /* UvooCommuntyViewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048648512DD449D2008A6D29 /* UvooCommuntyViewVC.swift */; };
+		048648542DD449D3008A6D29 /* UvooMeViewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048648532DD449D3008A6D29 /* UvooMeViewVC.swift */; };
+		048648562DD44A41008A6D29 /* UvooLoginVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048648552DD44A41008A6D29 /* UvooLoginVM.swift */; };
+		0486485A2DD468A8008A6D29 /* UvooDiyViewVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 048648592DD468A8008A6D29 /* UvooDiyViewVC.xib */; };
+		0499AFA32DDAF7F400D6FB7B /* UvooShowComVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0499AFA12DDAF7F400D6FB7B /* UvooShowComVC.swift */; };
+		0499AFA42DDAF7F400D6FB7B /* UvooShowComVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0499AFA22DDAF7F400D6FB7B /* UvooShowComVC.xib */; };
+		04FDD62B2DD478E2000062E0 /* UvooLearnViewVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04FDD62A2DD478E2000062E0 /* UvooLearnViewVC.xib */; };
+		04FDD62D2DD47EF9000062E0 /* UvoodiyShowScienceVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FDD62C2DD47EF9000062E0 /* UvoodiyShowScienceVC.swift */; };
+		04FDD62F2DD4809F000062E0 /* UvooTopVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FDD62E2DD4809F000062E0 /* UvooTopVC.swift */; };
+		04FDD6362DD48E4E000062E0 /* UvooDiyDesignVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FDD6342DD48E4E000062E0 /* UvooDiyDesignVC.swift */; };
+		04FDD6372DD48E4E000062E0 /* UvooDiyDesignVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04FDD6352DD48E4E000062E0 /* UvooDiyDesignVC.xib */; };
+		04FDD63A2DD58E9B000062E0 /* UvooDiyGenDesignVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FDD6382DD58E9B000062E0 /* UvooDiyGenDesignVC.swift */; };
+		04FDD63B2DD58E9B000062E0 /* UvooDiyGenDesignVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04FDD6392DD58E9B000062E0 /* UvooDiyGenDesignVC.xib */; };
+		04FDD63D2DD59C10000062E0 /* UvooLibM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FDD63C2DD59C10000062E0 /* UvooLibM.swift */; };
+		04FDD63F2DD5AFF2000062E0 /* UvooPermissionUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FDD63E2DD5AFF2000062E0 /* UvooPermissionUtils.swift */; };
+		04FDD6412DD5BE20000062E0 /* UvooDiyDisplayVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FDD6402DD5BE20000062E0 /* UvooDiyDisplayVC.swift */; };
+		04FDD6432DD5C892000062E0 /* UvooCommuntyViewVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04FDD6422DD5C892000062E0 /* UvooCommuntyViewVC.xib */; };
+		04FDD6462DD5DC86000062E0 /* UvooComTitleDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FDD6442DD5DC86000062E0 /* UvooComTitleDetailVC.swift */; };
+		04FDD6472DD5DC86000062E0 /* UvooComTitleDetailVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04FDD6452DD5DC86000062E0 /* UvooComTitleDetailVC.xib */; };
+		04FDD6492DD5DD3D000062E0 /* UvooHeadVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FDD6482DD5DD3D000062E0 /* UvooHeadVC.swift */; };
+		04FDD64B2DD5E7B3000062E0 /* UvooCommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FDD64A2DD5E7B3000062E0 /* UvooCommentCell.swift */; };
+		04FDD64D2DD5E7F8000062E0 /* UvooShowTitleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FDD64C2DD5E7F8000062E0 /* UvooShowTitleCell.swift */; };
+		04FDD6502DD5EA2A000062E0 /* UvooComPublishVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04FDD64F2DD5EA2A000062E0 /* UvooComPublishVC.xib */; };
+		04FDD6512DD5EA2A000062E0 /* UvooComPublishVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FDD64E2DD5EA2A000062E0 /* UvooComPublishVC.swift */; };
+		04FDD6562DD6270D000062E0 /* UvooComLoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FDD6542DD6270D000062E0 /* UvooComLoginVC.swift */; };
+		04FDD6572DD6270D000062E0 /* UvooComLoginVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04FDD6552DD6270D000062E0 /* UvooComLoginVC.xib */; };
+		04FDD6592DD6CA4A000062E0 /* UvooWebViewUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FDD6582DD6CA4A000062E0 /* UvooWebViewUtils.swift */; };
+		04FDD65D2DD6CFE0000062E0 /* UvooComRegisterVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04FDD65C2DD6CFE0000062E0 /* UvooComRegisterVC.xib */; };
+		04FDD65E2DD6CFE0000062E0 /* UvooComRegisterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FDD65B2DD6CFE0000062E0 /* UvooComRegisterVC.swift */; };
+		04FDD6602DD6D2EC000062E0 /* UvooUserM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FDD65F2DD6D2EC000062E0 /* UvooUserM.swift */; };
+		04FDD6622DD6D44C000062E0 /* UvooPublishM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FDD6612DD6D44C000062E0 /* UvooPublishM.swift */; };
+		04FDD6652DD6D5D4000062E0 /* PostManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FDD6642DD6D5D4000062E0 /* PostManager.swift */; };
+		04FDD6692DD6E58D000062E0 /* PostData.txt in Resources */ = {isa = PBXBuildFile; fileRef = 04FDD6682DD6E58D000062E0 /* PostData.txt */; };
+		04FDD66B2DD6E5A3000062E0 /* PostUser.txt in Resources */ = {isa = PBXBuildFile; fileRef = 04FDD66A2DD6E5A3000062E0 /* PostUser.txt */; };
+		04FDD66D2DD6E9EA000062E0 /* UvooPublishVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FDD66C2DD6E9EA000062E0 /* UvooPublishVM.swift */; };
+		04FDD66F2DD70215000062E0 /* UvooLoadVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FDD66E2DD70215000062E0 /* UvooLoadVM.swift */; };
+		04FDD6712DD703CD000062E0 /* UvooUserDefaultsUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FDD6702DD703CD000062E0 /* UvooUserDefaultsUtils.swift */; };
+		04FDD6732DD72230000062E0 /* UvooMeViewVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04FDD6722DD72230000062E0 /* UvooMeViewVC.xib */; };
+		04FDD6762DD72EE4000062E0 /* UvooMeSetVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FDD6742DD72EE4000062E0 /* UvooMeSetVC.swift */; };
+		04FDD6772DD72EE4000062E0 /* UvooMeSetVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04FDD6752DD72EE4000062E0 /* UvooMeSetVC.xib */; };
+		04FDD67A2DD733C1000062E0 /* UvooMeEditVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FDD6782DD733C1000062E0 /* UvooMeEditVC.swift */; };
+		04FDD67B2DD733C1000062E0 /* UvooMeEditVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04FDD6792DD733C1000062E0 /* UvooMeEditVC.xib */; };
+		04FDD67E2DD73CBD000062E0 /* UvooMePlayVideoVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04FDD67D2DD73CBD000062E0 /* UvooMePlayVideoVC.xib */; };
+		04FDD67F2DD73CBD000062E0 /* UvooMePlayVideoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FDD67C2DD73CBD000062E0 /* UvooMePlayVideoVC.swift */; };
+		04FDD6822DDAD508000062E0 /* UvooUserInfoViewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FDD6802DDAD508000062E0 /* UvooUserInfoViewVC.swift */; };
+		04FDD6832DDAD508000062E0 /* UvooUserInfoViewVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04FDD6812DDAD508000062E0 /* UvooUserInfoViewVC.xib */; };
+		F9D7DF662A278B6B243062DE /* Pods_Uvoo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77A0E2408394D437847E1088 /* Pods_Uvoo.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		0486480C2DD42E52008A6D29 /* Uvoo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Uvoo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		048648242DD42E5D008A6D29 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		048648252DD42E5D008A6D29 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		048648262DD42E5D008A6D29 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		048648272DD42E5D008A6D29 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		048648292DD42E5D008A6D29 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		0486483D2DD4309C008A6D29 /* UvooRouteUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UvooRouteUtils.swift; sourceTree = "<group>"; };
+		048648462DD43D7A008A6D29 /* UvooTabbBottomVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UvooTabbBottomVC.swift; sourceTree = "<group>"; };
+		048648482DD441F3008A6D29 /* UvooCompose.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UvooCompose.swift; sourceTree = "<group>"; };
+		0486484D2DD4471D008A6D29 /* UvooLearnViewVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UvooLearnViewVC.swift; sourceTree = "<group>"; };
+		0486484F2DD449BE008A6D29 /* UvooDiyViewVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UvooDiyViewVC.swift; sourceTree = "<group>"; };
+		048648512DD449D2008A6D29 /* UvooCommuntyViewVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UvooCommuntyViewVC.swift; sourceTree = "<group>"; };
+		048648532DD449D3008A6D29 /* UvooMeViewVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UvooMeViewVC.swift; sourceTree = "<group>"; };
+		048648552DD44A41008A6D29 /* UvooLoginVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UvooLoginVM.swift; sourceTree = "<group>"; };
+		048648592DD468A8008A6D29 /* UvooDiyViewVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UvooDiyViewVC.xib; sourceTree = "<group>"; };
+		0499AFA12DDAF7F400D6FB7B /* UvooShowComVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UvooShowComVC.swift; sourceTree = "<group>"; };
+		0499AFA22DDAF7F400D6FB7B /* UvooShowComVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UvooShowComVC.xib; sourceTree = "<group>"; };
+		04FDD62A2DD478E2000062E0 /* UvooLearnViewVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UvooLearnViewVC.xib; sourceTree = "<group>"; };
+		04FDD62C2DD47EF9000062E0 /* UvoodiyShowScienceVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UvoodiyShowScienceVC.swift; sourceTree = "<group>"; };
+		04FDD62E2DD4809F000062E0 /* UvooTopVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UvooTopVC.swift; sourceTree = "<group>"; };
+		04FDD6342DD48E4E000062E0 /* UvooDiyDesignVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UvooDiyDesignVC.swift; sourceTree = "<group>"; };
+		04FDD6352DD48E4E000062E0 /* UvooDiyDesignVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UvooDiyDesignVC.xib; sourceTree = "<group>"; };
+		04FDD6382DD58E9B000062E0 /* UvooDiyGenDesignVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UvooDiyGenDesignVC.swift; sourceTree = "<group>"; };
+		04FDD6392DD58E9B000062E0 /* UvooDiyGenDesignVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UvooDiyGenDesignVC.xib; sourceTree = "<group>"; };
+		04FDD63C2DD59C10000062E0 /* UvooLibM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UvooLibM.swift; sourceTree = "<group>"; };
+		04FDD63E2DD5AFF2000062E0 /* UvooPermissionUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UvooPermissionUtils.swift; sourceTree = "<group>"; };
+		04FDD6402DD5BE20000062E0 /* UvooDiyDisplayVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UvooDiyDisplayVC.swift; sourceTree = "<group>"; };
+		04FDD6422DD5C892000062E0 /* UvooCommuntyViewVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UvooCommuntyViewVC.xib; sourceTree = "<group>"; };
+		04FDD6442DD5DC86000062E0 /* UvooComTitleDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UvooComTitleDetailVC.swift; sourceTree = "<group>"; };
+		04FDD6452DD5DC86000062E0 /* UvooComTitleDetailVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UvooComTitleDetailVC.xib; sourceTree = "<group>"; };
+		04FDD6482DD5DD3D000062E0 /* UvooHeadVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UvooHeadVC.swift; sourceTree = "<group>"; };
+		04FDD64A2DD5E7B3000062E0 /* UvooCommentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UvooCommentCell.swift; sourceTree = "<group>"; };
+		04FDD64C2DD5E7F8000062E0 /* UvooShowTitleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UvooShowTitleCell.swift; sourceTree = "<group>"; };
+		04FDD64E2DD5EA2A000062E0 /* UvooComPublishVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UvooComPublishVC.swift; sourceTree = "<group>"; };
+		04FDD64F2DD5EA2A000062E0 /* UvooComPublishVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UvooComPublishVC.xib; sourceTree = "<group>"; };
+		04FDD6542DD6270D000062E0 /* UvooComLoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UvooComLoginVC.swift; sourceTree = "<group>"; };
+		04FDD6552DD6270D000062E0 /* UvooComLoginVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UvooComLoginVC.xib; sourceTree = "<group>"; };
+		04FDD6582DD6CA4A000062E0 /* UvooWebViewUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UvooWebViewUtils.swift; sourceTree = "<group>"; };
+		04FDD65A2DD6CF7A000062E0 /* Uvoo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Uvoo.entitlements; sourceTree = "<group>"; };
+		04FDD65B2DD6CFE0000062E0 /* UvooComRegisterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UvooComRegisterVC.swift; sourceTree = "<group>"; };
+		04FDD65C2DD6CFE0000062E0 /* UvooComRegisterVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UvooComRegisterVC.xib; sourceTree = "<group>"; };
+		04FDD65F2DD6D2EC000062E0 /* UvooUserM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UvooUserM.swift; sourceTree = "<group>"; };
+		04FDD6612DD6D44C000062E0 /* UvooPublishM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UvooPublishM.swift; sourceTree = "<group>"; };
+		04FDD6642DD6D5D4000062E0 /* PostManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostManager.swift; sourceTree = "<group>"; };
+		04FDD6682DD6E58D000062E0 /* PostData.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = PostData.txt; sourceTree = "<group>"; };
+		04FDD66A2DD6E5A3000062E0 /* PostUser.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = PostUser.txt; sourceTree = "<group>"; };
+		04FDD66C2DD6E9EA000062E0 /* UvooPublishVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UvooPublishVM.swift; sourceTree = "<group>"; };
+		04FDD66E2DD70215000062E0 /* UvooLoadVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UvooLoadVM.swift; sourceTree = "<group>"; };
+		04FDD6702DD703CD000062E0 /* UvooUserDefaultsUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UvooUserDefaultsUtils.swift; sourceTree = "<group>"; };
+		04FDD6722DD72230000062E0 /* UvooMeViewVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UvooMeViewVC.xib; sourceTree = "<group>"; };
+		04FDD6742DD72EE4000062E0 /* UvooMeSetVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UvooMeSetVC.swift; sourceTree = "<group>"; };
+		04FDD6752DD72EE4000062E0 /* UvooMeSetVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UvooMeSetVC.xib; sourceTree = "<group>"; };
+		04FDD6782DD733C1000062E0 /* UvooMeEditVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UvooMeEditVC.swift; sourceTree = "<group>"; };
+		04FDD6792DD733C1000062E0 /* UvooMeEditVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UvooMeEditVC.xib; sourceTree = "<group>"; };
+		04FDD67C2DD73CBD000062E0 /* UvooMePlayVideoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UvooMePlayVideoVC.swift; sourceTree = "<group>"; };
+		04FDD67D2DD73CBD000062E0 /* UvooMePlayVideoVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UvooMePlayVideoVC.xib; sourceTree = "<group>"; };
+		04FDD6802DDAD508000062E0 /* UvooUserInfoViewVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UvooUserInfoViewVC.swift; sourceTree = "<group>"; };
+		04FDD6812DDAD508000062E0 /* UvooUserInfoViewVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UvooUserInfoViewVC.xib; sourceTree = "<group>"; };
+		48A8E36A0B0D6215D5178285 /* Pods-Uvoo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Uvoo.debug.xcconfig"; path = "Target Support Files/Pods-Uvoo/Pods-Uvoo.debug.xcconfig"; sourceTree = "<group>"; };
+		77A0E2408394D437847E1088 /* Pods_Uvoo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Uvoo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B140EE6100CFDD935F23E7CA /* Pods-Uvoo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Uvoo.release.xcconfig"; path = "Target Support Files/Pods-Uvoo/Pods-Uvoo.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		048648092DD42E52008A6D29 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F9D7DF662A278B6B243062DE /* Pods_Uvoo.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		048648032DD42E52008A6D29 = {
+			isa = PBXGroup;
+			children = (
+				0486482D2DD42E5D008A6D29 /* Uvoo */,
+				0486480D2DD42E52008A6D29 /* Products */,
+				1B312A4E1A21360C47B92C6A /* Pods */,
+				104732EAAF50A4DB32FC04F3 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		0486480D2DD42E52008A6D29 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				0486480C2DD42E52008A6D29 /* Uvoo.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		0486482D2DD42E5D008A6D29 /* Uvoo */ = {
+			isa = PBXGroup;
+			children = (
+				04FDD65A2DD6CF7A000062E0 /* Uvoo.entitlements */,
+				048648412DD43290008A6D29 /* UvooMeVC */,
+				0486483C2DD4302C008A6D29 /* UvooCommuntyVC */,
+				0486483B2DD43024008A6D29 /* UvooDiyVC */,
+				0486484A2DD4468C008A6D29 /* UvooLearnVC */,
+				048648352DD42F5C008A6D29 /* UvooLginVC */,
+				0486483A2DD42F9D008A6D29 /* UvooExpand */,
+				048648392DD42F91008A6D29 /* UvooUtils */,
+				04FDD6632DD6D5C2000062E0 /* DataManager */,
+				048648242DD42E5D008A6D29 /* AppDelegate.swift */,
+				048648462DD43D7A008A6D29 /* UvooTabbBottomVC.swift */,
+				04FDD6482DD5DD3D000062E0 /* UvooHeadVC.swift */,
+				04FDD62E2DD4809F000062E0 /* UvooTopVC.swift */,
+				048648252DD42E5D008A6D29 /* Assets.xcassets */,
+				048648262DD42E5D008A6D29 /* Info.plist */,
+				048648282DD42E5D008A6D29 /* LaunchScreen.storyboard */,
+				0486482A2DD42E5D008A6D29 /* Main.storyboard */,
+			);
+			path = Uvoo;
+			sourceTree = "<group>";
+		};
+		048648352DD42F5C008A6D29 /* UvooLginVC */ = {
+			isa = PBXGroup;
+			children = (
+				0486483F2DD4327F008A6D29 /* LogM */,
+				048648402DD4327F008A6D29 /* LogVM */,
+				04FDD6542DD6270D000062E0 /* UvooComLoginVC.swift */,
+				04FDD6552DD6270D000062E0 /* UvooComLoginVC.xib */,
+				04FDD65B2DD6CFE0000062E0 /* UvooComRegisterVC.swift */,
+				04FDD65C2DD6CFE0000062E0 /* UvooComRegisterVC.xib */,
+			);
+			path = UvooLginVC;
+			sourceTree = "<group>";
+		};
+		048648392DD42F91008A6D29 /* UvooUtils */ = {
+			isa = PBXGroup;
+			children = (
+				0486483D2DD4309C008A6D29 /* UvooRouteUtils.swift */,
+				04FDD63E2DD5AFF2000062E0 /* UvooPermissionUtils.swift */,
+				04FDD6582DD6CA4A000062E0 /* UvooWebViewUtils.swift */,
+				04FDD6702DD703CD000062E0 /* UvooUserDefaultsUtils.swift */,
+			);
+			path = UvooUtils;
+			sourceTree = "<group>";
+		};
+		0486483A2DD42F9D008A6D29 /* UvooExpand */ = {
+			isa = PBXGroup;
+			children = (
+				048648482DD441F3008A6D29 /* UvooCompose.swift */,
+			);
+			path = UvooExpand;
+			sourceTree = "<group>";
+		};
+		0486483B2DD43024008A6D29 /* UvooDiyVC */ = {
+			isa = PBXGroup;
+			children = (
+				04FDD6302DD48883000062E0 /* UvooM */,
+				0486484F2DD449BE008A6D29 /* UvooDiyViewVC.swift */,
+				048648592DD468A8008A6D29 /* UvooDiyViewVC.xib */,
+				04FDD6342DD48E4E000062E0 /* UvooDiyDesignVC.swift */,
+				04FDD6352DD48E4E000062E0 /* UvooDiyDesignVC.xib */,
+				04FDD6382DD58E9B000062E0 /* UvooDiyGenDesignVC.swift */,
+				04FDD6392DD58E9B000062E0 /* UvooDiyGenDesignVC.xib */,
+				04FDD6402DD5BE20000062E0 /* UvooDiyDisplayVC.swift */,
+			);
+			path = UvooDiyVC;
+			sourceTree = "<group>";
+		};
+		0486483C2DD4302C008A6D29 /* UvooCommuntyVC */ = {
+			isa = PBXGroup;
+			children = (
+				048648422DD43297008A6D29 /* ComM */,
+				048648432DD43297008A6D29 /* ComVM */,
+				048648512DD449D2008A6D29 /* UvooCommuntyViewVC.swift */,
+				04FDD6422DD5C892000062E0 /* UvooCommuntyViewVC.xib */,
+				04FDD6442DD5DC86000062E0 /* UvooComTitleDetailVC.swift */,
+				04FDD6452DD5DC86000062E0 /* UvooComTitleDetailVC.xib */,
+				04FDD64E2DD5EA2A000062E0 /* UvooComPublishVC.swift */,
+				04FDD64F2DD5EA2A000062E0 /* UvooComPublishVC.xib */,
+				04FDD64A2DD5E7B3000062E0 /* UvooCommentCell.swift */,
+				04FDD64C2DD5E7F8000062E0 /* UvooShowTitleCell.swift */,
+			);
+			path = UvooCommuntyVC;
+			sourceTree = "<group>";
+		};
+		0486483F2DD4327F008A6D29 /* LogM */ = {
+			isa = PBXGroup;
+			children = (
+				04FDD65F2DD6D2EC000062E0 /* UvooUserM.swift */,
+			);
+			path = LogM;
+			sourceTree = "<group>";
+		};
+		048648402DD4327F008A6D29 /* LogVM */ = {
+			isa = PBXGroup;
+			children = (
+				048648552DD44A41008A6D29 /* UvooLoginVM.swift */,
+				04FDD66E2DD70215000062E0 /* UvooLoadVM.swift */,
+			);
+			path = LogVM;
+			sourceTree = "<group>";
+		};
+		048648412DD43290008A6D29 /* UvooMeVC */ = {
+			isa = PBXGroup;
+			children = (
+				048648532DD449D3008A6D29 /* UvooMeViewVC.swift */,
+				04FDD6722DD72230000062E0 /* UvooMeViewVC.xib */,
+				04FDD6742DD72EE4000062E0 /* UvooMeSetVC.swift */,
+				04FDD6752DD72EE4000062E0 /* UvooMeSetVC.xib */,
+				04FDD6782DD733C1000062E0 /* UvooMeEditVC.swift */,
+				04FDD6792DD733C1000062E0 /* UvooMeEditVC.xib */,
+				04FDD67C2DD73CBD000062E0 /* UvooMePlayVideoVC.swift */,
+				04FDD67D2DD73CBD000062E0 /* UvooMePlayVideoVC.xib */,
+				04FDD6802DDAD508000062E0 /* UvooUserInfoViewVC.swift */,
+				04FDD6812DDAD508000062E0 /* UvooUserInfoViewVC.xib */,
+				0499AFA12DDAF7F400D6FB7B /* UvooShowComVC.swift */,
+				0499AFA22DDAF7F400D6FB7B /* UvooShowComVC.xib */,
+			);
+			path = UvooMeVC;
+			sourceTree = "<group>";
+		};
+		048648422DD43297008A6D29 /* ComM */ = {
+			isa = PBXGroup;
+			children = (
+				04FDD6612DD6D44C000062E0 /* UvooPublishM.swift */,
+			);
+			path = ComM;
+			sourceTree = "<group>";
+		};
+		048648432DD43297008A6D29 /* ComVM */ = {
+			isa = PBXGroup;
+			children = (
+				04FDD66C2DD6E9EA000062E0 /* UvooPublishVM.swift */,
+			);
+			path = ComVM;
+			sourceTree = "<group>";
+		};
+		0486484A2DD4468C008A6D29 /* UvooLearnVC */ = {
+			isa = PBXGroup;
+			children = (
+				0486484D2DD4471D008A6D29 /* UvooLearnViewVC.swift */,
+				04FDD62A2DD478E2000062E0 /* UvooLearnViewVC.xib */,
+				04FDD62C2DD47EF9000062E0 /* UvoodiyShowScienceVC.swift */,
+			);
+			path = UvooLearnVC;
+			sourceTree = "<group>";
+		};
+		04FDD6302DD48883000062E0 /* UvooM */ = {
+			isa = PBXGroup;
+			children = (
+				04FDD63C2DD59C10000062E0 /* UvooLibM.swift */,
+			);
+			path = UvooM;
+			sourceTree = "<group>";
+		};
+		04FDD6632DD6D5C2000062E0 /* DataManager */ = {
+			isa = PBXGroup;
+			children = (
+				04FDD6682DD6E58D000062E0 /* PostData.txt */,
+				04FDD66A2DD6E5A3000062E0 /* PostUser.txt */,
+				04FDD6642DD6D5D4000062E0 /* PostManager.swift */,
+			);
+			path = DataManager;
+			sourceTree = "<group>";
+		};
+		104732EAAF50A4DB32FC04F3 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				77A0E2408394D437847E1088 /* Pods_Uvoo.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		1B312A4E1A21360C47B92C6A /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				48A8E36A0B0D6215D5178285 /* Pods-Uvoo.debug.xcconfig */,
+				B140EE6100CFDD935F23E7CA /* Pods-Uvoo.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		0486480B2DD42E52008A6D29 /* Uvoo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0486481F2DD42E54008A6D29 /* Build configuration list for PBXNativeTarget "Uvoo" */;
+			buildPhases = (
+				A71F69569834CE119F082A42 /* [CP] Check Pods Manifest.lock */,
+				048648082DD42E52008A6D29 /* Sources */,
+				048648092DD42E52008A6D29 /* Frameworks */,
+				0486480A2DD42E52008A6D29 /* Resources */,
+				0DB02DDAC0121E3A2D3C4905 /* [CP] Embed Pods Frameworks */,
+				902E66AC2FE10975A97FE0C6 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Uvoo;
+			productName = Uvoo;
+			productReference = 0486480C2DD42E52008A6D29 /* Uvoo.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		048648042DD42E52008A6D29 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1620;
+				LastUpgradeCheck = 1620;
+				TargetAttributes = {
+					0486480B2DD42E52008A6D29 = {
+						CreatedOnToolsVersion = 16.2;
+					};
+				};
+			};
+			buildConfigurationList = 048648072DD42E52008A6D29 /* Build configuration list for PBXProject "Uvoo" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 048648032DD42E52008A6D29;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 0486480D2DD42E52008A6D29 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				0486480B2DD42E52008A6D29 /* Uvoo */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		0486480A2DD42E52008A6D29 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				04FDD67B2DD733C1000062E0 /* UvooMeEditVC.xib in Resources */,
+				04FDD6772DD72EE4000062E0 /* UvooMeSetVC.xib in Resources */,
+				04FDD65D2DD6CFE0000062E0 /* UvooComRegisterVC.xib in Resources */,
+				04FDD6472DD5DC86000062E0 /* UvooComTitleDetailVC.xib in Resources */,
+				04FDD6432DD5C892000062E0 /* UvooCommuntyViewVC.xib in Resources */,
+				04FDD6692DD6E58D000062E0 /* PostData.txt in Resources */,
+				04FDD6832DDAD508000062E0 /* UvooUserInfoViewVC.xib in Resources */,
+				0486482E2DD42E5D008A6D29 /* Assets.xcassets in Resources */,
+				0499AFA42DDAF7F400D6FB7B /* UvooShowComVC.xib in Resources */,
+				04FDD66B2DD6E5A3000062E0 /* PostUser.txt in Resources */,
+				04FDD6502DD5EA2A000062E0 /* UvooComPublishVC.xib in Resources */,
+				048648302DD42E5D008A6D29 /* LaunchScreen.storyboard in Resources */,
+				04FDD63B2DD58E9B000062E0 /* UvooDiyGenDesignVC.xib in Resources */,
+				04FDD6572DD6270D000062E0 /* UvooComLoginVC.xib in Resources */,
+				048648312DD42E5D008A6D29 /* Main.storyboard in Resources */,
+				0486485A2DD468A8008A6D29 /* UvooDiyViewVC.xib in Resources */,
+				04FDD6732DD72230000062E0 /* UvooMeViewVC.xib in Resources */,
+				04FDD67E2DD73CBD000062E0 /* UvooMePlayVideoVC.xib in Resources */,
+				04FDD6372DD48E4E000062E0 /* UvooDiyDesignVC.xib in Resources */,
+				04FDD62B2DD478E2000062E0 /* UvooLearnViewVC.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0DB02DDAC0121E3A2D3C4905 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Uvoo/Pods-Uvoo-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Uvoo/Pods-Uvoo-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Uvoo/Pods-Uvoo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		902E66AC2FE10975A97FE0C6 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Uvoo/Pods-Uvoo-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Uvoo/Pods-Uvoo-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Uvoo/Pods-Uvoo-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A71F69569834CE119F082A42 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Uvoo-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		048648082DD42E52008A6D29 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				04FDD65E2DD6CFE0000062E0 /* UvooComRegisterVC.swift in Sources */,
+				04FDD66D2DD6E9EA000062E0 /* UvooPublishVM.swift in Sources */,
+				04FDD62D2DD47EF9000062E0 /* UvoodiyShowScienceVC.swift in Sources */,
+				04FDD6512DD5EA2A000062E0 /* UvooComPublishVC.swift in Sources */,
+				0486483E2DD4309C008A6D29 /* UvooRouteUtils.swift in Sources */,
+				04FDD6592DD6CA4A000062E0 /* UvooWebViewUtils.swift in Sources */,
+				04FDD6652DD6D5D4000062E0 /* PostManager.swift in Sources */,
+				04FDD67F2DD73CBD000062E0 /* UvooMePlayVideoVC.swift in Sources */,
+				0499AFA32DDAF7F400D6FB7B /* UvooShowComVC.swift in Sources */,
+				04FDD67A2DD733C1000062E0 /* UvooMeEditVC.swift in Sources */,
+				04FDD6562DD6270D000062E0 /* UvooComLoginVC.swift in Sources */,
+				04FDD6822DDAD508000062E0 /* UvooUserInfoViewVC.swift in Sources */,
+				04FDD6622DD6D44C000062E0 /* UvooPublishM.swift in Sources */,
+				04FDD63D2DD59C10000062E0 /* UvooLibM.swift in Sources */,
+				04FDD6492DD5DD3D000062E0 /* UvooHeadVC.swift in Sources */,
+				04FDD6362DD48E4E000062E0 /* UvooDiyDesignVC.swift in Sources */,
+				048648542DD449D3008A6D29 /* UvooMeViewVC.swift in Sources */,
+				04FDD6712DD703CD000062E0 /* UvooUserDefaultsUtils.swift in Sources */,
+				048648522DD449D2008A6D29 /* UvooCommuntyViewVC.swift in Sources */,
+				04FDD6762DD72EE4000062E0 /* UvooMeSetVC.swift in Sources */,
+				04FDD6602DD6D2EC000062E0 /* UvooUserM.swift in Sources */,
+				0486484E2DD4471D008A6D29 /* UvooLearnViewVC.swift in Sources */,
+				04FDD64B2DD5E7B3000062E0 /* UvooCommentCell.swift in Sources */,
+				048648322DD42E5D008A6D29 /* AppDelegate.swift in Sources */,
+				04FDD62F2DD4809F000062E0 /* UvooTopVC.swift in Sources */,
+				04FDD6462DD5DC86000062E0 /* UvooComTitleDetailVC.swift in Sources */,
+				048648562DD44A41008A6D29 /* UvooLoginVM.swift in Sources */,
+				04FDD66F2DD70215000062E0 /* UvooLoadVM.swift in Sources */,
+				04FDD63A2DD58E9B000062E0 /* UvooDiyGenDesignVC.swift in Sources */,
+				048648502DD449BE008A6D29 /* UvooDiyViewVC.swift in Sources */,
+				04FDD63F2DD5AFF2000062E0 /* UvooPermissionUtils.swift in Sources */,
+				048648472DD43D7A008A6D29 /* UvooTabbBottomVC.swift in Sources */,
+				048648492DD441F3008A6D29 /* UvooCompose.swift in Sources */,
+				04FDD64D2DD5E7F8000062E0 /* UvooShowTitleCell.swift in Sources */,
+				04FDD6412DD5BE20000062E0 /* UvooDiyDisplayVC.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		048648282DD42E5D008A6D29 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				048648272DD42E5D008A6D29 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		0486482A2DD42E5D008A6D29 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				048648292DD42E5D008A6D29 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		048648202DD42E54008A6D29 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 48A8E36A0B0D6215D5178285 /* Pods-Uvoo.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Uvoo/Uvoo.entitlements;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = WL2W2PCY46;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Uvoo/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "Uvoo needs your consent to access the camera to shoot personal works/personal portraits. If prohibited, you will not be able to take photos or update information.";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Uvoo requires your consent to obtain location information when using it in order to upload photos or update avatars. If prohibited, you will not be able to publish works/update avatars.";
+				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "Uvoo requires your consent to obtain location information when using it in order to upload photos or update avatars. If prohibited, you will not be able to publish works/update avatars.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Uvoo requires your consent to obtain location information when using it in order to upload photos or update avatars. If prohibited, you will not be able to publish works/update avatars.";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Uvoo needs your permission to access the microphone. If blocked, you will not be able to send audio messages to users.";
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "Uvoo needs your consent to access the album in order to save the work. If it is prohibited, you will not be able to save your work to the album.";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Uvoo needs your consent to access the album to select photos to upload/publish works/update avatars. If prohibited, you will not be able to upload selected photos to upload/publish works/update avatars.";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = "";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.chengdu.test;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = chengdu_developer;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		048648212DD42E54008A6D29 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B140EE6100CFDD935F23E7CA /* Pods-Uvoo.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Uvoo/Uvoo.entitlements;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = WL2W2PCY46;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Uvoo/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "Uvoo needs your consent to access the camera to shoot personal works/personal portraits. If prohibited, you will not be able to take photos or update information.";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Uvoo requires your consent to obtain location information when using it in order to upload photos or update avatars. If prohibited, you will not be able to publish works/update avatars.";
+				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "Uvoo requires your consent to obtain location information when using it in order to upload photos or update avatars. If prohibited, you will not be able to publish works/update avatars.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Uvoo requires your consent to obtain location information when using it in order to upload photos or update avatars. If prohibited, you will not be able to publish works/update avatars.";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Uvoo needs your permission to access the microphone. If blocked, you will not be able to send audio messages to users.";
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "Uvoo needs your consent to access the album in order to save the work. If it is prohibited, you will not be able to save your work to the album.";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Uvoo needs your consent to access the album to select photos to upload/publish works/update avatars. If prohibited, you will not be able to upload selected photos to upload/publish works/update avatars.";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = "";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.chengdu.test;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = chengdu_developer;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		048648222DD42E54008A6D29 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		048648232DD42E54008A6D29 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		048648072DD42E52008A6D29 /* Build configuration list for PBXProject "Uvoo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				048648222DD42E54008A6D29 /* Debug */,
+				048648232DD42E54008A6D29 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		0486481F2DD42E54008A6D29 /* Build configuration list for PBXNativeTarget "Uvoo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				048648202DD42E54008A6D29 /* Debug */,
+				048648212DD42E54008A6D29 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 048648042DD42E52008A6D29 /* Project object */;
+}
