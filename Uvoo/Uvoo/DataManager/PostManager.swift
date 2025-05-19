@@ -78,7 +78,6 @@ class PostManager: NSObject {
         
         let fileURL = folder.appendingPathComponent(fileName)
         try meidaData.write(to: fileURL)
-        print("保存的路径为:", fileURL)
         return fileURL
     }
     
@@ -88,7 +87,6 @@ class PostManager: NSObject {
         }
         
         let targetDirectory = documentsDir.appendingPathComponent(mediaFolder)
-        print("媒体文件目录路径：", targetDirectory.path)
         
         var isDirectory: ObjCBool = false
         guard FileManager.default.fileExists(atPath: targetDirectory.path, isDirectory: &isDirectory) else { return 0 }
@@ -108,14 +106,12 @@ class PostManager: NSObject {
         guard let documentsDir = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask ).first else { return }
         
         let targetDirectory = documentsDir.appendingPathComponent(mediaFolder)
-        print("媒体文件目录路径：", targetDirectory.path)
         
         let fileManager = FileManager.default
         do {
             if fileManager.fileExists(atPath: targetDirectory.path) {
                 try fileManager.removeItem(at: targetDirectory)
-                print("成功删除目录：\(targetDirectory.path)")
-            } else { print("目标目录不存在：\(targetDirectory.path)") }
-        } catch { print("删除目录时出错：\(error.localizedDescription)") }
+            } else {}
+        } catch {}
     }
 }

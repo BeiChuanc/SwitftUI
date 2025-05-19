@@ -59,6 +59,7 @@ class UvooShowTitleCell: UICollectionViewCell {
     }
     
     func UvooSetTitleData() {
+        
         UvooSetTitleView()
     }
     

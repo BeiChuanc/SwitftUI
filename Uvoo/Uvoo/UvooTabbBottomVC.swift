@@ -14,6 +14,8 @@ enum UvooNotiName {
     static var tab: String { return "tab" }
     
     static var com: String { return "com" }
+    
+    static var title: String { return "title" }
 }
 
 class UvooTabbBottomVC: UITabBarController {
