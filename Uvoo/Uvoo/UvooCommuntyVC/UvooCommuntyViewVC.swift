@@ -30,6 +30,11 @@ class UvooCommuntyViewVC: UvooHeadVC {
         UvooSetComView()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        reloadTitle()
+    }
+
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
         NotificationCenter.default.addObserver(self, selector: #selector(reloadTitle), name: Notification.Name(UvooNotiName.title), object: nil)
@@ -79,19 +84,25 @@ class UvooCommuntyViewVC: UvooHeadVC {
 extension UvooCommuntyViewVC: UICollectionViewDelegate, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return UvooLoginVM.shared.titleList.count
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        UvooRouteUtils.UvooShowDetail()
+        let titles = UvooLoginVM.shared.titleList.filter { item in return item.bId != 1006 }
+        return titles.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let index = indexPath.row
         let cell : UvooShowTitleCell = collectionView.dequeueReusableCell(withReuseIdentifier: titleCell, for: indexPath) as! UvooShowTitleCell
-        let data = UvooLoginVM.shared.titleList
+        let data = UvooLoginVM.shared.titleList.filter { item in return item.bId != 1006 }
         if data.count > index {
-            
+            cell.titleModel = data[index]
+            if index % 2 == 0 {
+                cell.containerView.backgroundColor = UIColor(hex: "#3A00FF")
+                cell.usereName.textColor = .white
+                cell.titleLabel.textColor = .white
+            } else {
+                cell.containerView.backgroundColor = UIColor(hex: "#FED114")
+                cell.usereName.textColor = UIColor(hex: "#4D4D4D")
+                cell.titleLabel.textColor = UIColor(hex: "#4D4D4D")
+            }
         }
         return cell
     }

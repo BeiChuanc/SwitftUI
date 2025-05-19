@@ -108,6 +108,7 @@ class UvooMePlayVideoVC: UvooTopVC {
                 likePlayer.isSelected = true
                 liketText.text = "\(titleModel.likes + 1)"
             } else {
+                likePlayer.isSelected = false
                 liketText.text = "\(titleModel.likes)"
             }
         } else {

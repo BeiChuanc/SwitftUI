@@ -56,8 +56,9 @@ class UvooMeSetVC: UvooHeadVC {
     
     @objc func UvooLogout() {
         if UvooCheckLand() {
-            UIAlertController.logout {
+            UIAlertController.logout { [self] in
                 UvooUserDefaultsUtils.UvooLogout()
+                previous()
             }
         } else {
             UvooRouteUtils.UvooLogin()
@@ -66,9 +67,11 @@ class UvooMeSetVC: UvooHeadVC {
     
     @objc func UvooDelUser() {
         if UvooCheckLand() {
-            UIAlertController.delete {
+            UIAlertController.delete { [self] in
                 UvooUserDefaultsUtils.UvooDelUser()
                 UvooLoginVM.shared.UvooClean()
+                PostManager.shared.UvooInitPostWithU()
+                previous()
             }
         } else {
             UvooRouteUtils.UvooLogin()

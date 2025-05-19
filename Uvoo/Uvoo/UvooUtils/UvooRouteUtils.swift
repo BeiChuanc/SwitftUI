@@ -55,8 +55,9 @@ class UvooRouteUtils {
         UIViewController.currentVC()?.navigationController?.pushViewController(vc, animated: true)
     }
     
-    class func UvooShowDetail() {
+    class func UvooShowDetail(model: UvooPublishM) {
         let vc = UvooComTitleDetailVC()
+        vc.titleModel = model
         vc.modalTransitionStyle = .coverVertical
         vc.modalPresentationStyle = .fullScreen
         UIViewController.currentVC()?.navigationController?.pushViewController(vc, animated: true)

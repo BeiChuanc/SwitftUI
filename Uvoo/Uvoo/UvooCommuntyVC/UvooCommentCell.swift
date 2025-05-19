@@ -90,5 +90,4 @@ class UvooCommentCell: UITableViewCell {
     @objc func likeOnTap(_ sender: UIButton) {
         sender.isSelected = !sender.isSelected
     }
-    
 }

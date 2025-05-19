@@ -41,7 +41,7 @@ class UvooLoginVM: NSObject {
     
     func UvooLoadTitles() {
         titleList = PostManager.shared.UvooLoadPosts().filter { item in
-            return !(reportList.contains(item.tId) && blockList.contains(item.bId)) }
+            return !reportList.contains(item.tId) && !blockList.contains(item.bId) }
     }
     
     func UvooLoginIn(type: UvooLoginType, model: UvooLoginM, loginIn: @escaping () -> Void) {

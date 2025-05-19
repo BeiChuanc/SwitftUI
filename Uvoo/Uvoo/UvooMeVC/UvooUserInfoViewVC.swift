@@ -25,7 +25,7 @@ class UvooUserInfoViewVC: UvooTopVC {
     
     @IBOutlet weak var follow_user: UIButton!
     
-    let meCell = "UvooShowTitleCell"
+    let userCell = "UvooShowTitleCell"
     
     var selectButton: UIButton?
     
@@ -33,19 +33,7 @@ class UvooUserInfoViewVC: UvooTopVC {
     
     var userInfo: UvooDiyUserM?
     
-    var titleModel: [UvooPublishM] {
-        get {
-            let land = UvooLoginVM.shared.isLand
-            guard land, let meData = UvooUserDefaultsUtils.UvooGetUserInfo() else { return [] }
-            if selectButton == userPost {
-                return meData.title
-            } else if selectButton == userLike {
-                return meData.like
-            } else {
-                return []
-            }
-        }
-    }
+    var titleModel: [UvooPublishM] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -74,7 +62,7 @@ class UvooUserInfoViewVC: UvooTopVC {
         coll.clipsToBounds = true
         coll.backgroundColor = .clear
         coll.showsVerticalScrollIndicator = false
-        coll.register(UvooShowTitleCell.self, forCellWithReuseIdentifier: meCell)
+        coll.register(UvooShowTitleCell.self, forCellWithReuseIdentifier: userCell)
         coll.dataSource = self
         coll.delegate = self
         
@@ -93,6 +81,7 @@ class UvooUserInfoViewVC: UvooTopVC {
         follow_text.text = "\(userInfo.follow)"
         follower_text.text = "\(userInfo.followers)"
         liked_text.text = "\(userInfo.like.count)"
+        about_user.text = userInfo.about
         
         let land = UvooLoginVM.shared.isLand
         if land {
@@ -152,12 +141,21 @@ extension UvooUserInfoViewVC: UICollectionViewDataSource, UICollectionViewDelega
         return titleModel.count
     }
     
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
-    }
-    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell : UvooDiyDisplayCell = collectionView.dequeueReusableCell(withReuseIdentifier: meCell, for: indexPath) as! UvooDiyDisplayCell
+        let index = indexPath.row
+        let cell : UvooShowTitleCell = collectionView.dequeueReusableCell(withReuseIdentifier: userCell, for: indexPath) as! UvooShowTitleCell
+        if titleModel.count > index {
+            cell.titleModel = titleModel[index]
+            if index % 2 == 0 {
+                cell.containerView.backgroundColor = UIColor(hex: "#3A00FF")
+                cell.usereName.textColor = .white
+                cell.titleLabel.textColor = .white
+            } else {
+                cell.containerView.backgroundColor = UIColor(hex: "#FED114")
+                cell.usereName.textColor = UIColor(hex: "#4D4D4D")
+                cell.titleLabel.textColor = UIColor(hex: "#4D4D4D")
+            }
+        }
         return cell
     }
 }

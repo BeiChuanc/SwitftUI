@@ -41,7 +41,7 @@ class UvooShowComVC: UvooHeadVC {
     }
     
     func UvooSetTablView() {
-        com_table.register(UvooCommentCell.self, forCellReuseIdentifier: "UvooCommentCell")
+        com_table.register(UvooCommentCell.self, forCellReuseIdentifier: comCell)
         com_table.dataSource = self
         com_table.delegate = self
         com_table.backgroundColor = .clear
@@ -57,9 +57,7 @@ class UvooShowComVC: UvooHeadVC {
     @objc func comSenOnTap() {
         if UvooLoginVM.shared.isLand {
             guard let comData = comData else { return }
-            let meData = UvooUserDefaultsUtils.UvooGetUserInfo()
-            guard let tex = com_input.text, !tex.isEmpty else {
-                com_input.becomeFirstResponder()
+            guard let tex = com_input.text, !tex.isEmpty else { com_input.becomeFirstResponder()
                 return }
             
             if let post = PostManager.shared.UvooGetPost(by: comData.tId) {
@@ -98,6 +96,6 @@ extension UvooShowComVC: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 70
+        return 60
     }
 }
