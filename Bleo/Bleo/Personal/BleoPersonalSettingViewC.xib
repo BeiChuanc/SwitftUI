@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="23504" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23506"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BleoPersonalSettingViewC" customModule="Bleo" customModuleProvider="target">
+            <connections>
+                <outlet property="setBack" destination="eH4-Xd-cH0" id="STl-g0-rit"/>
+                <outlet property="setLogout" destination="ejn-K2-xkg" id="nSv-Vz-cbe"/>
+                <outlet property="setPrivacy" destination="ezp-Qr-06Z" id="4ri-d4-3Hl"/>
+                <outlet property="setTerms" destination="ERt-RX-wA2" id="o8a-rQ-K7t"/>
+                <outlet property="setUserHead" destination="k8f-V8-mh2" id="TBr-ZU-Twr"/>
+                <outlet property="setUserName" destination="XS7-aW-ojA" id="kDv-lf-bPj"/>
+                <outlet property="setdelAcc" destination="AQP-7u-c2U" id="EQQ-sa-Sjo"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="com_bg" translatesAutoresizingMaskIntoConstraints="NO" id="FPU-Ym-utp">
+                    <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                </imageView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dRk-Lr-D8N" userLabel="top">
+                    <rect key="frame" x="18" y="59" width="357" height="30"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eH4-Xd-cH0" userLabel="back">
+                            <rect key="frame" x="0.0" y="2" width="26" height="26"/>
+                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                            <state key="normal" image="back_w"/>
+                        </button>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="set up" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nFp-11-xJL">
+                            <rect key="frame" x="151.66666666666666" y="4" width="53.666666666666657" height="22.333333333333332"/>
+                            <fontDescription key="fontDescription" name="GeezaPro-Bold" family="Geeza Pro" pointSize="18"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="nFp-11-xJL" firstAttribute="centerX" secondItem="dRk-Lr-D8N" secondAttribute="centerX" id="6ql-17-Av7"/>
+                        <constraint firstItem="eH4-Xd-cH0" firstAttribute="leading" secondItem="dRk-Lr-D8N" secondAttribute="leading" id="Gps-s2-JZp"/>
+                        <constraint firstItem="nFp-11-xJL" firstAttribute="centerY" secondItem="dRk-Lr-D8N" secondAttribute="centerY" id="R1u-YC-7wd"/>
+                        <constraint firstItem="eH4-Xd-cH0" firstAttribute="centerY" secondItem="dRk-Lr-D8N" secondAttribute="centerY" id="f3h-3P-FIn"/>
+                        <constraint firstAttribute="height" constant="30" id="tPr-8p-kJL"/>
+                    </constraints>
+                </view>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="k8f-V8-mh2">
+                    <rect key="frame" x="18" y="124" width="65" height="65"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="65" id="HEi-oC-8DK"/>
+                        <constraint firstAttribute="height" constant="65" id="xV5-yp-Z4T"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Annette Black" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XS7-aW-ojA">
+                    <rect key="frame" x="95.000000000000014" y="144.33333333333334" width="134.33333333333337" height="24.666666666666657"/>
+                    <fontDescription key="fontDescription" name="GeezaPro-Bold" family="Geeza Pro" pointSize="20"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="23" translatesAutoresizingMaskIntoConstraints="NO" id="KHS-hG-cWC">
+                    <rect key="frame" x="18" y="215" width="357" height="106"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ERt-RX-wA2" userLabel="terms">
+                            <rect key="frame" x="0.0" y="0.0" width="357" height="20"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="20" id="XET-d2-8rT"/>
+                            </constraints>
+                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                            <state key="normal" image="termsWeb"/>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ezp-Qr-06Z" userLabel="privacy">
+                            <rect key="frame" x="0.0" y="43" width="357" height="20"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="20" id="HhC-1n-kui"/>
+                            </constraints>
+                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                            <state key="normal" image="priWeb"/>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AQP-7u-c2U" userLabel="del">
+                            <rect key="frame" x="0.0" y="86" width="357" height="20"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="20" id="ehM-1O-d9D"/>
+                            </constraints>
+                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                            <state key="normal" image="delAcc"/>
+                        </button>
+                    </subviews>
+                </stackView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ejn-K2-xkg">
+                    <rect key="frame" x="30" y="738" width="333" height="50"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="Q1K-Uz-G8s"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="GeezaPro-Bold" family="Geeza Pro" pointSize="14"/>
+                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                    <state key="normal" title="log out"/>
+                </button>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="dRk-Lr-D8N" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="6aa-QZ-CqM"/>
+                <constraint firstItem="ejn-K2-xkg" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="7Dl-3L-nRL"/>
+                <constraint firstItem="FPU-Ym-utp" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="7hj-L3-7QA"/>
+                <constraint firstItem="KHS-hG-cWC" firstAttribute="top" secondItem="k8f-V8-mh2" secondAttribute="bottom" constant="26" id="9py-IL-q4q"/>
+                <constraint firstItem="k8f-V8-mh2" firstAttribute="top" secondItem="dRk-Lr-D8N" secondAttribute="bottom" constant="35" id="O1d-UA-cng"/>
+                <constraint firstItem="XS7-aW-ojA" firstAttribute="centerY" secondItem="k8f-V8-mh2" secondAttribute="centerY" id="YzD-Zk-M4a"/>
+                <constraint firstItem="KHS-hG-cWC" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="aar-Jb-p5g"/>
+                <constraint firstItem="FPU-Ym-utp" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="d6U-id-e8C"/>
+                <constraint firstItem="ejn-K2-xkg" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="30" id="mhm-fn-2JM"/>
+                <constraint firstItem="dRk-Lr-D8N" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="18" id="pRq-YH-PJ6"/>
+                <constraint firstItem="KHS-hG-cWC" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="18" id="ruL-0H-LyC"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="ejn-K2-xkg" secondAttribute="bottom" constant="30" id="tvs-Fd-rLD"/>
+                <constraint firstItem="FPU-Ym-utp" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="txZ-Fy-gw2"/>
+                <constraint firstItem="k8f-V8-mh2" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="18" id="uU7-EK-9aI"/>
+                <constraint firstItem="dRk-Lr-D8N" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="w4k-Mn-8qt"/>
+                <constraint firstItem="FPU-Ym-utp" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="xcf-kW-NP0"/>
+                <constraint firstItem="XS7-aW-ojA" firstAttribute="leading" secondItem="k8f-V8-mh2" secondAttribute="trailing" constant="12" id="xrd-9Q-2Ag"/>
+            </constraints>
+            <point key="canvasLocation" x="132" y="-11"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="back_w" width="26" height="26"/>
+        <image name="com_bg" width="375" height="812"/>
+        <image name="delAcc" width="334" height="20"/>
+        <image name="priWeb" width="335" height="20"/>
+        <image name="termsWeb" width="335" height="20"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
