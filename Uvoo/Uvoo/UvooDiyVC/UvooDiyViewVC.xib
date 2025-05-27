@@ -53,7 +53,7 @@
                     </constraints>
                 </view>
                 <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l1E-6w-xvN">
-                    <rect key="frame" x="0.0" y="112" width="393" height="134"/>
+                    <rect key="frame" x="0.0" y="122" width="393" height="134"/>
                     <constraints>
                         <constraint firstAttribute="width" secondItem="l1E-6w-xvN" secondAttribute="height" multiplier="393:134" id="zxG-Ud-tI6"/>
                     </constraints>
@@ -74,7 +74,7 @@
                 <constraint firstItem="sNF-jJ-4C2" firstAttribute="leading" secondItem="0xc-lW-8du" secondAttribute="leading" constant="16" id="a5A-X5-VFP"/>
                 <constraint firstItem="l1E-6w-xvN" firstAttribute="centerX" secondItem="pPd-bu-Ip6" secondAttribute="centerX" id="lhg-di-bsC"/>
                 <constraint firstItem="7XM-DS-NYh" firstAttribute="leading" secondItem="pPd-bu-Ip6" secondAttribute="leading" id="oqb-bw-L26"/>
-                <constraint firstItem="l1E-6w-xvN" firstAttribute="top" secondItem="sNF-jJ-4C2" secondAttribute="bottom" constant="10" id="qUQ-df-zeC"/>
+                <constraint firstItem="l1E-6w-xvN" firstAttribute="top" secondItem="sNF-jJ-4C2" secondAttribute="bottom" constant="20" id="qUQ-df-zeC"/>
                 <constraint firstItem="7XM-DS-NYh" firstAttribute="top" secondItem="pPd-bu-Ip6" secondAttribute="top" id="yhk-nt-5PQ"/>
             </constraints>
             <point key="canvasLocation" x="132" y="-11"/>

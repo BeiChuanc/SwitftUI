@@ -3,7 +3,13 @@ import UIKit
 
 class UvooHeadVC: UvooTopVC {
     
-    @IBOutlet weak var userHead: UIImageView!
+    @IBOutlet weak var userHead: UIImageView! {
+        didSet {
+            let gestureHead = UITapGestureRecognizer(target: self, action: #selector(headOnTap))
+            userHead.addGestureRecognizer(gestureHead)
+            userHead.isUserInteractionEnabled = true
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,10 +38,6 @@ class UvooHeadVC: UvooTopVC {
         } else {
             userHead.image = UIImage(named: "UvooHead")
         }
-        
-        let gestureHead = UITapGestureRecognizer(target: self, action: #selector(headOnTap))
-        userHead.addGestureRecognizer(gestureHead)
-        userHead.isUserInteractionEnabled = true
     }
     
     @objc func headOnTap() {

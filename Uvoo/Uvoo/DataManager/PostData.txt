@@ -6,11 +6,20 @@
          "name": "Michael",
          "title": "Ride in Style: Discover the Perfect Cycling Jerseys",
          "content": "Stay cool and comfortable with cycling jerseys that offer advanced breathability and sleek designs for every ride. Function meets fashion for every cycling enthusiast!",
-         "cover": ["cyOne", "cyTwo", "cyThree"],
-         "imags": ["cyOne", "cyTwo", "cyThree"],
-         "isVideo": false,
+         "cover": ["macover_video"],
+         "imags": ["https://d3197c2qdpub41.cloudfront.net/com.diy.d/b612ac7624fbe4cd04860e8076210675.mp4"],
+         "isVideo": true,
          "likes": 19,
-         "comment": []
+         "comment": [
+            {
+                "bId": 1001,
+                "reply": "Incredibly breathable—stayed cool even on hot rides. Sleek design gets compliments every time!"
+            },
+            {
+                "bId": 1002,
+                "reply": "Love these jerseys! Lightweight, super breathable, and the designs are so sharp. 10/10 for cyclists!"
+            }
+         ]
      },
      {
          "tId": 2,
@@ -23,7 +32,16 @@
          "imags": ["skiOne", "skiTwo"],
          "isVideo": false,
          "likes": 21,
-         "comment": []
+         "comment": [
+            {
+                "bId": 1003,
+                "reply": "Perfect for powder days! Lightweight but keep me warm and dry—movement feels totally unrestricted."
+            },
+            {
+                "bId": 1004,
+                "reply": "Tackled icy slopes in these and stayed cozy + dry. Love how they stretch without sacrificing warmth!"
+            }
+         ]
      },
      {
          "tId": 3,
@@ -36,7 +54,16 @@
          "imags": ["climbOne", "climbTwo"],
          "isVideo": false,
          "likes": 76,
-         "comment": []
+         "comment": [
+            {
+                "bId": 1001,
+                "reply": "Perfect for powder days! Lightweight but keep me warm and dry—movement feels totally unrestricted."
+            },
+            {
+                "bId": 1003,
+                "reply": "Tackled icy slopes in these and stayed cozy + dry. Love how they stretch without sacrificing warmth!"
+            }
+         ]
      },
      {
          "tId": 4,
@@ -49,7 +76,16 @@
          "imags": ["cyFour", "cyFive"],
          "isVideo": false,
          "likes": 59,
-         "comment": []
+         "comment": [
+            {
+                "bId": 1002,
+                "reply": "Game-changer! Proper layering with these tips kept me comfy from freezing starts to sunny peaks."
+            },
+            {
+                "bId": 1004,
+                "reply": "Layering like a pro now! Light base, warm mid, waterproof outer = unstoppable in any conditions."
+            }
+         ]
      },
      {
          "tId": 5,
@@ -62,7 +98,16 @@
          "imags": ["skiThree", "skiFour"],
          "isVideo": false,
          "likes": 80,
-         "comment": []
+         "comment": [
+            {
+                "bId": 1003,
+                "reply": "Gloves stayed warm even in -15°C, and goggles never fogged—game-changers for epic ski days!"
+            },
+            {
+                "bId": 1002,
+                "reply": "Wore them in a snowstorm: hands toasty, vision sharp. Absolute must-haves for serious skiers!"
+            }
+         ]
      },
      {
          "tId": 6,

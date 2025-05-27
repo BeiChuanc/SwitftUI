@@ -101,7 +101,6 @@ class UvooDiyDisplayVC: UvooTopVC {
             delCurrent = 0
         }
     }
-    
 }
 
 extension UvooDiyDisplayVC: UICollectionViewDataSource, UICollectionViewDelegate {

@@ -5,9 +5,30 @@ import UIKit
 
 class BleoCommonViewC: UIViewController {
     
+    var isLogin: Bool = BleoTransData.shared.isLoginIn
+    
+    var userMy: BleoMyDetailM = BleoMyDetailM()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.navigationBar.isHidden = true
+    }
+    
+    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
+        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+        NotificationCenter.default.addObserver(self, selector: #selector(BleoLoadMyInfo), name: Notification.Name("updateUser"), object: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
+    @objc func BleoLoadMyInfo() {
+        userMy = BleoPrefence.BleoGetCurUserData()
     }
     
     func BleoSetViewBorder(In view: UIView, width: CGFloat, colors: [UIColor], cornerRadius: CGFloat = 0) {
@@ -41,8 +62,15 @@ class BleoCommonViewC: UIViewController {
         gradientLayer.colors = colors.map { $0.cgColor }
         gradientLayer.startPoint = CGPoint(x: 0, y: 0.5)
         gradientLayer.endPoint = CGPoint(x: 1, y: 0.5)
-        gradientLayer.frame = bt.bounds
+        gradientLayer.frame = CGRect(x: 0, y: 0, width: ScreenSize.W - 100, height: bt.frame.height)
         bt.layer.insertSublayer(gradientLayer, at: 0)
+    }
+    
+    func BleoGetTimeNow() -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd/MM"
+        let currentDate = Date()
+        return dateFormatter.string(from: currentDate)
     }
     
     func BleoUploadImage(completion: ((_ image: UIImage) -> Void)? = nil) {
@@ -66,7 +94,7 @@ class BleoCommonViewC: UIViewController {
         present(picker, animated: true)
     }
     
-    func BleoUploadMedia() {
+    func BleoUploadMedia(completion: @escaping () -> Void) {
         var configuration = YPImagePickerConfiguration()
         configuration.screens = [.library]
         configuration.library.mediaType = .photoAndVideo
@@ -84,8 +112,8 @@ class BleoCommonViewC: UIViewController {
             } else if let video = item.singleVideo {
                 
             }
-            present(picker, animated: true)
         }
+        present(picker, animated: true)
     }
 }
 

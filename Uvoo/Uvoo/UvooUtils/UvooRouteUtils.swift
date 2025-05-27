@@ -125,4 +125,18 @@ class UvooRouteUtils {
         vc.modalPresentationStyle = .overFullScreen
         UIViewController.currentVC()?.present(vc, animated: true)
     }
+    
+    class func UvooStoreVipSub() {
+        let vc = UvooStorePurchaseVC()
+        vc.modalTransitionStyle = .coverVertical
+        vc.modalPresentationStyle = .fullScreen
+        UIViewController.currentVC()?.navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    class func UvooStoreGiftPur() {
+        let vc = UvooGiftPurchaseVC()
+        vc.modalTransitionStyle = .coverVertical
+        vc.modalPresentationStyle = .overFullScreen
+        UIViewController.currentVC()?.present(vc, animated: true)
+    }
 }

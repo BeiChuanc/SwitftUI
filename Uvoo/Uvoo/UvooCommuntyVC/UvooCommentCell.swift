@@ -28,15 +28,30 @@ class UvooCommentCell: UITableViewCell {
         comtext.text = nil
     }
     
-    func UvooLoadComData(reply: String) {
-        comtext.text = reply
-        let meData = UvooUserDefaultsUtils.UvooGetUserInfo()
-        userName.text = meData!.name
-        guard let imageData = meData?.head else {
-            headUser.image = UIImage(named: "UvooHead")
-            return }
-        let image = UIImage(data: imageData)
-        headUser.image = image
+    func UvooLoadComData(reply: UvooCommentM) {
+        comtext.text = reply.reply
+        userName.text = UvooGetUserHead(uid: reply.bId)?.name ?? "Uvooer"
+        headUser.image = UIImage(named: UvooGetUserHead(uid: reply.bId)?.head ?? "UvooHead")
+        if UvooLoginVM.shared.isLand {
+            if reply.bId == UvooUserDefaultsUtils.UvooGetUserInfo()!.uId {
+                let meData = UvooUserDefaultsUtils.UvooGetUserInfo()
+                userName.text = meData!.name
+                guard let imageData = meData?.head else {
+                    headUser.image = UIImage(named: "UvooHead")
+                    return }
+                let image = UIImage(data: imageData)
+                headUser.image = image
+            }
+        }
+    }
+    
+    func UvooGetUserHead(uid: Int) -> UvooDiyUserM? {
+        for user in UvooLoginVM.shared.userOnline {
+            if user.uId == uid {
+                return user
+            }
+        }
+        return nil
     }
     
     func UvooSetComView() {

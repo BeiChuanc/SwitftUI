@@ -22,6 +22,12 @@
 		0486485A2DD468A8008A6D29 /* UvooDiyViewVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 048648592DD468A8008A6D29 /* UvooDiyViewVC.xib */; };
 		0499AFA32DDAF7F400D6FB7B /* UvooShowComVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0499AFA12DDAF7F400D6FB7B /* UvooShowComVC.swift */; };
 		0499AFA42DDAF7F400D6FB7B /* UvooShowComVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0499AFA22DDAF7F400D6FB7B /* UvooShowComVC.xib */; };
+		04CB6ED02DE3F4B1001EC6B0 /* UvooStorePurchaseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CB6ECE2DE3F4B1001EC6B0 /* UvooStorePurchaseVC.swift */; };
+		04CB6ED12DE3F4B1001EC6B0 /* UvooStorePurchaseVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04CB6ECF2DE3F4B1001EC6B0 /* UvooStorePurchaseVC.xib */; };
+		04CB6ED32DE3F5C2001EC6B0 /* UvooStoreM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CB6ED22DE3F5C2001EC6B0 /* UvooStoreM.swift */; };
+		04CB6ED52DE3F60C001EC6B0 /* UvooStoreVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CB6ED42DE3F60C001EC6B0 /* UvooStoreVM.swift */; };
+		04CB6ED82DE40725001EC6B0 /* UvooGiftPurchaseVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04CB6ED72DE40725001EC6B0 /* UvooGiftPurchaseVC.xib */; };
+		04CB6ED92DE40725001EC6B0 /* UvooGiftPurchaseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CB6ED62DE40725001EC6B0 /* UvooGiftPurchaseVC.swift */; };
 		04FDD62B2DD478E2000062E0 /* UvooLearnViewVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04FDD62A2DD478E2000062E0 /* UvooLearnViewVC.xib */; };
 		04FDD62D2DD47EF9000062E0 /* UvoodiyShowScienceVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FDD62C2DD47EF9000062E0 /* UvoodiyShowScienceVC.swift */; };
 		04FDD62F2DD4809F000062E0 /* UvooTopVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FDD62E2DD4809F000062E0 /* UvooTopVC.swift */; };
@@ -50,7 +56,6 @@
 		04FDD6652DD6D5D4000062E0 /* PostManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FDD6642DD6D5D4000062E0 /* PostManager.swift */; };
 		04FDD6692DD6E58D000062E0 /* PostData.txt in Resources */ = {isa = PBXBuildFile; fileRef = 04FDD6682DD6E58D000062E0 /* PostData.txt */; };
 		04FDD66B2DD6E5A3000062E0 /* PostUser.txt in Resources */ = {isa = PBXBuildFile; fileRef = 04FDD66A2DD6E5A3000062E0 /* PostUser.txt */; };
-		04FDD66D2DD6E9EA000062E0 /* UvooPublishVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FDD66C2DD6E9EA000062E0 /* UvooPublishVM.swift */; };
 		04FDD66F2DD70215000062E0 /* UvooLoadVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FDD66E2DD70215000062E0 /* UvooLoadVM.swift */; };
 		04FDD6712DD703CD000062E0 /* UvooUserDefaultsUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FDD6702DD703CD000062E0 /* UvooUserDefaultsUtils.swift */; };
 		04FDD6732DD72230000062E0 /* UvooMeViewVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04FDD6722DD72230000062E0 /* UvooMeViewVC.xib */; };
@@ -83,6 +88,12 @@
 		048648592DD468A8008A6D29 /* UvooDiyViewVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UvooDiyViewVC.xib; sourceTree = "<group>"; };
 		0499AFA12DDAF7F400D6FB7B /* UvooShowComVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UvooShowComVC.swift; sourceTree = "<group>"; };
 		0499AFA22DDAF7F400D6FB7B /* UvooShowComVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UvooShowComVC.xib; sourceTree = "<group>"; };
+		04CB6ECE2DE3F4B1001EC6B0 /* UvooStorePurchaseVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UvooStorePurchaseVC.swift; sourceTree = "<group>"; };
+		04CB6ECF2DE3F4B1001EC6B0 /* UvooStorePurchaseVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UvooStorePurchaseVC.xib; sourceTree = "<group>"; };
+		04CB6ED22DE3F5C2001EC6B0 /* UvooStoreM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UvooStoreM.swift; sourceTree = "<group>"; };
+		04CB6ED42DE3F60C001EC6B0 /* UvooStoreVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UvooStoreVM.swift; sourceTree = "<group>"; };
+		04CB6ED62DE40725001EC6B0 /* UvooGiftPurchaseVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UvooGiftPurchaseVC.swift; sourceTree = "<group>"; };
+		04CB6ED72DE40725001EC6B0 /* UvooGiftPurchaseVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UvooGiftPurchaseVC.xib; sourceTree = "<group>"; };
 		04FDD62A2DD478E2000062E0 /* UvooLearnViewVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UvooLearnViewVC.xib; sourceTree = "<group>"; };
 		04FDD62C2DD47EF9000062E0 /* UvoodiyShowScienceVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UvoodiyShowScienceVC.swift; sourceTree = "<group>"; };
 		04FDD62E2DD4809F000062E0 /* UvooTopVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UvooTopVC.swift; sourceTree = "<group>"; };
@@ -112,7 +123,6 @@
 		04FDD6642DD6D5D4000062E0 /* PostManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostManager.swift; sourceTree = "<group>"; };
 		04FDD6682DD6E58D000062E0 /* PostData.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = PostData.txt; sourceTree = "<group>"; };
 		04FDD66A2DD6E5A3000062E0 /* PostUser.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = PostUser.txt; sourceTree = "<group>"; };
-		04FDD66C2DD6E9EA000062E0 /* UvooPublishVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UvooPublishVM.swift; sourceTree = "<group>"; };
 		04FDD66E2DD70215000062E0 /* UvooLoadVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UvooLoadVM.swift; sourceTree = "<group>"; };
 		04FDD6702DD703CD000062E0 /* UvooUserDefaultsUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UvooUserDefaultsUtils.swift; sourceTree = "<group>"; };
 		04FDD6722DD72230000062E0 /* UvooMeViewVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UvooMeViewVC.xib; sourceTree = "<group>"; };
@@ -163,6 +173,7 @@
 			isa = PBXGroup;
 			children = (
 				04FDD65A2DD6CF7A000062E0 /* Uvoo.entitlements */,
+				04CB6ECC2DE3F472001EC6B0 /* UvooStoreVC */,
 				048648412DD43290008A6D29 /* UvooMeVC */,
 				0486483C2DD4302C008A6D29 /* UvooCommuntyVC */,
 				0486483B2DD43024008A6D29 /* UvooDiyVC */,
@@ -234,7 +245,6 @@
 			isa = PBXGroup;
 			children = (
 				048648422DD43297008A6D29 /* ComM */,
-				048648432DD43297008A6D29 /* ComVM */,
 				048648512DD449D2008A6D29 /* UvooCommuntyViewVC.swift */,
 				04FDD6422DD5C892000062E0 /* UvooCommuntyViewVC.xib */,
 				04FDD6442DD5DC86000062E0 /* UvooComTitleDetailVC.swift */,
@@ -291,14 +301,6 @@
 			path = ComM;
 			sourceTree = "<group>";
 		};
-		048648432DD43297008A6D29 /* ComVM */ = {
-			isa = PBXGroup;
-			children = (
-				04FDD66C2DD6E9EA000062E0 /* UvooPublishVM.swift */,
-			);
-			path = ComVM;
-			sourceTree = "<group>";
-		};
 		0486484A2DD4468C008A6D29 /* UvooLearnVC */ = {
 			isa = PBXGroup;
 			children = (
@@ -307,6 +309,27 @@
 				04FDD62C2DD47EF9000062E0 /* UvoodiyShowScienceVC.swift */,
 			);
 			path = UvooLearnVC;
+			sourceTree = "<group>";
+		};
+		04CB6ECC2DE3F472001EC6B0 /* UvooStoreVC */ = {
+			isa = PBXGroup;
+			children = (
+				04CB6ECD2DE3F486001EC6B0 /* StoreM */,
+				04CB6ECE2DE3F4B1001EC6B0 /* UvooStorePurchaseVC.swift */,
+				04CB6ECF2DE3F4B1001EC6B0 /* UvooStorePurchaseVC.xib */,
+				04CB6ED62DE40725001EC6B0 /* UvooGiftPurchaseVC.swift */,
+				04CB6ED72DE40725001EC6B0 /* UvooGiftPurchaseVC.xib */,
+			);
+			path = UvooStoreVC;
+			sourceTree = "<group>";
+		};
+		04CB6ECD2DE3F486001EC6B0 /* StoreM */ = {
+			isa = PBXGroup;
+			children = (
+				04CB6ED22DE3F5C2001EC6B0 /* UvooStoreM.swift */,
+				04CB6ED42DE3F60C001EC6B0 /* UvooStoreVM.swift */,
+			);
+			path = StoreM;
 			sourceTree = "<group>";
 		};
 		04FDD6302DD48883000062E0 /* UvooM */ = {
@@ -409,6 +432,8 @@
 				04FDD67B2DD733C1000062E0 /* UvooMeEditVC.xib in Resources */,
 				04FDD6772DD72EE4000062E0 /* UvooMeSetVC.xib in Resources */,
 				04FDD65D2DD6CFE0000062E0 /* UvooComRegisterVC.xib in Resources */,
+				04CB6ED12DE3F4B1001EC6B0 /* UvooStorePurchaseVC.xib in Resources */,
+				04CB6ED82DE40725001EC6B0 /* UvooGiftPurchaseVC.xib in Resources */,
 				04FDD6472DD5DC86000062E0 /* UvooComTitleDetailVC.xib in Resources */,
 				04FDD6432DD5C892000062E0 /* UvooCommuntyViewVC.xib in Resources */,
 				04FDD6692DD6E58D000062E0 /* PostData.txt in Resources */,
@@ -496,7 +521,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				04FDD65E2DD6CFE0000062E0 /* UvooComRegisterVC.swift in Sources */,
-				04FDD66D2DD6E9EA000062E0 /* UvooPublishVM.swift in Sources */,
 				04FDD62D2DD47EF9000062E0 /* UvoodiyShowScienceVC.swift in Sources */,
 				04FDD6512DD5EA2A000062E0 /* UvooComPublishVC.swift in Sources */,
 				0486483E2DD4309C008A6D29 /* UvooRouteUtils.swift in Sources */,
@@ -523,8 +547,12 @@
 				04FDD6462DD5DC86000062E0 /* UvooComTitleDetailVC.swift in Sources */,
 				048648562DD44A41008A6D29 /* UvooLoginVM.swift in Sources */,
 				04FDD66F2DD70215000062E0 /* UvooLoadVM.swift in Sources */,
+				04CB6ED02DE3F4B1001EC6B0 /* UvooStorePurchaseVC.swift in Sources */,
+				04CB6ED52DE3F60C001EC6B0 /* UvooStoreVM.swift in Sources */,
 				04FDD63A2DD58E9B000062E0 /* UvooDiyGenDesignVC.swift in Sources */,
 				048648502DD449BE008A6D29 /* UvooDiyViewVC.swift in Sources */,
+				04CB6ED32DE3F5C2001EC6B0 /* UvooStoreM.swift in Sources */,
+				04CB6ED92DE40725001EC6B0 /* UvooGiftPurchaseVC.swift in Sources */,
 				04FDD63F2DD5AFF2000062E0 /* UvooPermissionUtils.swift in Sources */,
 				048648472DD43D7A008A6D29 /* UvooTabbBottomVC.swift in Sources */,
 				048648492DD441F3008A6D29 /* UvooCompose.swift in Sources */,

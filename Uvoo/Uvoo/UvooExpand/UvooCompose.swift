@@ -135,7 +135,18 @@ extension UIAlertController {
     
     static func delete(call: @escaping() -> Void) {
         let alert = UIAlertController(title: "Prompt", message: "Are you sure you want to delete the current account?", preferredStyle: .alert)
-        let confirm = UIAlertAction(title: "Confirm", style: .default, handler: { Action in
+        let confirm = UIAlertAction(title: "Delete", style: .default, handler: { Action in
+            call()
+        })
+        let cancel = UIAlertAction(title: "Cancel", style: .cancel)
+        alert.addAction(confirm)
+        alert.addAction(cancel)
+        UIViewController.currentVC()?.present(alert, animated: true, completion: nil)
+    }
+    
+    static func deleteT(call: @escaping() -> Void) {
+        let alert = UIAlertController(title: "Prompt", message: "Are you sure you want to delete this post?", preferredStyle: .alert)
+        let confirm = UIAlertAction(title: "Delete", style: .default, handler: { Action in
             call()
         })
         let cancel = UIAlertAction(title: "Cancel", style: .cancel)

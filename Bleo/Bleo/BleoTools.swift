@@ -83,6 +83,24 @@ extension UILabel {
     }
 }
 
+extension JSONDecoder {
+    
+    func decodeFromFile<T: Decodable>(at path: URL) throws -> T {
+        let data = try Data(contentsOf: path)
+        
+        let jsonString = String(data: data, encoding: .utf8)?
+            .trimmingCharacters(in: .whitespacesAndNewlines)
+            .replacingOccurrences(of: "<![CDATA[", with: "")
+            .replacingOccurrences(of: "]]>", with: "")
+        
+        guard let processedData = jsonString?.data(using: .utf8) else {
+            throw NSError(domain: "JSONProcessingError", code: 1001, userInfo: [NSLocalizedDescriptionKey: "Failed to process JSON string"])
+        }
+        
+        return try decode(T.self, from: processedData)
+    }
+}
+
 extension UINavigationController: @retroactive UIGestureRecognizerDelegate {
     
     override open func viewDidLoad() {
@@ -110,5 +128,81 @@ class Navigationcontroller: UINavigationController {
             }
         }
         super.pushViewController(vc, animated: animated)
+    }
+}
+
+extension UIAlertController {
+    
+    static func show(message: String, call: @escaping () -> Void) {
+        var showAlter: UIAlertController!
+        showAlter = UIAlertController(title: nil, message: message, preferredStyle: .alert)
+        let ok = UIAlertAction(title: "OK", style: .default, handler: nil)
+        showAlter.addAction(ok)
+        BleoPageRoute.currentVC?.present(showAlter, animated: true, completion: nil)
+    }
+    
+    static func logout(call: @escaping() -> Void) {
+        let alert = UIAlertController(title: "Prompt", message: "Are you sure you want to log out of the current account?", preferredStyle: .alert)
+        let confirm = UIAlertAction(title: "Confirm", style: .default, handler: { Action in
+            call()
+        })
+        let cancel = UIAlertAction(title: "Cancel", style: .cancel)
+        alert.addAction(confirm)
+        alert.addAction(cancel)
+        BleoPageRoute.currentVC?.present(alert, animated: true, completion: nil)
+    }
+    
+    static func delete(call: @escaping() -> Void) {
+        let alert = UIAlertController(title: "Prompt", message: "Are you sure you want to delete the current account?", preferredStyle: .alert)
+        let confirm = UIAlertAction(title: "Delete", style: .default, handler: { Action in
+            call()
+        })
+        let cancel = UIAlertAction(title: "Cancel", style: .cancel)
+        alert.addAction(confirm)
+        alert.addAction(cancel)
+        BleoPageRoute.currentVC?.present(alert, animated: true, completion: nil)
+    }
+    
+    static func deleteT(call: @escaping() -> Void) {
+        let alert = UIAlertController(title: "Prompt", message: "Are you sure you want to delete this post?", preferredStyle: .alert)
+        let confirm = UIAlertAction(title: "Delete", style: .default, handler: { Action in
+            call()
+        })
+        let cancel = UIAlertAction(title: "Cancel", style: .cancel)
+        alert.addAction(confirm)
+        alert.addAction(cancel)
+        BleoPageRoute.currentVC?.present(alert, animated: true, completion: nil)
+    }
+    
+    static func report(Id: Int, call: @escaping () -> Void) {
+        var reportAlter: UIAlertController!
+        reportAlter = UIAlertController(title: "More", message: nil, preferredStyle: .actionSheet)
+        
+        let reportCommon : (UIAlertAction) -> Void = { action in
+            if Id < 11 && Id > 0 {
+                if !BleoTransData.shared.reportTitleList.contains(Id) {
+                    BleoTransData.shared.reportTitleList.append(Id)
+                }
+            }
+            if Id > 99 && Id < 104 {
+                if !BleoTransData.shared.blockUserList.contains(Id) {
+                    BleoTransData.shared.blockUserList.append(Id)
+                }
+            }
+            call()
+        }
+        
+        let report1 = UIAlertAction(title: NSLocalizedString("Report Sexually Explicit Material", comment: ""), style: .default,handler: reportCommon)
+        let report2 = UIAlertAction(title: NSLocalizedString("Report spam", comment: ""), style: .default,handler: reportCommon)
+        let report3 = UIAlertAction(title: NSLocalizedString("Report something else", comment: ""), style: .default,handler: reportCommon)
+        let report4 = UIAlertAction(title: NSLocalizedString("Block", comment: ""), style: .default,handler: reportCommon)
+        let cancel = UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: UIAlertAction.Style.cancel,handler: nil)
+        reportAlter.addAction(report1)
+        reportAlter.addAction(report2)
+        reportAlter.addAction(report3)
+        reportAlter.addAction(report4)
+        reportAlter.addAction(cancel)
+        reportAlter.modalPresentationStyle = .overFullScreen
+        BleoPageRoute.currentVC?.present(reportAlter, animated: true, completion: nil)
     }
 }

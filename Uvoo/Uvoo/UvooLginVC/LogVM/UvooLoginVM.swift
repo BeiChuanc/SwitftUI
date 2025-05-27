@@ -42,6 +42,9 @@ class UvooLoginVM: NSObject {
     func UvooLoadTitles() {
         titleList = PostManager.shared.UvooLoadPosts().filter { item in
             return !reportList.contains(item.tId) && !blockList.contains(item.bId) }
+        if !isLand {
+            titleList = titleList.filter { item in return item.tId < 10 }
+        }
     }
     
     func UvooLoginIn(type: UvooLoginType, model: UvooLoginM, loginIn: @escaping () -> Void) {
@@ -49,8 +52,14 @@ class UvooLoginVM: NSObject {
         let pwd = model.pwd
         switch type {
         case .LOGIN:
-            if email == "1" {
-                if pwd == "1" {
+            if UvooUserDefaultsUtils.UvooVerifyUser(email: email, pwd: pwd) {
+                UvooUserDefaultsUtils.UvooLoginIn(email: email)
+                loginIn()
+                isLand = true
+                return
+            }
+            if email == "955128" {
+                if pwd == "123456" {
                     UvooUserDefaultsUtils.UvooSaveUsers(email: email, pwd: pwd)
                     UvooUserDefaultsUtils.UvooLoginIn(email: email)
                     UvooMeData()
@@ -58,12 +67,8 @@ class UvooLoginVM: NSObject {
                 } else {
                     UvooLoadVM.UvooShow(type: .failed, text: "User password error.")
                 }
-            } else {
-                if UvooUserDefaultsUtils.UvooVerifyUser(email: email, pwd: pwd) {
-                    UvooUserDefaultsUtils.UvooLoginIn(email: email)
-                    loginIn()
-                }
             }
+           
             break
         case .REGISTER:
             UvooUserDefaultsUtils.UvooSaveUsers(email: email, pwd: pwd)

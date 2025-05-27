@@ -9,11 +9,11 @@ class UvooDiyViewVC: UvooHeadVC {
     
     var learnCard = FSPagerView()
     
-    let width = UvooScreen.width * 0.65
+    let width = UvooScreen.width * 0.60
     
-    let height = (UvooScreen.width * 0.65) * (424.0 / 270.0)
+    let height = (UvooScreen.width * 0.60) * 1.5
     
-    let topOffset = UvooScreen.height * 0.25
+    let topOffset = UvooScreen.height * 0.27
     
     let bottomOffset = UvooScreen.height * 0.12
     

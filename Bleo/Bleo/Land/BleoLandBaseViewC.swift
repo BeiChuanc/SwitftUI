@@ -1,7 +1,7 @@
 import Foundation
 import UIKit
 
-class BleoLandBaseViewC: UIViewController {
+class BleoLandBaseViewC: BleoCommonViewC {
     
     @IBOutlet weak var loginLink: UITextView!
     

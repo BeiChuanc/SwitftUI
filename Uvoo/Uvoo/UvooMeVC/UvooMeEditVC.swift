@@ -81,9 +81,8 @@ class UvooMeEditVC: UvooHeadVC {
                 model.head = userHead.image?.jpegData(compressionQuality: 0.8)
             }
             
-            UvooLoadVM.Uvooload()
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) { [self] in
-                UvooLoadVM.Uvoodismiss()
+                UvooLoadVM.UvooShow(type: .succeed)
                 previous()
             }
             

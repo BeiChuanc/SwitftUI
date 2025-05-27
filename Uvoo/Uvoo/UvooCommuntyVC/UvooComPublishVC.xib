@@ -150,7 +150,7 @@
                     </constraints>
                 </view>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RvM-2S-IDx" userLabel="eula">
-                    <rect key="frame" x="166.66666666666666" y="796" width="60" height="22"/>
+                    <rect key="frame" x="166.66666666666666" y="776" width="60" height="22"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="60" id="bIk-1O-mjN"/>
                         <constraint firstAttribute="height" constant="22" id="hsf-WY-sX6"/>
@@ -162,7 +162,7 @@
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="RvM-2S-IDx" secondAttribute="bottom" id="0rb-NA-1ZE"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="RvM-2S-IDx" secondAttribute="bottom" constant="20" id="0rb-NA-1ZE"/>
                 <constraint firstItem="CI0-4X-BLL" firstAttribute="top" secondItem="IVK-pa-5Vl" secondAttribute="bottom" constant="22" id="33o-Cx-2Nr"/>
                 <constraint firstItem="IVK-pa-5Vl" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="AUI-ML-6W0"/>
                 <constraint firstItem="IVK-pa-5Vl" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="Bqv-zs-S37"/>

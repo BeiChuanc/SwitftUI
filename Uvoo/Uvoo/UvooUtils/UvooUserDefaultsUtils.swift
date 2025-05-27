@@ -77,6 +77,10 @@ enum UvooUserKey {
     static var userInfo: String { return "userInfo" }
     
     static var current: String { return "current" }
+    
+    static var limit: String { return "limit" }
+    
+    static var isVIP: String { return "isVIP" }
 }
 
 
@@ -138,5 +142,21 @@ class UvooUserDefaultsUtils {
     
     static func UvooUpdateUserInfo(_ transform: (inout UvooUserM) -> Void) {
         UvooUserM.update(transform)
+    }
+    
+    static func UvooSaveLimit(_ islimit: Bool) {
+        UserDefaults.standard.set(islimit, forKey: UvooUserKey.limit)
+    }
+    
+    static func UvooGetLimit() -> Bool {
+        return UserDefaults.standard.bool(forKey: UvooUserKey.limit)
+    }
+    
+    static func UvooSaveVIP(_ isvip: Bool) {
+        UserDefaults.standard.set(isvip, forKey: UvooUserKey.isVIP)
+    }
+    
+    static func UvooGetVIP() -> Bool {
+        return UserDefaults.standard.bool(forKey: UvooUserKey.isVIP)
     }
 }

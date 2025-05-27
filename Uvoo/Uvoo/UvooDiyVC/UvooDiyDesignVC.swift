@@ -90,7 +90,7 @@ class UvooDiyDesignVC: UvooTopVC {
     
     func UvooSetButtonView() {
         
-        let buttonWidth: CGFloat = 74.0
+        let buttonWidth: CGFloat = UvooScreen.width * 0.17
         
         let horizontalSpacing: CGFloat = 20.0
         
@@ -129,7 +129,7 @@ class UvooDiyDesignVC: UvooTopVC {
                     make.width.height.equalTo(buttonWidth)
                     
                     if row == 0 && col == 0 {
-                        make.top.equalToSuperview().offset(startX)
+                        make.top.equalToSuperview().offset(10)
                         make.leading.equalToSuperview().offset(10)
                     } else if col == 0 {
                         let buttonAbove = selectButtonView.viewWithTag((row - 1) * 4 + col + 1) as! UIButton

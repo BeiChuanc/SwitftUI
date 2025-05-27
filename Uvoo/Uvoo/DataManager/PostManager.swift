@@ -26,6 +26,12 @@ class PostManager: NSObject {
         }
     }
     
+    func UvooSaveMePost(post: UvooPublishM) {
+        var posts = UvooLoadPosts()
+        posts.append(post)
+        UvooSavePost(In: posts)
+    }
+    
     func UvooGenPost() -> [UvooPublishM]? {
         guard let postPath = Bundle.main.url(forResource: "PostData", withExtension: "txt") else { return nil }
         

@@ -1,5 +1,6 @@
 import UIKit
 import AuthenticationServices
+import SnapKit
 
 class BleoLandViewC: BleoLandBaseViewC {
 
@@ -15,12 +16,21 @@ class BleoLandViewC: BleoLandBaseViewC {
     
     @IBOutlet weak var appleInBt: UIButton!
     
+    let hiddenView: UIView = UIView()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         BleoSetLogInView()
     }
     
     func BleoSetLogInView() {
+        
+        view.addSubview(hiddenView)
+        hiddenView.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
+        hiddenView.isHidden = true
+        
         emailInput.layer.cornerRadius = 16
         emailInput.layer.masksToBounds = true
         emailInput.placeholder = "Account name"
@@ -62,6 +72,28 @@ class BleoLandViewC: BleoLandBaseViewC {
         backLog.addTarget(self, action: #selector(backlog), for: .touchUpInside)
     }
     
+    func BleoLogIn(_ log: BleoLogM, completion: @escaping () -> Void) {
+        if BleoPrefence.BleoMatchUser(log) {
+            BleoPrefence.BleoSaveCurrentUser(log.user)
+            BleoTransData.shared.isLoginIn = true
+            completion()
+            return
+        }
+        if log.user == "1" { // 8154773 / 123456
+            if log.password == "1" {
+                BleoPrefence.BleoSaveUser(log)
+                BleoPrefence.BleoSaveCurrentUser(log.user)
+                BleoTransData.shared.isLoginIn = true
+                let logUser = BleoMyDetailM(uId: Int.random(in: 2000...3000), name: "Bleoer")
+                let userData = BleoTransData.shared.encode(object: logUser)
+                BleoPrefence.BleoSaveUserData(log, userData: userData!)
+                completion()
+            } else {
+                BleoToast.BleoShow(type: .failed, text: "User password error.")
+            }
+        }
+    }
+    
     @objc func backlog() {
         BleoPageRoute.backToLevel()
     }
@@ -74,6 +106,18 @@ class BleoLandViewC: BleoLandBaseViewC {
         guard let pwd = pwdInput.text, !pwd.isEmpty else {
             pwdInput.becomeFirstResponder()
             return }
+        
+        let logModel = BleoLogM(user: email, password: pwd)
+        hiddenView.isHidden = false
+        BleoToast.Bleoload()
+        DispatchQueue.main.asyncAfter(deadline: .now() + Double.random(in: 0...3)) { [self] in
+            BleoToast.Bleodismiss()
+            hiddenView.isHidden = true
+            BleoLogIn(logModel) {
+                NotificationCenter.default.post(name: Notification.Name("updateUser"), object: nil)
+                BleoPageRoute.BleoRootVC(In: self.view.window!)
+            }
+        }
     }
     
     @objc func registerView() {
@@ -103,6 +147,8 @@ extension BleoLandViewC: ASAuthorizationControllerDelegate, ASAuthorizationContr
             } else {
                 acc = "appleId"
             }
+            
+            let appleUser = BleoMyDetailM(uId: 999, name: "Bleoer")
             
             break
             

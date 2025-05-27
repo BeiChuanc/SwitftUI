@@ -80,7 +80,7 @@ class UvooTabbBottomVC: UITabBarController {
         tabBottomBg.layer.masksToBounds = true
         tabBottomBg.image = UIImage(named: "tabbar_bg")
         
-        tabStackItem.spacing = 50
+        tabStackItem.spacing = 35
         
         for item in Array(0..<4) {
             let tabButton = UIButton(type: .custom)
@@ -105,7 +105,7 @@ class UvooTabbBottomVC: UITabBarController {
         tabButtomList[0].isSelected = true
         
         tabBottomView.snp.makeConstraints { make in
-            make.height.equalTo(100)
+            make.height.equalTo(80)
             make.width.equalTo(UvooScreen.width)
             make.bottom.equalToSuperview()
         }
@@ -117,7 +117,7 @@ class UvooTabbBottomVC: UITabBarController {
         tabStackItem.snp.makeConstraints { make in
             make.height.equalTo(74)
             make.centerX.equalToSuperview()
-            make.centerY.equalToSuperview().offset(-18)
+            make.centerY.equalToSuperview().offset(-10)
         }
         
     }

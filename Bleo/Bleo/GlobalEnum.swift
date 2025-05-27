@@ -74,3 +74,16 @@ enum ComposeColor: String {
         return UIColor(hex: self.rawValue)
     }
 }
+
+enum BLEOPREFENCEKEY {
+    
+    static var LOG: String { return "LOG" }
+    
+    static var EMAIL: String { return "EMAIL" }
+    
+    static var PWD: String { return "PWD" }
+    
+    static var USER: String { return "USER" }
+    
+    static var CUERRENT: String { return "CUERRENT" }
+}

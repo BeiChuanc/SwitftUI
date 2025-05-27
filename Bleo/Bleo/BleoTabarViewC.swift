@@ -25,7 +25,7 @@ class BleoTabarViewC: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         BleoSetTabBar()
-        viewControllers = [BleoModifyViewC(), BleoModifyViewC(), BleoModifyViewC(), BleoPuserInfoViewC(), BleoPersonalInfoViewC()]
+        viewControllers = [BleoModifyViewC(), BleoCommunityViewC(), BleoPublishViewC(), BleoMessageListViewC(), BleoPersonalInfoViewC()]
         selectedIndex = 0
         tabBarBt[0].isSelected = true
     }

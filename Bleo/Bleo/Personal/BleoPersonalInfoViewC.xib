@@ -33,7 +33,7 @@
             <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="me_bg" translatesAutoresizingMaskIntoConstraints="NO" id="aYr-vI-2zp">
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="aYr-vI-2zp">
                     <rect key="frame" x="0.0" y="0.0" width="393" height="255.66666666666666"/>
                 </imageView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2rP-qI-lV2" userLabel="upload">
@@ -237,7 +237,6 @@
         <image name="bleoUser" width="132" height="132"/>
         <image name="editAbout" width="14" height="14"/>
         <image name="editMyName" width="17" height="17"/>
-        <image name="me_bg" width="375" height="400"/>
         <image name="me_seting" width="22" height="22"/>
         <image name="nodata" width="210" height="210"/>
         <image name="uploadCover" width="148" height="22"/>

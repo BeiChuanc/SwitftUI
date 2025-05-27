@@ -1,6 +1,13 @@
 import Foundation
+import AVFoundation
 import UIKit
 import SnapKit
+import Kingfisher
+
+protocol titleAction {
+    func reportTitle(title: UvooPublishM)
+    func delTitle(title: UvooPublishM)
+}
 
 class UvooShowTitleCell: UICollectionViewCell {
     
@@ -40,13 +47,23 @@ class UvooShowTitleCell: UICollectionViewCell {
     
     var detail: UIButton = UIButton(type: .custom)
     
+    var meCover: UIImageView = UIImageView()
+    
     var comlabel: UILabel = UILabel()
+    
+    var report: UIButton = UIButton(type: .custom)
+    
+    var delB: UIButton = UIButton(type: .custom)
+    
+    var buplay: UIImageView = UIImageView()
     
     var titleModel: UvooPublishM? {
         didSet {
             UvooSetTitleData()
         }
     }
+    
+    var delegate: titleAction?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -70,6 +87,10 @@ class UvooShowTitleCell: UICollectionViewCell {
         likelabel.text = nil
         comlabel.text = nil
         btnLike.isSelected = false
+        meCover.image = nil
+        report.isHidden = true
+        delB.isHidden = true
+        buplay.isHidden = true
         mediaList.removeAll()
         for subview in imageStack.arrangedSubviews {
             imageStack.removeArrangedSubview(subview)
@@ -87,7 +108,27 @@ class UvooShowTitleCell: UICollectionViewCell {
         comlabel.text = "\(PostManager.shared.UvooGetPost(by: title.tId)!.comment.count)"
         headImage.image = UIImage(named: title.head)
         likelabel.text = "\(title.likes)"
-        mediaList = title.imags
+        mediaList = title.cover
+        delB.isHidden = true
+        report.isHidden = false
+        buplay.isHidden = !title.isVideo
+        
+        for index in 0..<mediaList.count {
+            let image = UIImageView()
+            image.contentMode = .scaleAspectFill
+            image.layer.cornerRadius = 5
+            image.layer.masksToBounds = true
+            image.image = UIImage(named: mediaList[index])
+            imageStack.addArrangedSubview(image)
+            image.snp.makeConstraints { make in
+                if mediaList.count == 1 {
+                    make.width.equalTo(UvooScreen.width - 62)
+                } else {
+                    make.width.equalTo(UvooScreen.width * 0.75 * 0.26)
+                }
+                make.height.equalTo(UvooScreen.width * 0.75 * 0.38)
+            }
+        }
         
         if land {
             let isLike = meData!.like.contains(where: { $0.tId == title.tId })
@@ -95,13 +136,20 @@ class UvooShowTitleCell: UICollectionViewCell {
             likelabel.text = "\(isLike ? title.likes + 1 : title.likes)"
             
             if title.bId == UvooUserDefaultsUtils.UvooGetUserInfo()!.uId {
+                if title.isVideo {
+                    meCover.image = UvooGetVideoCover(title: title)
+                } else {
+                    meCover.kf.setImage(with: URL(string: mediaList[0])!)
+                }
+                meCover.isHidden = false
+                report.isHidden = true
+                delB.isHidden = false
                 guard let imagedata = meData?.head else { headImage.image = UIImage(named: "UvooHead")
                     return }
                 let image = UIImage(data: imagedata)
                 headImage.image = image
             }
         }
-        setImages()
     }
     
     func UvooSetTitleView() {
@@ -111,9 +159,13 @@ class UvooShowTitleCell: UICollectionViewCell {
         self.topView.addSubview(headImage)
         self.topView.addSubview(usereName)
         self.topView.addSubview(btnShare)
+        self.topView.addSubview(report)
+        self.topView.addSubview(delB)
         self.containerView.addSubview(titleLabel)
         self.containerView.addSubview(imageScroll)
+        self.containerView.addSubview(meCover)
         self.imageScroll.addSubview(imageStack)
+        self.imageScroll.addSubview(buplay)
         self.containerView.addSubview(bottomView)
         self.bottomView.addSubview(btnStack)
         self.bottomView.addSubview(likeView)
@@ -148,9 +200,17 @@ class UvooShowTitleCell: UICollectionViewCell {
         btnLike.setImage(UIImage(named: "like_media_normal"), for: .normal)
         btnLike.setImage(UIImage(named: "like_media_select"), for: .selected)
         btnCom.setImage(UIImage(named: "comment_media"), for: .normal)
+        report.setImage(UIImage(named: "reprot_btn"), for: .normal)
+        delB.setImage(UIImage(named: "del_dis"), for: .normal)
+        meCover.contentMode = .scaleAspectFill
+        meCover.layer.cornerRadius = 5
+        meCover.layer.masksToBounds = true
+        meCover.isHidden = true
         btnLike.addTarget(self, action: #selector(likeOnTap), for: .touchUpInside)
         btnCom.addTarget(self, action: #selector(comOnTap), for: .touchUpInside)
         detail.addTarget(self, action: #selector(comOnTap), for: .touchUpInside)
+        report.addTarget(self, action: #selector(reportTitleOnTap), for: .touchUpInside)
+        delB.addTarget(self, action: #selector(delTitleOnTap), for: .touchUpInside)
         
         containerView.translatesAutoresizingMaskIntoConstraints = false
         containerBg.translatesAutoresizingMaskIntoConstraints = false
@@ -169,10 +229,14 @@ class UvooShowTitleCell: UICollectionViewCell {
         btnCom.translatesAutoresizingMaskIntoConstraints = false
         comlabel.translatesAutoresizingMaskIntoConstraints = false
         imageStack.translatesAutoresizingMaskIntoConstraints = false
+        meCover.translatesAutoresizingMaskIntoConstraints = false
+        buplay.translatesAutoresizingMaskIntoConstraints = false
         
         imageScroll.showsHorizontalScrollIndicator = false
         imageStack.axis = .horizontal
         imageStack.spacing = 5
+        buplay.image = UIImage(named: "player_play")
+        buplay.isHidden = true
         
         containerView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
@@ -188,6 +252,18 @@ class UvooShowTitleCell: UICollectionViewCell {
             make.height.equalTo(50)
             make.leading.equalToSuperview().offset(15)
             make.top.trailing.equalToSuperview()
+        }
+        
+        report.snp.makeConstraints { make in
+            make.size.equalTo(30)
+            make.centerY.equalTo(headImage)
+            make.trailing.equalToSuperview().offset(-16)
+        }
+        
+        delB.snp.makeConstraints { make in
+            make.size.equalTo(30)
+            make.centerY.equalTo(headImage)
+            make.trailing.equalToSuperview().offset(-16)
         }
         
         headImage.snp.makeConstraints { make in
@@ -210,8 +286,16 @@ class UvooShowTitleCell: UICollectionViewCell {
         imageScroll.snp.makeConstraints { make in
             make.leading.equalToSuperview().offset(16)
             make.trailing.equalToSuperview().offset(-16)
-            make.height.equalTo(138)
+            make.height.equalTo(UvooScreen.width * 0.75 * 0.38)
             make.top.equalTo(topView.snp.bottom).offset(35)
+        }
+        
+        buplay.snp.makeConstraints { make in
+            make.center.equalTo(imageScroll)
+        }
+        
+        meCover.snp.makeConstraints { make in
+            make.edges.equalTo(imageScroll.snp.edges)
         }
         
         imageStack.snp.makeConstraints { make in
@@ -267,19 +351,23 @@ class UvooShowTitleCell: UICollectionViewCell {
         }
     }
     
-    func setImages() {
-        for index in 0..<mediaList.count {
-            let image = UIImageView()
-            image.contentMode = .scaleAspectFill
-            image.layer.cornerRadius = 5
-            image.layer.masksToBounds = true
-            image.image = UIImage(named: mediaList[index])
-            imageStack.addArrangedSubview(image)
-            image.snp.makeConstraints { make in
-                make.width.equalTo(103)
-                make.height.equalTo(138)
-            }
-        }
+    func UvooGetVideoCover(title: UvooPublishM) -> UIImage? {
+        guard title.isVideo else { return UIImage() }
+        
+        let userId = UvooUserDefaultsUtils.UvooGetUserInfo()!.uId
+        let documentsURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+        let mediaURL = documentsURL.appendingPathComponent("Uvoo\(userId)/\(title.tId).mp4")
+        
+        let asset = AVAsset(url: mediaURL)
+        let imageGenerator = AVAssetImageGenerator(asset: asset)
+        imageGenerator.appliesPreferredTrackTransform = true
+        
+        do {
+            let thumbnailTime = CMTimeMake(value: 1, timescale: 60)
+            let cgImage = try imageGenerator.copyCGImage(at: thumbnailTime, actualTime: nil)
+            return UIImage(cgImage: cgImage)
+        } catch {}
+        return UIImage()
     }
     
     @objc func likeOnTap(_ sender: UIButton) {
@@ -312,6 +400,26 @@ class UvooShowTitleCell: UICollectionViewCell {
     
     @objc func comOnTap() {
         guard let title = titleModel else { return }
+        if title.isVideo {
+            let land = UvooLoginVM.shared.isLand
+            if land {
+                let meData = UvooUserDefaultsUtils.UvooGetUserInfo()
+                UvooRouteUtils.UvooPlayerShow(title: title, isMe: title.bId == meData!.uId)
+                return
+            }
+            UvooRouteUtils.UvooPlayerShow(title: title, isMe: false)
+            return
+        }
         UvooRouteUtils.UvooShowDetail(model: title)
+    }
+    
+    @objc func reportTitleOnTap() {
+        guard let title = titleModel else { return }
+        delegate?.reportTitle(title: title)
+    }
+    
+    @objc func delTitleOnTap() {
+        guard let title = titleModel else { return }
+        delegate?.delTitle(title: title)
     }
 }

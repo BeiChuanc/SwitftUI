@@ -22,5 +22,12 @@ struct UvooPublishM: Codable {
     
     var likes: Int
     
-    var comment: [String]
+    var comment: [UvooCommentM]
+}
+
+struct UvooCommentM: Codable {
+    
+    var bId: Int
+    
+    var reply: String
 }

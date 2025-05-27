@@ -21,6 +21,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func Bleo_LoginInit() {
+        BleoToast.BleoConfig()
+        BleoTransData.shared.BleoInitTitleData()
+        BleoTransData.shared.BleoGetUsers()
+        BleoTransData.shared.BleoGetTitles()
         
     }
 }

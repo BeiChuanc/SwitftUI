@@ -1,0 +1,190 @@
+[
+    {
+        "tId": 1,
+        "uId": 100,
+        "head": "bleoer_1",
+        "name": "Leo",
+        "tCover": "bleo_title_4",
+        "tUrl": "https://d3197c2qdpub41.cloudfront.net/com.clbike.cy/c414abf1bf0781a317a1727bf7474015.mp4",
+        "content": "Pedal hard, breathe harder, ride harder.",
+        "meType": true,
+        "tCom": [
+            {
+                "cuId": 101,
+                "chead": "bleoer_2",
+                "comment": "Pedal, pant, prevail—each stroke forging willpower against the grind.",
+                "time": "5/27"
+            },
+            {
+                "cuId": 100,
+                "chead": "bleoer_1",
+                "comment": "Breathe fire, pedal fury, ride like the wind owes you a chase.",
+                "time": "5/26"
+            }
+        ]
+    },
+    {
+        "tId": 2,
+        "uId": 101,
+        "head": "bleoer_2",
+        "name": "Alex",
+        "tCover": "bleo_title_1",
+        "tUrl": "bleo_title_1",
+        "content": "Why drive when you can fly on two wheels?",
+        "meType": false,
+        "tCom": [
+            {
+                "cuId": 103,
+                "chead": "bleoer_4",
+                "comment": "Why crawl in metal boxes when wheels can slice through wind like wings?",
+                "time": "5/27"
+            },
+            {
+                "cuId": 101,
+                "chead": "bleoer_2",
+                "comment": "Cars cage you in—two wheels let the road become a runway for freedom.",
+                "time": "5/25"
+            }
+        ]
+    },
+    {
+        "tId": 3,
+        "uId": 101,
+        "head": "bleoer_2",
+        "name": "Alex",
+        "tCover": "bleo_title_5",
+        "tUrl": "https://d3197c2qdpub41.cloudfront.net/com.clbike.cy/afee53e68847f2c505488ea32d4c3a7d.mp4",
+        "content": "Life is a journey, ride it like a bicycle—keep moving forward.",
+        "meType": true,
+        "tCom": [
+            {
+                "cuId": 102,
+                "chead": "bleoer_3",
+                "comment": "Life's potholes? Pedal through them. A bike teaches forward motion is the only gear that matters.",
+                "time": "5/24"
+            },
+            {
+                "cuId": 101,
+                "chead": "bleoer_2",
+                "comment": "No need to map every turn—just keep the wheels rolling. Progress looks best from a moving saddle.",
+                "time": "5/23"
+            }
+        ]
+    },
+    {
+        "tId": 4,
+        "uId": 103,
+        "head": "bleoer_4",
+        "name": "Lily",
+        "tCover": "bleo_title_2",
+        "tUrl": "bleo_title_2",
+        "content": "Wind in my hair, dirt on my tires, freedom in my soul.",
+        "meType": false,
+        "tCom": [
+            {
+                "cuId": 102,
+                "chead": "bleoer_3",
+                "comment": "Hair tangled in wind, tires caked in dirt—every ride unwinds the soul from its cage.",
+                "time": "5/26"
+            },
+            {
+                "cuId": 100,
+                "chead": "bleoer_1",
+                "comment": "Mud on the rims, breeze in the roots: freedom’s just a throttle twist from sticking to your bones.",
+                "time": "5/25"
+            }
+        ]
+    },
+    {
+        "tId": 5,
+        "uId": 102,
+        "head": "bleoer_3",
+        "name": "Emma",
+        "tCover": "bleo_title_6",
+        "tUrl": "https://d3197c2qdpub41.cloudfront.net/com.clbike.cy/8e96f95b708ac34beae3bf05b7f55097.mp4",
+        "content": "The best views are earned by turning the cranks.",
+        "meType": true,
+        "tCom": [
+            {
+                "cuId": 103,
+                "chead": "bleoer_4",
+                "comment": "The sweetest horizons aren’t handed out—they’re cranked out, pedal by aching pedal.",
+                "time": "5/24"
+            },
+            {
+                "cuId": 101,
+                "chead": "bleoer_2",
+                "comment": "Scenery worth stopping for starts with legs that refuse to stop turning.",
+                "time": "5/26"
+            }
+        ]
+    },
+    {
+        "tId": 6,
+        "uId": 102,
+        "head": "bleoer_3",
+        "name": "Emma",
+        "tCover": "bleo_title_3",
+        "tUrl": "bleo_title_3",
+        "content": "Lost in the map, found on the bike.",
+        "meType": false,
+        "tCom": [
+            {
+                "cuId": 102,
+                "chead": "bleoer_3",
+                "comment": "Lost in coordinates, found in cadence—where maps fail, wheels chart the soul’s true north.",
+                "time": "5/22"
+            },
+            {
+                "cuId": 103,
+                "chead": "bleoer_4",
+                "comment": "Maps trap you in lines; bikes set you free in motion. Get lost on paper, find yourself in the spin.",
+                "time": "5/26"
+            }
+        ]
+    },
+    {
+        "tId": 7,
+        "uId": 10000,
+        "head": "bleoOffice",
+        "name": "Office",
+        "tCover": "",
+        "tUrl": "https://d3197c2qdpub41.cloudfront.net/com.clbike.cy/1f774b44c067943e0b3579c7a034f26b.mp4",
+        "content": "Two wheels, infinite horizons.",
+        "meType": true,
+        "tCom": []
+    },
+    {
+        "tId": 8,
+        "uId": 10000,
+        "head": "bleoOffice",
+        "name": "Office",
+        "tCover": "",
+        "tUrl": "https://d3197c2qdpub41.cloudfront.net/com.clbike.cy/b0fbbb74f90a1972785e3424b94e7c8c.mp4",
+        "content": "Pain is temporary, but quitting is permanent.",
+        "meType": true,
+        "tCom": []
+    },
+    {
+        "tId": 9,
+        "uId": 10000,
+        "head": "bleoOffice",
+        "name": "Office",
+        "tCover": "",
+        "tUrl": "https://d3197c2qdpub41.cloudfront.net/com.clbike.cy/fc52dc07756c6920c93fc2be8b1bfd4e.mp4",
+        "content": "Hill climbs are my therapy, sprints are my caffeine.",
+        "meType": true,
+        "tCom": []
+    },
+    {
+        "tId": 10,
+        "uId": 10000,
+        "head": "bleoOffice",
+        "name": "Office",
+        "tCover": "",
+        "tUrl": "https://d3197c2qdpub41.cloudfront.net/com.clbike.cy/41fa1744340cef990ca50dd6bf788e4f.mp4",
+        "content": "Sweat is just liquid pride.",
+        "meType": true,
+        "tCom": []
+    }
+]

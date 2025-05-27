@@ -1,4 +1,5 @@
 import UIKit
+import AVFoundation
 
 class UvooComTitleDetailVC: UvooTopVC {
 
@@ -36,6 +37,10 @@ class UvooComTitleDetailVC: UvooTopVC {
     
     @IBOutlet weak var comment_tablview: UITableView!
     
+    @IBOutlet weak var media_cover: UIImageView!
+    
+    @IBOutlet weak var giftSend: UIButton!
+    
     var titleModel: UvooPublishM?
     
     let detailsCom = "UvooCommentCell"
@@ -45,6 +50,10 @@ class UvooComTitleDetailVC: UvooTopVC {
         UvooSetDetailView()
         UvooSetCommentView()
         UvooDetailLoadData()
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
     }
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
@@ -75,12 +84,15 @@ class UvooComTitleDetailVC: UvooTopVC {
         input_view.layer.masksToBounds = true
         input_view.layer.borderColor = UIColor(hex: "#E5E5E5").cgColor
         input_view.layer.borderWidth = 1
+        media_cover.layer.cornerRadius = 5
+        media_cover.layer.masksToBounds = true
         
         textComment.leftPadding(10)
         comment_send.addTarget(self, action: #selector(sendComment), for: .touchUpInside)
         like_title.addTarget(self, action: #selector(likeOnTap), for: .touchUpInside)
         btnreport.addTarget(self, action: #selector(reportOnTap), for: .touchUpInside)
         userDetails.addTarget(self, action: #selector(goDetails), for: .touchUpInside)
+        giftSend.addTarget(self, action: #selector(goGiftShow), for: .touchUpInside)
     }
     
     
@@ -110,6 +122,13 @@ class UvooComTitleDetailVC: UvooTopVC {
             
             if title.bId == meData!.uId {
                 btnreport.isHidden = true
+                media_cover.kf.setImage(with: URL(string: "\(title.cover[0])"))
+                media_cover.isHidden = false
+                guard let imageData = meData?.head else {
+                    headUser.image = UIImage(named: "UvooHead")
+                    return }
+                let image = UIImage(data: imageData)
+                headUser.image = image
             }
         }
         
@@ -117,16 +136,16 @@ class UvooComTitleDetailVC: UvooTopVC {
         imageStack.axis = .horizontal
         imageStack.spacing = 5
         imgeScroll.addSubview(imageStack)
-        for index in 0..<title.imags.count {
+        for index in 0..<title.cover.count {
             let image = UIImageView()
             image.contentMode = .scaleAspectFill
             image.layer.cornerRadius = 5
             image.layer.masksToBounds = true
-            image.image = UIImage(named: title.imags[index])
+            image.image = UIImage(named: title.cover[index])
             imageStack.addArrangedSubview(image)
             image.snp.makeConstraints { make in
-                make.width.equalTo(103)
-                make.height.equalTo(138)
+                make.width.equalTo(UvooScreen.width * 0.75 * 0.26)
+                make.height.equalTo(UvooScreen.width * 0.75 * 0.26 * 1.3)
             }
             imageStack.snp.makeConstraints { make in
                 make.edges.equalTo(imgeScroll)
@@ -145,9 +164,10 @@ class UvooComTitleDetailVC: UvooTopVC {
             guard let text = textComment.text, !text.isEmpty else { textComment.becomeFirstResponder()
                 return }
             
+            let comModel = UvooCommentM(bId: UvooUserDefaultsUtils.UvooGetUserInfo()!.uId, reply: text)
             if let post = PostManager.shared.UvooGetPost(by: title.tId) {
                 var title = post
-                title.comment.append(text)
+                title.comment.append(comModel)
                 PostManager.shared.UvooUpdatePost(title)
                 textComment.text = nil
                 comment_tablview.reloadData()
@@ -190,16 +210,29 @@ class UvooComTitleDetailVC: UvooTopVC {
     @objc func reportOnTap() {
         guard let title = titleModel else { return }
         UIAlertController.report(Id: title.tId) { [self] in
-            previous()
+            if UvooLoginVM.shared.isLand {
+                UvooUserDefaultsUtils.UvooUpdateUserInfo { model in
+                    if model.like.contains(where: { $0.tId == title.tId }) {
+                        model.like.removeAll(where: { $0.tId == title.tId })
+                    }
+                }
+            }
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) { [self] in
+                previous()
+            }
         }
     }
     
     @objc func goDetails() {
         previous()
-        guard let title = titleModel else {
-            return }
+        guard let title = titleModel else { return }
+        if title.bId == UvooUserDefaultsUtils.UvooGetUserInfo()!.uId { return }
         let user = UvooLoginVM.shared.userOnline.filter { item in return item.uId == title.bId }
         UvooRouteUtils.UvooUserInfo(user: user.first!)
+    }
+    
+    @objc func goGiftShow() {
+        UvooRouteUtils.UvooStoreGiftPur()
     }
 }
 

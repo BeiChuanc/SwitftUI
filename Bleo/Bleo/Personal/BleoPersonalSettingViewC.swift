@@ -49,7 +49,7 @@ class BleoPersonalSettingViewC: BleoCommonViewC {
     }
     
     @objc func settingback() {
-        
+        BleoPageRoute.backToLevel()
     }
     
     @objc func settingshowTerms() {

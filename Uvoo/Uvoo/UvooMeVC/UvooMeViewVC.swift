@@ -29,19 +29,7 @@ class UvooMeViewVC: UvooHeadVC {
     
     var selectList: [UIButton] = []
     
-    var titleModel: [UvooPublishM] {
-        get {
-            let land = UvooLoginVM.shared.isLand
-            guard land, let meData = UvooUserDefaultsUtils.UvooGetUserInfo() else { return [] }
-            if selectButton == myPost {
-                return meData.title
-            } else if selectButton == myLike {
-                return meData.like
-            } else {
-                return []
-            }
-        }
-    }
+    var titleModel: [UvooPublishM] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,7 +39,7 @@ class UvooMeViewVC: UvooHeadVC {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         UvooLoadMeData()
-        meNoData.isHidden = titleModel.count > 0 ? true : false
+        UvooLoadCol()
     }
     
     override func UvooSetHead() {
@@ -65,26 +53,28 @@ class UvooMeViewVC: UvooHeadVC {
         
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
-        let width = (UvooScreen.width - 62) / 4
-        let height = width / 0.7
+        let width = UvooScreen.width - 32
+        let height = width * 0.75
         layout.itemSize = CGSize(width: width, height: height)
-        let coll = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        coll.clipsToBounds = true
-        coll.backgroundColor = .clear
-        coll.showsVerticalScrollIndicator = false
-        coll.register(UvooShowTitleCell.self, forCellWithReuseIdentifier: meCell)
-        coll.dataSource = self
-        coll.delegate = self
+        collectionMedia.collectionViewLayout = layout
+        collectionMedia.clipsToBounds = true
+        collectionMedia.backgroundColor = .clear
+        collectionMedia.showsVerticalScrollIndicator = false
+        collectionMedia.register(UvooShowTitleCell.self, forCellWithReuseIdentifier: meCell)
+        collectionMedia.dataSource = self
+        collectionMedia.delegate = self
         
         myPost.addTarget(self, action: #selector(selectOnTap), for: .touchUpInside)
         myLike.addTarget(self, action: #selector(selectOnTap), for: .touchUpInside)
         selectList.append(myPost)
         selectList.append(myLike)
-        selectList.first?.isSelected = true
-        selectButton = myPost
     }
     
     func UvooLoadMeData() {
+        selectButton = myPost
+        myPost.isSelected = true
+        myLike.isSelected = false
+        
         let land = UvooLoginVM.shared.isLand
         if land {
             let meData = UvooUserDefaultsUtils.UvooGetUserInfo()
@@ -105,6 +95,43 @@ class UvooMeViewVC: UvooHeadVC {
             bt.isSelected = (bt == sender)
         }
         selectButton = sender
+        UvooLoadCol()
+    }
+    
+    func UvooLoadCol() {
+        UvooLoginVM.shared.UvooLoadTitles()
+        
+        let land = UvooLoginVM.shared.isLand
+        if !land {
+            titleModel = []
+            meNoData.isHidden = titleModel.count > 0 ? true : false
+            collectionMedia.reloadData()
+            return
+        }
+        
+        guard let userInfo = UvooUserDefaultsUtils.UvooGetUserInfo() else { return }
+        
+        if selectButton == myLike {
+            titleModel.removeAll()
+            let like = userInfo.like
+            for title in UvooLoginVM.shared.titleList {
+                if like.contains(where: { $0.tId == title.tId }) {
+                    if !titleModel.contains(where: { $0.tId == title.tId }) {
+                        titleModel.append(title)
+                    }
+                }
+            }
+        } else if selectButton == myPost {
+            titleModel.removeAll()
+            for title in userInfo.title {
+                if !titleModel.contains(where: { $0.tId == title.tId }) {
+                    titleModel.append(title)
+                }
+            }
+        } else {
+            titleModel = []
+        }
+        meNoData.isHidden = titleModel.count > 0 ? true : false
         collectionMedia.reloadData()
     }
     
@@ -114,11 +141,7 @@ class UvooMeViewVC: UvooHeadVC {
             UvooRouteUtils.UvooSetView()
             break
         case 1:
-            if UvooLoginVM.shared.isLand {
-                UvooRouteUtils.UvooEditView()
-            } else {
-                UvooRouteUtils.UvooLogin()
-            }
+            UvooRouteUtils.UvooStoreVipSub()
             break
         case 2:
             previous()
@@ -136,12 +159,40 @@ extension UvooMeViewVC: UICollectionViewDataSource, UICollectionViewDelegate {
         return titleModel.count
     }
     
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let index = indexPath.row
+        let cell : UvooShowTitleCell = collectionView.dequeueReusableCell(withReuseIdentifier: meCell, for: indexPath) as! UvooShowTitleCell
+        if titleModel.count > index {
+            cell.titleModel = titleModel[index]
+            cell.delegate = self
+            if index % 2 == 0 {
+                cell.containerView.backgroundColor = UIColor(hex: "#3A00FF")
+                cell.usereName.textColor = .white
+                cell.titleLabel.textColor = .white
+            } else {
+                cell.containerView.backgroundColor = UIColor(hex: "#FED114")
+                cell.usereName.textColor = UIColor(hex: "#4D4D4D")
+                cell.titleLabel.textColor = UIColor(hex: "#4D4D4D")
+            }
+        }
+        return cell
+    }
+}
+
+extension UvooMeViewVC: titleAction {
+    
+    func reportTitle(title: UvooPublishM) {
+        UIAlertController.report(Id: title.tId) { [self] in
+            UvooLoadCol()
+        }
     }
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell : UvooDiyDisplayCell = collectionView.dequeueReusableCell(withReuseIdentifier: meCell, for: indexPath) as! UvooDiyDisplayCell
-        return cell
+    func delTitle(title: UvooPublishM) {
+        UIAlertController.deleteT { [self] in
+            UvooUserDefaultsUtils.UvooUpdateUserInfo { model in
+                model.title.removeAll(where: { $0.tId == title.tId })
+            }
+            UvooLoadCol()
+        }
     }
 }

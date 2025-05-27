@@ -43,7 +43,7 @@ class UvooUserInfoViewVC: UvooTopVC {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         UvooLoadUserData()
-        userNoData.isHidden = titleModel.count > 0 ? true : false
+        UvooLoadCol()
     }
     
     func UvooSetColView() {
@@ -55,19 +55,20 @@ class UvooUserInfoViewVC: UvooTopVC {
         
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
-        let width = (UvooScreen.width - 62) / 4
-        let height = width / 0.7
+        let width = UvooScreen.width - 32
+        let height = width * 0.75
         layout.itemSize = CGSize(width: width, height: height)
-        let coll = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        coll.clipsToBounds = true
-        coll.backgroundColor = .clear
-        coll.showsVerticalScrollIndicator = false
-        coll.register(UvooShowTitleCell.self, forCellWithReuseIdentifier: userCell)
-        coll.dataSource = self
-        coll.delegate = self
+        collectionMedia.collectionViewLayout = layout
+        collectionMedia.clipsToBounds = true
+        collectionMedia.backgroundColor = .clear
+        collectionMedia.showsVerticalScrollIndicator = false
+        collectionMedia.register(UvooShowTitleCell.self, forCellWithReuseIdentifier: userCell)
+        collectionMedia.dataSource = self
+        collectionMedia.delegate = self
         
         userPost.addTarget(self, action: #selector(selectOnTap), for: .touchUpInside)
         userLike.addTarget(self, action: #selector(selectOnTap), for: .touchUpInside)
+        follow_user.addTarget(self, action: #selector(followOnTap), for: .touchUpInside)
         selectList.append(userPost)
         selectList.append(userLike)
         selectList.first?.isSelected = true
@@ -92,12 +93,41 @@ class UvooUserInfoViewVC: UvooTopVC {
         }
     }
     
+    func UvooLoadCol() {
+        UvooLoginVM.shared.UvooLoadTitles()
+        guard let userInfo = userInfo else { return }
+        if selectButton == userLike {
+            titleModel.removeAll()
+            let like = userInfo.like
+            for title in UvooLoginVM.shared.titleList {
+                if like.contains(title.tId) {
+                    if !titleModel.contains(where: { $0.tId == title.tId }) {
+                        titleModel.append(title)
+                    }
+                }
+            }
+        } else if selectButton == userPost {
+            titleModel.removeAll()
+            for title in UvooLoginVM.shared.titleList {
+                if title.bId == userInfo.uId {
+                    if !titleModel.contains(where: { $0.tId == title.tId }) {
+                        titleModel.append(title)
+                    }
+                }
+            }
+        } else {
+            titleModel = []
+        }
+        userNoData.isHidden = titleModel.count > 0 ? true : false
+        collectionMedia.reloadData()
+    }
+    
     @objc func selectOnTap(_ sender: UIButton) {
         for bt in selectList {
             bt.isSelected = (bt == sender)
         }
         selectButton = sender
-        collectionMedia.reloadData()
+        UvooLoadCol()
     }
     
     @objc func followOnTap() {
@@ -125,7 +155,17 @@ class UvooUserInfoViewVC: UvooTopVC {
             break
         case 1:
             UIAlertController.report(Id: userInfo.uId) { [self] in
-                previous()
+                let land = UvooLoginVM.shared.isLand
+                if land {
+                    UvooUserDefaultsUtils.UvooUpdateUserInfo { model in
+                        if model.follow.contains(where: { $0.uId == userInfo.uId }) {
+                            model.follow.removeAll(where: { $0.uId == userInfo.uId })
+                        }
+                    }
+                }
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) { [self] in
+                    previous()
+                }
             }
             break
         default:
@@ -146,6 +186,7 @@ extension UvooUserInfoViewVC: UICollectionViewDataSource, UICollectionViewDelega
         let cell : UvooShowTitleCell = collectionView.dequeueReusableCell(withReuseIdentifier: userCell, for: indexPath) as! UvooShowTitleCell
         if titleModel.count > index {
             cell.titleModel = titleModel[index]
+            cell.delegate = self
             if index % 2 == 0 {
                 cell.containerView.backgroundColor = UIColor(hex: "#3A00FF")
                 cell.usereName.textColor = .white
@@ -158,4 +199,15 @@ extension UvooUserInfoViewVC: UICollectionViewDataSource, UICollectionViewDelega
         }
         return cell
     }
+}
+
+extension UvooUserInfoViewVC: titleAction {
+    
+    func reportTitle(title: UvooPublishM) {
+        UIAlertController.report(Id: title.tId) { [self] in
+            UvooLoadCol()
+        }
+    }
+    
+    func delTitle(title: UvooPublishM) {}
 }

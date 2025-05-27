@@ -53,7 +53,9 @@ class UvooMePlayVideoVC: UvooTopVC {
     
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
-        playerLayer!.frame = player_container.bounds
+        if playerLayer != nil {
+            playerLayer!.frame = player_container.bounds
+        }
     }
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
@@ -87,6 +89,10 @@ class UvooMePlayVideoVC: UvooTopVC {
         comText.text = "\(PostManager.shared.UvooGetPost(by: titleModel.tId)!.comment.count)"
         titleTetx.text = titleModel.title
         contentText.text = titleModel.content
+        
+        playVideo(with: URL(string: titleModel.imags[0])!)
+        playerreport.isHidden = titleModel.bId == 1006 || isMe
+        
         if titleModel.bId == 1006 {
             headUser.image = UIImage(named: "officeHead")
         } else {
@@ -97,6 +103,7 @@ class UvooMePlayVideoVC: UvooTopVC {
                     return }
                 let image = UIImage(data: imageData)
                 headUser.image = image
+                playerreport.isHidden = true
             } else {
                 headUser.image = UIImage(named: titleModel.head)
             }
@@ -114,15 +121,19 @@ class UvooMePlayVideoVC: UvooTopVC {
         } else {
             liketText.text = "\(titleModel.likes)"
         }
-        
-        playVideo(with: URL(string: titleModel.imags[0])!)
-        playerreport.isHidden = titleModel.bId == 1006 || isMe
     }
     
     func playVideo(with url: URL) {
+        guard let titleModel = self.titleModel else { return }
         loadActivity.startAnimating()
+        var playerItem = AVPlayerItem(url: url)
+        if isMe {
+            let meData = UvooUserDefaultsUtils.UvooGetUserInfo()
+            let documentsURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+            let mediaURL = documentsURL.appendingPathComponent("Uvoo\(meData!.uId)/\(titleModel.imags[0].components(separatedBy: "/").last!)")
+            playerItem = AVPlayerItem(url: mediaURL)
+        }
         
-        let playerItem = AVPlayerItem(url: url)
         player = AVPlayer(playerItem: playerItem)
     
         playerItemObserver = playerItem.observe(\.status, options: [.new]) { [weak self] (item, _) in

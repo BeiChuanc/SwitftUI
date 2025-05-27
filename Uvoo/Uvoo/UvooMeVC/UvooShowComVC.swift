@@ -60,9 +60,10 @@ class UvooShowComVC: UvooHeadVC {
             guard let tex = com_input.text, !tex.isEmpty else { com_input.becomeFirstResponder()
                 return }
             
+            let comModel = UvooCommentM(bId: UvooUserDefaultsUtils.UvooGetUserInfo()!.uId, reply: tex)
             if let post = PostManager.shared.UvooGetPost(by: comData.tId) {
                 var title = post
-                title.comment.append(tex)
+                title.comment.append(comModel)
                 PostManager.shared.UvooUpdatePost(title)
                 com_input.text = nil
                 com_table.reloadData()

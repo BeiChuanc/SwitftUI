@@ -43,29 +43,29 @@ class UvooDiyGenDesignVC: UvooTopVC {
         case 0:
             showGenStick.snp.makeConstraints { make in
                 make.centerY.equalTo(genShow)
-                make.leading.equalTo(genShow.snp.leading).offset(85)
-                make.width.height.equalTo(45)
+                make.leading.equalTo(genShow.snp.leading).offset(75)
+                make.width.height.equalTo(UvooScreen.width * 0.11)
             }
             break
         case 1:
             showGenStick.snp.makeConstraints { make in
                 make.centerX.equalTo(genShow)
                 make.centerY.equalTo(genShow).offset(-30)
-                make.width.height.equalTo(102)
+                make.width.height.equalTo(UvooScreen.width * 0.24)
             }
             break
         case 2:
             showGenStick.snp.makeConstraints { make in
-                make.centerY.equalTo(genShow).offset(-30)
-                make.leading.equalTo(genShow.snp.leading).offset(85)
-                make.width.height.equalTo(45)
+                make.centerY.equalTo(genShow).offset(-20)
+                make.leading.equalTo(genShow.snp.leading).offset(75)
+                make.width.height.equalTo(UvooScreen.width * 0.11)
             }
             break
         case 3:
             showGenStick.snp.makeConstraints { make in
-                make.centerY.equalTo(genShow).offset(-45)
-                make.leading.equalTo(genShow.snp.leading).offset(90)
-                make.width.height.equalTo(45)
+                make.centerY.equalTo(genShow).offset(-35)
+                make.leading.equalTo(genShow.snp.leading).offset(80)
+                make.width.height.equalTo(UvooScreen.width * 0.11)
             }
             break
         default:
@@ -79,6 +79,11 @@ class UvooDiyGenDesignVC: UvooTopVC {
             guard let genModel = self.genModel else { return }
             if let image = genModel.image {
                 let count = UvooUserDefaultsUtils.UvooGetUserInfo()!.diy.count + 1
+                let isVip = UvooUserDefaultsUtils.UvooGetVIP()
+                if !isVip, count > 2 {
+                    UvooLoadVM.UvooShow(type: .failed, text: "Open VIP to unlock more DIY.")
+                    return
+                }
                 let genMod = UvooLibM(Id: count, designId: genModel.designId, genId: genModel.genId, imageData: image.jpegData(compressionQuality: 0.8))
                 UvooUserDefaultsUtils.UvooUpdateUserInfo { model in
                     model.diy.append(genMod)

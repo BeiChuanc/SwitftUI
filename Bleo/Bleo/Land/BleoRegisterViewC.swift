@@ -1,4 +1,5 @@
 import UIKit
+import SnapKit
 
 class BleoRegisterViewC: BleoLandBaseViewC {
 
@@ -12,12 +13,20 @@ class BleoRegisterViewC: BleoLandBaseViewC {
     
     @IBOutlet weak var registerInBt: UIButton!
     
+    let hiddenView: UIView = UIView()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         BleoSetRegisterView()
     }
     
     func BleoSetRegisterView() {
+        
+        view.addSubview(hiddenView)
+        hiddenView.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
+        hiddenView.isHidden = true
         
         emailInput.layer.cornerRadius = 16
         emailInput.layer.masksToBounds = true
@@ -61,6 +70,16 @@ class BleoRegisterViewC: BleoLandBaseViewC {
         registerBack.addTarget(self, action: #selector(registerback), for: .touchUpInside)
     }
     
+    func BleoRegisterIn(_ log: BleoLogM, completion: @escaping () -> Void) {
+        BleoPrefence.BleoSaveUser(log)
+        BleoPrefence.BleoSaveCurrentUser(log.user)
+        BleoTransData.shared.isLoginIn = true
+        let logUser = BleoMyDetailM(uId: Int.random(in: 2000...3000), name: "Bleoer")
+        let userData = BleoTransData.shared.encode(object: logUser)
+        BleoPrefence.BleoSaveUserData(log, userData: userData!)
+        completion()
+    }
+    
     @objc func registerback() {
         BleoPageRoute.backToLevel()
     }
@@ -78,5 +97,16 @@ class BleoRegisterViewC: BleoLandBaseViewC {
             return
         }
         
+        let regModel = BleoLogM(user: email, password: pwd)
+        hiddenView.isHidden = false
+        BleoToast.Bleoload()
+        DispatchQueue.main.asyncAfter(deadline: .now() + Double.random(in: 0...3)) { [self] in
+            BleoToast.Bleodismiss()
+            hiddenView.isHidden = true
+            BleoRegisterIn(regModel) {
+                NotificationCenter.default.post(name: Notification.Name("updateUser"), object: nil)
+                BleoPageRoute.BleoRootVC(In: self.view.window!)
+            }
+        }
     }
 }

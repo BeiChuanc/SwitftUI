@@ -14,6 +14,7 @@ class UvooCommuntyViewVC: UvooHeadVC {
         let width = UvooScreen.width - 32
         let height = width * 0.75
         layout.itemSize = CGSize(width: width, height: height)
+        layout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 40, right: 0)
         let coll = UICollectionView(frame: .zero, collectionViewLayout: layout)
         coll.clipsToBounds = true
         coll.backgroundColor = .clear
@@ -57,7 +58,7 @@ class UvooCommuntyViewVC: UvooHeadVC {
             make.leading.equalToSuperview().offset(16)
             make.trailing.equalToSuperview().offset(-16)
             make.top.equalTo(comTopTitle.snp.bottom).offset(20)
-            make.bottom.equalToSuperview()
+            make.bottom.equalTo(view.safeAreaLayoutGuide)
         }
     }
     
@@ -94,6 +95,7 @@ extension UvooCommuntyViewVC: UICollectionViewDelegate, UICollectionViewDataSour
         let data = UvooLoginVM.shared.titleList.filter { item in return item.bId != 1006 }
         if data.count > index {
             cell.titleModel = data[index]
+            cell.delegate = self
             if index % 2 == 0 {
                 cell.containerView.backgroundColor = UIColor(hex: "#3A00FF")
                 cell.usereName.textColor = .white
@@ -107,4 +109,22 @@ extension UvooCommuntyViewVC: UICollectionViewDelegate, UICollectionViewDataSour
         return cell
     }
     
+}
+
+extension UvooCommuntyViewVC: titleAction {
+    
+    func reportTitle(title: UvooPublishM) {
+        UIAlertController.report(Id: title.tId) { [self] in
+            reloadTitle()
+        }
+    }
+    
+    func delTitle(title: UvooPublishM) {
+        UIAlertController.deleteT { [self] in
+            UvooUserDefaultsUtils.UvooUpdateUserInfo { model in
+                model.title.removeAll(where: { $0.tId == title.tId })
+            }
+            reloadTitle()
+        }
+    }
 }
