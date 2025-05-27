@@ -34,9 +34,9 @@ class BleoPrefence {
         return UserDefaults.standard.dictionary(forKey: BLEOPREFENCEKEY.USER) as? [String: Data] ?? [:]
     }
     
-    static func BleoSaveUserData(_ log: BleoLogM, userData: Data) {
+    static func BleoSaveUserData(_ user: String, userData: Data) {
         var data = BleoGetAllUser()
-        data[log.user] = userData
+        data[user] = userData
         UserDefaults.standard.set(data, forKey: BLEOPREFENCEKEY.USER)
     }
     
@@ -47,19 +47,19 @@ class BleoPrefence {
             do {
                 let deData = try JSONDecoder().decode(BleoMyDetailM.self, from: json)
                 return deData
-            } catch {}
+            } catch { print("拿取数据失败") }
         }
         return BleoMyDetailM()
     }
     
-    static func BleoUpdateUser(user: (inout BleoMyDetailM) -> Void, _ log: BleoLogM) {
+    static func BleoUpdateUser(user: (inout BleoMyDetailM) -> Void) {
         var data = BleoGetCurUserData()
         let cur = BleoGetCurrentUser()
         user(&data)
         do {
             let enData = try JSONEncoder().encode(data)
-            BleoSaveUserData(log, userData: enData)
-        } catch {}
+            BleoSaveUserData(cur, userData: enData)
+        } catch { print("数据保存失败") }
     }
     
     static func BleoDelUser() {

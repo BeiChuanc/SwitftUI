@@ -5,9 +5,17 @@ import UIKit
 
 class BleoCommonViewC: UIViewController {
     
-    var isLogin: Bool = BleoTransData.shared.isLoginIn
+    var isLogin: Bool {
+        get {
+            return BleoTransData.shared.isLoginIn
+        }
+    }
     
-    var userMy: BleoMyDetailM = BleoMyDetailM()
+    var userMy: BleoMyDetailM {
+        get {
+            return BleoTransData.shared.userMy
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,7 +36,7 @@ class BleoCommonViewC: UIViewController {
     }
     
     @objc func BleoLoadMyInfo() {
-        userMy = BleoPrefence.BleoGetCurUserData()
+        BleoTransData.shared.userMy = BleoPrefence.BleoGetCurUserData()
     }
     
     func BleoSetViewBorder(In view: UIView, width: CGFloat, colors: [UIColor], cornerRadius: CGFloat = 0) {
@@ -62,13 +70,13 @@ class BleoCommonViewC: UIViewController {
         gradientLayer.colors = colors.map { $0.cgColor }
         gradientLayer.startPoint = CGPoint(x: 0, y: 0.5)
         gradientLayer.endPoint = CGPoint(x: 1, y: 0.5)
-        gradientLayer.frame = CGRect(x: 0, y: 0, width: ScreenSize.W - 100, height: bt.frame.height)
+        gradientLayer.frame = CGRect(x: 0, y: 0, width: ScreenSize.W, height: bt.frame.height)
         bt.layer.insertSublayer(gradientLayer, at: 0)
     }
     
     func BleoGetTimeNow() -> String {
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "dd/MM"
+        dateFormatter.dateFormat = "MM/dd"
         let currentDate = Date()
         return dateFormatter.string(from: currentDate)
     }

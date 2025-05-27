@@ -36,10 +36,10 @@
                     <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                 </imageView>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lbK-WV-kSG">
-                    <rect key="frame" x="0.0" y="109" width="393" height="643"/>
+                    <rect key="frame" x="0.0" y="94" width="393" height="673"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="M7m-zr-ugG">
-                            <rect key="frame" x="0.0" y="0.0" width="393" height="643"/>
+                            <rect key="frame" x="0.0" y="0.0" width="393" height="673"/>
                             <subviews>
                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="rJ2-Z8-SED">
                                     <rect key="frame" x="18" y="0.0" width="357" height="289.66666666666669"/>
@@ -109,7 +109,7 @@
                                     </constraints>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hzg-O5-EXJ" userLabel="tab">
-                                    <rect key="frame" x="18" y="429.66666666666657" width="357" height="213.33333333333331"/>
+                                    <rect key="frame" x="18" y="429.66666666666657" width="357" height="243.33333333333331"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Comment" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bph-3c-rB7">
                                             <rect key="frame" x="0.0" y="0.0" width="74" height="19.666666666666668"/>
@@ -117,8 +117,8 @@
                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="M94-bw-giI">
-                                            <rect key="frame" x="0.0" y="39.666666666666742" width="357" height="173.66666666666666"/>
+                                        <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="M94-bw-giI">
+                                            <rect key="frame" x="0.0" y="39.666666666666728" width="357" height="203.66666666666663"/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </tableView>
                                     </subviews>
@@ -215,14 +215,14 @@
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="lbK-WV-kSG" secondAttribute="trailing" id="8j9-vl-1jH"/>
-                <constraint firstItem="6b8-dK-eMX" firstAttribute="top" secondItem="lbK-WV-kSG" secondAttribute="bottom" constant="20" id="EBj-bm-L5S"/>
+                <constraint firstItem="6b8-dK-eMX" firstAttribute="top" secondItem="lbK-WV-kSG" secondAttribute="bottom" constant="5" id="EBj-bm-L5S"/>
                 <constraint firstItem="lbK-WV-kSG" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="MfE-Vg-tqP"/>
                 <constraint firstItem="sTi-nk-9mT" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="Ow0-HS-zC2"/>
                 <constraint firstItem="sTi-nk-9mT" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="U6i-xd-QSy"/>
                 <constraint firstItem="rJ2-Z8-SED" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" multiplier="0.34" id="UqD-VN-j83"/>
                 <constraint firstItem="6b8-dK-eMX" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="W37-Su-LWD"/>
                 <constraint firstItem="6b8-dK-eMX" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Yie-c1-r86"/>
-                <constraint firstItem="lbK-WV-kSG" firstAttribute="top" secondItem="CqO-gI-kbM" secondAttribute="bottom" constant="20" id="aCZ-0B-XcJ"/>
+                <constraint firstItem="lbK-WV-kSG" firstAttribute="top" secondItem="CqO-gI-kbM" secondAttribute="bottom" constant="5" id="aCZ-0B-XcJ"/>
                 <constraint firstItem="sTi-nk-9mT" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="bGB-tB-65W"/>
                 <constraint firstItem="CqO-gI-kbM" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="brX-Oc-uRm"/>
                 <constraint firstItem="sTi-nk-9mT" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="bul-8e-gaN"/>

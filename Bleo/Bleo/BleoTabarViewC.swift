@@ -28,6 +28,10 @@ class BleoTabarViewC: UITabBarController {
         viewControllers = [BleoModifyViewC(), BleoCommunityViewC(), BleoPublishViewC(), BleoMessageListViewC(), BleoPersonalInfoViewC()]
         selectedIndex = 0
         tabBarBt[0].isSelected = true
+        var usersData = BleoPrefence.BleoGetAllUser()
+        var users = BleoPrefence.BleoGetUsers()
+        print("用户数据:\(usersData)")
+        print("用户数据:\(users)")
     }
     
     override func viewWillAppear(_ animated: Bool) {

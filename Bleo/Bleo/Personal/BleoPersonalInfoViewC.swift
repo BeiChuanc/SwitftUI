@@ -49,6 +49,11 @@ class BleoPersonalInfoViewC: BleoCommonViewC {
         BleoLoadUserInfo()
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        BleoSaveKickAbout()
+    }
+    
     func BeloSetMeUserInfo() {
         meContain.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
         meContain.layer.cornerRadius = 30
@@ -63,6 +68,8 @@ class BleoPersonalInfoViewC: BleoCommonViewC {
         aboutView.layer.borderWidth = 1
         aboutView.layer.borderColor = UIColor(hex: "#000000", alpha: 0.07).cgColor
         
+        meSetBt.addTarget(self, action: #selector(goSettingView), for: .touchUpInside)
+        meSetBt.addTarget(self, action: #selector(goSettingView), for: .touchUpInside)
         meSetBt.addTarget(self, action: #selector(goSettingView), for: .touchUpInside)
         
         userSelectMedia = [postSelect, likeSelect]
@@ -97,16 +104,34 @@ class BleoPersonalInfoViewC: BleoCommonViewC {
             let cover = UIImage(data: coverData)
             me_cover.image = cover
             
-            guard let headData = userMy.cover else {
+            guard let headData = userMy.head else {
                 blerUsereHead.image = UIImage(named: "bleoUser")
                 return }
             let head = UIImage(data: headData)
             blerUsereHead.image = head
             userMediaArr = userMy.post
+            editNameInput.text = userMy.name
+            editAboutText.text = userMy.details
         } else {
             me_cover.image = UIImage(named: "me_bg")
             blerUsereHead.image = UIImage(named: "bleoUser")
             userMediaArr.removeAll()
+            editNameInput.text = nil
+            editAboutText.text = nil
+        }
+    }
+    
+    func BleoSaveKickAbout() {
+        if isLogin {
+            if let name = editNameInput.text,
+               let about = editAboutText.text {
+                userMy.name = name
+                userMy.details = about
+                BleoPrefence.BleoUpdateUser { user in
+                    user.name = name
+                    user.details = about
+                }
+            }
         }
     }
     
@@ -142,14 +167,29 @@ class BleoPersonalInfoViewC: BleoCommonViewC {
     }
     
     @objc func uploadCover() {
+        guard isLogin else {
+            BleoPageRoute.BleoLoginIn()
+            return }
         BleoUploadImage { [self] image in
             me_cover.image = image
             userMy.cover = image.jpegData(compressionQuality: 0.8)
+            BleoPrefence.BleoUpdateUser { user in
+                user.cover = userMy.cover
+            }
         }
     }
     
     @objc func uploadHead() {
-        
+        guard isLogin else {
+            BleoPageRoute.BleoLoginIn()
+            return }
+        BleoUploadImage { [self] image in
+            blerUsereHead.image = image
+            userMy.head = image.jpegData(compressionQuality: 0.8)
+            BleoPrefence.BleoUpdateUser { user in
+                user.head = userMy.head
+            }
+        }
     }
 }
 

@@ -6,6 +6,8 @@ class BleoTransData {
     
     static let shared = BleoTransData()
     
+    var userMy: BleoMyDetailM = BleoMyDetailM()
+    
     let titlePath: String = "BleoTitles.plist"
     
     var titleDirPath: URL {
@@ -24,6 +26,14 @@ class BleoTransData {
     var titleArr: [BleoTitleM] = []
     
     var userArr: [BleoUserM] = []
+    
+    func BleoCleanData() {
+        isLoginIn = false
+        reportTitleList.removeAll()
+        blockUserList.removeAll()
+        BleoInitTitleUser()
+        userMy = BleoMyDetailM()
+    }
     
     func BleoInitTitleUser() {
         let posts = BleoInitTitle()

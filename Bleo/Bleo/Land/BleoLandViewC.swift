@@ -84,9 +84,9 @@ class BleoLandViewC: BleoLandBaseViewC {
                 BleoPrefence.BleoSaveUser(log)
                 BleoPrefence.BleoSaveCurrentUser(log.user)
                 BleoTransData.shared.isLoginIn = true
-                let logUser = BleoMyDetailM(uId: Int.random(in: 2000...3000), name: "Bleoer")
+                let logUser = BleoMyDetailM(uId: Int.random(in: 2000...3000), head: nil, cover: nil, name: "Bleoer", details: "", follow: [], likePost: [], mes: [:], post: [])
                 let userData = BleoTransData.shared.encode(object: logUser)
-                BleoPrefence.BleoSaveUserData(log, userData: userData!)
+                BleoPrefence.BleoSaveUserData(log.user, userData: userData!)
                 completion()
             } else {
                 BleoToast.BleoShow(type: .failed, text: "User password error.")

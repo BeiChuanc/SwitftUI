@@ -45,7 +45,13 @@ class BleoPersonalSettingViewC: BleoCommonViewC {
     }
     
     func BleoLoadUserData() {
-        
+        if isLogin {
+            guard let headData = userMy.head else {
+                setUserHead.image = UIImage(named: "bleoUser")
+                return }
+            let head = UIImage(data: headData)
+            setUserHead.image = head
+        } else { setUserHead.image = UIImage(named: "bleoUser") }
     }
     
     @objc func settingback() {
@@ -61,10 +67,29 @@ class BleoPersonalSettingViewC: BleoCommonViewC {
     }
     
     @objc func settingLog() {
-        
+        if isLogin {
+            UIAlertController.logout {
+                BleoTransData.shared.isLoginIn = false
+                BleoPrefence.BleoSaveCurrentUser("")
+                BleoTransData.shared.userMy = BleoMyDetailM()
+                BleoPageRoute.backToLevel()
+                NotificationCenter.default.post(name: Notification.Name("updateUser"), object: nil)
+            }
+        } else {
+            BleoPageRoute.BleoLoginIn()
+        }
     }
     
     @objc func settingDel() {
-        
+        if isLogin {
+            UIAlertController.delete {
+                BleoPrefence.BleoDelUser()
+                BleoTransData.shared.BleoCleanData()
+                BleoPageRoute.backToLevel()
+                NotificationCenter.default.post(name: Notification.Name("updateUser"), object: nil)
+            }
+        } else {
+            BleoPageRoute.BleoLoginIn()
+        }
     }
 }
